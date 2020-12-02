@@ -9,6 +9,8 @@ sys.path.append(o_path)  # 添加自己指定的搜索路径
   
 import sqlite3
 import time
+import platform 
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -29,7 +31,9 @@ from Common.WebDriver.WebDriverCmd import CmdInfo
 
 # pip3 install pyjwt
 # pip3 install cryptography
-import jwt
+if 'Darwin' not in platform.system():
+    # mac arm openssl 不兼容
+    import jwt
 
 import datetime 
 import time

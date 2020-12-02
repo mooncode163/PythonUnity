@@ -27,7 +27,7 @@ def download():
 
     # 直接采取暴力的方法，直接拉取并覆盖本地的所有代码 
     os.system("git fetch --all") 
-    os.system("git reset --hard origin/main") 
+    os.system("git reset --hard origin/master") 
     os.system("git pull") 
     
 

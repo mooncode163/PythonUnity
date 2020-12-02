@@ -5,7 +5,7 @@ import os
 import json
 o_path = os.getcwd()  # 返回当前工作目录
 sys.path.append(o_path)  # 添加自己指定的搜索路径
- 
+import platform 
 import time
 import pyperclip
 from selenium.webdriver.common.by import By
@@ -14,7 +14,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver 
 from selenium.webdriver import ActionChains 
 
-import keyboard #Using module keyboard
+# mac mini m1 arm cpu keyboard python crash bug
+if 'Darwin' not in platform.system():
+    import keyboard #Using module keyboard
 
 class CmdType(object): 
     CLICK = "click"

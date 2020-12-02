@@ -10,8 +10,10 @@ import json
 import os
 import sys
 from urllib.parse import urlparse
+import platform 
 
-import jwt
+if 'Darwin' not in platform.system():
+    import jwt
 
 ########
 # KEY CONFIGURATION - Put your API Key info here.

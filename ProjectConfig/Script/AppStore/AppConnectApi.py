@@ -8,7 +8,9 @@ from Common.File.FileUtil import FileUtil
 
 import gzip
 import requests
-import jwt
+import platform 
+if 'Darwin' not in platform.system():
+    import jwt
 from Project.Resource import mainResource 
 import time
 import sqlite3 
