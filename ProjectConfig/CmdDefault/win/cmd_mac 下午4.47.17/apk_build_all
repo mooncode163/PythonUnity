@@ -1,0 +1,35 @@
+
+#! /bin/sh
+
+filepath=$(cd "$(dirname "$0")"; pwd)
+
+# VMware 虚拟机共享目录里路径带空格 需要转换处理
+str1=$filepath
+str2="VMware" 
+if [[ $str1 =~ $str2 ]]
+then
+    echo "包含"
+    #去除带空格的路径
+    #filepath=${filepath// /\\ } 
+    filepath=${filepath#/Volumes/VMware Shared Folders/}
+    cd /Volumes/VMware\ Shared\ Folders
+else
+    echo "不包含"
+fi
+
+
+echo $filepath
+cd $filepath
+cd ../../../../../Common/PythonUnity/ProjectConfig/Script
+
+python copy_config.py $filepath icon 
+python clean_screenshot.py $filepath 
+python apk_build_clean.py 
+python apk_build_all.py $filepath
+
+
+python copy_config.py $filepath iconhd
+python clean_screenshot.py $filepath 
+python apk_build_clean.py 
+python apk_build_all.py $filepath
+

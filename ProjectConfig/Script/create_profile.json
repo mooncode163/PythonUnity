@@ -1,0 +1,15 @@
+{
+    "data": {
+        "errors": [
+            {
+                "code": "ENTITY_ERROR",
+                "detail": "Multiple profiles found with the name 'adhoc1'.  Please remove the duplicate profiles and try again.",
+                "id": "4a22a54b-0360-425d-918a-beb9f9af6691",
+                "status": "409",
+                "title": "There is a problem with the request entity"
+            }
+        ]
+    },
+    "msg": "",
+    "status": 409
+}

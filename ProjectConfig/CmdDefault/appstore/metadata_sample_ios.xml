@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.9">
+    <provider>YuanFang Chen</provider>
+    <team_id>Y9ZUK2WTEE</team_id>
+    <software>
+        <vendor_id>sku_paintanimal</vendor_id>
+        <software_metadata>
+            <versions>
+                <version string="1.0.0">
+                    <locales>
+                        <locale name="en-US">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword>
+                               <keyword>multi-player</keyword>
+                               <keyword>jet fighters</keyword>
+                            </keywords>
+                            <version_whats_new>Fixed a bug.</version_whats_new>
+                            <software_url>http://www.CITouchfighter.com/</software_url>
+                            <privacy_url>http://www.CITouchfighter.com/privacy/</privacy_url>
+                            <support_url>http://www.CITouchfighter.com/support/</support_url>
+                            <app_previews>
+                               <app_preview display_target="iOS-5.5-in" position="1">
+                                  <preview_image_time format="24/999 1000/nonDrop">00:00:17:01</preview_image_time>
+                                  <data_file role="source">
+                                    <file_name>app_preview.mp4</file_name>
+                                    <size>33558000</size>
+                                    <checksum type="md5">cd12fca6b5858985fdbe10a422ade6c3</checksum>
+                                  </data_file>
+                               </app_preview>
+                            </app_previews>
+                            <software_screenshots>
+                               <software_screenshot display_target="iOS-iPad" position="1">
+                                  <file_name>screen-en-US-ipad-1.png</file_name>
+                                  <size>286243</size>
+                                  <checksum type="md5">3cefb7c5c37f6c868c0f4c46dc16c415</checksum>
+                               </software_screenshot>
+                               <software_screenshot display_target="iOS-iPad" position="2">
+                                  <file_name>screen-en-US-ipad-2.png</file_name>
+                                  <size>283624</size>
+                                  <checksum type="md5">c37f6c8683cefb7c5c46dc16c4150f4c</checksum>
+                               </software_screenshot>
+                            </software_screenshots>
+                        </locale>
+                        <locale name="fr-FR">
+                            <title>Touch Fighter</title>
+                            <subtitle>Rempli d'action jeu de combat</subtitle>
+                            <description>Jeu de combat complexe et rempli d'action.</description>
+                            <promotional_text>En vente pour un temps limité.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword>
+                               <keyword>multi-joueur</keyword>
+                               <keyword>chasseur à réaction</keyword>
+                            </keywords>
+                            <version_whats_new>Bug corrigé.</version_whats_new>
+                            <software_url>http://www.CITouchfighter.com/fr/</software_url>
+                            <privacy_url>http://www.CITouchfighter.com/fr/privacy/</privacy_url>
+                            <support_url>www.CITouchfighter.com/fr/support/</support_url>
+                            <app_previews>
+                               <app_preview display_target="iOS-5.5-in" position="1">
+                                  <data_file role="source">
+                                    <file_name>app_preview_fr_FR.mp4</file_name>
+                                    <size>33558000</size>
+                                    <checksum type="md5">5e10a428a6bb2ade6c358985fdcd12fc</checksum>
+                                  </data_file>
+                               </app_preview>
+                            </app_previews>
+                            <software_screenshots>
+                               <software_screenshot display_target="iOS-iPad" position="1">
+                                  <file_name>screen-fr-FR-ipad-1.png</file_name>
+                                  <size>286243</size>
+                                  <checksum type="md5">3cefb7c5c37f6c868c0f4c46dc16c415</checksum>
+                               </software_screenshot>
+                               <software_screenshot display_target="iOS-iPad" position="2">
+                                  <file_name>screen-fr-FR-ipad-2.png</file_name>
+                                  <size>283624</size>
+                                  <checksum type="md5">c37f6c8683cefb7c5c46dc16c4150f4c</checksum>
+                               </software_screenshot>
+                            </software_screenshots>
+                        </locale>
+                        <locale name="ru-RU" remove="true"/>
+                    </locales>
+                </version>
+            </versions>
+            <products>
+                <product>
+                    <territory>WW</territory>
+                    <sales_start_date>2010-05-25</sales_start_date>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <wholesale_price_tier>9</wholesale_price_tier>
+                    <allow_volume_discount>false</allow_volume_discount>
+                </product>
+                <product>
+                    <territory>RU</territory>
+                    <cleared_for_sale>false</cleared_for_sale>
+                </product>
+            </products>
+            <in_app_purchases>
+                <in_app_purchase>
+                    <product_id>com.cyberinteractive.touchfighter.missiles.10</product_id>
+                    <reference_name>10 missiles</reference_name>
+                    <type>consumable</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>3</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="en-US">
+                            <title>10 Missiles</title>
+                            <description>This product provides an additional 10 missiles to take you on your way.</description>
+                        </locale>
+                    </locales>
+                    <review_screenshot>
+                        <file_name>screenshot-01.png</file_name>
+                        <size>286243</size>
+                        <checksum type="md5">c0f4c46dc16c4153cef37f6c868b7c5c</checksum>
+                    </review_screenshot>
+                    <review_notes>Some notes for the reviewer.</review_notes>
+                </in_app_purchase>
+                <in_app_purchase remove="true">
+                    <product_id>obsolete_com.cyberinteractive.tf.missiles.15</product_id>
+                </in_app_purchase>
+            </in_app_purchases>
+            <game_center>
+                <achievements>
+                    <achievement position="1">
+                        <achievement_id>29.2.achievement.1</achievement_id>
+                        <reference_name>Achievement One</reference_name>
+                        <points>10</points>
+                        <hidden>true</hidden>
+                        <reusable>true</reusable>
+                        <locales>
+                            <locale name="en-US">
+                                <title>Achievement One</title>
+                                <before_earned_description>Find 10 gold coins</before_earned_description>
+                                <after_earned_description>Awesome! You found 10 gold coins</after_earned_description>
+                                <achievement_after_earned_image>
+                                    <file_name>after_achievement_image.png</file_name>
+                                    <size>286243</size>
+                                    <checksum type="md5">c0f4c46dc16c4153cef37f6c868b7c5c</checksum>
+                                </achievement_after_earned_image>
+                            </locale>
+                            <locale name="ru-RU" remove="true"/>
+                        </locales>
+                    </achievement>
+                    <achievement remove="true">
+                        <achievement_id>29.1.achievement.1</achievement_id>
+                    </achievement>
+                </achievements>
+                <leaderboards>
+                    <leaderboard default="true" position="1">
+                        <leaderboard_id>29.easy</leaderboard_id>
+                        <reference_name>Leaderboard One</reference_name>
+                        <aggregate_parent_leaderboard>other_leaderboard_id</aggregate_parent_leaderboard>
+                        <sort_ascending>true</sort_ascending>
+                        <score_range_min>0</score_range_min>
+                        <score_range_max>1000</score_range_max>
+                        <locales>
+                            <locale name="en-US">
+                                <score_range_max>1000</score_range_max>
+                                <formatter_suffix>Points</formatter_suffix>
+                                <formatter_suffix_singular>Point</formatter_suffix_singular>
+                                <formatter_type>INTEGER_DECIMAL_SEPARATOR</formatter_type>
+                                <leaderboard_image>
+                                    <file_name>leaderboard1_image.png</file_name>
+                                    <size>286243</size>
+                                    <checksum type="md5">c0f4c46dc16c4153cef37f6c868b7c5c</checksum>
+                                </leaderboard_image>
+                            </locale>
+                            <locale name="fr-FR" remove="true"/>
+                        </locales>
+                    </leaderboard>
+                    <leaderboard remove="true">
+                        <leaderboard_id>29.hard</leaderboard_id>
+                    </leaderboard>
+                </leaderboards>
+            </game_center>
+        </software_metadata>
+    </software>
+</package>

@@ -1,0 +1,42 @@
+{
+    "APP_NAME_CN_ANDROID": "儿童涂色动物园",
+    "APP_NAME_EN_ANDROID": "KidsColoringZoo",
+    "APP_NAME_CN_IOS": "儿童涂色动物园",
+    "APP_NAME_EN_IOS": "KidsColoringZoo",
+    "PACKAGE_ANDROID": "com.moonma.paintanimal",
+    "PACKAGE_IOS": "com.moonma.paintanimal",
+    "APPVERSION_ANDROID": "1.0.0",
+    "APPVERSION_CODE_ANDROID": "100",
+    "APPVERSION_IOS": "1.0.0",
+    "need_upload_screenshot": false,
+    "APPSTORE_VERSION_UPDATE": {
+        "cn": "修复闪退",
+        "en": "Fix a Bug"
+    },
+    "APPSTORE_TITLE": {
+        "cn": "儿童涂色动物园",
+        "en": "Kids Coloring Zoo PaintTool"
+    },
+    "APPSTORE_SUBTITLE": {
+        "cn": "绘画好工具",
+        "en": "A Good PaintingTool"
+    },
+    "APPSTORE_PROMOTION": {
+        "cn": "涂色培养孩子的绘画技能和创造力",
+        "en": "Coloring cultivate children's painting skills and creativity"
+    },
+    "APPSTORE_KEYWORD": {
+        "cn": "阳阳爱写字魔力小孩过年宝宝学写字中华恐龙园汉字与书法海绵宝宝做汉堡朵拉历险记学做饭宝宝爱洗澡三字经读写版宝宝书孕育跟我学写汉字蓝猫学拼音小嘀削削serato自由诵读经典儿歌巴巴熊巴巴宝贝熊孩子钢笔书法",
+        "en": "COOKING,MAMA,Let's Cook,Kids Shave,Salon,Spa,Doodle,Zedd,the Zombie,Shapes,Toddler,QuizUp,Clawber"
+    },
+    "XIAOMI_KEYWORD": {
+        "cn": "阳阳爱写字魔力小孩过年宝宝学写字中华恐龙园汉字与书法海绵宝宝做汉堡朵拉历险记学做饭宝宝爱洗澡三字经读写版宝宝书孕育跟我学写汉字蓝猫学拼音小嘀削削serato自由诵读经典儿歌巴巴熊巴巴宝贝熊孩子钢笔书法",
+        "en": "COOKING,MAMA,Let's Cook,Kids Shave,Salon,Spa,Doodle,Zedd,the Zombie,Shapes,Toddler,QuizUp,Clawber"
+    },
+    "email": "chyfemail163@163.com",
+    "software_url": "http://www.mooncore.cn",
+    "privacy_url": "http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml",
+    "support_url": "http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html",
+    "privacy_url_gp": "http://blog.sina.com.cn/s/blog_1736372fb0102xmbz.html",
+    "sku_app": "paintanimal"
+}

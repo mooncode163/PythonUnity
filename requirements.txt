@@ -1,0 +1,11 @@
+#pip3 install -r requirements.txt
+requests
+selenium
+pyperclip
+connectcli
+keyboard
+#pywin32
+requests_toolbelt
+google-api-python-client
+oauth2client
+#uvloop~=0.12

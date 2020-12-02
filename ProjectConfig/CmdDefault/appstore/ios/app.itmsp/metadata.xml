@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.9">
+   <!--  <provider>YuanFang Chen</provider> -->
+    <team_id>Y9ZUK2WTEE</team_id>
+    <software>
+        <vendor_id>sku_paintanimal</vendor_id>
+        <software_metadata>
+            <versions>
+                <version string="1.0.0">
+                    <locales>
+                        <locale name="en-US">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat,绘画好工具</keyword> 
+                            </keywords>
+                            <version_whats_new></version_whats_new>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                            
+
+                        </locale>
+
+                         <locale name="zh-Hans">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword> 
+                            </keywords>
+                            <version_whats_new></version_whats_new>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                        
+
+                            
+                        </locale>
+
+                         <locale name="en-CA">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword> 
+                            </keywords>
+                           <version_whats_new></version_whats_new>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                           
+
+                            
+                        </locale>
+
+                         <locale name="en-AU">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword> 
+                            </keywords>
+                            <version_whats_new></version_whats_new>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                       
+                        </locale>
+
+                         <locale name="en-GB">
+                            <title>Touch Fighter</title>
+                            <subtitle>Action-filled combat game</subtitle>
+                            <description>Challenging, action-filled combat game with fighter jets and missiles.</description>
+                            <promotional_text>On sale for a limited time.</promotional_text>
+                            <keywords>
+                               <keyword>combat</keyword> 
+                            </keywords>
+                            <version_whats_new></version_whats_new>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                          
+
+                            
+                        </locale>
+                        
+                    </locales>
+                </version>
+            </versions>
+            <products>
+                <product>
+                    <territory>WW</territory>
+                    <sales_start_date>2010-05-25</sales_start_date>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <wholesale_price_tier>0</wholesale_price_tier>
+                    <allow_volume_discount>false</allow_volume_discount>
+                </product>
+                <product>
+                    <territory>RU</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                </product>
+            </products>
+          
+          
+
+           <in_app_purchases>
+                <in_app_purchase>
+                    <product_id>com.moonma.kids.noad</product_id>
+                    <reference_name>noad</reference_name>
+                    <type>non-consumable</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>3</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="en-US">
+                            <title>Remove AD</title>
+                            <description>Remove all the ads in the app.</description>
+                        </locale>
+
+                        <locale name="zh-Hans">
+                            <title>去除广告</title>
+                            <description>该产品可以去除应用内的所有广告</description>
+                        </locale>
+                        <locale name="en-CA">
+                            <title>Remove AD</title>
+                            <description>Remove all the ads in the app.</description>
+                        </locale>
+                        <locale name="en-AU">
+                            <title>Remove AD</title>
+                            <description>Remove all the ads in the app.</description>
+                        </locale>
+                        <locale name="en-GB">
+                            <title>Remove AD</title>
+                            <description>Remove all the ads in the app.</description>
+                        </locale>
+
+                        
+                    </locales>
+                    <review_screenshot>
+                        <file_name>in_app_purchases_screenshot.png</file_name>
+                        <size>96482</size>
+                        <checksum type="md5">dc4f197705c3983c730d236f54de2950</checksum>
+                    </review_screenshot>
+                    <!-- <review_notes></review_notes> -->
+                </in_app_purchase>
+               <!--  <in_app_purchase remove="true">
+                    <product_id>obsolete_com.cyberinteractive.tf.missiles.15</product_id>
+                </in_app_purchase> -->
+            </in_app_purchases>
+
+
+        </software_metadata>
+    </software>
+</package>

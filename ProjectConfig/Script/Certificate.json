@@ -1,0 +1,188 @@
+{
+    "data": [
+        {
+            "attributes": {
+                "certificateContent": "MIIFsTCCBJmgAwIBAgIIcFYoqRFQ+UIwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMTAxMDUxMjIwWhcNMjExMTAxMDUxMjIwWjCBjzEaMBgGCgmSJomT8ixkAQEMClk5WlVLMldURUUxNzA1BgNVBAMMLkFwcGxlIERpc3RyaWJ1dGlvbjogWXVhbkZhbmcgQ2hlbiAoWTlaVUsyV1RFRSkxEzARBgNVBAsMClk5WlVLMldURUUxFjAUBgNVBAoMDVl1YW5GYW5nIENoZW4xCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs0kSwxxBNoWAmNuk1jz92dI37pWLRVbejpPgTerVknh3c9HGJjU/QaD3ZBwwUs2Ddw5TJarf6e7vSpJhG4B2Pfwv6W4Fr4HAGMbzdryrJZREAwOV+ZP5LqW4yygaHKq1p6PdGTdHON0dHtijsoVGtMwV6iycREfRDXp6YNJTvNAcztWrUNDUlu1Bsy1fHe96mgkc5YZHl3yIz0VzluiwEPueTyxDnck6/v9+TRizeiPxENl7TV5pXyzPpEiHP5zCKCE63pNgTbg3OGqDuQV2h1VGewopQwv/Jm3n0U9iNU5mHOpAmuxBQ3XLWtWXvTEUuhD/+Y1xCBD3Ct0lim2nZwIDAQABo4ICBjCCAgIwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBSIJxcJqbYYYIvs67r2R1nFUlSjtzA/BggrBgEFBQcBAQQzMDEwLwYIKwYBBQUHMAGGI2h0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDMtd3dkcjIwMIIBHQYDVR0gBIIBFDCCARAwggEMBgkqhkiG92NkBQEwgf4wgcMGCCsGAQUFBwICMIG2DIGzUmVsaWFuY2Ugb24gdGhpcyBjZXJ0aWZpY2F0ZSBieSBhbnkgcGFydHkgYXNzdW1lcyBhY2NlcHRhbmNlIG9mIHRoZSB0aGVuIGFwcGxpY2FibGUgc3RhbmRhcmQgdGVybXMgYW5kIGNvbmRpdGlvbnMgb2YgdXNlLCBjZXJ0aWZpY2F0ZSBwb2xpY3kgYW5kIGNlcnRpZmljYXRpb24gcHJhY3RpY2Ugc3RhdGVtZW50cy4wNgYIKwYBBQUHAgEWKmh0dHA6Ly93d3cuYXBwbGUuY29tL2NlcnRpZmljYXRlYXV0aG9yaXR5LzAWBgNVHSUBAf8EDDAKBggrBgEFBQcDAzAdBgNVHQ4EFgQUr8+aiNeDvmU1mx9fUzQSGRqPgsEwDgYDVR0PAQH/BAQDAgeAMBMGCiqGSIb3Y2QGAQcBAf8EAgUAMBMGCiqGSIb3Y2QGAQQBAf8EAgUAMA0GCSqGSIb3DQEBCwUAA4IBAQACGLcux+0jGTBGloQhfYDCuEfEmo1/jZv46Yu0U0UufSxAGgtGsZ8JekJXBaVK0sdaxbifGvMTU8UCWlkjhAN6K+7u/jrNQmGB+w6Ozc4kWQ72DkKgXnHkKK6svBKuLTa75DN0wjMbvhYXoEIYanvc5LOyy7bwlJLWlFbFG6DBeL2YFRIeOsa57wJ3TfaaPrN8bLnjaeg4nJBOezXkvaMd2JfQayMNUl/yt/yQ1bk0ioLKl4re9LFNauWpb6R54aLnr5PIHr3nTLsMhB0YVHN8mnKS4BOpp9kpHtb8H+lef9HSSsat3H7yAKXiPPNF6Pwk1Eo+9txocSE7dEGuTmhm",
+                "certificateType": "DISTRIBUTION",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-11-01T05:12:20.000+0000",
+                "name": "Apple Distribution: YuanFang Chen",
+                "platform": null,
+                "serialNumber": "705628A91150F942"
+            },
+            "id": "24BC8G8FMA",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/24BC8G8FMA"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/24BC8G8FMA/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/24BC8G8FMA/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFmjCCBIKgAwIBAgIICzxqujXbSS0wDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMDMxMTUzMDA1WhcNMjExMDMxMTUzMDA1WjCBjTEaMBgGCgmSJomT8ixkAQEMCjVZUTg5MzJUU1YxNTAzBgNVBAMMLGlQaG9uZSBEZXZlbG9wZXI6IFl1YW5GYW5nIENoZW4gKFVQVFVKNkRBODMpMRMwEQYDVQQLDApZOVpVSzJXVEVFMRYwFAYDVQQKDA1ZdWFuRmFuZyBDaGVuMQswCQYDVQQGEwJDTjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK8qsVbb+a1dSPhDH4Ph7foUsGSSxRP0u5b1VaDFe8DiigEmoJcfy3RuXRwqirUamunShSOjNf760er+nObrunivFfSkk8AOn7Glbfwlj/LrWw8Dx8PgXv7dMdJjL5wBHvj+a/VPtPWIdfNKC7/i2gH8SvCe3Ixc9JjwJc2dPVBgKcqI0KZKEGnvWuQM6ZU+HprdNfZiduifEmSTbZqEKExZUKnRpniZ+CoU478+jy22CEXjkhUmBtzqMG9gflB+XvKQ32+VlWT+WaQ/42PPhswRhKvlLAXJxtjrUckiC6GuPUuKutzHkgCiHuQCIN97Z/g2aYaIKpRLLA/mByuP9kUCAwEAAaOCAfEwggHtMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUiCcXCam2GGCL7Ou69kdZxVJUo7cwPwYIKwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hcHBsZS5jb20vb2NzcDAzLXd3ZHIwMTCCAR0GA1UdIASCARQwggEQMIIBDAYJKoZIhvdjZAUBMIH+MIHDBggrBgEFBQcCAjCBtgyBs1JlbGlhbmNlIG9uIHRoaXMgY2VydGlmaWNhdGUgYnkgYW55IHBhcnR5IGFzc3VtZXMgYWNjZXB0YW5jZSBvZiB0aGUgdGhlbiBhcHBsaWNhYmxlIHN0YW5kYXJkIHRlcm1zIGFuZCBjb25kaXRpb25zIG9mIHVzZSwgY2VydGlmaWNhdGUgcG9saWN5IGFuZCBjZXJ0aWZpY2F0aW9uIHByYWN0aWNlIHN0YXRlbWVudHMuMDYGCCsGAQUFBwIBFipodHRwOi8vd3d3LmFwcGxlLmNvbS9jZXJ0aWZpY2F0ZWF1dGhvcml0eS8wFgYDVR0lAQH/BAwwCgYIKwYBBQUHAwMwHQYDVR0OBBYEFOuwS8K9zJY+reSbDzzAVAvZ5U1dMA4GA1UdDwEB/wQEAwIHgDATBgoqhkiG92NkBgECAQH/BAIFADANBgkqhkiG9w0BAQsFAAOCAQEAaTEClFF33/OHEgg0wdJGou0H9T/DAbwlCULr3ytiOYUxOr048g7QVc43821SaH1pmJKvMFc5/pGKipk1RKWTbqQuHrDWNxjjd5DC+I3ZDuwoCHXWbRBM8+Au/cy+aK9koQR7tfylH98O7p22T0h4GqAZ2xXYzfumdUYbHi9nFUP5CaRLS0bhBGwprFnj05zG6Q69Utzwv0YGWdwXWynMFLpHAYMvKkzgL6zEClNSvxtHaDKy/CB3ZpFXFO4VK56QX1xoeLKV0EeM+bzp+X2eWp6oOOX13J35NRnHWz/ReOWlNmEAs6nEDI2mQSVYUZYNl3ov1SxkhsRxKzm3ePVxYQ==",
+                "certificateType": "IOS_DEVELOPMENT",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-10-31T15:30:05.000+0000",
+                "name": "iOS Development: YuanFang Chen",
+                "platform": "IOS",
+                "serialNumber": "B3C6ABA35DB492D"
+            },
+            "id": "7R6YQC9346",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/7R6YQC9346"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/7R6YQC9346/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/7R6YQC9346/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFsDCCBJigAwIBAgIIHbF+NATs5nEwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMTAxMDUxMjA4WhcNMjExMTAxMDUxMjA4WjCBjjEaMBgGCgmSJomT8ixkAQEMCjVZUTg5MzJUU1YxNjA0BgNVBAMMLUFwcGxlIERldmVsb3BtZW50OiBZdWFuRmFuZyBDaGVuIChVUFRVSjZEQTgzKTETMBEGA1UECwwKWTlaVUsyV1RFRTEWMBQGA1UECgwNWXVhbkZhbmcgQ2hlbjELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyhaRJpxKl5fHZHNesXf3OFLWn+gjB4e9bE9f1azI521W+Ns2NnG6mPxUZeaF1aopechxTlNbvx8Ll9E4Q49b93qRELmQ7ppUpGwCl8xnHDwesGcR3skp/GdAk0S97Az7rTwlQx+nnde/hsSei0y2B+3yOGRULR7hn8KSczZ3F3fHqTwlxmeSCV6haF6BjYCh2Y62PguS9J8pDoyLMd/6SRSruyWs6thBv4ligA2Qmh0VaANub5BYebFOaXeopmR3uEIC1QJ/jO3+iT2MEMDzh4IrCewCCeRLqFcmenlZkEG/w55qLny9QsK8hcXIMhPkh30+SMZqov8UOWv+r5AW9AgMBAAGjggIGMIICAjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIgnFwmpthhgi+zruvZHWcVSVKO3MD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwMy13d2RyMTkwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMDMB0GA1UdDgQWBBRLS6w9IUfT2mmYe4kIrtEf/R6QMDAOBgNVHQ8BAf8EBAMCB4AwEwYKKoZIhvdjZAYBAgEB/wQCBQAwEwYKKoZIhvdjZAYBDAEB/wQCBQAwDQYJKoZIhvcNAQELBQADggEBAKmnuqPe1fzJyk4mrKqJOYAT4qRF/cyUcWkwSZn6pEPgrHltcKkDDKgojQisoEtstODLSOclUW6asBYSrSiwc5gtrZuxjOfL97lY3XSKVzAdPO2LyYZ8wyO6mvw13cMAhB/9k6AguW6FM+cmFWjkI58pQU6r6fsunojxbscLxUp76zdJCb4kdp4dqMXsUHuuHobgfIcZri4ZAV+mwgO9G5C+hlpmdHyEChe1klgCDENmefFLq/VPV73DolikAu1JtOE9JbCUKMj/6dMMveCheMLNDCkDOPG0hw7tGcxmayrDY+wm+hnaH6dA56kBzmFx9L/3ZosBCUFIwXielrhg3PM=",
+                "certificateType": "DEVELOPMENT",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-11-01T05:12:08.000+0000",
+                "name": "Apple Development: YuanFang Chen",
+                "platform": null,
+                "serialNumber": "1DB17E3404ECE671"
+            },
+            "id": "9TQN7J48X4",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/9TQN7J48X4"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/9TQN7J48X4/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/9TQN7J48X4/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFsDCCBJigAwIBAgIIAP0UTNc0JOEwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMTAxMDQ1ODMwWhcNMjExMTAxMDQ1ODMwWjCBjjEaMBgGCgmSJomT8ixkAQEMCjVZUTg5MzJUU1YxNjA0BgNVBAMMLUFwcGxlIERldmVsb3BtZW50OiBZdWFuRmFuZyBDaGVuIChVUFRVSjZEQTgzKTETMBEGA1UECwwKWTlaVUsyV1RFRTEWMBQGA1UECgwNWXVhbkZhbmcgQ2hlbjELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2rBx+IOFrcJe94SDwX0UOnvJUnAOiCdwxBIcc84u1iSvvPfgs6/59i6upTtXDj2tDWFrmQJY8/sZlEkyKhGVax96XYbmMZ9LgMmlJtAPETnIhZ+XElxb+tlZwnKzmL9AKRCvo+8fRFLIVQFnmqiLa5Z4FOX9tfTCyUprCf3PqMGIyF0LREebIhMb3nJjWvCywl5jDSAwz8vUrofhVfFTpo3nQx9zX0k8u1bn71Iz4LynUZI8rAPtEEqAXy9dLql0W094LdnH4kozNd/gGEbl8VmqgMBVAscgKLckBNrH4x52Z17GkpJPNzfxqFBkZI5Tfe7POJ1rcLnOjp8FG66K5AgMBAAGjggIGMIICAjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIgnFwmpthhgi+zruvZHWcVSVKO3MD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwMy13d2RyMTkwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMDMB0GA1UdDgQWBBTouZRltZGHsQjMy4NQNjE20sVT0jAOBgNVHQ8BAf8EBAMCB4AwEwYKKoZIhvdjZAYBAgEB/wQCBQAwEwYKKoZIhvdjZAYBDAEB/wQCBQAwDQYJKoZIhvcNAQELBQADggEBAI9XRTCMvFpI+1yRZ7Peyy3JcnkWwWW3drIm+5F9G3lSxH+B87FG6oXhIPyZ1TXqSmLBXMamEbq60H33opf+OcY8J5ERTzZYpFCMwfgBJtOpCQPmjlJRinCywYuqzsNNSgCEKJKOsCa1CSXKNAw7CtvEZArLgBTeiK4L3guOSvzPzVEtFM0FzGIyWRSsg5Sz0ZDrPHOjN3ajDEMrRfUbDJAWqCNM5+s7Rk+To2V1rDzyOX0Gb4KFqun1q1Hsexn0wweloEa3rhem4E0x47XMaFUgujXOasTntpV+tuaAkgDGfZSgRKDifHB0cwvfF3/ako0ITVsdUhH/7zatXHDq4oI=",
+                "certificateType": "DEVELOPMENT",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-11-01T04:58:30.000+0000",
+                "name": "Apple Development: YuanFang Chen",
+                "platform": null,
+                "serialNumber": "FD144CD73424E1"
+            },
+            "id": "C76SZ37Q58",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/C76SZ37Q58"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/C76SZ37Q58/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/C76SZ37Q58/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFnTCCBIWgAwIBAgIIfoo4SlJWO3IwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMDMxMTcyMTEwWhcNMjExMDMxMTcyMTEwWjCBkDEaMBgGCgmSJomT8ixkAQEMClk5WlVLMldURUUxODA2BgNVBAMML2lQaG9uZSBEaXN0cmlidXRpb246IFl1YW5GYW5nIENoZW4gKFk5WlVLMldURUUpMRMwEQYDVQQLDApZOVpVSzJXVEVFMRYwFAYDVQQKDA1ZdWFuRmFuZyBDaGVuMQswCQYDVQQGEwJDTjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK8qsVbb+a1dSPhDH4Ph7foUsGSSxRP0u5b1VaDFe8DiigEmoJcfy3RuXRwqirUamunShSOjNf760er+nObrunivFfSkk8AOn7Glbfwlj/LrWw8Dx8PgXv7dMdJjL5wBHvj+a/VPtPWIdfNKC7/i2gH8SvCe3Ixc9JjwJc2dPVBgKcqI0KZKEGnvWuQM6ZU+HprdNfZiduifEmSTbZqEKExZUKnRpniZ+CoU478+jy22CEXjkhUmBtzqMG9gflB+XvKQ32+VlWT+WaQ/42PPhswRhKvlLAXJxtjrUckiC6GuPUuKutzHkgCiHuQCIN97Z/g2aYaIKpRLLA/mByuP9kUCAwEAAaOCAfEwggHtMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUiCcXCam2GGCL7Ou69kdZxVJUo7cwPwYIKwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hcHBsZS5jb20vb2NzcDAzLXd3ZHIxMTCCAR0GA1UdIASCARQwggEQMIIBDAYJKoZIhvdjZAUBMIH+MIHDBggrBgEFBQcCAjCBtgyBs1JlbGlhbmNlIG9uIHRoaXMgY2VydGlmaWNhdGUgYnkgYW55IHBhcnR5IGFzc3VtZXMgYWNjZXB0YW5jZSBvZiB0aGUgdGhlbiBhcHBsaWNhYmxlIHN0YW5kYXJkIHRlcm1zIGFuZCBjb25kaXRpb25zIG9mIHVzZSwgY2VydGlmaWNhdGUgcG9saWN5IGFuZCBjZXJ0aWZpY2F0aW9uIHByYWN0aWNlIHN0YXRlbWVudHMuMDYGCCsGAQUFBwIBFipodHRwOi8vd3d3LmFwcGxlLmNvbS9jZXJ0aWZpY2F0ZWF1dGhvcml0eS8wFgYDVR0lAQH/BAwwCgYIKwYBBQUHAwMwHQYDVR0OBBYEFOuwS8K9zJY+reSbDzzAVAvZ5U1dMA4GA1UdDwEB/wQEAwIHgDATBgoqhkiG92NkBgEEAQH/BAIFADANBgkqhkiG9w0BAQsFAAOCAQEAUiWUBPqnrLL5mSLLNWH2TEo27xa1vKnvJ7Ep8eT4QWejOiC8+1HX8r/wFHMaafdY44RXGtq5TQ0t87Bj+qhdjA/n9JRKydgdqc6beN3+unEchGrLpD+g6na28+Dadt9zhuZcqraCLOW+VbYUmPHsaZMJIwbp+8LdzhYy64UvQv1qxxVFuw94YfQZz2G84rXI3XaMI1gu+3GXhqCyL2AiRWmc+Kw64Zk/K7khePBscgDjKyEB6bQkkOXNp7fQpqD6p06N1Nc+mWdbMDc6N94j1nPo4JLijsKwmDsyqyT8TqEIscFHtNF5GQVICi8D1BilSRZTXMwix1e5ZWBfWkxmrw==",
+                "certificateType": "IOS_DISTRIBUTION",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-10-31T17:21:10.000+0000",
+                "name": "iOS Distribution: YuanFang Chen",
+                "platform": "IOS",
+                "serialNumber": "7E8A384A52563B72"
+            },
+            "id": "Q58Z6KTYJ5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/Q58Z6KTYJ5"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/Q58Z6KTYJ5/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/Q58Z6KTYJ5/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFsTCCBJmgAwIBAgIIRab+tazXzeIwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMDIwMTIzNjQ5WhcNMjExMDIwMTIzNjQ5WjCBjzEaMBgGCgmSJomT8ixkAQEMClk5WlVLMldURUUxNzA1BgNVBAMMLkFwcGxlIERpc3RyaWJ1dGlvbjogWXVhbkZhbmcgQ2hlbiAoWTlaVUsyV1RFRSkxEzARBgNVBAsMClk5WlVLMldURUUxFjAUBgNVBAoMDVl1YW5GYW5nIENoZW4xCzAJBgNVBAYTAkNOMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8t7XCEISHJD8pd/uJ1aJdpUdbhu9dIV06T5qgww+hpWqqRxXA6XD+u3Xn9xMWwyTC6HM6knZU3PiYk5R8YOnziAF2WuJM66GqBK6XoCQm/T0tqTchjEmI4bHb68QLl2aSYRm94nrmTLHnGfGSyq4pHsWxPgu9qjAqujKFovWhL0dEpKsC6MxIuHU7k8vzjlUxUrpLsKWeJVI70WlWPSvBqvL8jLdkvT1tgeTsOyxyXwmVZlQHdKfnSQc4SfdkSiCz09odVS4HW6L74jjzc5ZTsg6cem22zlXi7jEyfpApm2RvNIyh8rTiM+FYWsvLndSEot0j+cYbHrPDaVYXKEs+QIDAQABo4ICBjCCAgIwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBSIJxcJqbYYYIvs67r2R1nFUlSjtzA/BggrBgEFBQcBAQQzMDEwLwYIKwYBBQUHMAGGI2h0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDMtd3dkcjIwMIIBHQYDVR0gBIIBFDCCARAwggEMBgkqhkiG92NkBQEwgf4wgcMGCCsGAQUFBwICMIG2DIGzUmVsaWFuY2Ugb24gdGhpcyBjZXJ0aWZpY2F0ZSBieSBhbnkgcGFydHkgYXNzdW1lcyBhY2NlcHRhbmNlIG9mIHRoZSB0aGVuIGFwcGxpY2FibGUgc3RhbmRhcmQgdGVybXMgYW5kIGNvbmRpdGlvbnMgb2YgdXNlLCBjZXJ0aWZpY2F0ZSBwb2xpY3kgYW5kIGNlcnRpZmljYXRpb24gcHJhY3RpY2Ugc3RhdGVtZW50cy4wNgYIKwYBBQUHAgEWKmh0dHA6Ly93d3cuYXBwbGUuY29tL2NlcnRpZmljYXRlYXV0aG9yaXR5LzAWBgNVHSUBAf8EDDAKBggrBgEFBQcDAzAdBgNVHQ4EFgQUq8oldgUgZIvUskiUm+rN/0KPqE8wDgYDVR0PAQH/BAQDAgeAMBMGCiqGSIb3Y2QGAQcBAf8EAgUAMBMGCiqGSIb3Y2QGAQQBAf8EAgUAMA0GCSqGSIb3DQEBCwUAA4IBAQBb3ZdOdedR8hLpxnVIPaCjCwHCfArNB/BDSDIjIzMpoVZOTqcqQv9Uk+bPoN425ulHTgHRpOTmOLQZcLek+Cxm4wEtLePIPaMnTnlFLLA6XYA0mu4z1ZWndhiYBAQ7eEFFdLdfG1K/ny6lpzdSoGv/lz9OT41dObN3wNNQ7ASkNiFar6eReIa90E9h3GukxXz9Fbl1gjCqy23UPwAUInJJv/Z78DnYKQ2kzT1/PJkfCzLYm8kKsglxyqOOiTGmLZj0uUlOcFlwrikHYNinQJBkcsKLZ4C/cqV+UPhyATWTGv+h0vREByLDmJkG4AT6GZm/p22OmoEpqYu4TfvVYLkL",
+                "certificateType": "DISTRIBUTION",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-10-20T12:36:49.000+0000",
+                "name": "Apple Distribution: YuanFang Chen",
+                "platform": null,
+                "serialNumber": "45A6FEB5ACD7CDE2"
+            },
+            "id": "QDYP8KRQZS",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/QDYP8KRQZS"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/QDYP8KRQZS/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/QDYP8KRQZS/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        },
+        {
+            "attributes": {
+                "certificateContent": "MIIFsDCCBJigAwIBAgIIG/4etKnqQNEwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMjAxMDMxMTcyMzA4WhcNMjExMDMxMTcyMzA4WjCBjjEaMBgGCgmSJomT8ixkAQEMCjVZUTg5MzJUU1YxNjA0BgNVBAMMLUFwcGxlIERldmVsb3BtZW50OiBZdWFuRmFuZyBDaGVuIChVUFRVSjZEQTgzKTETMBEGA1UECwwKWTlaVUsyV1RFRTEWMBQGA1UECgwNWXVhbkZhbmcgQ2hlbjELMAkGA1UEBhMCQ04wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXCu9coR77GZ/M2Juif2DMdriO8bnmfp2cs3dnknQb53q1itID3/FVQwgTQAvZnxPnxRDpGTjY51fsYO1YQBj5wApCL9KLGNNAbXZjJ0KXA5WxAojW5SsA1W6U664Fl8ofwvlrvuP+g+uUqjUULhoaxj0LqSm5YmRhMt6Qpj8EuLuruxFK/ZZfZ0GRm6qQd96371JDHp6yRwWADt23/Xy9Ek/IB4MtVCMoWuZRzynqOewptGPpL+xZRhIgmRzIVr4ZIFIJaEDQVA+dEOo8/eQSDeycn3PkaOsUa2uAfheLWQhzLeb4OktW7MccAFK5l4Uo198GhWEC/rpW1/SFszEhAgMBAAGjggIGMIICAjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIgnFwmpthhgi+zruvZHWcVSVKO3MD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYjaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwMy13d2RyMTkwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMDMB0GA1UdDgQWBBTNm+uFfue4F1SCkoi+3nfnvi6naTAOBgNVHQ8BAf8EBAMCB4AwEwYKKoZIhvdjZAYBAgEB/wQCBQAwEwYKKoZIhvdjZAYBDAEB/wQCBQAwDQYJKoZIhvcNAQELBQADggEBALXNqV5OWgvC556aT7ojxfLcvIPE5P6JUyM4WN8jES87bKk2gryd5cRnCUb3CvC9vxPl8qQrl7ktRyhKZEfDj/EN+89iZtZK2NvdO7eTzlpzqILVpXvgB04YRxrOjozA0anRDAdOnuMCg/sssOQaT/WXPEZ4zcJsvcLj6K1gNrvDTpKm2Ij3lf+WSdMSblNthIIjT2Q3EMmRvHuHmarSnBqup8Wx22Sqx8mLbVDcJw+oZ3rnTIpq1oPj8IsOA2u3Hyqf8miznOzDLGZIZJQIfOq75wIucHRuuOQ05KDGZTHu24wej9A2biE2r53CHiffDSRi3O7uATs9JCUtGXzmHDU=",
+                "certificateType": "DEVELOPMENT",
+                "csrContent": null,
+                "displayName": "YuanFang Chen",
+                "expirationDate": "2021-10-31T17:23:08.000+0000",
+                "name": "Apple Development: YuanFang Chen",
+                "platform": null,
+                "serialNumber": "1BFE1EB4A9EA40D1"
+            },
+            "id": "ZGZ3T7N3V3",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/ZGZ3T7N3V3"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/ZGZ3T7N3V3/passTypeId",
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/ZGZ3T7N3V3/relationships/passTypeId"
+                    }
+                }
+            },
+            "type": "certificates"
+        }
+    ],
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/certificates"
+    },
+    "meta": {
+        "paging": {
+            "limit": 20,
+            "total": 7
+        }
+    }
+}

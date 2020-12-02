@@ -1,0 +1,3914 @@
+{
+    "data": [
+        {
+            "attributes": {
+                "identifier": "com.moonma.poem",
+                "name": "com-moonma-poem",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "249GXC99SV",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/249GXC99SV"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/249GXC99SV/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/249GXC99SV/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/249GXC99SV/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/249GXC99SV/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.umengplus.share",
+                "name": "XC com umengplus share",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "24BJ52GKYK",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/24BJ52GKYK"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/24BJ52GKYK/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/24BJ52GKYK/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/24BJ52GKYK/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/24BJ52GKYK/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.unakayou.demo",
+                "name": "XC com unakayou demo",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2DSX66S7L8",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2DSX66S7L8"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2DSX66S7L8/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2DSX66S7L8/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2DSX66S7L8/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2DSX66S7L8/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.AdViewAll",
+                "name": "XC com moonma AdViewAll",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2H82G8G298",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2H82G8G298"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2H82G8G298/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2H82G8G298/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2H82G8G298/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2H82G8G298/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.moonvideo",
+                "name": "commooncoremoonvideo",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2P77R998LS",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P77R998LS"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P77R998LS/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P77R998LS/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P77R998LS/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P77R998LS/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.moondonghua",
+                "name": "commooncoremoondonghua",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2P8JBS7LJ2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P8JBS7LJ2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P8JBS7LJ2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P8JBS7LJ2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P8JBS7LJ2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2P8JBS7LJ2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.placepoem",
+                "name": "com-moonma-placepoem",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2V2238YH8M",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2V2238YH8M"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2V2238YH8M/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2V2238YH8M/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2V2238YH8M/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2V2238YH8M/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.video.ipad2",
+                "name": "mooncore_video_ipad2",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "2VW8A5NU76",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2VW8A5NU76"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2VW8A5NU76/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2VW8A5NU76/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/2VW8A5NU76/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/2VW8A5NU76/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.game.leidian.ipad",
+                "name": "mooncore_game_leidian_ipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "3A6396UQNW",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3A6396UQNW"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3A6396UQNW/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3A6396UQNW/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3A6396UQNW/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3A6396UQNW/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.nongchangfind",
+                "name": "com-moonma-nongchangfind",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "3F8H3JXCB2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3F8H3JXCB2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3F8H3JXCB2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3F8H3JXCB2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3F8H3JXCB2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3F8H3JXCB2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.joinword",
+                "name": "com-moonma-joinword",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "3V8MV2DR66",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3V8MV2DR66"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3V8MV2DR66/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3V8MV2DR66/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3V8MV2DR66/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3V8MV2DR66/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moon.game",
+                "name": "XC com moon game",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "3YH98U8R92",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3YH98U8R92"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3YH98U8R92/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3YH98U8R92/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/3YH98U8R92/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/3YH98U8R92/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.animalsticker.pad",
+                "name": "XC com moonma animalsticker pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "432A2H7RZ5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/432A2H7RZ5"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/432A2H7RZ5/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/432A2H7RZ5/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/432A2H7RZ5/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/432A2H7RZ5/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.pintuzonghe.pad",
+                "name": "com-moonma-pintuzonghe-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "46UC873B33",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/46UC873B33"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/46UC873B33/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/46UC873B33/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/46UC873B33/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/46UC873B33/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.paintanimal.pad",
+                "name": "com-moonma-paintanimal-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "4782827PVM",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4782827PVM"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4782827PVM/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4782827PVM/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4782827PVM/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4782827PVM/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.meiju",
+                "name": "mooncoremeiju",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "4AAR926SE9",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4AAR926SE9"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4AAR926SE9/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4AAR926SE9/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4AAR926SE9/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4AAR926SE9/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.pintufruit.pad",
+                "name": "com-moonma-pintufruit-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "4YSY3X2RA5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4YSY3X2RA5"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4YSY3X2RA5/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4YSY3X2RA5/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/4YSY3X2RA5/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/4YSY3X2RA5/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.icecream",
+                "name": "com-moonma-icecream",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "545N23H8Q4",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/545N23H8Q4"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/545N23H8Q4/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/545N23H8Q4/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/545N23H8Q4/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/545N23H8Q4/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.musicVbang.ipad2",
+                "name": "XC com mooncore musicVbang ipad2",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "54KC986Y66",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54KC986Y66"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/54KC986Y66/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54KC986Y66/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/54KC986Y66/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54KC986Y66/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.poem.pad",
+                "name": "com-moonma-poem-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "54VHK82V64",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54VHK82V64"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/54VHK82V64/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54VHK82V64/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/54VHK82V64/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/54VHK82V64/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.carpintu",
+                "name": "XC com moonma carpintu",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "557EM8D8B5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/557EM8D8B5"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/557EM8D8B5/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/557EM8D8B5/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/557EM8D8B5/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/557EM8D8B5/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fillcoloranimal.pad",
+                "name": "com-moonma-fillcoloranimal-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "559JE7T6DY",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/559JE7T6DY"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/559JE7T6DY/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/559JE7T6DY/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/559JE7T6DY/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/559JE7T6DY/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.",
+                "name": "XC com moonma",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "567EG7EZWL",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/567EG7EZWL"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/567EG7EZWL/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/567EG7EZWL/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/567EG7EZWL/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/567EG7EZWL/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.paintzonghe",
+                "name": "com-moonma-paintzonghe",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5BT7478X8Q",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5BT7478X8Q"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5BT7478X8Q/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5BT7478X8Q/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5BT7478X8Q/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5BT7478X8Q/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.learnword.pad",
+                "name": "learnwordpad",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5CL2TXKWJR",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5CL2TXKWJR"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5CL2TXKWJR/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5CL2TXKWJR/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5CL2TXKWJR/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5CL2TXKWJR/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.idiommaster",
+                "name": "com-moonma-idiommaster",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5D6CZJV3W3",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5D6CZJV3W3"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5D6CZJV3W3/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5D6CZJV3W3/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5D6CZJV3W3/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5D6CZJV3W3/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.netgame.ipad",
+                "name": "mooncorenetgameipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5J5RYM2MG7",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5J5RYM2MG7"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5J5RYM2MG7/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5J5RYM2MG7/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5J5RYM2MG7/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5J5RYM2MG7/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fruitcolor.pad",
+                "name": "com-moonma-fruitcolor-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5JH5TQMNAC",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5JH5TQMNAC"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5JH5TQMNAC/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5JH5TQMNAC/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5JH5TQMNAC/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5JH5TQMNAC/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.stickerplant",
+                "name": "com-moonma-stickerplant",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5Q3FC3H8Z9",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Q3FC3H8Z9"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Q3FC3H8Z9/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Q3FC3H8Z9/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Q3FC3H8Z9/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Q3FC3H8Z9/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.placepoem.pad",
+                "name": "com-moonma-placepoem-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "5Z6U3G9994",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Z6U3G9994"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Z6U3G9994/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Z6U3G9994/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Z6U3G9994/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/5Z6U3G9994/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.ncanimal",
+                "name": "com-moonma-ncanimal",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "63FLDGC42F",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/63FLDGC42F"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/63FLDGC42F/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/63FLDGC42F/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/63FLDGC42F/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/63FLDGC42F/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.music",
+                "name": "mooncoremusic",
+                "platform": "IOS",
+                "seedId": "9W5B52PN5Y"
+            },
+            "id": "64GXM8MZ57",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/64GXM8MZ57"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/64GXM8MZ57/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/64GXM8MZ57/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/64GXM8MZ57/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/64GXM8MZ57/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.donghua.ipad",
+                "name": "mooncoredonghuaipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "65MP7R6DN8",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/65MP7R6DN8"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/65MP7R6DN8/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/65MP7R6DN8/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/65MP7R6DN8/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/65MP7R6DN8/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.dianshiju",
+                "name": "mooncoredianshiju",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "678793E4VE",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/678793E4VE"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/678793E4VE/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/678793E4VE/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/678793E4VE/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/678793E4VE/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.pintuplant",
+                "name": "com-moonma-pintuplant",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "6E86ZDQU8T",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6E86ZDQU8T"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6E86ZDQU8T/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6E86ZDQU8T/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6E86ZDQU8T/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6E86ZDQU8T/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "Y9ZUK2WTEE.com.moonma.poem",
+                "name": "learnword",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "6HK6VXV8M4",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6HK6VXV8M4"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6HK6VXV8M4/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6HK6VXV8M4/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6HK6VXV8M4/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6HK6VXV8M4/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.sticker-zonghe",
+                "name": "com-moonma-sticker-zonghe",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "6NQKP685WK",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6NQKP685WK"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6NQKP685WK/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6NQKP685WK/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/6NQKP685WK/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/6NQKP685WK/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.tv.ipad",
+                "name": "mooncoretvipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "74X8BYGQK6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/74X8BYGQK6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/74X8BYGQK6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/74X8BYGQK6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/74X8BYGQK6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/74X8BYGQK6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.mvfm.ipad",
+                "name": "mooncore_mvfm_ipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "79EBG4VSK6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79EBG4VSK6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/79EBG4VSK6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79EBG4VSK6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/79EBG4VSK6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79EBG4VSK6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "1535890618",
+                "name": "learnword",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "79ZYC696R2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79ZYC696R2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/79ZYC696R2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79ZYC696R2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/79ZYC696R2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/79ZYC696R2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.mvshengdian.ipad",
+                "name": "mooncoremvshengdianhd",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "7BTE3Q8K8V",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7BTE3Q8K8V"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7BTE3Q8K8V/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7BTE3Q8K8V/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7BTE3Q8K8V/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7BTE3Q8K8V/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.wordpuzzle.pad",
+                "name": "wordpuzzlepad",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "7K8Q65Z8S4",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7K8Q65Z8S4"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7K8Q65Z8S4/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7K8Q65Z8S4/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7K8Q65Z8S4/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7K8Q65Z8S4/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.test",
+                "name": "apptest",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "7NQY3S8688",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7NQY3S8688"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7NQY3S8688/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7NQY3S8688/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7NQY3S8688/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7NQY3S8688/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.whiteblock",
+                "name": "commoonmawhiteblock",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "7PSGSQ42D6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PSGSQ42D6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PSGSQ42D6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PSGSQ42D6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PSGSQ42D6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PSGSQ42D6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.lianlianleaa",
+                "name": "XC com moonma lianlianleaa",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "7PZ8X6BCX6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PZ8X6BCX6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PZ8X6BCX6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PZ8X6BCX6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PZ8X6BCX6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/7PZ8X6BCX6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.idiomflower",
+                "name": "com-moonma-idiomflower",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "86329YZR32",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/86329YZR32"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/86329YZR32/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/86329YZR32/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/86329YZR32/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/86329YZR32/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.animalcolor.pad",
+                "name": "com-moonma-animalcolor-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "8JVST73738",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8JVST73738"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8JVST73738/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8JVST73738/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8JVST73738/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8JVST73738/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.animalpintu.pad",
+                "name": "com-moonma-animalpintu-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "8P755JX7PH",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8P755JX7PH"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8P755JX7PH/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8P755JX7PH/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8P755JX7PH/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8P755JX7PH/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.plantsticker.pad",
+                "name": "com-moonma-plantsticker-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "8VRW8969TT",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8VRW8969TT"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8VRW8969TT/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8VRW8969TT/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8VRW8969TT/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8VRW8969TT/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.stickerfruit.pad",
+                "name": "com-moonma-stickerfruit-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "8Y9T5UR8U2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8Y9T5UR8U2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8Y9T5UR8U2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8Y9T5UR8U2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/8Y9T5UR8U2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/8Y9T5UR8U2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.xuehanzi.ipad",
+                "name": "commoonmaxuehanziipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9248V78ZSR",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9248V78ZSR"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9248V78ZSR/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9248V78ZSR/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9248V78ZSR/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9248V78ZSR/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.minigameUnity30f6",
+                "name": "XC com moonma minigameUnity30f6",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9268R4JF76",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9268R4JF76"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9268R4JF76/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9268R4JF76/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9268R4JF76/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9268R4JF76/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.idiommaster.pad",
+                "name": "com-moonma-idiommaster-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "985S44T48A",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/985S44T48A"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/985S44T48A/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/985S44T48A/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/985S44T48A/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/985S44T48A/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.tingting",
+                "name": "mooncore_tingting",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "994JWB983B",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/994JWB983B"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/994JWB983B/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/994JWB983B/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/994JWB983B/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/994JWB983B/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.learnword",
+                "name": "learnword",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9JH2837MB5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9JH2837MB5"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9JH2837MB5/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9JH2837MB5/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9JH2837MB5/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9JH2837MB5/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moomma.pintu",
+                "name": "XC com moomma pintu",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9LS9M4J9LH",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9LS9M4J9LH"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9LS9M4J9LH/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9LS9M4J9LH/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9LS9M4J9LH/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9LS9M4J9LH/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.gamevideo",
+                "name": "gamevideo",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9MF4NDVW8X",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9MF4NDVW8X"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9MF4NDVW8X/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9MF4NDVW8X/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9MF4NDVW8X/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9MF4NDVW8X/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fillcoloranimal",
+                "name": "com-moonma-fillcoloranimal",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9T643277C7",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9T643277C7"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9T643277C7/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9T643277C7/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9T643277C7/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9T643277C7/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.game",
+                "name": "XC com moonma game",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "9X454D5A85",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9X454D5A85"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9X454D5A85/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9X454D5A85/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/9X454D5A85/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/9X454D5A85/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.pinpinle",
+                "name": "moonmapinpinle",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "A39CJX45DP",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A39CJX45DP"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A39CJX45DP/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A39CJX45DP/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A39CJX45DP/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A39CJX45DP/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.learnsound",
+                "name": "com-moonma-learnsound",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "A9LXHHT8L9",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9LXHHT8L9"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9LXHHT8L9/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9LXHHT8L9/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9LXHHT8L9/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9LXHHT8L9/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fillcolorvehicle",
+                "name": "com-moonma-fillcolorvehicle",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "A9YWCG9NX2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9YWCG9NX2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9YWCG9NX2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9YWCG9NX2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9YWCG9NX2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/A9YWCG9NX2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.shapecolor.pad",
+                "name": "com-moonma-shapecolor-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "ABGT33SPT4",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ABGT33SPT4"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/ABGT33SPT4/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ABGT33SPT4/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/ABGT33SPT4/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ABGT33SPT4/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.mathmaster",
+                "name": "mathmaster",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "AE465KUA5C",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AE465KUA5C"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AE465KUA5C/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AE465KUA5C/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AE465KUA5C/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AE465KUA5C/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.musicVbang",
+                "name": "musicVbang",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "AG3RJM8QRT",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AG3RJM8QRT"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AG3RJM8QRT/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AG3RJM8QRT/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AG3RJM8QRT/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AG3RJM8QRT/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fillcolor",
+                "name": "XC com moonma fillcolor",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "APDD4ZC2WC",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/APDD4ZC2WC"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/APDD4ZC2WC/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/APDD4ZC2WC/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/APDD4ZC2WC/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/APDD4ZC2WC/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.xuehanzi",
+                "name": "commoonmaxuehanzi",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "ATRN726F9M",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ATRN726F9M"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/ATRN726F9M/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ATRN726F9M/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/ATRN726F9M/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/ATRN726F9M/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.joinword.pad",
+                "name": "com-moonma-joinword-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "AU8UT67X49",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AU8UT67X49"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AU8UT67X49/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AU8UT67X49/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AU8UT67X49/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AU8UT67X49/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.tankcity",
+                "name": "moonmatankcity",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "B29343C943",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B29343C943"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/B29343C943/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B29343C943/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/B29343C943/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B29343C943/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fruitcolor",
+                "name": "com-moonma-fruitcolor",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "B9KKF85X2B",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B9KKF85X2B"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/B9KKF85X2B/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B9KKF85X2B/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/B9KKF85X2B/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/B9KKF85X2B/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.video",
+                "name": "mooncorevideo",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "BJZ365B93J",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BJZ365B93J"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BJZ365B93J/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BJZ365B93J/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BJZ365B93J/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BJZ365B93J/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.fruit",
+                "name": "mooncorefruit",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "BK98CMWE4R",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BK98CMWE4R"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BK98CMWE4R/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BK98CMWE4R/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BK98CMWE4R/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BK98CMWE4R/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.musicVbangPro",
+                "name": "mooncore_musicVbangPro",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "BVLJGV75H5",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BVLJGV75H5"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BVLJGV75H5/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BVLJGV75H5/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/BVLJGV75H5/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/BVLJGV75H5/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "*",
+                "name": "Xcode: Wildcard AppID",
+                "platform": "IOS",
+                "seedId": "HW5BQ4T52J"
+            },
+            "id": "C3WMX2JU52",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C3WMX2JU52"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/C3WMX2JU52/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C3WMX2JU52/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/C3WMX2JU52/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C3WMX2JU52/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.youleyuan",
+                "name": "commoonmayouleyuan",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "C53FL2KDW2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C53FL2KDW2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/C53FL2KDW2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C53FL2KDW2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/C53FL2KDW2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/C53FL2KDW2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.moongame",
+                "name": "commooncoremoongame",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "CVUL9MJ836",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/CVUL9MJ836"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/CVUL9MJ836/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/CVUL9MJ836/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/CVUL9MJ836/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/CVUL9MJ836/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.donghua",
+                "name": "mooncoredonghua",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "D87S75KX8B",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D87S75KX8B"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/D87S75KX8B/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D87S75KX8B/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/D87S75KX8B/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D87S75KX8B/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.musicVbang.ipad",
+                "name": "mooncore_musicVbang_ipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "D9MUCK822H",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D9MUCK822H"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/D9MUCK822H/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D9MUCK822H/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/D9MUCK822H/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/D9MUCK822H/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.donghua1",
+                "name": "XC com moonma donghua1",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "DVR222E7X9",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/DVR222E7X9"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/DVR222E7X9/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/DVR222E7X9/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/DVR222E7X9/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/DVR222E7X9/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.moonmusic.ipad",
+                "name": "moonmusicipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "E9R82882Q9",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/E9R82882Q9"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/E9R82882Q9/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/E9R82882Q9/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/E9R82882Q9/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/E9R82882Q9/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.gdt.test",
+                "name": "XC com gdt test",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "EK9E9K224B",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EK9E9K224B"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/EK9E9K224B/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EK9E9K224B/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/EK9E9K224B/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EK9E9K224B/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.lianlianle",
+                "name": "commoonmalianlianle",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "EVUVDHF596",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EVUVDHF596"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/EVUVDHF596/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EVUVDHF596/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/EVUVDHF596/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/EVUVDHF596/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.pingtu",
+                "name": "commoonmapingtu",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "F2H3DTTJ4T",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F2H3DTTJ4T"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/F2H3DTTJ4T/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F2H3DTTJ4T/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/F2H3DTTJ4T/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F2H3DTTJ4T/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.stickerfruit",
+                "name": "com-moonma-stickerfruit",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "F9XDM94KS6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F9XDM94KS6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/F9XDM94KS6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F9XDM94KS6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/F9XDM94KS6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/F9XDM94KS6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.2048",
+                "name": "mooncorenumbergame",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "FLJ5WBJN3H",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FLJ5WBJN3H"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FLJ5WBJN3H/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FLJ5WBJN3H/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FLJ5WBJN3H/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FLJ5WBJN3H/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.kidscn.pad",
+                "name": "com-moonma-kidscn-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "FV5XR8B66L",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FV5XR8B66L"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FV5XR8B66L/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FV5XR8B66L/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FV5XR8B66L/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FV5XR8B66L/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.moonlight",
+                "name": "moonlight",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "FW8E299Q62",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FW8E299Q62"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FW8E299Q62/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FW8E299Q62/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/FW8E299Q62/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/FW8E299Q62/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.peidui",
+                "name": "commoonmapeidui",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "G25Q64Z288",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G25Q64Z288"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G25Q64Z288/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G25Q64Z288/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G25Q64Z288/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G25Q64Z288/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.movie",
+                "name": "mooncoremovie",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "G44YCY446P",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G44YCY446P"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G44YCY446P/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G44YCY446P/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G44YCY446P/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G44YCY446P/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.caicailefruit",
+                "name": "com-moonma-caicailefruit",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "G4JC2PU3J2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G4JC2PU3J2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G4JC2PU3J2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G4JC2PU3J2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G4JC2PU3J2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G4JC2PU3J2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.paintzonghe.pad",
+                "name": "com-moonma-paintzonghe-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "G56YK34778",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G56YK34778"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G56YK34778/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G56YK34778/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G56YK34778/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G56YK34778/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.itunesfm",
+                "name": "iTunesFM",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "G7BB2XP974",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G7BB2XP974"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G7BB2XP974/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G7BB2XP974/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/G7BB2XP974/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/G7BB2XP974/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.sticker_zonghe",
+                "name": "com-moonma-sticker_zonghe",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "GBJSGX7AY6",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GBJSGX7AY6"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/GBJSGX7AY6/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GBJSGX7AY6/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/GBJSGX7AY6/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GBJSGX7AY6/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.xiehanziabc",
+                "name": "com-moonma-xiehanziabc",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "GHPUD8G5NM",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GHPUD8G5NM"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/GHPUD8G5NM/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GHPUD8G5NM/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/GHPUD8G5NM/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/GHPUD8G5NM/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.game.kof97",
+                "name": "mooncore_game_kof97",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "H6888NTB3Y",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/H6888NTB3Y"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/H6888NTB3Y/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/H6888NTB3Y/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/H6888NTB3Y/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/H6888NTB3Y/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.movie.ipad",
+                "name": "mooncoremovieipad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "HBHMUC4359",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HBHMUC4359"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HBHMUC4359/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HBHMUC4359/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HBHMUC4359/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HBHMUC4359/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.mooncore.tv",
+                "name": "mooncoretv",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "HLNHNGDC2P",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HLNHNGDC2P"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HLNHNGDC2P/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HLNHNGDC2P/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HLNHNGDC2P/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HLNHNGDC2P/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.wordpuzzle",
+                "name": "wordpuzzle",
+                "platform": "UNIVERSAL",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "HW5BW4DSC7",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HW5BW4DSC7"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HW5BW4DSC7/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HW5BW4DSC7/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/HW5BW4DSC7/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/HW5BW4DSC7/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.fillcolorkids.pad",
+                "name": "com-moonma-fillcolorkids-pad",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "J32G277DPS",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/J32G277DPS"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/J32G277DPS/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/J32G277DPS/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/J32G277DPS/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/J32G277DPS/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        },
+        {
+            "attributes": {
+                "identifier": "com.moonma.chengyu",
+                "name": "commoonmachengyu",
+                "platform": "IOS",
+                "seedId": "Y9ZUK2WTEE"
+            },
+            "id": "JR46C928N2",
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/JR46C928N2"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/JR46C928N2/bundleIdCapabilities",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/JR46C928N2/relationships/bundleIdCapabilities"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                },
+                "profiles": {
+                    "links": {
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/JR46C928N2/profiles",
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/JR46C928N2/relationships/profiles"
+                    },
+                    "meta": {
+                        "paging": {
+                            "limit": 2147483647,
+                            "total": 0
+                        }
+                    }
+                }
+            },
+            "type": "bundleIds"
+        }
+    ],
+    "links": {
+        "next": "https://api.appstoreconnect.apple.com/v1/bundleIds?sort=id&cursor=eyJvZmZzZXQiOiIxMDAifQ&limit=100",
+        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds?sort=id&limit=100"
+    },
+    "meta": {
+        "paging": {
+            "limit": 100,
+            "total": 164
+        }
+    }
+}

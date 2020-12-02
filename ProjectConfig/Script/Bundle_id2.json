@@ -1,0 +1,28 @@
+{
+    "data": {
+        "errors": [
+            {
+                "code": "PARAMETER_ERROR.INVALID",
+                "detail": "A parameter 'sort' has an invalid value : ''poem' does not exist'",
+                "id": "7e5326e4-b01b-4006-bb30-7ceb7e4b1348",
+                "source": {
+                    "parameter": "sort"
+                },
+                "status": "400",
+                "title": "A parameter has an invalid value"
+            },
+            {
+                "code": "PARAMETER_ERROR.INVALID",
+                "detail": "A parameter 'sort' has an invalid value : ''identifier com' does not exist.'",
+                "id": "7e5326e4-b01b-4006-bb30-7ceb7e4b1348",
+                "source": {
+                    "parameter": "sort"
+                },
+                "status": "400",
+                "title": "A parameter has an invalid value"
+            }
+        ]
+    },
+    "msg": "",
+    "status": 400
+}
