@@ -14,10 +14,10 @@ import socket
 def download():
 
     
-    os.system("git config --global credential.helper store")
-    os.system("git config --global user.email \"chyfemail163@163.com\"")
-    os.system("git config --global user.name \"chyfemail163@163.com\"")
-    os.system("git config --global user.password \"Qianlizhiwai1\"")
+    # os.system("git config --global credential.helper store")
+    # os.system("git config --global user.email \"chyfemail163@163.com\"")
+    # os.system("git config --global user.name \"mooncode163\"")
+    # os.system("git config --global user.password \"Qianlizhiwai1\"")
     
     # os.system("git pull origin master")
     # os.system("repo sync") 
