@@ -1,0 +1,3 @@
+Mac unity 打包 DOTSS 提示 dotnet command not found
+1，需要安装mono framewroks 不然只有终端能找到command而 unity里not found
+2，安装.net core sdk

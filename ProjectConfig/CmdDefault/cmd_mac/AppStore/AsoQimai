@@ -19,8 +19,9 @@ fi
 
 
 echo $filepath
-cd $filepath
-cd ../../../../../Common/PythonUnity/ProjectConfig/Script
-python3 apk_build_clean.py 
-python3 apk_build.py $filepath
+cd $filepath  
+cd ../../../../../../Common/PythonUnity/ProjectConfig/Script
+python3 AppStoreManager.py $filepath AsoQimai 
+ 
+
 

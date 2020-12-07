@@ -1,0 +1,36 @@
+{
+    "huawei": [
+        {
+            "name": "chyfemail163@163.com",
+            "password": "Qianlizhiwai1",
+            "ClientId": "469947311665972416",
+            "ClientSecret": "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201"
+        },
+        {
+            "name": "qq651577315@163.com",
+            "password": "Qianlizhiwai1",
+            "ClientId": "",
+            "ClientSecret": ""
+        }
+    ],
+    "apple": [
+        {
+            "name": "chyfemail163@163.com",
+            "password": "Moonqianlizhiwai1"
+        },
+        {
+            "name": "qq651577315@163.com",
+            "password": "Moonqianlizhiwai1"
+        }
+    ],
+    "gp": [
+        {
+            "name": "chyfemail163@gmail.com",
+            "password": "qianlizhiwai1"
+        },
+        {
+            "name": "0",
+            "password": "0"
+        }
+    ]
+}

@@ -21,8 +21,7 @@ fi
 echo $filepath
 cd $filepath
 cd ../../../../../Common/PythonUnity/ProjectConfig/Script
-python3 save_resource.py $filepath
-python3 appcode.py $filepath "save"
+python3 ProjectManager.py $filepath SaveResource
  
 
  

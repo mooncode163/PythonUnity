@@ -1,0 +1,20 @@
+https://blog.csdn.net/java3182/article/details/78908838
+
+https://www.jianshu.com/p/1e6b052918d0
+
+
+https://github.com/OmniSharp/omnisharp-vscode/issues/1004
+
+1,mac 
+在zsh下VSCode找不到.netFramework的问题
+
+koo叔 2017-12-27 09:50:33  2421  收藏
+分类专栏： VSCode与Emacs
+版权
+打开~/.zshrc
+
+export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin:${PATH}
+ source ~/.zshrc
+
+
+2.windows系统 .netframework 需要安装developer版本

@@ -24,6 +24,7 @@ from xml.dom.minidom import parse
 from AppStore.AppVersionHuawei import mainAppVersionHuawei
 from AppStore.AppVersionApple import mainAppVersionApple
 from AppStore.Huawei.HuaweiAppGalleryApi import mainHuaweiAppGalleryApi
+from AppStore.AppStoreAcount import mainAppStoreAcount
 
 from AppInfo.AppInfoOld import AppInfoOld
 from AppInfo.AppInfoNew import AppInfoNew
@@ -460,6 +461,15 @@ class AppInfo():
         name =  data["appversion"][os]["code"]
         return name
 
+    def GetAppStoreAcount(self,isHd,appstore): 
+        data = self.loadJson(isHd)
+        key = "appstore_acount"
+        name = "chyfemail163@163.com"
+        if appstore==Source.IOS:
+            name = "chyfemail163@163.com"
+        if key in data:
+            name = data[key][appstore]
+        return name 
 
     def GetAppPromotion(self,isHd,lan): 
         data = self.loadJson(isHd) 

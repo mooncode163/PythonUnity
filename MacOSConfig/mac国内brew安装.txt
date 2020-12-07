@@ -1,0 +1,14 @@
+https://www.jianshu.com/p/b2b0be8d5214
+
+安装脚本：
+
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+卸载脚本：
+
+
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUnin
+
+作者：梦想又照进现实
+链接：https://www.jianshu.com/p/b2b0be8d5214
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

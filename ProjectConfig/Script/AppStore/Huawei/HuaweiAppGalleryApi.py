@@ -13,16 +13,22 @@ sys.path.append(o_path)  # 添加自己指定的搜索路径
 sys.path.append("../")
  
 import time 
-from Common.File.FileUtil import FileUtil 
-
- 
+from Common.File.FileUtil import FileUtil
+from AppInfo.AppInfo import mainAppInfo
+from AppStore.AppStoreAcount import mainAppStoreAcount
+from Common import Source
 
 class HuaweiAppGalleryApi:  
-    ClientId = "469947311665972416"
-    ClientSecret = "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201"
+    # ClientId = "469947311665972416"
+    # ClientSecret = "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201"
     accessToken = ""
     listScreeenshot = []
     # https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/obtain_token
+
+    def __init__(self): 
+        name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
+        self.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
+        self.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
 
     def GetToken(self):
         if len(self.accessToken)>0:

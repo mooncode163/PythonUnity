@@ -1,0 +1,4 @@
+mac 需要安装以下东西：
+1,mono framework 相当于mac下的.netframework 从mono官网下载
+2,dotnet core sdk 从微软官方下载
+3，vscode的相关的c#和unity插件 在vscode里下载安装

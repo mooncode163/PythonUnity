@@ -20,7 +20,7 @@ from Common.File.FileUtil import FileUtil
 from Common.File.FileBrowser import FileBrowser
 from AppInfo.AppInfo import mainAppInfo
 from AppStore.Huawei.HuaweiAppGalleryApi import mainHuaweiAppGalleryApi
-
+from AppStore.AppStoreAcount import mainAppStoreAcount
 
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -944,7 +944,10 @@ class AppStoreHuawei(AppStoreBase):
             if appid == "0":
                 self.Init()
                 self.GoHome(isHD)
-                self.Login("chyfemail163@163.com", "Qianlizhiwai1")
+                # self.Login("chyfemail163@163.com", "Qianlizhiwai1")
+                name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
+                self.Login(name, mainAppStoreAcount.GetPassword(Source.HUAWEI,name))
+                # 
                 self.SaveCookie(self.fileCookie)
             
 
