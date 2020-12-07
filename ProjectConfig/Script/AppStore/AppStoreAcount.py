@@ -19,6 +19,8 @@ import os
 import json 
 import base64 
 
+from Common.File.FileUtil import FileUtil 
+
 o_path = os.getcwd()  # 返回当前工作目录
 sys.path.append(o_path)  # 添加自己指定的搜索路径
 
@@ -53,7 +55,7 @@ class AppStoreAcount:
         return password
 
     def LoadJson(self): 
-        strjson = self.GetFileString(self.fileJosn)
+        strjson = FileUtil.GetFileString(self.fileJosn)
         self.dataRoot = json.loads(strjson) 
 
 

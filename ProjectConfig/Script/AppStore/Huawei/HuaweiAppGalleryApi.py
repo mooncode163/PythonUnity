@@ -11,11 +11,12 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 o_path = os.getcwd()  # 返回当前工作目录
 sys.path.append(o_path)  # 添加自己指定的搜索路径
 sys.path.append("../")
- 
+sys.path.append("../../")
+
 import time 
 from Common.File.FileUtil import FileUtil
-from AppInfo.AppInfo import mainAppInfo
-from AppStore.AppStoreAcount import mainAppStoreAcount
+# from AppInfo.AppInfo import mainAppInfo
+# from AppStore.AppStoreAcount import mainAppStoreAcount
 from Common import Source
 
 class HuaweiAppGalleryApi:  
@@ -25,10 +26,10 @@ class HuaweiAppGalleryApi:
     listScreeenshot = []
     # https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/obtain_token
 
-    def __init__(self): 
-        name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
-        self.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
-        self.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
+    # def __init__(self): 
+    #     name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
+    #     self.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
+    #     self.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
 
     def GetToken(self):
         if len(self.accessToken)>0:

@@ -936,6 +936,10 @@ class AppStoreHuawei(AppStoreBase):
 
     def Run(self,type, isHD):     
 
+        name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
+        mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
+        mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
+
 
         if type == "createapp":
 
