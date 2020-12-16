@@ -1,6 +1,6 @@
 
 #! /bin/sh
-
+# 脚本文件的绝对路径存在了环境变量filepath中，可以用
 filepath=$(cd "$(dirname "$0")"; pwd)
 
 # VMware 虚拟机共享目录里路径带空格 需要转换处理
@@ -19,10 +19,8 @@ fi
 
 
 echo $filepath
-cd $filepath 
-cd ../../../../../../../Common/PythonUnity/ProjectConfig/Script
+cd $filepath
+cd ../../../../../Common/PythonUnity/ProjectConfig/Script  
+python3 AppStoreManager.py $filepaths createapp taptap hd
 
-python3 AppStoreManager.py $filepath UploadScreenShot gp 
  
-
-

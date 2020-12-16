@@ -32,6 +32,11 @@ def UpdateMacFile(dir):
             apk_ext='.bat'
             if apk_ext!=src_apk_extension: 
                 os.system("chmod a+x "+filepath)
+
+                #目录嵌套
+        if os.path.isdir(filepath):
+            # print sourceFile
+            UpdateMacFile(filepath)
             
 def ScanDir():  
     listDir= ["cmd_mac", "all_build"] 
