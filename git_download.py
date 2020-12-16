@@ -38,6 +38,9 @@ def download():
     filepath = "git_download"
     os.system("chmod a+x "+filepath)
 
+    filepath = "git_download2"
+    os.system("chmod a+x "+filepath)
+
     filepath = "git_upload"
     os.system("chmod a+x "+filepath)
  
