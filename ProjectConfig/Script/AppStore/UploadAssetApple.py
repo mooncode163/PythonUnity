@@ -23,6 +23,8 @@ class UploadAssetApple:
     KEY_ID = ""
     ISSUER_ID = ""
     PRIVATE_KEY = ""
+    tokenKey = ""
+    
 
 ########
 # UPLOAD - This is where the interaction with App Store Connect API happens.
@@ -507,6 +509,10 @@ class UploadAssetApple:
 
 
     def create_token(self):
+
+        if len(self.tokenKey)!=0:
+            return self.tokenKey
+            
         """
         Creates a token that lives for 20 minutes, which should be long enough
         to upload the app preview. In a long-running script, adjust the code to

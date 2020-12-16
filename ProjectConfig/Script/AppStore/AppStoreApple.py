@@ -488,7 +488,8 @@ class AppStoreApple(AppStoreBase):
         mainUploadAssetApple.KEY_ID = mainAppConnectApi.API_KEY_ID
         mainUploadAssetApple.ISSUER_ID = mainAppConnectApi.API_USER_ID
         mainUploadAssetApple.PRIVATE_KEY = mainAppConnectApi.GetKEY_PRIVATE()
-
+        mainUploadAssetApple.tokenKey = mainAppConnectApi.GetToken()
+         
         if type == "createapp":
             appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
 

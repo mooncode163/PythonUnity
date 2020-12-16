@@ -120,7 +120,26 @@ class AppConnectApi:
         KEY_PRIVATE = FileUtil.GetFileString(filepath)
         return KEY_PRIVATE
 
+
+
+    def GetUrl(self, url): 
+        r = requests.get(url)
+        return r.content.decode('utf-8',"ignore")
+
+    def GetTokenByWeb(self, key_id, user_id,key_private): 
+        key_private =  self.GetKEY_PRIVATE()
+        url = "http://47.242.56.146:5000/AppleJWTToken?keyid="+key_id+"&userid="+user_id+"&KEY_PRIVATE="+key_private
+        print("url=",url)
+        result = self.GetUrl(url)
+        print("result=",result)
+        return result
+
+    def GetToken(self):
+        return self.CreateJWTToken(self.API_KEY_ID,self.API_USER_ID)
+
     def CreateJWTToken(self, keyid, userid):
+        KEY_PRIVATE = self.GetKEY_PRIVATE()
+        return self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
         # 构造header
 
         # headers = {
@@ -154,7 +173,7 @@ class AppConnectApi:
             "aud": "appstoreconnect-v1"
         }
         # print(payload)
-        KEY_PRIVATE = self.GetKEY_PRIVATE()
+        
         # print(KEY_PRIVATE)
         result = "result"
         result = jwt.encode(payload=payload, key=KEY_PRIVATE,

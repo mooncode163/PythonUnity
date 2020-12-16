@@ -58,7 +58,7 @@ class AppStoreAcount:
         ret = ""
         for item in self.dataRoot["appstore"]:
             if name == item["name"]:
-                ret = item["API_USER_ID"]
+                ret = item["API_KEY_ID"]
         return ret
     def GetiOSAPI_USER_ID(self,name): 
         ret = ""
