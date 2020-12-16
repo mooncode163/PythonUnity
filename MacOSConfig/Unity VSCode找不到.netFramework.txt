@@ -5,6 +5,10 @@ https://www.jianshu.com/p/1e6b052918d0
 
 https://github.com/OmniSharp/omnisharp-vscode/issues/1004
 
+
+Mac VSCode开发Unity环境搭建:https://www.jianshu.com/p/3055fc29a28f
+
+
 1,mac 
 在zsh下VSCode找不到.netFramework的问题
 
@@ -15,6 +19,13 @@ koo叔 2017-12-27 09:50:33  2421  收藏
 
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin:${PATH}
  source ~/.zshrc
+
+
+
+VSCode配置omnisharp路径(omnisharp.useGlobalMono)
+"omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current/Commands/mono",``"omnisharp.useGlobalMono": "always"`
+https://www.jianshu.com/p/3055fc29a28f
+
 
 
 2.windows系统 .netframework 需要安装developer版本

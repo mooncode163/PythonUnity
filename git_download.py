@@ -35,7 +35,11 @@ def download():
     # os.system("git pull origin main")
     # os.system("git pull https://helenmooncom:helenmoon2020@github.com/helenmooncom/twolandlord_project_ios.git")
 
-   
+    filepath = "git_download"
+    os.system("chmod a+x "+filepath)
+
+    filepath = "git_upload"
+    os.system("chmod a+x "+filepath)
  
 # 主函数的实现
 if __name__ == "__main__":

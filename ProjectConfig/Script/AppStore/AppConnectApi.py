@@ -48,9 +48,9 @@ sys.path.append(o_path)  # 添加自己指定的搜索路径
 class AppConnectApi:
     # api: None
     # moon key 访问类型	App 管理
-    API_KEY_ID = "MVG9NGFVX7"
-    API_USER_ID = "69a6de89-f844-47e3-e053-5b8c7c11a4d1"
-    teamID = "Y9ZUK2WTEE"
+    API_KEY_ID = ""
+    API_USER_ID = ""
+    teamID = ""
 
     # Apple Distribution: YuanFang Chen 发布证书 
     # Certificate.json 调用ListAllCertificates 获取
@@ -109,9 +109,7 @@ class AppConnectApi:
 
         # self.api = ConnectApi(self.API_KEY_ID, self.API_USER_ID)
 
-        mainUploadAssetApple.KEY_ID = self.API_KEY_ID
-        mainUploadAssetApple.ISSUER_ID = self.API_USER_ID
-        mainUploadAssetApple.PRIVATE_KEY = self.GetKEY_PRIVATE()
+ 
  
 
     def GetKEY_PRIVATE(self):

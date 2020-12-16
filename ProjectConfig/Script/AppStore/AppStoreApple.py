@@ -29,10 +29,13 @@ from Common.WebDriver.WebDriverCmd import CmdType
 from Common.WebDriver.WebDriverCmd import WebDriverCmd 
 from Common.WebDriver.WebDriverCmd import CmdInfo 
 
+from AppStore.AppStoreAcount import mainAppStoreAcount
+from AppStore.UploadAssetApple import mainUploadAssetApple 
+
 # pip3 install pyjwt
 # pip3 install cryptography
 if 'Darwin' not in platform.system():
-    # mac arm openssl 不兼容
+    # mac arm openssl  cryptography不兼容
     import jwt
 
 import datetime 
@@ -476,6 +479,15 @@ class AppStoreApple(AppStoreBase):
 
     def Run(self,type, isHD):     
 
+        name = mainAppInfo.GetAppStoreAcount(isHD,Source.APPSTORE)
+        mainAppConnectApi.API_KEY_ID = mainAppStoreAcount.GetiOSAPI_KEY_ID(name)
+        mainAppConnectApi.API_USER_ID = mainAppStoreAcount.GetiOSAPI_USER_ID(name) 
+        mainAppConnectApi.teamID = mainAppStoreAcount.GetiOSteamID(name) 
+        mainAppConnectApi.CertificateID = mainAppStoreAcount.GetiOSCertificateID(name) 
+
+        mainUploadAssetApple.KEY_ID = mainAppConnectApi.API_KEY_ID
+        mainUploadAssetApple.ISSUER_ID = mainAppConnectApi.API_USER_ID
+        mainUploadAssetApple.PRIVATE_KEY = mainAppConnectApi.GetKEY_PRIVATE()
 
         if type == "createapp":
             appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)

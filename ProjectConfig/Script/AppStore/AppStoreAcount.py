@@ -54,6 +54,32 @@ class AppStoreAcount:
                 password = item["ClientSecret"]
         return password
 
+    def GetiOSAPI_KEY_ID(self,name): 
+        ret = ""
+        for item in self.dataRoot["appstore"]:
+            if name == item["name"]:
+                ret = item["API_USER_ID"]
+        return ret
+    def GetiOSAPI_USER_ID(self,name): 
+        ret = ""
+        for item in self.dataRoot["appstore"]:
+            if name == item["name"]:
+                ret = item["API_USER_ID"]
+        return ret
+    def GetiOSteamID(self,name): 
+        ret = ""
+        for item in self.dataRoot["appstore"]:
+            if name == item["name"]:
+                ret = item["teamID"]
+        return ret
+    def GetiOSCertificateID(self,name): 
+        ret = ""
+        for item in self.dataRoot["appstore"]:
+            if name == item["name"]:
+                ret = item["CertificateID"]
+        return ret
+
+
     def LoadJson(self): 
         strjson = FileUtil.GetFileString(self.fileJosn)
         self.dataRoot = json.loads(strjson) 
