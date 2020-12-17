@@ -651,6 +651,11 @@ class AppInfo():
         appinfoNew.Save()   
 
     def updateName(self,isHd,isAuto):
+
+        name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
+        mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
+        mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
+        
         appinfoOld = AppInfoOld(isHd)
         if appinfoOld.IsOldVersion():
             # 转换
