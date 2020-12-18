@@ -324,8 +324,10 @@ class HuaweiAppGalleryApi:
         return strret
 
 
-    def UploadFile(self,appId,filepath):
+    def UploadFile(self,appId,upfile):
+        filepath = os.path.normpath(upfile).replace("\\","/")
         print("UploadFile filepath="+filepath)
+
         suffix = FileUtil.GetFileExt(filepath)
         strurl = self.GetUploadUrl(appId,suffix)
         jsonRoot = json.loads(strurl)
