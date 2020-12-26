@@ -18,8 +18,8 @@ app = Flask(__name__)
 # 在Ubuntu上安装Chrome浏览器和ChromeDriver
 # https://www.cnblogs.com/z-x-y/p/9024622.html
 
-# http://127.0.0.1:5000/
-# http://47.242.56.146:5000/
+# http://127.0.0.1:8080/
+# http://47.242.56.146:8080/
 @app.route('/')
 def hello_world():
     return 'Hello World!'

@@ -392,13 +392,13 @@ class AppStoreApple(AppStoreBase):
     def UpdateAso(self, ishd):
         print("UpdateAso")
 
-    def UpdateAppstore(self):
-        mainUpdateAppstore.Run()
+    def UpdateAppstore(self,isHd):
+        mainUpdateAppstore.Run(isHd)
 
 # https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/{id}
     def UpdateAppInfo(self,isHD):  
         if not Platform.isWindowsSystem():
-            self.UpdateAppstore()
+            self.UpdateAppstore(isHD)
 
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         version = mainAppInfo.GetAppVersion(Source.IOS,isHD)
