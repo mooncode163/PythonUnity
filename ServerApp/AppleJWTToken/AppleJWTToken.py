@@ -24,7 +24,7 @@ import base64
 # jwt 和pyjwt 同时安装会出现下面的冲突 删除jwt
 # 如果uninstall 无法删除就到E:\Python37\Lib\site-packages下面手动删除
 # JWT: 'module' object has no attribute 'encode' 
-
+# http://47.242.56.146:5000/AppleJWTToken
 # http://127.0.0.1:5000/AppleJWTToken?keyid=com.moonma.caicaile&userid=100270155&KEY_PRIVATE=100270155
 @app.route('/AppleJWTToken')
 def AppleJWTToken():

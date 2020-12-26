@@ -14,6 +14,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver 
 from selenium.webdriver import ActionChains 
 
+# pip install PyUserInput
+from pykeyboard import PyKeyboard
+
+import pyautogui
+
 # mac mini m1 arm cpu keyboard python crash bug
 if 'Darwin' not in platform.system():
     import keyboard #Using module keyboard
@@ -177,6 +182,10 @@ class WebDriverCmd():
 
 
     def WaitKeyBoard(self,key_press):
+        text = pyautogui.confirm('这个消息弹窗是文字+OK+Cancel按钮')
+        print(text)
+        return
+
         while True:#making a loop
             time.sleep(1)
             print('waiting for key press = ',key_press)
@@ -184,6 +193,10 @@ class WebDriverCmd():
             if keyboard.is_pressed(key_press):
                 print('You Pressed A Key!')
                 break
+
+            
+            k = PyKeyboard()
+
 
     def SetInputText(self, key,title): 
         webcmd = WebDriverCmd(self.driver)

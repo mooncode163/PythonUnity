@@ -8,6 +8,8 @@ keyboard
 requests_toolbelt
 google-api-python-client
 oauth2client
+pyautogui
 jwt
 cryptography
+
 #uvloop~=0.12

@@ -1,0 +1,20 @@
+https://blog.csdn.net/weixin_43041964/article/details/105380284
+
+因为linux和windows下的回车换行符号不一致导致的出错。
+也就是说文件的格式有问题
+
+
+解决方案
+
+vim xxx.sh
+
+1
+// 查看格
+:set ff
+
+// 设置格式
+
+:set ff=unix
+
+保存
+:wq  

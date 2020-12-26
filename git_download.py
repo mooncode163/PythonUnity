@@ -10,6 +10,7 @@ import sys
 
 import socket
  
+# git_download 在windows上传git后 utf8文本可能变成bom utf8 文本 导致无法执行
 
 def download():
 

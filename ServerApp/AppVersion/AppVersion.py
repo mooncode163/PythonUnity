@@ -19,6 +19,7 @@ app = Flask(__name__)
 # https://www.cnblogs.com/z-x-y/p/9024622.html
 
 # http://127.0.0.1:5000/
+# http://47.242.56.146:5000/
 @app.route('/')
 def hello_world():
     return 'Hello World!'
