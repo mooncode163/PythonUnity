@@ -145,7 +145,7 @@ class AppStoreApple(AppStoreBase):
 # 3452644866 qq31415926
     def CreateApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
-
+        package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
         if appid!="0": 
             self.UpdateAppInfo(isHD)
             self.UploadScreenShot(isHD)
@@ -154,7 +154,8 @@ class AppStoreApple(AppStoreBase):
             # self.FillAppInfo(isHD)
             return
 
-        package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
+        # mainAppConnectApi.GetAppProfile(package,appid)
+        # package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
         bundleid = mainAppConnectApi.GetBundleIdByPackage(package)
         webcmd = WebDriverCmd(self.driver)
         url = "https://appstoreconnect.apple.com/apps" 
@@ -426,9 +427,15 @@ class AppStoreApple(AppStoreBase):
 
 
 
-    def UploadScreenShot(self,isHD):  
+    def UploadScreenShot(self,isHD):
+
+        # appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
+        # package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
+        # mainAppConnectApi.GetAppProfile(package,appid)
+        # return
+
         # isHD = True
-        appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
+        
         version = mainAppInfo.GetAppVersion(Source.IOS,isHD)
         total_screenshot = 5
         idx_country =0
@@ -494,7 +501,7 @@ class AppStoreApple(AppStoreBase):
          
         if type == "createapp":
             appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
-
+            
             if appid=="0" or appid=="":
                 self.Init()
                 self.GoHome(isHD) 

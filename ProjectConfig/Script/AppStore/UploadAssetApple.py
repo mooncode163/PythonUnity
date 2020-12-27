@@ -11,7 +11,7 @@ import os
 import sys
 from urllib.parse import urlparse
 import platform 
-
+import requests
 
 # SSL 证书的验证问题
 import ssl
@@ -513,9 +513,22 @@ class UploadAssetApple:
         self.die(3, message)
         return None
 
+    def GetUrl(self, url): 
+        r = requests.get(url)
+        return r.content.decode('utf-8',"ignore")
 
+
+    
+
+    def GetTokenByWeb(self, key_id, user_id,key_private): 
+        url = "http://47.242.56.146:5000/AppleJWTToken?keyid="+key_id+"&userid="+user_id+"&KEY_PRIVATE="+key_private
+        print("url=",url)
+        result = self.GetUrl(url)
+        print("result=",result)
+        return result 
+        
     def create_token(self):
-
+        self.tokenKey = self.GetTokenByWeb(self.KEY_ID,self.ISSUER_ID,self.PRIVATE_KEY)
         if len(self.tokenKey)!=0:
             return self.tokenKey
             

@@ -16,7 +16,7 @@ print(o_path)
 # sys.path.append(o_path)  # 添加自己指定的搜索路径
 # 当前工作目录 Common/PythonUnity/ProjectConfig/Script
 sys.path.append('../../') 
-# sys.path.append('./')  
+sys.path.append('./')  
 
 dir = os.path.abspath(__file__)
 print(dir)
@@ -31,8 +31,7 @@ from Project.Resource import mainResource
 
 # from Config import config
 from Common import Source
-# from Config import adconfig  
-from Common.File.FileUtil import FileUtil    
+# from Config import adconfig     
 
 from AppInfo.AppInfo import mainAppInfo
 

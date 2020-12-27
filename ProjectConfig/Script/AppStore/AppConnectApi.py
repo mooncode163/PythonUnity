@@ -141,8 +141,8 @@ class AppConnectApi:
     def CreateJWTToken(self, keyid, userid):
         KEY_PRIVATE = self.GetKEY_PRIVATE()
 
-        if len(self.KeyToken)==0:
-            self.KeyToken = self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
+        # if len(self.KeyToken)==0:
+        self.KeyToken = self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
         
         return self.KeyToken
  
@@ -689,6 +689,7 @@ class AppConnectApi:
 
 # https://developer.apple.com/documentation/appstoreconnectapi/register_a_new_bundle_id
     def CreateBundleID(self,package):
+        ret = ""
         header = self.GetApiUrlHead()  
         url = "https://api.appstoreconnect.apple.com/v1/bundleIds" 
         name=self.GetNameByPackage(package)
@@ -709,7 +710,8 @@ class AppConnectApi:
         strret = mdl_rqt.content.decode("utf-8")
         print("CreateBundleID strret=",strret)
         jsonRoot = json.loads(strret)
-        ret = jsonRoot["data"]["id"] 
+        if "data" in jsonRoot:
+            ret = jsonRoot["data"]["id"] 
         return ret  
 
     def DeleteBundleID(self,bundleid):
