@@ -112,7 +112,7 @@ class AppStoreHuawei(AppStoreBase):
 
     def CreateApp(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
-
+        print("CreateApp appid=",appid," isHD=",isHD)
         if appid != "0":
             self.UpdateAppInfo(isHD)
             self.UploadScreenShot(isHD)
@@ -939,7 +939,7 @@ class AppStoreHuawei(AppStoreBase):
         name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
         mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
         mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
-
+        print(" mainHuaweiAppGalleryApi.ClientId =",mainHuaweiAppGalleryApi.ClientId,"name=",name)
 
         if type == "createapp":
 
@@ -952,13 +952,14 @@ class AppStoreHuawei(AppStoreBase):
                 name = mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI)
                 self.Login(name, mainAppStoreAcount.GetPassword(Source.HUAWEI,name))
                 # 
-                self.SaveCookie(self.fileCookie)
-            
-
-
-            self.CreateApp(False)
-            time.sleep(3)
-            self.CreateApp(True)
+                # self.SaveCookie(self.fileCookie)
+             
+            if isHD:
+                self.CreateApp(isHD)
+            else:
+                self.CreateApp(False)
+                time.sleep(3)
+                self.CreateApp(True)
  
 
         # if type == "update":

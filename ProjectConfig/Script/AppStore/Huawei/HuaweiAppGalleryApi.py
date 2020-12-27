@@ -19,6 +19,7 @@ from Common.File.FileUtil import FileUtil
 # from AppStore.AppStoreAcount import mainAppStoreAcount
 from Common import Source
 
+# https://developer.huawei.com/consumer/cn/service/josp/agc/index.html
 class HuaweiAppGalleryApi:  
     # ClientId = "469947311665972416"
     # ClientSecret = "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201"
@@ -63,7 +64,7 @@ class HuaweiAppGalleryApi:
   
         strret = mdl_rqt.content.decode("utf-8") 
         # access_token
-        print(strret)
+        print("self.ClientId=",self.ClientId,"access_token =",strret)
         jsonRoot = json.loads(strret)
         result = jsonRoot["access_token"]
         print(result)

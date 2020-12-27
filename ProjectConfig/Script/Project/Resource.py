@@ -254,11 +254,11 @@ class Resource():
         return os.path.normpath(path)
 
     def GetOutPutScreenshot(self,isHd): 
-        dirapk = self.GetProjectOutPutApp()+"\\screenshot"
+        dirapk = self.GetProjectOutPutApp()+"/screenshot"
         if isHd==True:
-            dirapk+="\\heng" 
+            dirapk+="/heng" 
         else:
-            dirapk+="\\shu"
+            dirapk+="/shu"
             
         return os.path.normpath(dirapk)
 
@@ -484,7 +484,7 @@ class Resource():
 
 
     def GetAppVersionIos(self):
-        xcode_plist = GetRootDirXcode()+ "/Info.plist" 
+        xcode_plist = self.GetRootDirXcode()+ "/Info.plist" 
         print("xcode_plist="+xcode_plist)
         strFile = FileUtil.GetFileString(xcode_plist)
         # 		<key>CFBundleIdentifier</key>

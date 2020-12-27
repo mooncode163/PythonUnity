@@ -403,6 +403,7 @@ class AppStoreApple(AppStoreBase):
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         version = mainAppInfo.GetAppVersion(Source.IOS,isHD)
         idx = 0
+        print("UpdateAppInfo 1 appid="+appid+ " isHD="+str(isHD))
         for country in self.listCountry:
             lan = self.listCountryLanguage[idx]
             name= mainAppInfo.GetAppName(Source.IOS, isHD,lan)
@@ -416,6 +417,7 @@ class AppStoreApple(AppStoreBase):
             promotionalText =  mainAppInfo.GetAppPromotion(isHD, lan) 
             supportUrl =  mainAppInfo.GetAppSupportUrl(isHD)
             whatsNew = mainAppInfo.GetAppUpdate(isHD,lan)
+            print("mainAppConnectApi UpdateAppInfo  appid="+appid)
             mainAppConnectApi.UpdateAppInfo(appid,version,country,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew)
             mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
             

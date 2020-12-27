@@ -51,6 +51,7 @@ class AppConnectApi:
     API_KEY_ID = ""
     API_USER_ID = ""
     teamID = ""
+    KeyToken =  ""
 
     # Apple Distribution: YuanFang Chen 发布证书 
     # Certificate.json 调用ListAllCertificates 获取
@@ -134,12 +135,17 @@ class AppConnectApi:
         print("result=",result)
         return result
 
-    def GetToken(self):
+    def GetToken(self): 
         return self.CreateJWTToken(self.API_KEY_ID,self.API_USER_ID)
 
     def CreateJWTToken(self, keyid, userid):
         KEY_PRIVATE = self.GetKEY_PRIVATE()
-        return self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
+
+        if len(self.KeyToken)==0:
+            self.KeyToken = self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
+        
+        return self.KeyToken
+ 
         # 构造header
 
         # headers = {
@@ -313,6 +319,7 @@ class AppConnectApi:
 
 
     def UpdateAppInfo(self, appid,version,lan,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew): 
+        print("UpdateAppInfo GetAppLocalization  appid=",appid)
         applocalization_id = mainUploadAssetApple.GetAppLocalizationId(appid,"IOS",version,lan)
         print("applocalization_id=",applocalization_id)
         url = "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/"+applocalization_id

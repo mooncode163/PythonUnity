@@ -22,6 +22,6 @@ fi
 
 echo $filepath
 cd $filepath
-cd ../../../../../Common/PythonUnity/ProjectConfig/Script  
+cd ../../../../../../Common/PythonUnity/ProjectConfig/Script  
 python3 ProjectManager.py $filepath IPABuild ipa_build
 python3 ProjectManager.py $filepath IPABuild upload_ipa

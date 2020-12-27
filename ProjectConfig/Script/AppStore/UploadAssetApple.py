@@ -12,6 +12,11 @@ import sys
 from urllib.parse import urlparse
 import platform 
 
+
+# SSL 证书的验证问题
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 if 'Darwin' not in platform.system():
     import jwt
 
@@ -398,6 +403,7 @@ class UploadAssetApple:
 
  
     def GetAppLocalizationId(self,appid, platform, version, locale): 
+        print("GetAppLocalizationId  appid=",appid)
         return self.GetAppLocalization(appid,platform,version,locale)['id']
 
     def GetAppLocalization(self,appid, platform, version, locale):
@@ -408,7 +414,7 @@ class UploadAssetApple:
         auth_header = f"Bearer {self.create_token()}"
 
 
-        print("Find (or create) app preview set.")
+        print("GetAppLocalization Find (or create) app preview set. appid=",appid)
      
         
         # 3. Look up the version version by platform and version number.

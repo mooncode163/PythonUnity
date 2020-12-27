@@ -90,6 +90,7 @@ if __name__ == "__main__":
     p = AppStoreManager() 
 
     if arg2 == "createapp":
+        print("createapp arg4=",arg4," isHd=",isHd)
         # python AppStoreManager.py %~dp0 createapp huawei hd
         # p.CreateApp(arg2,arg3,arg4)
         p.GetAppStore(arg3).Run(arg2,isHd)

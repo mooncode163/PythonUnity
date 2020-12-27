@@ -469,6 +469,8 @@ class AppInfo():
             name = "chyfemail163@163.com"
         if key in data:
             name = data[key][appstore]
+        print(" GetAppStoreAcount name=",name)
+
         return name 
 
     def GetAppPromotion(self,isHd,lan): 

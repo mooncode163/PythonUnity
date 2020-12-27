@@ -272,6 +272,7 @@ class IPABuild():
         if type == "upload_ipa":
             isUploadIPA = True
             # ipa_file = RootDir + "/app_export_ipa/" + target
+            target = "game"
             self.UploadOneIPA(ipa_file + "/" + target + ".ipa")
 
         if type == "export_ipa":

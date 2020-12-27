@@ -32,6 +32,17 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin:${PATH}
 export PATH="/Users/moon/Library/Android/sdk/platform-tools:$PATH"
 #adb end
 
+#adb 
+export PATH="/Users/moon/sourcecode:$PATH"
+#adb end
+
+export PATH=${PATH}:/usr/local/mysql/bin
+
+
+# gradle
+export PATH=${PATH}:/Users/moon/sourcecode/unity/product/Common/Tool/gradle/gradle-4.10.1/bin
+
+
 
 
 
