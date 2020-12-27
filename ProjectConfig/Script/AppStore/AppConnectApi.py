@@ -852,23 +852,30 @@ class AppConnectApi:
         self.ListAllCertificates()
         self.GetAppInfo(appid)
         bundle_id = self.GetBundleIdByPackage(package)
+        print("bundle_id =",bundle_id)
+
+        count = 0
+        if len(bundle_id)==0:
+            count = 0
+        else:
         # self.DeleteBundleID(bundle_id)
         # bundle_id = self.GetBundleIdByPackage(package)
 
-        header = self.GetApiUrlHead()
-        url = "https://api.appstoreconnect.apple.com/v1/bundleIds/"+bundle_id+"/profiles"
-        mdl_rqt = requests.get(
-            url, 
-            headers=header
-            # timeout=30
-        )
-        result = mdl_rqt.content.decode("utf-8")
-        json = mdl_rqt.json()
-        # print("ListAllBundleIds =",result)
-        self.SaveData2Json(json,"GetAppProfile.json")
-        jsonRoot =json
-        jsondata = jsonRoot["data"]
-        count = len(jsondata)
+            header = self.GetApiUrlHead()
+            url = "https://api.appstoreconnect.apple.com/v1/bundleIds/"+bundle_id+"/profiles"
+            mdl_rqt = requests.get(
+                url, 
+                headers=header
+                # timeout=30
+            )
+            result = mdl_rqt.content.decode("utf-8")
+            json = mdl_rqt.json()
+            # print("ListAllBundleIds =",result)
+            self.SaveData2Json(json,"GetAppProfile.json")
+            jsonRoot =json
+            jsondata = jsonRoot["data"]
+            count = len(jsondata)
+
         print("GetAppProfile count=",count," package="+package)
         if count:
             dataprofile = jsonRoot["data"][0]["attributes"]["profileContent"]

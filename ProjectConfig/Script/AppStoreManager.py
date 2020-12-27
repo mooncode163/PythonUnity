@@ -49,6 +49,7 @@ class AppStoreManager():
         name =""
     
     def GetAppStore(self,channel):
+        print("GetAppStore channel=",channel)
         if channel == Source.HUAWEI:
             return mainAppStoreHuawei
         if channel == Source.TAPTAP:
@@ -56,6 +57,7 @@ class AppStoreManager():
         if channel == Source.GP:
             return mainAppStoreGoogle
         if channel == Source.APPSTORE:
+            print("GetAppStore mainAppStoreApple=")
             return mainAppStoreApple
   
          
@@ -102,6 +104,11 @@ if __name__ == "__main__":
 
     if arg2 == "UploadScreenShot":
         p.GetAppStore(arg3).Run(arg2,isHd)
+
+    if arg2 == "CreateBundleID":
+        print("AppStoreManager CreateBundleID")
+        p.GetAppStore(arg3).Run(arg2,isHd)
+ 
 
     if arg2 == "DeleteAllScreenShot":
         p.GetAppStore(arg3).Run(arg2,isHd)

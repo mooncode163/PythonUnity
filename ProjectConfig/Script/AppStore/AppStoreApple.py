@@ -427,12 +427,23 @@ class AppStoreApple(AppStoreBase):
 
 
 
+    def CreateBundleID(self,isHD):
+        print("CreateBundleID   enter=") 
+        # isHD = True
+        appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
+        package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
+        # package = "com.moonma.fillfood.pad2"
+        
+        print("CreateBundleID   package=",package)
+        mainAppConnectApi.CreateBundleID(package) 
+        # mainAppConnectApi.GetAppProfile(package,appid)
+         
+
     def UploadScreenShot(self,isHD):
 
-        # appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
-        # package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
-        # mainAppConnectApi.GetAppProfile(package,appid)
-        # return
+        appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
+        package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
+      
 
         # isHD = True
         
@@ -522,6 +533,10 @@ class AppStoreApple(AppStoreBase):
  
         if type == "UploadScreenShot":
             self.UploadScreenShot(isHD)
+
+        if type == "CreateBundleID":
+            self.CreateBundleID(False)
+            self.CreateBundleID(True)
 
         if type == "DeleteAllScreenShot":
             self.DeleteAllScreenShot(isHD)

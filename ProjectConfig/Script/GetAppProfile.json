@@ -3,7 +3,7 @@
         {
             "code": "NOT_FOUND",
             "detail": "There is no resource of type 'bundleIds' with id 'profiles'",
-            "id": "206c192a-d135-4207-8991-b4fcabf191c3",
+            "id": "0eebac1e-9e42-49bf-8f2c-30807abedcfe",
             "source": {
                 "pointer": "data/id"
             },
