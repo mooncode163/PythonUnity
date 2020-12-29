@@ -103,7 +103,7 @@ def CreateJWTToken(keyid, userid,KEY_PRIVATE):
 
     # s = jwt.encode(dic, 'secret',key=KEY_PRIVATE, algorithm='ES256')  # 加密生成字符串      
     # print(s) 
-    print("，result=",result)
+    # print("，result=",result)
     return result
 
  

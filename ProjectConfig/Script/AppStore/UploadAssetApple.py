@@ -524,7 +524,7 @@ class UploadAssetApple:
         url = "http://47.242.56.146:5000/AppleJWTToken?keyid="+key_id+"&userid="+user_id+"&KEY_PRIVATE="+key_private
         print("url=",url)
         result = self.GetUrl(url)
-        print("result=",result)
+        # print("result=",result)
         return result 
         
     def create_token(self):

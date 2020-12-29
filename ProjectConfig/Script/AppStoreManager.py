@@ -109,6 +109,8 @@ if __name__ == "__main__":
         print("AppStoreManager CreateBundleID")
         p.GetAppStore(arg3).Run(arg2,isHd)
  
+    if arg2 == "DownloadProfile": 
+        p.GetAppStore(arg3).Run(arg2,isHd)
 
     if arg2 == "DeleteAllScreenShot":
         p.GetAppStore(arg3).Run(arg2,isHd)

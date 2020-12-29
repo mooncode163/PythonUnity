@@ -38,6 +38,7 @@ sys.path.append(o_path)  # 添加自己指定的搜索路径
 
 # 导入chrome选项
 
+# api docs https://developer.apple.com/cn/app-store-connect/api/
 
 # pip3 install pywin32
 
@@ -130,9 +131,9 @@ class AppConnectApi:
     def GetTokenByWeb(self, key_id, user_id,key_private): 
         key_private =  self.GetKEY_PRIVATE()
         url = "http://47.242.56.146:5000/AppleJWTToken?keyid="+key_id+"&userid="+user_id+"&KEY_PRIVATE="+key_private
-        print("url=",url)
+        # print("url=",url)
         result = self.GetUrl(url)
-        print("result=",result)
+        # print("result=",result)
         return result
 
     def GetToken(self): 
@@ -206,14 +207,18 @@ class AppConnectApi:
         FileUtil.SaveString2File(json_str, savepath)
 
     def GetBundleIdByPackage(self, package):
-        result = self.ListAllBundleIds(package)
-        jsonRoot = json.loads(result)
-        list = jsonRoot["data"]
-        for data in list:
-            if data["attributes"]["identifier"] == package:
-                return data["id"]
+        result = self.GetBundleIdOfPackage(package)
+        if len(result)==0:
+            return self.CreateBundleID(package)
+
+        return result
+        # jsonRoot = json.loads(result)
+        # list = jsonRoot["data"]
+        # for data in list:
+        #     if data["attributes"]["identifier"] == package:
+        #         return data["id"]
  
-        return self.CreateBundleID(package) 
+        # return self.CreateBundleID(package) 
 
     def ReadAppAllVersion(self, app_id):
         header = self.GetApiUrlHead() 
@@ -780,7 +785,7 @@ class AppConnectApi:
     ## 查询bundleid列表接口
     # limit 请求的bundleid个数
     # sort Possible values: id, -id, name, -name, platform, -platform, seedId, -seedId
-    def ListAllBundleIds(self,package,limit=100,sort='id'):
+    def ListAllBundleIds(self,limit=200,sort='id'):
         header = self.GetApiUrlHead()
         url = "https://api.appstoreconnect.apple.com/v1/bundleIds" 
         params = {'limit':limit,'sort':sort}
@@ -794,7 +799,37 @@ class AppConnectApi:
         json = mdl_rqt.json()
         # print("ListAllBundleIds =",result)
         self.SaveData2Json(json,"Bundle_id.json")
+        # self.ListBundleIdOfPackage(package)
         return result
+
+
+    def GetBundleIdOfPackage(self,package):
+        # print("ListBundleIdOfPackage start") 
+        header = self.GetApiUrlHead()
+        # url = "https://api.appstoreconnect.apple.com/v1/bundleIds" 
+        url = "https://api.appstoreconnect.apple.com/v1/bundleIds?filter[identifier]="+package 
+        limit=200
+        sort='id'
+        params = {'limit':limit,'sort':sort,}
+        mdl_rqt = requests.get(
+            url, 
+            params=params,
+            headers=header
+            # timeout=30
+        )
+        result = mdl_rqt.content.decode("utf-8")
+        # json = mdl_rqt.json()
+        # print("ListBundleIdOfPackage result=",result) 
+
+        ret =""
+        jsonRoot = json.loads(result)
+        list = jsonRoot["data"]
+        for data in list:
+            if data["attributes"]["identifier"] == package:
+                ret = data["id"]
+                break
+        print("ListBundleIdOfPackage ret=",ret) 
+        return ret
 
     def GetAppInfo(self,appid):
         header = self.GetApiUrlHead()
@@ -900,7 +935,7 @@ class AppConnectApi:
         # result = self.api.list_bundle_ids()
         # self.SaveData2Json(result,"Bundle_id2.json")
 
-
+        print("CreateProfile appid=",appid)
         token = self.CreateJWTToken(self.API_KEY_ID, self.API_USER_ID)
         str_url = "https://api.appstoreconnect.apple.com/v1/profiles"
         header = self.GetApiUrlHead()
@@ -909,7 +944,7 @@ class AppConnectApi:
         type = 'IOS_APP_STORE' 
         name=self.GetNameByPackage(package)
         bundle_id = self.GetBundleIdByPackage(package)
-        print("bundle_id=",bundle_id)
+        print("CreateProfile bundle_id=",bundle_id)
         cerificate_id = self.CertificateID
 
         params = {'data':{
@@ -934,7 +969,7 @@ class AppConnectApi:
         )
         # 5. 将get回来的content使用gzip解码
         strret = mdl_rqt.content.decode("utf-8")
-        # print("CreateProfile strret =",strret)
+        print("CreateProfile strret =",strret)
         json = mdl_rqt.json()
         dataprofile = json["data"]["attributes"]["profileContent"] 
         return dataprofile
