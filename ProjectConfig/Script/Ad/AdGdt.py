@@ -11,6 +11,7 @@ from selenium import webdriver
 import sys
 import os
 import json
+import platform 
 sys.path.append('../../') 
 sys.path.append('./') 
 from Project.Resource import mainResource
@@ -28,7 +29,9 @@ from Common.WebDriver.WebDriverCmd import WebDriverCmd
 from Common.WebDriver.WebDriverCmd import CmdInfo 
  
 
-import keyboard #Using module keyboard
+# mac mini m1 arm cpu keyboard python crash bug
+if 'Darwin' not in platform.system():
+    import keyboard #Using module keyboard
 
 from Ad.AdBase import AdBase
 # from Ad.ParseAdGdt import ParseAdGdt
@@ -78,7 +81,7 @@ class AdGdt(AdBase):
         print("Login urlold=", self.urlold)
         # 用扫描登录 不要执行LoginQQ
         # self.LoginQQ(user, password)
-        self.SaveCookie()
+        # self.SaveCookie()
         # 等待登录成功
         while True:
             time.sleep(1)
@@ -505,7 +508,9 @@ class AdGdt(AdBase):
         self.GetAdInfo(isHD)
 
     def OpenFileBrowser(self):
-        FileBrowser.OpenFile("F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut\\xiehanzi\\xiehanzi\\screenshot\\shu\\cn\\480p\\1.jpg",True)
+        # FileBrowser.OpenFile("F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut\\xiehanzi\\xiehanzi\\screenshot\\shu\\cn\\480p\\1.jpg",True)
+
+        FileBrowser.OpenFile("/Users/moon/sourcecode/unity/product/kidsgame/ProjectOutPut/xiehanzi/xiehanzi/screenshot/shu/cn/480p/1.jpg",True)
  
 
     def CreateAdBanner(self, isHD):
