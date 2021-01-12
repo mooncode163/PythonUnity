@@ -27,7 +27,7 @@ fi
 sh ../CopyResource
 sh ./UnityBuildAndroid
 sh ../UpdateAppInfoAuto
-sh ./ApkBuildTapTap
+sh ./ApkBuildGP
 
     
 

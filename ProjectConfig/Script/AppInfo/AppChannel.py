@@ -72,7 +72,7 @@ class AppChannel():
             project_android = "android/project_hd"
 
         if channel == Source.GP:
-            self.MakeGooglePlayObbFile(ishd)
+            # self.MakeGooglePlayObbFile(ishd)
             mainConfigSDKAndroid.SetShareSdk(False)
             mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True) 
             mainConfigSDKAndroid.SetAdSdk(Source.ADVIEW, False)
@@ -158,7 +158,7 @@ class AppChannel():
         dir = FileUtil.GetLastDirofDir(dir)
         print("MakeGooglePlayObbFile file_zip dir =",dir)
         file_zip = dir+"/main."+str(versioncode)+"."+package+".obb"
-        file_zip = dir+".zip"
+        file_zip = dir+"/GameRes.zip"
         # main.13.com.itant.wuji.obb
         print("MakeGooglePlayObbFile obb file=",file_zip)
         # if os.path.exists(file_zip):

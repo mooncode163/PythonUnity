@@ -12,6 +12,8 @@ import datetime
 import os
 import json 
 import base64
+
+smsCode = ""
 # import PyJWT
 # from jwt import PyJWT
 # 在 Ubuntu 上使用 Nginx 部署 Flask 应用
@@ -33,6 +35,21 @@ def AppleJWTToken():
     userid = request.args["userid"] 
     KEY_PRIVATE = request.args["KEY_PRIVATE"] 
     return CreateJWTToken(keyid, userid,KEY_PRIVATE) 
+
+# http://47.242.56.146:5000/GetSmsCode
+@app.route('/GetSmsCode')
+def GetSmsCode():
+    print(request.url)
+    global smsCode
+    return smsCode 
+
+# http://47.242.56.146:5000/SetSmsCode?code=123456
+@app.route('/SetSmsCode')
+def SetSmsCode():
+    print(request.url) 
+    global smsCode
+    smsCode = request.args["code"]
+    return smsCode 
 
 def GetFileString(filePath): 
     f = open(filePath, 'rb')

@@ -39,12 +39,12 @@ class UnityBuild():
 
         
         methond = ""
-        if os == Source.ANDROID:
+        if stros == Source.ANDROID:
             methond = "BuildPlayer.PerformAndroidBuild"
-        if os == Source.IOS:
+        if stros == Source.IOS:
             methond = "BuildPlayer.PerformiPhoneBuild"
 
-        print("unity_build  start")
+        print("unity_build  start stros=",stros)
         cmd = UNITYPATH+" -quit "+" -batchmode "+" -projectPath "+PROJECT_PATH+" -executeMethod  "+methond
         # ps = subprocess.Popen(cmd)
         # ps.wait()#让程序阻塞

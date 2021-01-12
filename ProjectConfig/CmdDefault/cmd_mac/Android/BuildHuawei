@@ -24,9 +24,9 @@ else
 
 fi
  
-sh ./CopyResource
+sh ../CopyResource
 sh ./UnityBuildAndroid
-sh ./UpdateAppInfoAuto
+sh ../UpdateAppInfoAuto
 sh ./ApkBuildHuawei
 
     

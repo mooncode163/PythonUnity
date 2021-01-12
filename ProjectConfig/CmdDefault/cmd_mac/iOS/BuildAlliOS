@@ -21,12 +21,12 @@ else
     echo "不包含"
 
     cd $filepath
-    sh ./CopyResource
+    sh ../CopyResource
     sh ./UnityBuildiOS
-    sh ./UpdateAppInfoAuto
-    sh ./CopyConfig
+    sh ../UpdateAppInfoAuto
+    sh ../CopyConfig
     sh ./IPABuild
-    sh ./CopyConfigHD
+    sh ../CopyConfigHD
     sh ./IPABuild
 
 fi

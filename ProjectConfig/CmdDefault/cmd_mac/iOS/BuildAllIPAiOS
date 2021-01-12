@@ -18,8 +18,8 @@ else
 fi
 
 cd $filepath
-sh ./UpdateAppInfoAuto
-sh ./CopyConfig
+sh ../UpdateAppInfoAuto
+sh ../CopyConfig
 sh ./IPABuild
-sh ./CopyConfigHD
+sh ../CopyConfigHD
 sh ./IPABuild

@@ -461,8 +461,14 @@ class AppInfo():
         name =  data["appversion"][os]["code"]
         return name
 
+    def LoadJsonConfigCommon(self):  
+        jsonfile = mainResource.GetConfigDataDir()+"/config/config_common.json"  
+        jsonfile = os.path.normpath(jsonfile)
+        strfile = FileUtil.GetFileString(jsonfile)
+        return json.loads(strfile) 
+
     def GetAppStoreAcount(self,isHd,appstore): 
-        data = self.loadJson(isHd)
+        data = self.LoadJsonConfigCommon()
         key = "appstore_acount"
         name = "chyfemail163@163.com"
         if appstore==Source.IOS:

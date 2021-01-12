@@ -1067,5 +1067,19 @@ class AppConnectApi:
         # 5. 将get回来的content使用gzip解码
         print(mdl_rqt.content.decode("utf-8"))
 
+# TestFlight
+# List Beta Testers
+
+    def GetAppAllTester(self, isHD):
+        token = self.CreateJWTToken(self.API_KEY_ID, self.API_USER_ID)
+        str_url = "https://api.appstoreconnect.apple.com/v1/betaTesters" 
+        header = self.GetApiUrlHead() 
+        mdl_rqt = requests.get(
+            str_url,
+            headers=header,
+            timeout=30
+        )
+        # 5. 将get回来的content使用gzip解码
+        print(mdl_rqt.content.decode("utf-8"))
 
 mainAppConnectApi = AppConnectApi()

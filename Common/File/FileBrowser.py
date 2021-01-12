@@ -18,7 +18,19 @@ if 'Windows' in platform.system():
 
 class FileBrowser():  
     @staticmethod
-    def OpenFile(path,autoclick):
+    def OpenFile(path,isAutoClick):
+        if Platform.isWindowsSystem():
+            FileBrowser.OpenFileWindow(path,isAutoClick)
+        if Platform.isMacSystem():
+            FileBrowser.OpenFileMac(path,isAutoClick)
+
+    @staticmethod
+    def OpenFileMac(path,isAutoClick):
+        test = 0
+        # os.system('open '+path)
+
+    @staticmethod
+    def OpenFileWindow(path,isAutoClick):
         # win32gui
         dialog = win32gui.FindWindow('#32770', u'打开')  # 对话框
         ComboBoxEx32 = win32gui.FindWindowEx(dialog, 0, 'ComboBoxEx32', None)
@@ -29,7 +41,7 @@ class FileBrowser():
         win32gui.SendMessage(Edit, win32con.WM_SETTEXT, None, os.path.normpath(path))
         # win32gui.SendMessage(Edit, win32con.WM_SETTEXT, None, "F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut\\xiehanzi\\hanziyuan\\screenshot\\shu\\cn\\480p\\1.jpg")
         # win32gui.SendMessage(Edit,win32con.WM_SETTEXT,None,'F:\sourcecode\unity\product\kidsgame\ProjectOutPut\xiehanzi\hanziyuan\screenshot\shu\cn\480p\1.jpg')  # 往输入框输入绝对地址
-        if autoclick==True:
+        if isAutoClick==True:
             win32gui.SendMessage(dialog, win32con.WM_COMMAND, 1, button)  # 按button
 
         time.sleep(3)
