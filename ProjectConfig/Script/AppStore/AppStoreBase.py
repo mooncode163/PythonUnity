@@ -46,7 +46,16 @@ class AppStoreBase():
     # rootDirProjectOutPut="F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut"
  
    
-
+    def GetSmsCode(self):
+        code = ""
+        while True:
+            time.sleep(2)
+            code = mainAppInfo.GetSmsCode()
+            if len(code) != 0:
+                break
+            print("waiting for GetSmsCode")
+        return code
+        
     def GoHome(self):
         # 加载百度页面
         # driver.get("https://developer.huawei.com/consumer/cn/")

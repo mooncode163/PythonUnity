@@ -8,7 +8,7 @@ import os.path
 import time
 import datetime
 import json
-
+import requests  
 #include mainResource.py
 # sys.path.append('./common')
 
@@ -34,6 +34,19 @@ from Common.File.FileUtil import FileUtil
 class AppInfo(): 
     versionCode = 100
     rootJson=None
+
+    def GetUrl(self, url): 
+        r = requests.get(url)
+        return r.content.decode('utf-8',"ignore")
+
+    def GetSmsCode(self):  
+        # url = "http://47.242.56.146:5000/GetSmsCode" 
+        url = "http://mooncore.cn:5000/GetSmsCode"  
+        return self.GetUrl(url) 
+
+    def SetSmsCode(self,code):  
+        url = "http://mooncore.cn:5000/SetSmsCode?code="+code
+        return self.GetUrl(url) 
 
     def SetCmdPath(self,cmdPath):  
         mainResource.SetCmdPath(cmdPath)

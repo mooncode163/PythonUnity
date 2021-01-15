@@ -50,6 +50,22 @@ class AppVersionParser():
 
         return self.GetJson(version)
 
+
+    def GetVersionByPackage(self,package): 
+        print(request.url)
+        # appinfo = AppInfo()
+        # appinfo.appid= "100270155"
+        # appinfo.package= "com.moonma.caicaile"
+        # appinfo.version= "2.1.0"
+
+        db = DBApp()
+        db.OpenDB("DBApp.db") 
+        
+        version = db.GetVersionByPackage(package)
+       
+
+        return self.GetJson(version)
+
         # return "1.0.0"
 
 mainAppVersionParser = AppVersionParser() 

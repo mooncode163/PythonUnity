@@ -78,6 +78,7 @@ class AppStoreApple(AppStoreBase):
   
     
     def Login(self,user,password):
+        mainAppInfo.SetSmsCode("")
         webcmd = WebDriverCmd(self.driver)
         self.urlold = self.driver.current_url
         print("Login urlold=",self.urlold) 
@@ -122,6 +123,43 @@ class AppStoreApple(AppStoreBase):
         # item.click() 
         # time.sleep(1)
  
+
+        # 输入短信验证码
+
+        # <a class="si-link ax-outline tk-subbody lite-theme-override" id="didnt-get-code" href="#">
+        #                 没有收到验证码？
+        #             </a>
+        key = "//a[@id='no-trstd-device-pop']"
+        item = webcmd.Find(key,True) 
+        if item is not None:
+            webcmd.AddCmd(CmdType.CLICK, key) 
+            webcmd.Run(True)
+
+# <a class="si-link link ax-outline tk-subbody-headline" id="use-phone-link" href="#" aria-describedby="usePhoneSMSInfo">
+#                                                 发送短信给我
+#                                             </a>
+
+        key = "//a[@id='use-phone-link']"
+        item = webcmd.Find(key,True) 
+        if item is not None:
+            webcmd.AddCmd(CmdType.CLICK, key) 
+            webcmd.Run(True)
+
+        code = self.GetSmsCode()
+        print("Login GetSmsCode=",code)
+
+      
+        # <input maxlength="1" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" type="tel" id="char0" class="form-control force-ltr form-textbox char-field" aria-label="输入验证码 位 1" placeholder="" data-index="0">
+        for i in range(6):
+            idkey = "char"+str(i)
+            key = "//input[@id='"+idkey+"']"
+            item = webcmd.Find(key,False)
+            # webcmd.SetInputText(key,code[i])
+            code_i = code[i]
+            print("input code_i=",code_i)
+            item.send_keys(code_i)
+      
+
         key = "//button[contains(@id,'trust-browser')]"
         item = webcmd.Find(key,True)
         if item is not None:

@@ -28,7 +28,7 @@ def hello_world():
 # http://mooncore.cn:8080/AppVersion_huawei?cur_version=1.2.0&package=com.moonma.caicaile&appid=100270155
 # http://127.0.0.1:5000/AppVersion_huawei?cur_version=1.2.0&package=com.moonma.caicaile&appid=100270155
 @app.route('/AppVersion_huawei')
-def GetAppVersion():
+def GetAppVersionHuawei():
     print(request.url)
     cur_version = request.args["cur_version"]
     package = request.args["package"]
@@ -37,6 +37,15 @@ def GetAppVersion():
     print(package)
     # return "2.0.0"
     return mainAppVersionParser.GetVersion(cur_version,package,appid)
+
+# http://mooncore.cn:8080/AppVersion?package=com.moonma.caicaile
+@app.route('/AppVersion')
+def GetAppVersion():
+    print(request.url) 
+    package = request.args["package"] 
+    print(package)
+    # return "2.0.0"
+    return mainAppVersionParser.GetVersionByPackage(package)
 
 if __name__ == '__main__':
     # app.run()

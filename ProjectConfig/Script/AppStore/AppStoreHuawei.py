@@ -64,18 +64,19 @@ class AppStoreHuawei(AppStoreBase):
         self.urlold = self.driver.current_url
         time.sleep(3)
 
+
     def Login(self, user, password):
         # 3452644866
-
+        mainAppInfo.SetSmsCode("")
         # 等待扫码登录
-        while True:
-            time.sleep(1)
-            self.urlnew = self.driver.current_url
-            if self.urlnew != self.urlold:
-                break
-            print("waiting for login self.urlnew=",self.urlnew)
+        # while True:
+        #     time.sleep(1)
+        #     self.urlnew = self.driver.current_url
+        #     if self.urlnew != self.urlold:
+        #         break
+        #     print("waiting for login self.urlnew=",self.urlnew)
 
-        return
+        # return
 
         # driver.add_cookie("[{'domain': '.id1.cloud.huawei.com', 'expiry': 1908869785, 'httpOnly': False, 'name': 'sid', 'path': '/', 'secure': True, 'value': '2049382e3828ef4470bef8b426c4bb3370e7d9e1147f53a18839e47dad7caf10a233e61ee15337b4373e'}, {'domain': '.id1.cloud.huawei.com', 'expiry': 1908869785, 'httpOnly': False, 'name': 'hwid_cas_sid', 'path': '/', 'secure': True, 'value': '2049382e3828ef4470bef8b426c4bb3370e7d9e1147f53a18839e47dad7caf10a233e61ee15337b4373e'}, {'domain': 'id1.cloud.huawei.com', 'expiry': 1624872984, 'httpOnly': False, 'name': 'HW_idts_id1_cloud_huawei_com_id1_cloud_huawei_com', 'path': '/', 'secure': False, 'value': '1593336984125'}, {'domain': 'id1.cloud.huawei.com', 'expiry': 1624872984, 'httpOnly': False, 'name': 'HW_id_id1_cloud_huawei_com_id1_cloud_huawei_com', 'path': '/', 'secure': False, 'value': 'cf787be41ac24d65887dcd20c826ac97'}, {'domain': 'id1.cloud.huawei.com', 'expiry': 1624872984, 'httpOnly': False, 'name': 'HW_idvc_id1_cloud_huawei_com_id1_cloud_huawei_com', 'path': '/', 'secure': False, 'value': '1'}, {'domain': 'id1.cloud.huawei.com', 'expiry': 1593338788, 'httpOnly': False, 'name': 'HW_idn_id1_cloud_huawei_com_id1_cloud_huawei_com', 'path': '/', 'secure': False, 'value': 'ec569450f0ac4cd78fc72965d91ec7e8'}, {'domain': 'id1.cloud.huawei.com', 'expiry': 1608888984, 'httpOnly': False, 'name': 'HW_refts_id1_cloud_huawei_com_id1_cloud_huawei_com', 'path': '/', 'secure': False, 'value': '1593336984124'}, {'domain': '.id1.cloud.huawei.com', 'httpOnly': True, 'name': 'CAS_THEME_NAME', 'path': '/', 'secure': True, 'value': 'red'}, {'domain': 'id1.cloud.huawei.com', 'httpOnly': False, 'name': 'cookieBannerOnOff', 'path': '/', 'secure': False, 'value': 'true'}, {'domain': '.id1.cloud.huawei.com', 'httpOnly': True, 'name': 'VERSION_NO', 'path': '/', 'secure': True, 'value': 'UP_CAS_4.0.4.100'}, {'domain': 'id1.cloud.huawei.com', 'httpOnly': True, 'name': 'JSESSIONID', 'path': '/CAS', 'secure': True, 'value': '144E8B2ED3F5D9C8576742C1DDF4CF3D0DCF6949E13D6943'}]")
         self.urlold = self.driver.current_url
@@ -92,7 +93,15 @@ class AppStoreHuawei(AppStoreBase):
         time.sleep(1)
 
 
+        code = self.GetSmsCode()
+        print("Login GetSmsCode=",code)
+
+        # 输入短信验证码
+        item = self.driver.find_element(
+            By.XPATH, "//input[@ht='input_authentication_authcode']")
+        item.send_keys(code)
         
+
         while True:
             time.sleep(1)
             self.urlnew = self.driver.current_url
