@@ -40,11 +40,7 @@
 		<key>UILaunchStoryboardName~ipod</key>
 		<string>LaunchScreen-iPhone</string>
 		<key>UIPrerenderedIcon</key>
-		<false/>
-		<key>UIRequiredDeviceCapabilities</key>
-		<array>
-			<string>armv7</string>
-		</array>
+		<false/> 
 		<key>UIRequiresFullScreen</key>
 		<true/>
 		<key>UIRequiresPersistentWiFi</key>

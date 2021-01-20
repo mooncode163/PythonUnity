@@ -182,6 +182,11 @@ class FileUtil():
         game = path[idx+1:s_len]
         return game
 
+    @staticmethod 
+    def CreateDir(dir): 
+        if os.path.exists(dir)==False:
+            os.mkdir(dir)
+
 
  
 

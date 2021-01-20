@@ -155,8 +155,24 @@ class WebDriverCmd():
         
         return item
 
-    def FindChild(self,item,key):
-        return item.find_element(By.XPATH, key)
+    def FindChild(self,item,key,isWait=False):
+        ret = None
+        if isWait:
+            if self.IsElementChildExist(item,key):
+                ret = item.find_element(By.XPATH, key)
+            else:
+                # waiting
+                while True:
+                    time.sleep(1) 
+                    print("FindChild waiting key=", key)
+                    if self.IsElementChildExist(item,key): 
+                        ret = item.find_element(By.XPATH, key)
+                        break
+
+        else: 
+            ret = item.find_element(By.XPATH, key) 
+
+        return ret
 
     def FindList(self,key,isWait=False):
         item = None

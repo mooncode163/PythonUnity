@@ -178,18 +178,22 @@ class AppStoreApple(AppStoreBase):
 
             
 
-
+    def ShowWebHome(self):
+        url = "https://appstoreconnect.apple.com"
+        self.driver.get(url)
+        time.sleep(4)
     
 # 3452644866 qq31415926
     def CreateApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
         package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
         if appid!="0": 
-            self.UpdateAppInfo(isHD)
-            self.UploadScreenShot(isHD)
+            self.FillAppInfo(isHD)
+            # self.UpdateAppInfo(isHD)
+            # self.UploadScreenShot(isHD)
             # self.Init()
             # self.GoHome(isHD) 
-            # self.FillAppInfo(isHD)
+            
             return
 
         # mainAppConnectApi.GetAppProfile(package,appid)
@@ -224,8 +228,9 @@ class AppStoreApple(AppStoreBase):
 
         item=webcmd.AddCmd(CmdType.CLICK, "//select[@name='bundleId']")
         webcmd.Run(True) 
+        # time.sleep(2)
         key = ".//option[@value='"+package+"']"
-        subitem = webcmd.FindChild(item,key)
+        subitem = webcmd.FindChild(item,key,True)
         webcmd.DoCmd(subitem,CmdType.CLICK) 
   
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='sku']",mainAppInfo.GetAppSKU(isHD))  
@@ -245,9 +250,9 @@ class AppStoreApple(AppStoreBase):
         idx = url.find("/")
         appid = url[0:idx]
         print("appid create =",appid)
-        mainAppInfo.SetAppId(isHD,Source.IOS,Source.APPSTORE,appid)
-        
-        self.FillAppInfo(isHD)
+        if len(appid)>2:
+            mainAppInfo.SetAppId(isHD,Source.IOS,Source.APPSTORE,appid)
+            self.FillAppInfo(isHD)
 
      
     def FillAppInfo(self, isHD):
@@ -560,13 +565,17 @@ class AppStoreApple(AppStoreBase):
             
             if appid=="0" or appid=="":
                 self.CreateBundleID(isHD)
-                self.Init()
-                self.GoHome(isHD) 
-            
+             
+            self.Init()
+            self.GoHome(isHD) 
+
             if isHD:
                 self.CreateApp(True)
             else:
                 self.CreateApp(False)
+
+                self.ShowWebHome()
+
                 self.CreateApp(True)
                
 

@@ -66,6 +66,7 @@ class AppStoreHuawei(AppStoreBase):
 
 
     def Login(self, user, password):
+        webcmd = WebDriverCmd(self.driver)
         # 3452644866
         mainAppInfo.SetSmsCode("")
         # 等待扫码登录
@@ -92,6 +93,12 @@ class AppStoreHuawei(AppStoreBase):
         item.click()
         time.sleep(1)
 
+        # 获取验证码
+        key = "//div[@ht='click_authentication_getAuthcode']"
+        item = webcmd.Find(key,True) 
+        if item is not None:
+            webcmd.AddCmd(CmdType.CLICK, key) 
+            webcmd.Run(True)
 
         code = self.GetSmsCode()
         print("Login GetSmsCode=",code)
@@ -100,6 +107,31 @@ class AppStoreHuawei(AppStoreBase):
         item = self.driver.find_element(
             By.XPATH, "//input[@ht='input_authentication_authcode']")
         item.send_keys(code)
+
+
+        # 确定
+        # key = "//div[@ht='click_dialog_rightbtn']"
+        key = "//div[@class='dialog-btn btn-next']"
+        item = webcmd.Find(key,True) 
+        if item is not None:
+            webcmd.AddCmd(CmdType.CLICK, key) 
+            webcmd.Run(True)
+            # key = ".//span[text()='确定']"
+            # key = "//div[@class='dialog-btn btn-next']"
+            # subitem = webcmd.FindChild(item,key,True) 
+            # print("Click 确定=")
+            # webcmd.DoCmd(subitem,CmdType.CLICK_Action)  
+
+
+        # 信任
+        key = "//div[@ht='click_dialog_rightbtn']"
+        item = webcmd.Find(key,True) 
+        # if item is not None:
+        #     key = ".//span[text()='信任']"
+        #     subitem = webcmd.FindChild(item,key,True) 
+        #     webcmd.DoCmd(subitem,CmdType.CLICK)  
+
+
         
 
         while True:
@@ -119,6 +151,11 @@ class AppStoreHuawei(AppStoreBase):
 # 3452644866 qq31415926
 
 
+    def ShowWebHome(self):
+        url = "https://developer.huawei.com/consumer"
+        self.driver.get(url)
+        time.sleep(2)
+
     def CreateApp(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
         print("CreateApp appid=",appid," isHD=",isHD)
@@ -137,7 +174,7 @@ class AppStoreHuawei(AppStoreBase):
         old_window = self.driver.current_window_handle
         url = "https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myApp"
         self.driver.get(url)
-        time.sleep(1)
+        time.sleep(2)
 
         # 等待网页加载成功
         key = "//iframe[@id='mainIframeView']"
@@ -968,6 +1005,7 @@ class AppStoreHuawei(AppStoreBase):
             else:
                 self.CreateApp(False)
                 time.sleep(3)
+                self.ShowWebHome()
                 self.CreateApp(True)
  
 
