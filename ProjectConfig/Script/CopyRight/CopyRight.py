@@ -16,7 +16,8 @@ from Common.File.FileUtil import FileUtil
 from AppInfo.AppInfo import mainAppInfo
  
 import json
-  
+
+# @moon fix bugs
 # 代码行后面有// 如 public  int LINE_WIDTH_PIXSEL_MAX = 900;//  2048x1536   注释会出现下面错误：
 # ValueError: All strings must be XML compatible: Unicode or ASCII, no NULL bytes or control characters
 

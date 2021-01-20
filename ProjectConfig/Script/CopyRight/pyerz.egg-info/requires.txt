@@ -1,0 +1,3 @@
+click
+scandir
+python-docx
