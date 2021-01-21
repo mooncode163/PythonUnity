@@ -48,6 +48,7 @@ class CopyRight():
     
     def MakeGuideDoc(self,isHd): 
         title = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN)+"V1.0.0"
+        detail = mainAppInfo.GetAppDetail(isHd,Source.LANGUAGE_CN)
         outputdir = mainResource.GetProjectOutPutApp()
         FileUtil.CreateDir(outputdir)
 
@@ -61,7 +62,8 @@ class CopyRight():
 
         
         filedst = dirscreenshot+"/detail.xml"
-        FileUtil.CopyFile(filedetail,filedst) 
+        FileUtil.SaveString2File(detail,filedst)
+        # FileUtil.CopyFile(filedetail,filedst) 
         cmd = "pyerz -e xml -i "+dirscreenshot+" -o "+docoutput +" -t "+title
         # print("cmd=",cmd)
         for i in range(5):
