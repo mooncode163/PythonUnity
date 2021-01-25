@@ -33,6 +33,8 @@ ADMOB = "admob"
 VUNGLE = "vungle"
 MOBVISTA = "mobvista"
 BAIDU = "baidu"
+UMENG = "umeng"
+CHSJ = "chsj"
 
 # language
 LANGUAGE_CN = "cn"

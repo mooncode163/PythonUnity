@@ -439,6 +439,12 @@ class AppStoreApple(AppStoreBase):
     def UpdateAppstore(self,isHd):
         mainUpdateAppstore.Run(isHd)
 
+
+
+    def UpdateIAPInfo(self,isHD):  
+        if not Platform.isWindowsSystem():
+            mainUpdateAppstore.UpdateIAPInfo(isHD)
+
 # https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/{id}
     def UpdateAppInfo(self,isHD):  
         if not Platform.isWindowsSystem():
@@ -452,7 +458,8 @@ class AppStoreApple(AppStoreBase):
             lan = self.listCountryLanguage[idx]
             name= mainAppInfo.GetAppName(Source.IOS, isHD,lan)
             subtitle= mainAppInfo.GetAppSubtitle(isHD,lan)
-            policyUrl= mainAppInfo.GetAppPrivacyUrl(isHD)
+            # policyUrl= mainAppInfo.GetAppPrivacyUrl(isHD)
+            policyUrl= mainAppStoreAcount.GetPrivacy(Source.APPSTORE,mainAppInfo.GetAppStoreAcount(isHD,Source.APPSTORE))
             policyText =""
 
             description = mainAppInfo.GetAppDetail(isHD,lan)
@@ -528,6 +535,11 @@ class AppStoreApple(AppStoreBase):
 
     def DeleteAllScreenShot(self,isHD):  
         print("DeleteAllScreenShot isHD=",isHD)
+        if not Platform.isWindowsSystem():
+            mainUpdateAppstore.DeleteAllScreenshots(isHD)
+            self.UpdateAppInfo(isHD)
+            return
+
         # isHD = True
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         version = mainAppInfo.GetAppVersion(Source.IOS,isHD)
@@ -604,6 +616,10 @@ class AppStoreApple(AppStoreBase):
         if type == "UpdateAppInfo":
             self.UpdateAppInfo(False)
             self.UpdateAppInfo(True)
+
+        if type == "UpdateIAPInfo":
+            self.UpdateIAPInfo(False)
+            self.UpdateIAPInfo(True)
 
  
         if type == "update":

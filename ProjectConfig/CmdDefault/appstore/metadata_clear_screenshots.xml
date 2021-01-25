@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.9">
+   <!--  <provider>YuanFang Chen</provider> -->
+    <team_id>Y9ZUK2WTEE</team_id>
+    <software>
+        <vendor_id>_VENDOR_ID_</vendor_id>
+        <software_metadata>
+            <versions>
+                <version string="_VERSION_">
+                    <locales>
+                        <locale name="en-US">
+                            <title>title</title>
+                            <subtitle>title</subtitle>
+                            <description>description description</description>
+                            <promotional_text>title</promotional_text>
+                            <keywords>
+                               <keyword>title</keyword> 
+                            </keywords>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                            <software_screenshots> 
+                            </software_screenshots>
+
+                        </locale>
+
+                         <locale name="zh-Hans">
+                                 <title>title</title>
+                            <subtitle>title</subtitle>
+                            <description>description description</description>
+                            <promotional_text>title</promotional_text>
+                            <keywords>
+                               <keyword>title</keyword> 
+                            </keywords>
+                           <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                          <software_screenshots> 
+                            </software_screenshots>
+
+                            
+                        </locale>
+
+                         <locale name="en-CA">
+                                <title>title</title>
+                            <subtitle>title</subtitle>
+                            <description>description description</description>
+                            <promotional_text>title</promotional_text>
+                            <keywords>
+                               <keyword>title</keyword> 
+                            </keywords>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                             <software_screenshots> 
+                            </software_screenshots>
+
+                            
+                        </locale>
+
+                         <locale name="en-AU">
+                                   <title>title</title>
+                            <subtitle>title</subtitle>
+                            <description>description description</description>
+                            <promotional_text>title</promotional_text>
+                            <keywords>
+                               <keyword>title</keyword> 
+                            </keywords>
+                            <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                         <software_screenshots> 
+                            </software_screenshots>
+                        </locale>
+
+                         <locale name="en-GB">
+                                     <title>title</title>
+                            <subtitle>title</subtitle>
+                            <description>description description</description>
+                            <promotional_text>title</promotional_text>
+                            <keywords>
+                               <keyword>title</keyword> 
+                            </keywords>
+                           <software_url>http://www.mooncore.cn</software_url>
+                            <privacy_url>http://www.mooncore.cn/index/privacyPolicy_kidsgame.shtml</privacy_url>
+                            <support_url>http://blog.sina.com.cn/s/blog_1736372fb0102xb49.html</support_url>
+
+                            <software_screenshots> 
+                            </software_screenshots>
+
+                            
+                        </locale>
+                        
+                    </locales>
+                </version>
+            </versions>
+     
+
+        </software_metadata>
+    </software>
+</package>

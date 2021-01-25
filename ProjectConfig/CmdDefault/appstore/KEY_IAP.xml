@@ -1,0 +1,42 @@
+ <in_app_purchase>
+                    <product_id>_ID_</product_id>
+                    <reference_name>_NAME_</reference_name>
+                    <type>_TYPE_</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>_PRICE_</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="en-US">
+                            <title>_TITLE_EN_</title>
+                            <description>_DETAIL_EN_</description>
+                        </locale>
+
+                        <locale name="zh-Hans">
+                            <title>_TITLE_CN_</title>
+                            <description>_DETAIL_CN_</description>
+                        </locale>
+                        <locale name="en-CA">
+                            <title>_TITLE_EN_</title>
+                            <description>_DETAIL_EN_</description>
+                        </locale>
+                        <locale name="en-AU">
+                            <title>_TITLE_EN_</title>
+                            <description>_DETAIL_EN_</description>
+                        </locale>
+                        <locale name="en-GB">
+                            <title>_TITLE_EN_</title>
+                            <description>_DETAIL_EN_</description>
+                        </locale>
+
+                        
+                    </locales>
+                    <review_screenshot>
+                        <file_name>in_app_purchases_screenshot.png</file_name>
+                        <size>96482</size>
+                        <checksum type="md5">dc4f197705c3983c730d236f54de2950</checksum>
+                    </review_screenshot>
+                    <!-- <review_notes></review_notes> -->
+                </in_app_purchase>

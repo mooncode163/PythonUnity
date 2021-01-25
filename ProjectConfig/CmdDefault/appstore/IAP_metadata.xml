@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.9">
+   <!--  <provider>YuanFang Chen</provider> -->
+    <team_id>Y9ZUK2WTEE</team_id>
+    <software>
+        <vendor_id>_VENDOR_ID_</vendor_id>
+        <software_metadata>
+            
+          
+           <in_app_purchases>
+                _KEY_IAP_
+            </in_app_purchases>
+
+
+        </software_metadata>
+    </software>
+</package>

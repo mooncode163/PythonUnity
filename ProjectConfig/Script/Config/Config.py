@@ -69,6 +69,11 @@ class Config():
         self.LoadCommonJson(dir)
         return self.jsonCommonRoot["APP_FOR_KIDS"]
 
+    def IsNoIDFASDK(self): 
+        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        self.LoadCommonJson(dir)
+        return self.jsonCommonRoot["NoIDFASDK"]
+
     def GetShareAppId(self,src, osSrc, isHd):
         self.LoadJson(osSrc, isHd)
         appid = "0"

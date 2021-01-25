@@ -29,6 +29,8 @@ import json
 
 class CopyRight():
     title = "" 
+        
+    # 每页不少于50行
     def MakeCodeDoc(self,isHd):
         title = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN)+"V1.0.0"
         codedir = "/Users/moon/sourcecode/LearnWord"
@@ -46,9 +48,13 @@ class CopyRight():
 
         self.WordToPdf(docoutput)
     
+    # 每页不少于30行
     def MakeGuideDoc(self,isHd): 
         title = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN)+"V1.0.0"
         detail = mainAppInfo.GetAppDetail(isHd,Source.LANGUAGE_CN)
+        # detail +="/n"
+        detail += mainAppInfo.GetAppDetail(isHd,Source.LANGUAGE_EN)
+
         outputdir = mainResource.GetProjectOutPutApp()
         FileUtil.CreateDir(outputdir)
 
@@ -64,7 +70,7 @@ class CopyRight():
         filedst = dirscreenshot+"/detail.xml"
         FileUtil.SaveString2File(detail,filedst)
         # FileUtil.CopyFile(filedetail,filedst) 
-        cmd = "pyerz -e xml -i "+dirscreenshot+" -o "+docoutput +" -t "+title
+        cmd = "pyerz -e xml -i "+dirscreenshot+" -o "+docoutput +" -t "+title+" --font-size 16 --space-before 2 --space-after 10 --line-spacing 16 "
         # print("cmd=",cmd)
         for i in range(5):
             pic = dirscreenshot+"/"+str(i+1)+".jpg"

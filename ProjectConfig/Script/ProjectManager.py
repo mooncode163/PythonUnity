@@ -233,10 +233,10 @@ if __name__ == "__main__":
         p.UpdateAppstore(True)
 
     if arg == "AppstoreUploadiOS":
-        p.AppstoreUploadiOS()
+        p.AppstoreUploadiOS(False)
 
     if arg == "AppstoreUploadHDiOS":
-        p.AppstoreUploadiOS()
+        p.AppstoreUploadiOS(True)
 
     if arg == "test":
         p.CopyAllCmd()

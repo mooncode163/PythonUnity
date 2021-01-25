@@ -40,6 +40,15 @@ class AppStoreAcount:
                 password = item["password"]
         return password
 
+    def GetPrivacy(self,appstore,name): 
+        password = ""
+        for item in self.dataRoot[appstore]:
+            if name == item["name"]:
+                password = item["privacy"]
+        return password
+
+        
+
     def GetClientId(self,appstore,name): 
         password = ""
         for item in self.dataRoot[appstore]:

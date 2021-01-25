@@ -515,6 +515,8 @@ class AppStoreHuawei(AppStoreBase):
         else:
             self.PreSubmitApp(isHD)
 
+    def GetPrivacy(self, isHD):
+        return mainAppStoreAcount.GetPrivacy(Source.HUAWEI,mainAppInfo.GetAppStoreAcount(isHD,Source.HUAWEI))
     # 准备提交app
 
     def PreSubmitApp(self, isHD):
@@ -598,7 +600,7 @@ class AppStoreHuawei(AppStoreBase):
 
         # 隐私政策网址
         key = "//input[@id='VerInfoPrivacyPolicyInputBox']"
-        webcmd.AddCmd(CmdType.INPUT, key, mainAppInfo.GetAppPrivacyUrl(isHD))
+        webcmd.AddCmd(CmdType.INPUT, key, self.GetPrivacy(isHD))
         webcmd.Run(True)
 
         # <span class="text ng-binding">审核通过立即上架</span>
@@ -637,7 +639,7 @@ class AppStoreHuawei(AppStoreBase):
         # 隐私政策网址
         key = "//input[@id='VerInfoPrivacyPolicyInputBox']"
         if self.IsElementExist(key):
-            webcmd.AddCmd(CmdType.INPUT, key, mainAppInfo.GetAppPrivacyUrl(isHD))
+            webcmd.AddCmd(CmdType.INPUT, key, self.GetPrivacy(isHD))
             webcmd.Run(True)
 
         # 不申请
@@ -926,7 +928,7 @@ class AppStoreHuawei(AppStoreBase):
     def UpdateAppInfo(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)  
         defaultLang = "en-US"
-        policyUrl= mainAppInfo.GetAppPrivacyUrl(isHD)
+        policyUrl= self.GetPrivacy(isHD)
         mainHuaweiAppGalleryApi.UpdateAppBaseInfo(appid,defaultLang,policyUrl)
 
         idx = 0

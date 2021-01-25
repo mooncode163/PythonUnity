@@ -4,15 +4,17 @@
             "name": "chyfemail163@163.com",
             "password": "Qianlizhiwai1",
             "ClientId": "469947311665972416",
-            "ClientSecret": "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201"
+            "ClientSecret": "7701769ABE85209F58C1736D3FD95C8B9B7225F6EDC1415482D1EB142C8ED201",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy.txt"
         },
         {
             "name": "qq651577315@163.com",
             "password": "Qianlizhiwai1",
             "ClientId": "512760121349124480",
-            "ClientSecret": "D0BB085A217BFF03F62EDB92441A04A8455C80F7DCAFA4450E1215ABC2D184D3"
+            "ClientSecret": "D0BB085A217BFF03F62EDB92441A04A8455C80F7DCAFA4450E1215ABC2D184D3",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy_qq651577315.json"
         }
-    ],
+    ], 
     "appstore": [
         {
             "name": "chyfemail163@163.com",
@@ -20,7 +22,8 @@
             "API_KEY_ID": "MVG9NGFVX7",
             "API_USER_ID": "69a6de89-f844-47e3-e053-5b8c7c11a4d1",
             "teamID": "Y9ZUK2WTEE",
-            "CertificateID": "24BC8G8FMA"
+            "CertificateID": "24BC8G8FMA",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy.txt"
         },
         {
             "name": "qq651577315@163.com",
@@ -28,17 +31,20 @@
             "API_KEY_ID": "0",
             "API_USER_ID": "0",
             "teamID": "0",
-            "CertificateID": "0"
+            "CertificateID": "0",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy_qq651577315.json"
         }
     ],
     "gp": [
         {
             "name": "chyfemail163@gmail.com",
-            "password": "qianlizhiwai1"
+            "password": "qianlizhiwai1",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy.txt"
         },
         {
             "name": "0",
-            "password": "0"
+            "password": "0",
+            "privacy": "https://6c69-lianlianle-shkb3-1259451541.tcb.qcloud.la/PrivacyPolicy_qq651577315.json"
         }
     ]
 }

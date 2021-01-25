@@ -17,6 +17,8 @@ from Common import Source
 from Config.AdConfig import mainAdConfig  
 from Project.Resource import mainResource
 from Common.File.FileUtil import FileUtil 
+from AppInfo.AppInfo import mainAppInfo
+from AppStore.AppstoreUploadiOS import mainAppstoreUploadiOS
 
 DEVICE_IPADPRO = "ipadpro"
 DEVICE_IPADPRO_2018 = "ipadpro"
@@ -257,6 +259,17 @@ class UpdateAppstore():
             
         return strRet
 
+    def DeleteInAppPurchasesScreenshot(self,isHd):    
+        rootConfig = mainResource.GetProjectConfigApp() 
+        dst = rootConfig + "/appstore/ios/app.itmsp" 
+        if isHd:
+            dst = rootConfig + "/appstore/ios/app_pad.itmsp"  
+        filepath =dst+"/in_app_purchases_screenshot.png"
+        
+        if os.path.exists(filepath):
+            os.remove(filepath)
+
+
     def CopyInAppPurchasesScreenshot(self,isHd):   
         # src =mainResource.GetProjectConfig() + "/default/appstore/in_app_purchases_screenshot.png"
         src =mainResource.GetResourceDataRoot() + "/in_app_purchases_screenshot.png"
@@ -275,6 +288,103 @@ class UpdateAppstore():
             isOld = False  
 
         return isOld
+
+
+    def LoadJsonIAP(self,isHD,stros):  
+
+        if stros==Source.ANDROID:
+            jsonfile = mainResource.GetConfigDataDir()+"/IAP/IAP_android.json"  
+            if isHD:
+                jsonfile = mainResource.GetConfigDataDir()+"/IAP/IAP_android_hd.json"  
+
+        if stros==Source.IOS:  
+            jsonfile = mainResource.GetConfigDataDir()+"/IAP/IAP_ios.json"  
+            if isHD:
+                jsonfile = mainResource.GetConfigDataDir()+"/IAP/IAP_ios_hd.json"  
+
+        jsonfile = os.path.normpath(jsonfile)
+        strfile = FileUtil.GetFileString(jsonfile)
+        return json.loads(strfile) 
+ 
+
+    def DeleteAllScreenshots(self,isHd): 
+        verison = mainAppInfo.GetAppVersion(Source.IOS,isHd) 
+        
+        rootConfig = mainResource.GetProjectConfigDefault()  
+        str_metadata_xml = FileUtil.GetFileString(rootConfig + "/appstore/metadata_clear_screenshots.xml")
+        str_metadata_xml=str_metadata_xml.replace("_VENDOR_ID_",mainAppInfo.GetAppSKU(isHd))
+        str_metadata_xml=str_metadata_xml.replace("_VERSION_",verison)
+  
+        rootConfig = mainResource.GetProjectConfigApp()
+        file_metadata_ios = rootConfig + "/appstore/ios/app.itmsp/metadata.xml" 
+        if isHd:
+            file_metadata_ios = rootConfig + "/appstore/ios/app_pad.itmsp/metadata.xml" 
+        
+        FileUtil.SaveString2File(str_metadata_xml,file_metadata_ios)
+        mainAppstoreUploadiOS.Run(isHd)
+
+    def UpdateIAPInfo(self,isHd):
+        self.CopyInAppPurchasesScreenshot(isHd)
+        self.UploadIAPInfo(isHd,Source.IOS)
+        self.DeleteInAppPurchasesScreenshot(isHd)
+        
+
+    def UploadIAPInfo(self,isHd,stros):
+        package = mainAppInfo.GetAppPackage(stros,isHd)
+        rootJson = self.LoadJsonIAP(isHd,stros)
+        rootConfig = mainResource.GetProjectConfigDefault() 
+        striap = FileUtil.GetFileString(rootConfig + "/appstore/KEY_IAP.xml")
+         
+        listIAP =[] 
+        for item in rootJson["items"]:
+
+            name = item["key"]
+            striap=striap.replace("_NAME_",name)
+            product_id = package+"."+name
+            striap=striap.replace("_ID_",product_id)
+
+            # consumable non-consumable
+            isConsume = item["isConsume"] 
+            product_type = "non-consumable"
+            if isConsume:
+                product_type = "consumable"
+
+            striap=striap.replace("_TYPE_",product_type)
+            
+
+            title_cn = item["title"]["cn"]
+            striap=striap.replace("_TITLE_CN_",title_cn)
+            title_en = item["title"]["en"]
+            striap=striap.replace("_TITLE_EN_",title_en)
+
+            title_cn = item["detail"]["cn"]
+            striap=striap.replace("_DETAIL_CN_",title_cn)
+            title_en = item["detail"]["en"]
+            striap=striap.replace("_DETAIL_EN_",title_en)
+            
+            price = item["price_tier"]
+            striap=striap.replace("_PRICE_",price)
+
+            listIAP.append(striap)
+
+        str_metadata_xml = FileUtil.GetFileString(rootConfig + "/appstore/IAP_metadata.xml")
+        str_metadata_xml=str_metadata_xml.replace("_VENDOR_ID_",mainAppInfo.GetAppSKU(isHd))
+        strkeyiap = ""
+        for strtmp in listIAP:
+            strkeyiap+=strtmp
+
+        str_metadata_xml=str_metadata_xml.replace("_KEY_IAP_",strkeyiap)
+
+
+        rootConfig = mainResource.GetProjectConfigApp()
+        file_metadata_ios = rootConfig + "/appstore/ios/app.itmsp/metadata.xml" 
+        if isHd:
+            file_metadata_ios = rootConfig + "/appstore/ios/app_pad.itmsp/metadata.xml" 
+        
+        FileUtil.SaveString2File(str_metadata_xml,file_metadata_ios)
+        mainAppstoreUploadiOS.Run(isHd) 
+
+        
 
     def updateAppstore(self,isHd):
         
@@ -458,7 +568,7 @@ class UpdateAppstore():
 
         if len(sys.argv)>2:
             if sys.argv[2] == "delete_screenshot":
-                delete_screenshots()
+                # delete_screenshots()
                 sys.exit(0)   
 
 
@@ -473,7 +583,7 @@ class UpdateAppstore():
 
         shutil.copytree(dir1,dir2)
 
-        self.copy_screenshots()
+        # self.copy_screenshots()
         
 
         self.updateAppstore(isHd)

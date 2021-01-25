@@ -188,6 +188,14 @@ class FileUtil():
             os.mkdir(dir)
 
 
- 
+    @staticmethod 
+    def RemoveDir(dir): 
+        if os.path.exists(dir)==True:
+            shutil.rmtree(dir)
+
+    @staticmethod 
+    def RemoveFile(filePath): 
+        if os.path.exists(filePath)==True:
+            os.remove(filePath)
 
   

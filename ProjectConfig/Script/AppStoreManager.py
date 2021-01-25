@@ -119,6 +119,8 @@ if __name__ == "__main__":
     if arg2 == "UpdateAppInfo":
         p.GetAppStore(arg3).Run(arg2,isHd)
 
+    if arg2 == "UpdateIAPInfo":
+        p.GetAppStore(arg3).Run(arg2,isHd)
 
     if arg2 == "DeleteAllLanguage":
         p.GetAppStore(arg3).Run(arg2,isHd) 

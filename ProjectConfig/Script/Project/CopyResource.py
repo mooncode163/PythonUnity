@@ -12,6 +12,9 @@ sys.path.append('../../')
 sys.path.append('./')  
 from Project.Resource import mainResource
 from Common.File.FileUtil import FileUtil 
+from Common.File.ZipUtil import ZipUtil
+from Config.Config import mainConfig
+from Common import Source
 
 class CopyResource(): 
     def CopyPlugins(self):
@@ -22,6 +25,82 @@ class CopyResource():
         if not flag:
             # shutil.rmtree(dir2)
             shutil.copytree(dir1,dir2)
+
+        self.ConfigiOSPluginsCode()
+
+    def IsNoIDFASDK(self):
+        return mainConfig.IsNoIDFASDK()
+
+
+    def ConfigiOSLib(self,source_lib):
+        dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"
+        dirLib = dirRoot+"/ThirdParty"
+
+        FileUtil.RemoveDir(dirLib+"/"+source_lib)
+        if not self.IsNoIDFASDK():
+            zipfile = dirLib+"/"+source_lib+".zip"
+            ZipUtil.un_zip(zipfile,dirLib)
+
+    def ConfigiOSAdkitCode(self,source_ad):
+        dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"
+        dirCodeAdkitPlatform = dirRoot+"/Common/AdKit/Platform"
+
+        FileUtil.RemoveDir(dirCodeAdkitPlatform+"/"+source_ad)
+        if not self.IsNoIDFASDK():
+            zipfile = dirCodeAdkitPlatform+"/"+source_ad+".zip"
+            ZipUtil.un_zip(zipfile,dirCodeAdkitPlatform)
+
+    def ConfigiOSPluginsCode(self):
+        dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"
+        dirCodeCommon = dirRoot+"/Common"
+ 
+        dirCodeAdkit = dirRoot+"/Common/AdKit"
+
+        # tongji
+        FileUtil.RemoveDir(dirCodeCommon+"/Tongji")
+        zipfile = dirCodeCommon+"/Tongji.zip" 
+        if self.IsNoIDFASDK(): 
+            zipfile = dirCodeCommon+"/Tongji_NoSDK.zip" 
+        flag = os.path.exists(zipfile)
+        if flag:
+            ZipUtil.un_zip(zipfile,dirCodeCommon)
+
+        # share
+        FileUtil.RemoveDir(dirCodeCommon+"/Share")
+        zipfile = dirCodeCommon+"/Share.zip" 
+        if self.IsNoIDFASDK(): 
+            zipfile = dirCodeCommon+"/Share_NoSDK.zip" 
+        flag = os.path.exists(zipfile)
+        if flag:
+            ZipUtil.un_zip(zipfile,dirCodeCommon)
+
+
+        # adconfig
+        FileUtil.RemoveDir(dirCodeAdkit+"/AdConfig")
+        zipfile = dirCodeAdkit+"/AdConfig.zip" 
+        if self.IsNoIDFASDK(): 
+            zipfile = dirCodeAdkit+"/AdConfig_NoSDK.zip" 
+        flag = os.path.exists(zipfile)
+        if flag:
+            ZipUtil.un_zip(zipfile,dirCodeAdkit)
+
+
+
+        # adkit
+        self.ConfigiOSLib(Source.GDT)
+        self.ConfigiOSLib(Source.BAIDU)
+        self.ConfigiOSLib(Source.ADMOB)
+        self.ConfigiOSLib(Source.CHSJ)
+        self.ConfigiOSLib(Source.UNITY)
+        self.ConfigiOSLib(Source.UMENG)
+
+        self.ConfigiOSAdkitCode(Source.GDT)
+        self.ConfigiOSAdkitCode(Source.BAIDU)
+        self.ConfigiOSAdkitCode(Source.ADMOB)
+        self.ConfigiOSAdkitCode(Source.CHSJ)
+        self.ConfigiOSAdkitCode(Source.UNITY) 
+
+
 
     def CopyResConfigData(self):
         # ResConfigDataCommon 
