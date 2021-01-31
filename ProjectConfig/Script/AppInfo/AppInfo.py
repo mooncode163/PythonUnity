@@ -794,6 +794,7 @@ class AppInfo():
             # ios
             appid_apple = self.GetJsonAppId(data,Source.APPSTORE)
             version_web = mainAppVersionApple.ParseVersion(appid_apple)
+            print("AppVersionApple=",version_web+" appid_apple=",appid_apple)
             self.SetAppVersion(isHd,Source.IOS,version_web)
             strcode = version_web.replace(".","")
             self.SetAppVersionCode(isHd,Source.IOS,strcode)

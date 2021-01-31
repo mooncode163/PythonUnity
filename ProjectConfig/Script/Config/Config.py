@@ -72,7 +72,9 @@ class Config():
     def IsNoIDFASDK(self): 
         dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
         self.LoadCommonJson(dir)
-        return self.jsonCommonRoot["NoIDFASDK"]
+        if "NoIDFASDK" in self.jsonCommonRoot:
+            return self.jsonCommonRoot["NoIDFASDK"]
+        return False
 
     def GetShareAppId(self,src, osSrc, isHd):
         self.LoadJson(osSrc, isHd)

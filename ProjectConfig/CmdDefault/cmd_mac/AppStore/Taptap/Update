@@ -20,7 +20,7 @@ fi
 
 echo $filepath
 cd $filepath
-cd ../../../../../Common/PythonUnity/ProjectConfig/Script 
+cd ../../../../../../../Common/PythonUnity/ProjectConfig/Script 
 python3 AppStoreManager.py $filepath update taptap
 
  

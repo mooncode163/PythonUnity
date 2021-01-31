@@ -341,10 +341,10 @@ class Resource():
         return self.GetRootProjectIosNormal() 
 
     def GetRootProjectIosUser(self):
-        return "/Users/moon/sourcecode/unity/product/"+self.GetProjectName()+"/project_ios"
+        return "/Users/moon/sourcecode/unity/product/"+"project_ios"
 
     def GetRootProjectIosNormal(self):
-        return self.GetRootDir()+"/project_ios"
+        return self.GetDirProduct()+"/project_ios"
 
     def GetRootProjectAndroid(self):
         return self.GetDirProductCommon()+"/project_android"

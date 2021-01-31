@@ -337,10 +337,12 @@ class UpdateAppstore():
          
         listIAP =[] 
         for item in rootJson["items"]:
+            if item["isSkip"]:
+                continue
 
             name = item["key"]
             striap=striap.replace("_NAME_",name)
-            product_id = package+"."+name
+            product_id = package+"."+item["id"]
             striap=striap.replace("_ID_",product_id)
 
             # consumable non-consumable
