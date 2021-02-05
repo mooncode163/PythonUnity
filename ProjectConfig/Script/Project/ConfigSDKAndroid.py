@@ -63,7 +63,11 @@ class ConfigSDKAndroid():
     def SetShareSdk(self,enable): 
         # lib
         dir_lib = self.GetDirShareSdkLib()
-        file_zip = mainResource.GetRootDirAndroidStudio() + "/libs/share.zip"
+        if enable:
+            file_zip = mainResource.GetRootDirAndroidStudio() + "/libs/share.zip"
+        else:
+            file_zip = mainResource.GetRootDirAndroidStudio() + "/libs/share_nosdk.zip"
+
         rootdir_lib = mainResource.GetRootDirAndroidStudio() + "/libs"
 
         flag = os.path.exists(dir_lib)

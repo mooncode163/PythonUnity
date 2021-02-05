@@ -6,7 +6,7 @@ import platform
 import math
 # from PIL import Image
 
-class MakeGameLevelImage():  
+class MakeLevelJson():  
     listFile:None 
     fileJosn = "level.json" 
     dstSize = 1024
@@ -187,6 +187,6 @@ class MakeGameLevelImage():
 
 # 主函数的实现
 if __name__ == "__main__":  
-    p = MakeGameLevelImage()
+    p = MakeLevelJson()
     p.Run()
-    print("MakeGameLevelImage finish")
+    print("MakeLevelJson finish")

@@ -98,7 +98,8 @@ class AppChannel():
             mainConfigSDKAndroid.SetAdSdk(Source.UNITY, True)
             mainConfigSDKAndroid.SetAdSdk(Source.BAIDU, True)
 
-            mainConfigSDKAndroid.SetShareSdk(True)
+            # True
+            mainConfigSDKAndroid.SetShareSdk(False)
             
 
                 # 
