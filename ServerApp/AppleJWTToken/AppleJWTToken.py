@@ -13,6 +13,9 @@ import os
 import json 
 import base64
 
+import pytesseract
+from PIL import Image
+
 smsCode = ""
 # import PyJWT
 # from jwt import PyJWT
@@ -50,6 +53,59 @@ def SetSmsCode():
     global smsCode
     smsCode = request.args["code"]
     return smsCode 
+
+# http://mooncore.cn:5000/GetAppleCode
+@app.route('/GetAppleCode', methods=['POST', 'GET'])
+def GetAppleCode():
+    basepath = os.path.dirname(__file__)  # 当前文件所在路径
+    file_dir = os.path.join(basepath, 'upload')  #注意：没有的文件夹一定要先创建，不然会提示没有该路径
+    if not os.path.exists(file_dir):
+        os.makedirs(file_dir)
+
+    
+
+    if request.method == 'POST':
+        f = request.files['file']
+        # region = request.files['arg']
+        # print("GetAppleCode region=",region)
+        
+        filepath = file_dir+"/"+f.filename
+
+        f.save(filepath)
+
+        oft = 50
+        x = 1220
+        y = 540
+        w = 200
+        h = 50
+
+        # listtmp = region.split(",")
+        # x = listtmp[0]
+        # y = listtmp[1]
+        # w = listtmp[2]
+        # h = listtmp[3]
+        tangle=(x,y,x+w,y+h)
+        print("GetAppleCode tangle=",tangle)
+        # print(tangle)#(276, 274, 569, 464)
+        #打开123.png图片
+        img = Image.open(filepath)
+        #在123.png图片上 截取验证码图片
+        frame = img.crop(tangle)
+        #保存
+        frame.save(filepath)
+
+
+        code = pytesseract.image_to_string(Image.open(filepath),lang="eng") 
+        print("GetAppleCode code=",code)
+        return code
+
+    if request.method == 'GET':
+        filepath = file_dir+"/"+"screenshot.png"
+        code = pytesseract.image_to_string(Image.open(filepath),lang="eng") 
+        print("GetAppleCode code=",code)
+        return code
+
+    return 'GetAppleCode'
 
 def GetFileString(filePath): 
     f = open(filePath, 'rb')
@@ -123,7 +179,10 @@ def CreateJWTToken(keyid, userid,KEY_PRIVATE):
     # print("，result=",result)
     return result
 
+
+
  
+
 if __name__ == '__main__':
     # key_id = "MVG9NGFVX7"
     # key_private =  GetKEY_PRIVATE(key_id)

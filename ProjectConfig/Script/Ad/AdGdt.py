@@ -274,12 +274,12 @@ class AdGdt(AdBase):
         package = mainAppInfo.GetPackage(Source.ANDROID, isHD)
         item.send_keys(package)
 
-        key = "//button[@id='spaui-uploader_2-empty']"
-        webcmd.AddCmd(CmdType.CLICK_Action,key)
-        webcmd.Run(True)
-        time.sleep(1)
-        self.OpenFileBrowser()
-        time.sleep(2)
+        # key = "//button[@id='spaui-uploader_2-empty']"
+        # webcmd.AddCmd(CmdType.CLICK_Action,key)
+        # webcmd.Run(True)
+        # time.sleep(1)
+        # self.OpenFileBrowser()
+        # time.sleep(2)
 
     # 创建
 
@@ -588,6 +588,7 @@ class AdGdt(AdBase):
 
 
     def UploadImage(self, isAuto):
+        return
         print('UploadImage isAuto',isAuto)
         webcmd = WebDriverCmd(self.driver)
         if isAuto==True:

@@ -23,7 +23,7 @@ from Project.Resource import mainResource
 from Project.UpdateAppstore import mainUpdateAppstore
 from Common.Platform import Platform
 from Common.File.FileUtil import FileUtil 
-
+from Common.File.FileTransfer  import mainFileTransfer 
 
 from Common.WebDriver.WebDriverCmd import CmdType
 from Common.WebDriver.WebDriverCmd import WebDriverCmd 
@@ -42,7 +42,9 @@ import datetime
 import time
 import requests
 import gzip
-
+import pyautogui 
+ 
+# from PIL import Image
 
 # 要想调用键盘按键操作需要引入keys包
 
@@ -76,7 +78,84 @@ class AppStoreApple(AppStoreBase):
         time.sleep(1)
         self.Login("chyfemail163@163.com","Moonqianlizhiwai1")
   
-    
+
+    def OnMouseClickScreen(self,x,y):
+                # 获取当前屏幕分辨率
+        screenWidth, screenHeight = pyautogui.size()
+
+        # 获取当前鼠标位置
+        # currentMouseX, currentMouseY = pyautogui.position()
+
+        # 2秒钟鼠标移动坐标为100,100位置  绝对移动
+        #pyautogui.moveTo(100, 100,2)
+        # pyautogui.moveTo(x=100, y=100,duration=2, tween=pyautogui.linear)
+
+        pyautogui.moveTo(x, y)
+        # 鼠标左击一次
+        pyautogui.click()
+        time.sleep(1)
+
+    def GetAppleCode(self):
+ 
+        # mac mini 分辨率 2560x1080
+        x =1460
+        y = 680
+        self.OnMouseClickScreen(x,y)
+
+
+        savefilepath = 'screenshot.png'
+  
+        try:
+            # im = pyautogui.screenshot('screenshot.png',region=(0,0, 300, 400))
+            im = pyautogui.screenshot(savefilepath)
+        except:
+            print("pyautogui.screenshot error")
+          
+
+
+        x = 1220
+        y = 540
+        w = 200
+        h = 50
+        region = str(x)+","+str(y)+","+str(w)+","+str(h)
+        print("region=",region)
+
+
+        # try:
+        #     tangle=(x,y,x+w,y+h)
+        #     print("GetAppleCode tangle=",tangle)
+        #     # print(tangle)#(276, 274, 569, 464)
+        #     #打开123.png图片
+        #     img = Image.open(savefilepath)
+        #     #在123.png图片上 截取验证码图片
+        #     frame = img.crop(tangle)
+        #     #保存
+        #     frame.save(savefilepath)
+        # except:
+        #     print("image convert error")
+
+
+
+        # url = 'http://127.0.0.1:8887/upload' 
+        # url = 'http://127.0.0.1:8887/GetAppleCode' 
+        url = 'http://mooncore.cn:5000/GetAppleCode' 
+        
+        code = mainFileTransfer.Upload(url, savefilepath)
+        code = code.replace(" ","")
+        print("AppleCode code=",code)
+
+
+        # 点击完成
+        # mac mini 分辨率 2560x1080
+        x =1460
+        y = 600
+        self.OnMouseClickScreen(x,y)
+             
+            
+
+        return code
+
+
     def Login(self,user,password):
         mainAppInfo.SetSmsCode("")
         webcmd = WebDriverCmd(self.driver)
@@ -125,6 +204,10 @@ class AppStoreApple(AppStoreBase):
         if Platform.isMacSystem():
             # mac 输入双重验证
             test = 0
+            code = self.GetAppleCode()
+
+       
+
         else:
 
             # 输入短信验证码
@@ -152,15 +235,16 @@ class AppStoreApple(AppStoreBase):
             print("Login GetSmsCode=",code)
 
         
+        # 输入code
             # <input maxlength="1" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" type="tel" id="char0" class="form-control force-ltr form-textbox char-field" aria-label="输入验证码 位 1" placeholder="" data-index="0">
-            for i in range(6):
-                idkey = "char"+str(i)
-                key = "//input[@id='"+idkey+"']"
-                item = webcmd.Find(key,False)
-                # webcmd.SetInputText(key,code[i])
-                code_i = code[i]
-                print("input code_i=",code_i)
-                item.send_keys(code_i)
+        for i in range(6):
+            idkey = "char"+str(i)
+            key = "//input[@id='"+idkey+"']"
+            item = webcmd.Find(key,False)
+            # webcmd.SetInputText(key,code[i])
+            code_i = code[i]
+            print("input code_i=",code_i)
+            item.send_keys(code_i)
         
 
         

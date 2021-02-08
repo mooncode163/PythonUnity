@@ -65,7 +65,11 @@ class MakeLevelJson():
             return os.path.dirname(path) 
     # 不包含. 
     def GetFileExt(self,path):  
-        idx = path.rfind(".")+1
+        idx_dot = path.rfind(".")
+        if idx_dot<0:
+            return ""
+        else:
+            idx = path.rfind(".")+1
         slen=len(path)
         size = slen-idx
         ret = path[idx:]
