@@ -323,6 +323,11 @@ class AppConnectApi:
         )    
 
 
+# https://developer.apple.com/documentation/appstoreconnectapi/app_prices
+    # def UpdateAppPrice(self, appid): 
+    #     price = 0
+
+
     def UpdateAppInfo(self, appid,version,lan,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew): 
         print("UpdateAppInfo GetAppLocalization  appid=",appid)
         applocalization_id = mainUploadAssetApple.GetAppLocalizationId(appid,"IOS",version,lan)

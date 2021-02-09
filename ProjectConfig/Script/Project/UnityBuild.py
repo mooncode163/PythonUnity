@@ -43,6 +43,10 @@ class UnityBuild():
             methond = "BuildPlayer.PerformAndroidBuild"
         if stros == Source.IOS:
             methond = "BuildPlayer.PerformiPhoneBuild"
+        if stros == "screenshot":
+            methond = "BuildPlayer.ScreenshotBuild"
+
+            
 
         print("unity_build  start stros=",stros)
         cmd = UNITYPATH+" -quit "+" -batchmode "+" -projectPath "+PROJECT_PATH+" -executeMethod  "+methond

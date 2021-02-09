@@ -272,7 +272,7 @@ class UpdateAppstore():
 
     def CopyInAppPurchasesScreenshot(self,isHd):   
         # src =mainResource.GetProjectConfig() + "/default/appstore/in_app_purchases_screenshot.png"
-        src =mainResource.GetResourceDataRoot() + "/in_app_purchases_screenshot.png"
+        src =mainResource.GetDirProductCommon() + "/in_app_purchases_screenshot.png"
         rootConfig = mainResource.GetProjectConfigApp() 
         dst = rootConfig + "/appstore/ios/app.itmsp" 
         if isHd:

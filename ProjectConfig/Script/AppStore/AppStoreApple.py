@@ -204,6 +204,7 @@ class AppStoreApple(AppStoreBase):
         if Platform.isMacSystem():
             # mac 输入双重验证
             test = 0
+            time.sleep(3)
             code = self.GetAppleCode()
 
        
@@ -350,8 +351,13 @@ class AppStoreApple(AppStoreBase):
         self.driver.get(url)
         time.sleep(2)
         webcmd = WebDriverCmd(self.driver) 
-        webcmd.AddCmdWait(CmdType.INPUT, "//input[@id='versionString']",mainAppInfo.GetAppVersion(Source.IOS, isHD))
+        key = "//input[@id='versionString']"
+        webcmd.AddCmdWait(CmdType.INPUT_CLEAR, key)
+        # webcmd.AddCmdWait(CmdType.INPUT,key,mainAppInfo.GetAppVersion(Source.IOS, isHD))
         webcmd.Run(True) 
+
+        webcmd.SetInputText(key,mainAppInfo.GetAppVersion(Source.IOS, isHD))
+
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='copyright']","moonma")  
         webcmd.Run(True) 
         # 截图
@@ -374,12 +380,102 @@ class AppStoreApple(AppStoreBase):
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='contactEmail']","chyfemail163@163.com") 
 
 
-        # IDFA
-        webcmd.AddCmd(CmdType.CLICK, "//input[@id='usesIdfa_true']") 
-        webcmd.AddCmd(CmdType.CLICK, "//input[@id='attributesAppInstallationToPreviousAd_undefined']")
-        webcmd.AddCmd(CmdType.CLICK, "//input[@id='honorsLimitedAdTracking_undefined']")  
-
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
         webcmd.Run(True)
+ 
+ 
+
+
+        # 价格与销售范围
+        # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/pricing" class="tb-nav-active" aria-current="page">价格与销售范围</a></li>
+        key = "//a[text()='价格与销售范围']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+  
+            # <select><option value="-1" disabled="">选取</option><option value="0">CNY 0.00 (免费)</option
+        # key = "//select"
+        key = "//option[text()='选取']"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+ 
+        key = "//option[contains(text(),'CNY 0.00')]"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+        
+            # <div class="buttons___1H5xc" id="heading-buttons"><button class="tb-btn--disabled sc-bwzfXH tb-btn--primary uTxCW" type="primary">存储</button></div>
+        key = "//button[text()='存储']"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+
+        # App 隐私
+        key = "//a[text()='App 隐私']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                  
+        # try:
+        # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary">开始</button>
+        key = "//button[text()='开始']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                # <label for="collectData_no"><span><strong>否</strong>，我们不会从此 App 中收集数据</span></label>
+        key = "//label[@for='collectData_no']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary" data-id="mainbutton">存储</button>
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">发布</button></div>
+        key = "//button[text()='发布']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+        key = "//button[text()='发布']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+        # except Exception as e:  
+        #                 print("App 隐私 eror=",e)
+
+
+        # try:
+        # App 信息
+        # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/info" class="tb-nav-active" aria-current="page">App 信息</a></li>
+        key = "//a[text()='App 信息']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+        
+            # 内容版权
+            # <button class="inline___3EHpT btn-link___7P55x" data-state="" type="button">编辑</button>
+        key = "//button[text()='编辑']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <label for="contentRights_no">不，它不包含、显示或访问第三方内容</label>
+        key = "//label[@for='contentRights_no']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">完成</button>
+        key = "//button[text()='完成']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">存储</button></div>
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+        # except Exception as e:  
+        #                 print("App 信息 eror=",e)
+        # IDFA
+        # webcmd.AddCmd(CmdType.CLICK, "//input[@id='usesIdfa_true']") 
+        # webcmd.AddCmd(CmdType.CLICK, "//input[@id='attributesAppInstallationToPreviousAd_undefined']")
+        # webcmd.AddCmd(CmdType.CLICK, "//input[@id='honorsLimitedAdTracking_undefined']")  
+
+        # webcmd.Run(True)
+
 
     def CreateNewVersion(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
@@ -537,7 +633,10 @@ class AppStoreApple(AppStoreBase):
 # https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/{id}
     def UpdateAppInfo(self,isHD):  
         if not Platform.isWindowsSystem():
-            self.UpdateAppstore(isHD)
+            # self.UpdateAppstore(isHD)
+            self.UpdateIAPInfo(isHD)
+        
+
 
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         version = mainAppInfo.GetAppVersion(Source.IOS,isHD)
