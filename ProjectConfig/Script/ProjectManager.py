@@ -199,6 +199,7 @@ if __name__ == "__main__":
     if arg == "UpdateAso":
         p.UpdateAso()
     if arg == "UpdateAppInfoAuto":
+        p.UpdateAppInfo()
         p.UpdateAppInfoAuto()
 
     if arg == "CopyGamedata":
