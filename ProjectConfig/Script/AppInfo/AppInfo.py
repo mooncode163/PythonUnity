@@ -783,13 +783,16 @@ class AppInfo():
             # 保存版本
             # android
             print("appid_huawei=",appid_huawei+" ishd=",isHd)
-            # version_web = mainAppVersionHuawei.ParseVersion(appid_huawei) 
+            # if len(appid_huawei)>1: 
             version_web = mainHuaweiAppGalleryApi.GetVersion(appid_huawei)
             strfile = strfile.replace(key,version_web) 
             FileUtil.SaveString2File(strfile,dst)
             self.SetAppVersion(isHd,Source.ANDROID,version_web)
             strcode = version_web.replace(".","")
             self.SetAppVersionCode(isHd,Source.ANDROID,strcode)
+                
+                
+       
 
             # ios
             appid_apple = self.GetJsonAppId(data,Source.APPSTORE)

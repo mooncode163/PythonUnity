@@ -382,6 +382,9 @@ class HuaweiAppGalleryApi:
         FileUtil.SaveString2File(json_str, savepath)
 
     def GetVersion(self,appId,isInAppleStore=False): 
+        if len(appId)<=1:
+            return "1.0.0"
+            
         url = "https://connect-api.cloud.huawei.com/api/publish/v2/app-info?appId="+appId    
         mdl_rqt = requests.get(
             url,  

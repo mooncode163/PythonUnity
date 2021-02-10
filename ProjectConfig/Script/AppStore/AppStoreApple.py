@@ -143,6 +143,12 @@ class AppStoreApple(AppStoreBase):
         code = mainFileTransfer.Upload(url, savefilepath)
         code = code.replace(" ","")
         print("AppleCode code=",code)
+        while len(code)<=1:
+            code = mainFileTransfer.Upload(url, savefilepath)
+            code = code.replace(" ","")
+            print("wait for AppleCode code=",code)
+            time.sleep(1)
+
 
 
         # 点击完成
@@ -293,7 +299,7 @@ class AppStoreApple(AppStoreBase):
         url = "https://appstoreconnect.apple.com/apps" 
         self.driver.get(url)
         time.sleep(2)
- 
+        self.urlold = self.driver.current_url
 
 
 
@@ -322,14 +328,25 @@ class AppStoreApple(AppStoreBase):
         key = ".//option[@value='"+package+"']"
         subitem = webcmd.FindChild(item,key,True)
         webcmd.DoCmd(subitem,CmdType.CLICK) 
-  
+        time.sleep(1)
+
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='sku']",mainAppInfo.GetAppSKU(isHD))  
 
         # item=webcmd.AddCmd(CmdType.CLICK_SCRIPT, "//button[@type='primary'] and text()='创建'")
         # webcmd.Run(True)  
-        webcmd.WaitKeyBoard("q")
+        # webcmd.WaitKeyBoard("q")
 
-        time.sleep(5)
+        # 等待创建成功
+        while True:
+            time.sleep(1)  
+            self.urlnew = self.driver.current_url
+            print("CreateApp urlnew=",self.urlnew)
+            if self.urlnew!=self.urlold:
+                print("CreateApp Finish =",self.urlnew)
+                break
+
+
+        time.sleep(2)
 
         # https://appstoreconnect.apple.com/apps/1525843317/appstore/ios/version/inflight
         url = self.driver.current_url
@@ -344,19 +361,142 @@ class AppStoreApple(AppStoreBase):
             mainAppInfo.SetAppId(isHD,Source.IOS,Source.APPSTORE,appid)
             self.FillAppInfo(isHD)
 
-     
+    def FillAppPrivacy(self, isHD):
+        appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)  
+        webcmd = WebDriverCmd(self.driver) 
+ # key = "//a[text()='App 隐私']"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/privacy"
+        self.driver.get(url)
+        time.sleep(2)
+
+        # try:
+        # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary">开始</button>
+        key = "//button[text()='开始']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                # <label for="collectData_no"><span><strong>否</strong>，我们不会从此 App 中收集数据</span></label>
+        key = "//label[@for='collectData_no']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+                # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary" data-id="mainbutton">存储</button>
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+        time.sleep(2)
+                # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">发布</button></div>
+        key = "//button[text()='发布']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+        time.sleep(2)
+
+        key = "//button[text()='发布']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+    def FillAppInfo2(self, isHD):
+        appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)  
+        webcmd = WebDriverCmd(self.driver) 
+ # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/info" class="tb-nav-active" aria-current="page">App 信息</a></li>
+        # key = "//a[text()='App 信息']"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/info"
+        self.driver.get(url)
+        time.sleep(2)
+
+        
+            # 内容版权
+            # <button class="inline___3EHpT btn-link___7P55x" data-state="" type="button">编辑</button>
+        key = "//button[text()='设置内容版权信息']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <label for="contentRights_no">不，它不包含、显示或访问第三方内容</label>
+        key = "//label[@for='contentRights_no']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">完成</button>
+        key = "//button[text()='完成']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+            # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">存储</button></div>
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+
+    def FillAppPrice(self, isHD):
+        appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)  
+        webcmd = WebDriverCmd(self.driver) 
+ # 价格与销售范围
+        # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/pricing" class="tb-nav-active" aria-current="page">价格与销售范围</a></li>
+        # key = "//a[text()='价格与销售范围']"
+        # webcmd.AddCmd(CmdType.CLICK, key)
+        # webcmd.Run(True)
+        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/pricing"
+        self.driver.get(url)
+        time.sleep(2)
+
+            # <select><option value="-1" disabled="">选取</option><option value="0">CNY 0.00 (免费)</option
+        key = "//select"
+        # key = "//option[text()='选取']"
+        webcmd.AddCmdWait(CmdType.CLICK, key)
+        webcmd.Run(True)
+
+
+        key = "//option[contains(text(),'CNY 0.00')]"
+        webcmd.AddCmdWait(CmdType.CLICK, key)
+        webcmd.Run(True)
+        
+        #     # <div class="buttons___1H5xc" id="heading-buttons"><button class="tb-btn--disabled sc-bwzfXH tb-btn--primary uTxCW" type="primary">存储</button></div>
+        key = "//button[text()='存储']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+        time.sleep(3)
+
     def FillAppInfo(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)  
+        webcmd = WebDriverCmd(self.driver) 
+
+        # App 隐私
+        try:
+            self.FillAppPrivacy(isHD)       
+        except Exception as e:  
+                        print("FillAppPrivacy eror=",e)
+
+        try:
+            self.FillAppPrice(isHD)       
+        except Exception as e:  
+                        print("FillAppPrice eror=",e)
+
+        try:
+            self.FillAppInfo2(isHD)       
+        except Exception as e:  
+                        print("FillAppInfo2 eror=",e)
+
+
+        # base appinfo
+
         url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/inflight" 
         self.driver.get(url)
         time.sleep(2)
-        webcmd = WebDriverCmd(self.driver) 
+        
         key = "//input[@id='versionString']"
-        webcmd.AddCmdWait(CmdType.INPUT_CLEAR, key)
-        # webcmd.AddCmdWait(CmdType.INPUT,key,mainAppInfo.GetAppVersion(Source.IOS, isHD))
+        # 
+        webcmd.Find(key,True)
+        version = mainAppInfo.GetAppVersion(Source.IOS, isHD)
+        print("FillAppInfo version =",appid)
+        webcmd.AddCmd(CmdType.INPUT_CLEAR, key)
+        webcmd.Run(True) 
+        webcmd.AddCmd(CmdType.INPUT,key,version)
+        # webcmd.SetInputText(key,version)
         webcmd.Run(True) 
 
-        webcmd.SetInputText(key,mainAppInfo.GetAppVersion(Source.IOS, isHD))
+        
 
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='copyright']","moonma")  
         webcmd.Run(True) 
@@ -385,87 +525,10 @@ class AppStoreApple(AppStoreBase):
         webcmd.Run(True)
  
  
-
-
-        # 价格与销售范围
-        # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/pricing" class="tb-nav-active" aria-current="page">价格与销售范围</a></li>
-        key = "//a[text()='价格与销售范围']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
   
-            # <select><option value="-1" disabled="">选取</option><option value="0">CNY 0.00 (免费)</option
-        # key = "//select"
-        key = "//option[text()='选取']"
-        # webcmd.AddCmd(CmdType.CLICK, key)
-        # webcmd.Run(True)
- 
-        key = "//option[contains(text(),'CNY 0.00')]"
-        # webcmd.AddCmd(CmdType.CLICK, key)
-        # webcmd.Run(True)
-        
-            # <div class="buttons___1H5xc" id="heading-buttons"><button class="tb-btn--disabled sc-bwzfXH tb-btn--primary uTxCW" type="primary">存储</button></div>
-        key = "//button[text()='存储']"
-        # webcmd.AddCmd(CmdType.CLICK, key)
-        # webcmd.Run(True)
-
-        # App 隐私
-        key = "//a[text()='App 隐私']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-                  
-        # try:
-        # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary">开始</button>
-        key = "//button[text()='开始']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-                # <label for="collectData_no"><span><strong>否</strong>，我们不会从此 App 中收集数据</span></label>
-        key = "//label[@for='collectData_no']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-                # <button class="sc-bwzfXH tb-btn--primary uTxCW" type="primary" data-id="mainbutton">存储</button>
-        key = "//button[text()='存储']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-                # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">发布</button></div>
-        key = "//button[text()='发布']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-
-        key = "//button[text()='发布']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-
-        # except Exception as e:  
-        #                 print("App 隐私 eror=",e)
-
-
         # try:
         # App 信息
-        # <li class="  sc-EHOje tb-nav-active   jvzENE"><a href="/apps/1552686772/appstore/info" class="tb-nav-active" aria-current="page">App 信息</a></li>
-        key = "//a[text()='App 信息']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-        
-            # 内容版权
-            # <button class="inline___3EHpT btn-link___7P55x" data-state="" type="button">编辑</button>
-        key = "//button[text()='编辑']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-
-            # <label for="contentRights_no">不，它不包含、显示或访问第三方内容</label>
-        key = "//label[@for='contentRights_no']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-
-            # <button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">完成</button>
-        key = "//button[text()='完成']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
-
-            # <div class="buttons___1H5xc" id="heading-buttons"><button class="sc-bwzfXH tb-btn--disabled uTxCW" type="disabled">存储</button></div>
-        key = "//button[text()='存储']"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        webcmd.Run(True)
+       
 
         # except Exception as e:  
         #                 print("App 信息 eror=",e)
