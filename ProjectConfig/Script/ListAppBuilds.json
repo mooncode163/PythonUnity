@@ -1,12 +1,14 @@
 {
-    "data": [],
-    "links": {
-        "self": "https://api.appstoreconnect.apple.com/v1/builds?filter%5Bapp%5D=1552995983"
-    },
-    "meta": {
-        "paging": {
-            "limit": 50,
-            "total": 0
+    "errors": [
+        {
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "detail": "The parameter 'app' can not be used with this request",
+            "id": "ed0b9111-5463-4c87-98f9-878195c0bf42",
+            "source": {
+                "parameter": "app"
+            },
+            "status": "400",
+            "title": "A given parameter is not allowed for this request"
         }
-    }
+    ]
 }

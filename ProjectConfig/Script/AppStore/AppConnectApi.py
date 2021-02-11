@@ -332,6 +332,8 @@ class AppConnectApi:
         print("UpdateAppInfo GetAppLocalization  appid=",appid)
         applocalization_id = mainUploadAssetApple.GetAppLocalizationId(appid,"IOS",version,lan)
         print("applocalization_id=",applocalization_id)
+        print("whatsNew=",whatsNew)
+         
         url = "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/"+applocalization_id
         header = self.GetApiUrlHead()  
         # print(header)  
@@ -391,50 +393,54 @@ class AppConnectApi:
         )    
 
          
-
+    # https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version
     def CreateNewVersion(self, appid, version, package):
-        # bundleid = self.GetBundleIdByPackage(package)
-        build = None
-        print(" appid=", appid, " version=", version, " package=", package)
+        header = self.GetApiUrlHead() 
+        url = "https://api.appstoreconnect.apple.com/v1/appStoreVersions"
+        print(header)
 
-        result = self.api.list_bundle_ids()
-        # print(result)
-        self.SaveData2Json(result,"Bundle_id.json")
+        isUesIdfa = False
 
-        # self.CreateBundleID(package)
-        # return
-        
-        # result = self.api.create_app_version(app_id=appid, version_string=version, platform='IOS',  release_type='AFTER_APPROVAL', copyright='moonma', build_id=build, earliest_release_date=None, uses_idfa=True)
-        # result = self.create_app_version(self.connect_api_app_versions, appid, version, 'IOS',  'AFTER_APPROVAL', 'moonma', build, None, True)
-        # bundleid = self.GetBundleIdByPackage(package)
-        # print(" bundleid=",bundleid)
-        # idversion = self.GetAppCurentSubmitVersionId(appid)
+        params = {
+            "data": {
+                "type": "appStoreVersions",
+                "attributes": {
+                    "platform": "IOS",
+                    "versionString": version,
+                    "copyright": "moonma",
+                    "releaseType": "MANUAL",
+                    "usesIdfa":isUesIdfa
+                },
+                "relationships": {
+                "app": {
+                    "data": {
+                    "type": "apps",
+                    "id": appid
+                    }
+                }
+                }
+            }
+        }
+         
+        print(params)
+        mdl_rqt = requests.post(
+            url,
+            json=params,
+            headers=header
+            # timeout=30
+        )
+        print(mdl_rqt.content.decode("utf-8"))
 
-        # # en-US zh-Hans
-        # # result = self.CreateAppLocalization(idversion,"en-US")
-        # localization_id = self.GetAppLocalization(idversion,"zh-Hans")
-        # print(" localization_id=",localization_id)
-        
-        # scset_id = self.GetScreenshotSet(localization_id,"APP_IPHONE_65")
-        # print(" scset_id=",scset_id)
-        # result = self.CreateScreenshotSet(localization_id,"APP_IPHONE_65")
-        #  "id" : "0a6b8b75-4ec8-4957-a39e-b0ceafbe53d1",
-
-        for i in range(5):
-            # scid  = self.CreateScreenshot(scset_id,i)
-            mainUploadAssetApple.UploadScreenShot(appid, "IOS", version, "zh-Hans", "APP_IPHONE_65", "1.jpg")
-
-        # result = self.ReadScreenshotSet("0a6b8b75-4ec8-4957-a39e-b0ceafbe53d1","APP_IPHONE_65")
-
-        # 
-
-        # print(result)
+         
 
     # https://api.appstoreconnect.apple.com/v1/apps/1535890618/builds
-    def ListAppBuilds(self, appid):
+    def ListAppBuilds(self, appid,package):
         header = self.GetApiUrlHead()  
+        bundle_id = self.GetBundleIdByPackage(package)
         # url = "https://api.appstoreconnect.apple.com/v1/builds"
         url = "https://api.appstoreconnect.apple.com/v1/builds?filter[app]="+appid 
+        url = "https://api.appstoreconnect.apple.com/v1/builds?app="+appid 
+        
         # print(header) 
 
         mdl_rqt = requests.get(
@@ -449,9 +455,9 @@ class AppConnectApi:
         self.SaveData2Json(json,"ListAppBuilds.json")
         return strret
 
-    def SubmitApp(self, appid):
+    def SubmitApp(self, appid,package):
 
-        self.ListAppBuilds(appid) 
+        self.ListAppBuilds(appid,package) 
         return
 
         header = self.GetApiUrlHead()

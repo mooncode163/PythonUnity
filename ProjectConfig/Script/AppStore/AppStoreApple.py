@@ -559,7 +559,8 @@ class AppStoreApple(AppStoreBase):
 # doc : https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version_submission
     def SubmitApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
-        mainAppConnectApi.SubmitApp(appid)
+        package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
+        mainAppConnectApi.SubmitApp(appid,package)
 
     def UpdateApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
@@ -690,7 +691,7 @@ class AppStoreApple(AppStoreBase):
             mainUpdateAppstore.UpdateIAPInfo(isHD)
 
 # https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/{id}
-    def UpdateAppInfo(self,isHD):  
+    def UpdateAppInfo(self,isHD,isUpdateName = True):  
         if not Platform.isWindowsSystem():
             # self.UpdateAppstore(isHD)
             self.UpdateIAPInfo(isHD)
@@ -714,10 +715,11 @@ class AppStoreApple(AppStoreBase):
             marketingUrl = mainAppInfo.GetAppSoftwareUrl(isHD)
             promotionalText =  mainAppInfo.GetAppPromotion(isHD, lan) 
             supportUrl =  mainAppInfo.GetAppSupportUrl(isHD)
-            whatsNew = mainAppInfo.GetAppUpdate(isHD,lan)
-            print("mainAppConnectApi UpdateAppInfo  appid="+appid)
+            whatsNew = mainAppInfo.GetAppUpdate(isHD,lan) 
+            print("UpdateAppInfo  whatsNew="+whatsNew+ " lan="+lan)
             mainAppConnectApi.UpdateAppInfo(appid,version,country,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew)
-            mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
+            if isUpdateName:
+                mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
             
             idx+=1
 
@@ -843,7 +845,16 @@ class AppStoreApple(AppStoreBase):
             # mainAppConnectApi.CreateProfile(mainAppInfo.GetAppPackage(Source.IOS,True))
         if type == "new_version":
             # isHD = True
-            self.CreateNewVersion(isHD)
+            try:
+                self.CreateNewVersion(isHD)
+            except Exception as e:  
+                print("CreateNewVersion eror=",e)
+
+            try:
+                self.UpdateAppInfo(isHD,False)
+            except Exception as e:  
+                print("UpdateAppInfo eror=",e)
+ 
          
         if type == "UploadScreenShot":
             self.UploadScreenShot(isHD)
