@@ -1,0 +1,117 @@
+{
+    "data": {
+        "attributes": {
+            "availableInNewTerritories": true,
+            "bundleId": "com.moonma.idiomcn.pad",
+            "contentRightsDeclaration": "DOES_NOT_USE_THIRD_PARTY_CONTENT",
+            "isOrEverWasMadeForKids": false,
+            "name": "Idiom Connect HD",
+            "primaryLocale": "en-US",
+            "sku": "idiomcn.pad"
+        },
+        "id": "1552995983",
+        "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983"
+        },
+        "relationships": {
+            "appInfos": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/appInfos",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/appInfos"
+                }
+            },
+            "appStoreVersions": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/appStoreVersions",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/appStoreVersions"
+                }
+            },
+            "availableTerritories": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/availableTerritories",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/availableTerritories"
+                }
+            },
+            "betaAppLocalizations": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/betaAppLocalizations",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/betaAppLocalizations"
+                }
+            },
+            "betaAppReviewDetail": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/betaAppReviewDetail",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/betaAppReviewDetail"
+                }
+            },
+            "betaGroups": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/betaGroups",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/betaGroups"
+                }
+            },
+            "betaLicenseAgreement": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/betaLicenseAgreement",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/betaLicenseAgreement"
+                }
+            },
+            "betaTesters": {
+                "links": {
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/betaTesters"
+                }
+            },
+            "builds": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/builds",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/builds"
+                }
+            },
+            "endUserLicenseAgreement": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/endUserLicenseAgreement",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/endUserLicenseAgreement"
+                }
+            },
+            "gameCenterEnabledVersions": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/gameCenterEnabledVersions",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/gameCenterEnabledVersions"
+                }
+            },
+            "inAppPurchases": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/inAppPurchases",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/inAppPurchases"
+                }
+            },
+            "perfPowerMetrics": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/perfPowerMetrics"
+                }
+            },
+            "preOrder": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/preOrder",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/preOrder"
+                }
+            },
+            "preReleaseVersions": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/preReleaseVersions",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/preReleaseVersions"
+                }
+            },
+            "prices": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/prices",
+                    "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983/relationships/prices"
+                }
+            }
+        },
+        "type": "apps"
+    },
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/apps/1552995983"
+    }
+}

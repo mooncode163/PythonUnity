@@ -142,8 +142,8 @@ class AppStoreApple(AppStoreBase):
         
         code = mainFileTransfer.Upload(url, savefilepath)
         code = code.replace(" ","")
-        print("AppleCode code=",code)
-        while len(code)<=1:
+        print("AppleCode code=",code," len=",len(code))
+        while len(code)<=3:
             code = mainFileTransfer.Upload(url, savefilepath)
             code = code.replace(" ","")
             print("wait for AppleCode code=",code)
@@ -558,9 +558,21 @@ class AppStoreApple(AppStoreBase):
 # 提交app
 # doc : https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version_submission
     def SubmitApp(self, isHD): 
+        self.SubmitAppByWeb(isHD)
+        return
+
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
         package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
         mainAppConnectApi.SubmitApp(appid,package)
+
+    def SubmitAppByWeb(self, isHD):   
+        self.Init()
+        self.GoHome(isHD)
+        appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE) 
+        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/inflight" 
+        self.driver.get(url)
+        time.sleep(2)
+
 
     def UpdateApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)

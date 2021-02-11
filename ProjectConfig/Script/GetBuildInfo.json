@@ -1,0 +1,98 @@
+{
+    "data": {
+        "attributes": {
+            "expirationDate": "2021-05-12T02:11:59-07:00",
+            "expired": false,
+            "iconAssetToken": {
+                "height": 167,
+                "templateUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/16/06/a9/1606a90a-9d15-2376-16c1-eb1a55e2d59b/Icon-83.5@2x.png.png/{w}x{h}bb.{f}",
+                "width": 167
+            },
+            "minOsVersion": "10.0",
+            "processingState": "VALID",
+            "uploadedDate": "2021-02-11T02:11:59-08:00",
+            "usesNonExemptEncryption": false,
+            "version": "1.0.0"
+        },
+        "id": "3a1d1b89-157a-4271-812b-5be65d7032de",
+        "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de"
+        },
+        "relationships": {
+            "app": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/app",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/app"
+                }
+            },
+            "appEncryptionDeclaration": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/appEncryptionDeclaration",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/appEncryptionDeclaration"
+                }
+            },
+            "appStoreVersion": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/appStoreVersion",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/appStoreVersion"
+                }
+            },
+            "betaAppReviewSubmission": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/betaAppReviewSubmission",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/betaAppReviewSubmission"
+                }
+            },
+            "betaBuildLocalizations": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/betaBuildLocalizations",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/betaBuildLocalizations"
+                }
+            },
+            "betaGroups": {
+                "links": {
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/betaGroups"
+                }
+            },
+            "buildBetaDetail": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/buildBetaDetail",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/buildBetaDetail"
+                }
+            },
+            "diagnosticSignatures": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/diagnosticSignatures",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/diagnosticSignatures"
+                }
+            },
+            "icons": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/icons",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/icons"
+                }
+            },
+            "individualTesters": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/individualTesters",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/individualTesters"
+                }
+            },
+            "perfPowerMetrics": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/perfPowerMetrics"
+                }
+            },
+            "preReleaseVersion": {
+                "links": {
+                    "related": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/preReleaseVersion",
+                    "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de/relationships/preReleaseVersion"
+                }
+            }
+        },
+        "type": "builds"
+    },
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/builds/3a1d1b89-157a-4271-812b-5be65d7032de"
+    }
+}

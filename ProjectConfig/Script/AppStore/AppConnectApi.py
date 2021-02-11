@@ -392,6 +392,23 @@ class AppConnectApi:
             })
         )    
 
+    def ReadAppInfo(self, app_id):
+        header = self.GetApiUrlHead()  
+        url = "https://api.appstoreconnect.apple.com/v1/apps/"+app_id
+        # 
+
+        mdl_rqt = requests.get(
+            url, 
+            headers=header
+            # timeout=30
+        ) 
+        # print(mdl_rqt.content.decode("utf-8"))
+        strret = mdl_rqt.content.decode("utf-8")
+        print("ReadAppInfo =",strret)
+        json = mdl_rqt.json()
+        # print(result)
+        self.SaveData2Json(json,"ReadAppInfo.json")
+        return strret
          
     # https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version
     def CreateNewVersion(self, appid, version, package):
@@ -399,7 +416,7 @@ class AppConnectApi:
         url = "https://api.appstoreconnect.apple.com/v1/appStoreVersions"
         print(header)
 
-        isUesIdfa = False
+        isUesIdfa = True
 
         params = {
             "data": {
@@ -434,12 +451,14 @@ class AppConnectApi:
          
 
     # https://api.appstoreconnect.apple.com/v1/apps/1535890618/builds
-    def ListAppBuilds(self, appid,package):
+    def GetAppBuildId(self, appid,package):
         header = self.GetApiUrlHead()  
-        bundle_id = self.GetBundleIdByPackage(package)
+        # bundle_id = self.GetBundleIdByPackage(package)
         # url = "https://api.appstoreconnect.apple.com/v1/builds"
-        url = "https://api.appstoreconnect.apple.com/v1/builds?filter[app]="+appid 
-        url = "https://api.appstoreconnect.apple.com/v1/builds?app="+appid 
+        # url = "https://api.appstoreconnect.apple.com/v1/builds?filter[app]="+appid 
+        # url = "https://api.appstoreconnect.apple.com/v1/builds?app="+appid 
+        url = "https://api.appstoreconnect.apple.com/v1/apps/"+appid+"/builds"
+        # url = "https://api.appstoreconnect.apple.com/v1/apps/"+appid+"/appStoreVersions"
         
         # print(header) 
 
@@ -449,21 +468,73 @@ class AppConnectApi:
             # timeout=30
         ) 
         strret = mdl_rqt.content.decode("utf-8")
-        print("ListAppBuilds =",strret)
+        # print("GetAppBuildId =",strret)
         json = mdl_rqt.json()
+        listData = json["data"]
+        if len(listData)>0:
+            strret = listData[0]["id"]
+            self.GetBuildInfo(strret)
         # print(result)
-        self.SaveData2Json(json,"ListAppBuilds.json")
+        self.SaveData2Json(json,"GetAppBuildId.json")
         return strret
 
+    def GetBuildInfo(self, strid):
+        header = self.GetApiUrlHead()   
+        url = "https://api.appstoreconnect.apple.com/v1/builds/"+strid
+        
+        # print(header) 
+
+        mdl_rqt = requests.get(
+            url, 
+            headers=header
+            # timeout=30
+        ) 
+        strret = mdl_rqt.content.decode("utf-8")
+        # print("GetBuildInfo =",strret)
+        json = mdl_rqt.json()
+        # listData = json["data"]
+        # if len(listData)>0:
+        #     strret = listData[0]["id"]
+        # print(result)
+        self.SaveData2Json(json,"GetBuildInfo.json")
+        return strret
+
+# https://developer.apple.com/documentation/appstoreconnectapi/read_the_app_store_version_information_of_a_build
+    def GetAppStoreVersionIdOfBuildId(self, strid):
+        header = self.GetApiUrlHead()    
+        url = "https://api.appstoreconnect.apple.com/v1/builds/"+strid+"/appStoreVersion"
+        # https://api.appstoreconnect.apple.com/v1/builds/{id}/appStoreVersion
+        print(url) 
+
+        mdl_rqt = requests.get(
+            url, 
+            headers=header
+            # timeout=30
+        ) 
+        strret = mdl_rqt.content.decode("utf-8")
+        
+        json = mdl_rqt.json()
+        data = json["data"] 
+        if  data !=None:
+            strret = data["id"]
+        print("GetAppStoreVersionIdOfBuildId =",strret)
+        self.SaveData2Json(json,"GetAppStoreVersionIdOfBuildId.json")
+
+        return strret
+
+
+# doc : https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version_submission
     def SubmitApp(self, appid,package):
+        # self.ReadAppInfo(appid)
+        build_id = self.GetAppBuildId(appid,package) 
+        print("build_id="+build_id)
+        version_id = self.GetAppStoreVersionIdOfBuildId(build_id)
+        print("version_id="+version_id)
+        # return
 
-        self.ListAppBuilds(appid,package) 
-        return
-
-        header = self.GetApiUrlHead()
-        version_id = "631ff5d0-2a4e-4d10-bd56-b43e5c2bd77d"
+        header = self.GetApiUrlHead() 
         url = "https://api.appstoreconnect.apple.com/v1/appStoreVersionSubmissions"
-        print(header)
+        # print(header)
  
 
         params = {
