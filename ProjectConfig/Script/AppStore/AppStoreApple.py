@@ -539,31 +539,27 @@ class AppStoreApple(AppStoreBase):
 
         # webcmd.Run(True)
 
-
+# https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version
     def CreateNewVersion(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
-        webcmd = WebDriverCmd(self.driver)
-        # url = "https://appstoreconnect.apple.com/apps/1230426472/appstore/ios/version/deliverable"
-        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/deliverable"
-        self.driver.get(url)
-        time.sleep(2)
+        mainAppConnectApi.CreateNewVersion(appid,mainAppInfo.GetAppVersion(Source.IOS,isHD),mainAppInfo.GetAppPackage(Source.IOS,isHD))
+ 
+        # webcmd = WebDriverCmd(self.driver)
+        # # url = "https://appstoreconnect.apple.com/apps/1230426472/appstore/ios/version/deliverable"
+        # url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/deliverable"
+        # self.driver.get(url)
+        # time.sleep(2)
 
-        webcmd.AddCmd(CmdType.CLICK, "//button[@id='IOS_app_versions-add-button']")
-        webcmd.AddCmd(CmdType.INPUT, "//input[@id='versionString']",AppInfo.GetAppVersion(Source.IOS,isHD))
-        webcmd.AddCmd(CmdType.CLICK, "//button[@data-id='create-new-version']")
-        webcmd.Run(True)
+        # webcmd.AddCmd(CmdType.CLICK, "//button[@id='IOS_app_versions-add-button']")
+        # webcmd.AddCmd(CmdType.INPUT, "//input[@id='versionString']",AppInfo.GetAppVersion(Source.IOS,isHD))
+        # webcmd.AddCmd(CmdType.CLICK, "//button[@data-id='create-new-version']")
+        # webcmd.Run(True)
 
 # 提交app
+# doc : https://developer.apple.com/documentation/appstoreconnectapi/create_an_app_store_version_submission
     def SubmitApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
-        webcmd = WebDriverCmd(self.driver)
-        # url = "https://appstoreconnect.apple.com/apps/1230426472/appstore/ios/version/inflight"
-        url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/inflight"
-        self.driver.get(url)
-        time.sleep(2)
- 
-        webcmd.AddCmd(CmdType.CLICK, "//button[@type='primary']")
-        webcmd.Run(True)
+        mainAppConnectApi.SubmitApp(appid)
 
     def UpdateApp(self, isHD): 
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)
@@ -847,8 +843,8 @@ class AppStoreApple(AppStoreBase):
             # mainAppConnectApi.CreateProfile(mainAppInfo.GetAppPackage(Source.IOS,True))
         if type == "new_version":
             # isHD = True
-            mainAppConnectApi.CreateNewVersion(mainAppInfo.GetAppId(isHD,Source.APPSTORE),mainAppInfo.GetAppVersion(Source.IOS,isHD),mainAppInfo.GetAppPackage(Source.IOS,isHD))
- 
+            self.CreateNewVersion(isHD)
+         
         if type == "UploadScreenShot":
             self.UploadScreenShot(isHD)
 
@@ -871,6 +867,10 @@ class AppStoreApple(AppStoreBase):
         if type == "UpdateIAPInfo":
             self.UpdateIAPInfo(False)
             self.UpdateIAPInfo(True)
+
+        if type == "SubmitApp":
+            self.SubmitApp(isHD)
+
 
  
         if type == "update":

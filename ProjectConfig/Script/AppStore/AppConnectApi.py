@@ -430,6 +430,59 @@ class AppConnectApi:
 
         # print(result)
 
+    # https://api.appstoreconnect.apple.com/v1/apps/1535890618/builds
+    def ListAppBuilds(self, appid):
+        header = self.GetApiUrlHead()  
+        # url = "https://api.appstoreconnect.apple.com/v1/builds"
+        url = "https://api.appstoreconnect.apple.com/v1/builds?filter[app]="+appid 
+        # print(header) 
+
+        mdl_rqt = requests.get(
+            url, 
+            headers=header
+            # timeout=30
+        ) 
+        strret = mdl_rqt.content.decode("utf-8")
+        print("ListAppBuilds =",strret)
+        json = mdl_rqt.json()
+        # print(result)
+        self.SaveData2Json(json,"ListAppBuilds.json")
+        return strret
+
+    def SubmitApp(self, appid):
+
+        self.ListAppBuilds(appid) 
+        return
+
+        header = self.GetApiUrlHead()
+        version_id = "631ff5d0-2a4e-4d10-bd56-b43e5c2bd77d"
+        url = "https://api.appstoreconnect.apple.com/v1/appStoreVersionSubmissions"
+        print(header)
+ 
+
+        params = {
+            "data": {
+                "type": "appStoreVersionSubmissions",
+                "relationships": { 
+                    "appStoreVersion": {
+                        "data": {
+                            "type": "appStoreVersions",
+                            "id": version_id
+                        }
+                    }
+               
+                } 
+            }
+        }
+
+        mdl_rqt = requests.post(
+            url,
+            json=params,
+            headers=header
+            # timeout=30
+        )
+        print(mdl_rqt.content.decode("utf-8"))
+        
     def UploadScreenShot(self,appid,version,lan,type,filepath):     
         # for i in range(5): 
         # mainUploadAssetApple.UploadScreenShot(appid, "IOS", version, "zh-Hans", "APP_IPHONE_65", "1.jpg")

@@ -130,7 +130,7 @@ if __name__ == "__main__":
         # p.UpdateApp(arg2,arg3,arg4)
         p.GetAppStore(arg3).Run(arg2,isHd)
 
-    if arg2 == "UpdateApk": 
+    if arg2 == "SubmitApp": 
         p.GetAppStore(arg3).Run(arg2,isHd)
 
     if arg2 == "UpdateVersion": 
