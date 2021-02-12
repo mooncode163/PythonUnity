@@ -59,7 +59,7 @@ class UnityBuild():
             if Platform.isWindowsSystem():
                 cmd =  mainResource.GetDirProduct()+"/bin/game.exe"
             if Platform.isMacSystem():
-                cmd =  mainResource.GetDirProduct()+"/bin/game"
+                cmd =  "open "+mainResource.GetDirProduct()+"/bin/game.app"
 
             os.system(cmd)
 
