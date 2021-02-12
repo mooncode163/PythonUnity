@@ -761,6 +761,8 @@ class AppInfo():
             # 重新加载
             data = self.loadJson(isHd)
             APPVERSION_IOS =  data["appversion"][Source.IOS]["value"]
+            if not isOld:
+                self.versionCode = data["appversion"][Source.ANDROID]["code"]
 
         APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
         APPVERSION_CODE_ANDROID = self.versionCode
@@ -814,7 +816,13 @@ class AppInfo():
 
             
 
-
+        # 重新加载
+        data = self.loadJson(isHd)
+        APPVERSION_IOS =  data["appversion"][Source.IOS]["value"]
+        if not isOld:
+            self.versionCode = data["appversion"][Source.ANDROID]["code"]
+        APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
+        APPVERSION_CODE_ANDROID = self.versionCode
 
         print (APP_NAME_CN_ANDROID)
         print (APP_NAME_EN_ANDROID)
