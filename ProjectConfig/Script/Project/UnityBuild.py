@@ -55,7 +55,13 @@ class UnityBuild():
         os.system(cmd)
         print("unity_build  end")
 
-    
+        if stros == "screenshot":
+            if Platform.isWindowsSystem():
+                cmd =  mainResource.GetDirProduct()+"/bin/game.exe"
+            if Platform.isMacSystem():
+                cmd =  mainResource.GetDirProduct()+"/bin/game"
+
+            os.system(cmd)
 
 
 # PROJECT_PATH="F:\sourcecode\unity\product\kidsgame\kidsgameUnity"
