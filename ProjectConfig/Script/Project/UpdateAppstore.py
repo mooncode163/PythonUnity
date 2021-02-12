@@ -561,7 +561,7 @@ class UpdateAppstore():
 
 # 主函数的实现
     def Run(self,isHd):
-        
+        print ("UpdateAppstore Run")
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType()
     
@@ -580,6 +580,7 @@ class UpdateAppstore():
         dir1 = dir_default+"/appstore"
         dir2 = dir_to + "/appstore"
         flag = os.path.exists(dir2)
+        print ("UpdateAppstore dir1="+dir1+"dir2="+dir2)
         if flag:
             shutil.rmtree(dir2)
 
@@ -591,6 +592,6 @@ class UpdateAppstore():
         self.updateAppstore(isHd)
         # self.updateAppstore(True)
 
-        print ("appname sucess")
+        print ("UpdateAppstore sucess")
 
 mainUpdateAppstore = UpdateAppstore()

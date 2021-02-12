@@ -703,7 +703,8 @@ class AppStoreApple(AppStoreBase):
             mainUpdateAppstore.UpdateIAPInfo(isHD)
 
 # https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/{id}
-    def UpdateAppInfo(self,isHD,isUpdateName = True):  
+    def UpdateAppInfo(self,isHD,isUpdateName = True): 
+         
         if not Platform.isWindowsSystem():
             # self.UpdateAppstore(isHD)
             self.UpdateIAPInfo(isHD)
@@ -731,7 +732,10 @@ class AppStoreApple(AppStoreBase):
             print("UpdateAppInfo  whatsNew="+whatsNew+ " lan="+lan)
             mainAppConnectApi.UpdateAppInfo(appid,version,country,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew)
             if isUpdateName:
-                mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
+                try: 
+                    mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
+                except Exception as e:  
+                    print("UpdateAppName eror=",e)
             
             idx+=1
 
@@ -758,7 +762,7 @@ class AppStoreApple(AppStoreBase):
         mainAppConnectApi.GetAppProfile(package,appid) 
 
     def UploadScreenShot(self,isHD):
-
+        self.UpdateAppInfo(isHD)
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
       
@@ -791,7 +795,7 @@ class AppStoreApple(AppStoreBase):
             idx_country+=1
 
 
-        self.UpdateAppInfo(isHD)
+        # self.UpdateAppInfo(isHD)
         # return
 
     def DeleteAllScreenShot(self,isHD):  

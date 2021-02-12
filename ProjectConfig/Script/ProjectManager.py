@@ -114,6 +114,7 @@ class ProjectManager():
         mainCopyGamedata.Run()
 
     def UpdateAppInfo(self):
+        mainUpdateAppstore.Run(False)
         mainAppInfo.Run(False)
 
     def UpdateAso(self):
