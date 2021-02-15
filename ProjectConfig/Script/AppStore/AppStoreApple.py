@@ -733,6 +733,7 @@ class AppStoreApple(AppStoreBase):
             mainAppConnectApi.UpdateAppInfo(appid,version,country,description,keywords,marketingUrl,promotionalText,supportUrl,whatsNew)
             if isUpdateName:
                 try: 
+                    test = 0
                     mainAppConnectApi.UpdateAppName(appid,version,country,name,policyText,policyUrl,subtitle)
                 except Exception as e:  
                     print("UpdateAppName eror=",e)

@@ -43,7 +43,7 @@ class UnityBuild():
             methond = "BuildPlayer.PerformAndroidBuild"
         if stros == Source.IOS:
             methond = "BuildPlayer.PerformiPhoneBuild"
-        if stros == "screenshot":
+        if stros == Source.ScreenShot:
             methond = "BuildPlayer.ScreenshotBuild"
 
             
@@ -55,7 +55,7 @@ class UnityBuild():
         os.system(cmd)
         print("unity_build  end")
 
-        if stros == "screenshot":
+        if stros == Source.ScreenShot:
             if Platform.isWindowsSystem():
                 cmd =  mainResource.GetDirProduct()+"/bin/game.exe"
             if Platform.isMacSystem():

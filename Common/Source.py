@@ -10,6 +10,8 @@ import os.path
 IOS = "ios"
 ANDROID = "android"
 WIN = "win"
+ScreenShot = "screenshot"
+
 
 # channel
 XIAOMI = "xiaomi"

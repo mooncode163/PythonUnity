@@ -83,17 +83,17 @@ dependencies {
 //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     // 以下为流量分配功能所使用依赖，流量分配功能详情请咨询商务
     // Mintegral SDK
-    implementation 'com.mintegral.msdk:videojs:10.1.31'
-    implementation 'com.mintegral.msdk:mtgjscommon:10.1.31'
-    implementation 'com.mintegral.msdk:playercommon:10.1.31'
-    implementation 'com.mintegral.msdk:reward:10.1.31'
-    implementation 'com.mintegral.msdk:videocommon:10.1.31'
-    implementation 'com.mintegral.msdk:optimizedata:10.1.31'
-    implementation 'com.mintegral.msdk:common:10.1.31'
+    // implementation 'com.mintegral.msdk:videojs:10.1.31'
+    // implementation 'com.mintegral.msdk:mtgjscommon:10.1.31'
+    // implementation 'com.mintegral.msdk:playercommon:10.1.31'
+    // implementation 'com.mintegral.msdk:reward:10.1.31'
+    // implementation 'com.mintegral.msdk:videocommon:10.1.31'
+    // implementation 'com.mintegral.msdk:optimizedata:10.1.31'
+    // implementation 'com.mintegral.msdk:common:10.1.31'
 //     开发者后台创建App勾选APK为YES则加上mtgdownloads依赖
-    implementation 'com.mintegral.msdk:mtgdownloads:10.1.31'
+    // implementation 'com.mintegral.msdk:mtgdownloads:10.1.31'
     //mtgbid
-    implementation 'com.mintegral.msdk:mtgbid:10.1.31'
+    // implementation 'com.mintegral.msdk:mtgbid:10.1.31'
     //gdt
 
 }
@@ -110,7 +110,7 @@ android {
     defaultConfig {
         // 最低 android 6.0
         minSdkVersion 23
-        targetSdkVersion 23
+        targetSdkVersion 26
        // applicationId 'com.moonma.kidsgame'
         ndk { 
             abiFilters 'armeabi-v7a', 'arm64-v8a'

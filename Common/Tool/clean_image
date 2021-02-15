@@ -20,7 +20,7 @@ fi
 
 echo $filepath
 cd $filepath  
-python3 ScreenShot.py 
+python3 clean_image.py 
  
 
 

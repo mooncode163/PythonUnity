@@ -221,6 +221,8 @@ if __name__ == "__main__":
         p.CopyAllCmd()
 
     if arg == "UnityBuild":
+        if Source.ScreenShot==arg3:
+            p.CopyResource()
         p.UnityBuild(arg3)
  
     if arg == "IPABuild":
