@@ -176,6 +176,9 @@ class AppStoreHuawei(AppStoreBase):
         self.driver.get(url)
         time.sleep(2)
 
+        title = self.GetAppName(isHD, Source.LANGUAGE_CN)
+        print("title =",title)
+        
         # 等待网页加载成功
         key = "//iframe[@id='mainIframeView']"
         while True:
@@ -201,7 +204,8 @@ class AppStoreHuawei(AppStoreBase):
         webcmd.AddCmdWait(CmdType.CLICK, "//a[@id='MyAppListNewApp']")
         webcmd.Run(True)
 
-        title = self.GetAppName(isHD, Source.LANGUAGE_CN)
+
+
         webcmd.AddCmd(
             CmdType.INPUT, "//input[@ng-model='Model.productAndApp.appName']", title, 1)
         webcmd.Run(True)

@@ -96,24 +96,13 @@ class AppStoreTaptap(AppStoreBase):
 
 # 3452644866 qq31415926
     def SelectLanguage(self,webcmd, lan):
-        if lan == self.LAN_KEY_default:
-            # 填写中文资料
-                # webcmd.AddCmd(  CmdType.CLICK, "//li[@class='nav-item js-chs-contents-li js-spec-lang-li']", "", 1)
-                # <a class="nav-link" data-toggle="tab" href="#chs-contents" role="tab" aria-controls="chs" aria-selected="true" aria-expanded="true">简体中文</a>
-            webcmd.AddCmd(  CmdType.CLICK_Action, "//a[@aria-controls='default']", "", 2) 
-            webcmd.Run(True)
+      #   <div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab"> 简体中文(默认*) </div>
+        key = "//div[@role='tab' and contains(text(),'简体中文')]"
+        if lan==self.LAN_KEY_EN:
+            key = "//div[@role='tab' and contains(text(),'English')]"
 
-        if lan == self.LAN_KEY_CN:
-            # 填写中文资料
-                # webcmd.AddCmd(  CmdType.CLICK, "//li[@class='nav-item js-chs-contents-li js-spec-lang-li']", "", 1)
-                # <a class="nav-link" data-toggle="tab" href="#chs-contents" role="tab" aria-controls="chs" aria-selected="true" aria-expanded="true">简体中文</a>
-            webcmd.AddCmd(  CmdType.CLICK_Action, "//a[@aria-controls='chs']", "", 2) 
-            webcmd.Run(True)
-        if lan == self.LAN_KEY_EN:
-                # 填写英文资料
-                # webcmd.AddCmd(  CmdType.CLICK, "//li[@class='nav-item js-en-contents-li js-spec-lang-li active']", "", 1)
-            webcmd.AddCmd(  CmdType.CLICK_Action, "//a[@aria-controls='en']", "", 2)
-            webcmd.Run(True)  
+        webcmd.AddCmd(  CmdType.CLICK_Action, key)
+        webcmd.Run(True)  
 
     def UploadIcon(self, webcmd,isHD,lan):
         # bug 上传图片之前先要重新选择语言 不然无法弹出文件浏览器
@@ -156,7 +145,14 @@ class AppStoreTaptap(AppStoreBase):
         title = self.GetAppName(isHD, applan) 
         # pyperclip.copy(title)
         print("title =",title," lan=",applan)
-        webcmd.AddCmd(CmdType.INPUT, key, title, 1)
+        detail = self.GetAppDetail(isHD, applan)
+        print("detail =",detail," lan=",applan)
+        list = webcmd.FindList(key)
+        print("list input =",len(list)," lan=",applan)
+        if lan==self.LAN_KEY_EN:
+            webcmd.DoCmd(list[1],CmdType.INPUT,title)
+        else:
+            webcmd.AddCmd(CmdType.INPUT, key, title, 1)
         # pyperclip.paste()
         # webcmd.AddCmd2(CmdType.CLICK, key)
         # webcmd.AddCmd2(CmdType.CTR_V, key) 
@@ -164,12 +160,18 @@ class AppStoreTaptap(AppStoreBase):
 
 
         # 介绍
-        key = "//textarea[@class='form_in ant-input']"
-     
-        print(key)
-        title = self.GetAppDetail(isHD, applan)
-        # pyperclip.copy(title)
-        webcmd.AddCmd(CmdType.INPUT, key, title, 2)
+        # key = "//textarea[@class='form_in ant-input' and contains(@placeholder,'optional')]" 
+        key = "//textarea[@class='form_in ant-input']" 
+        # print(key)
+        list = webcmd.FindList(key)
+        print("detail list input =",len(list)," lan=",applan)
+        if lan==self.LAN_KEY_EN:
+            webcmd.DoCmd(list[2],CmdType.INPUT,detail)
+            time.sleep(2)
+        else:
+            webcmd.AddCmd(CmdType.INPUT, key, detail, 2)
+        # pyperclip.copy(title) 
+
         # pyperclip.paste()
         # webcmd.AddCmd2(CmdType.CLICK, key)
         # webcmd.AddCmd2(CmdType.CTR_V, key) 
@@ -329,6 +331,9 @@ class AppStoreTaptap(AppStoreBase):
       
         webcmd = WebDriverCmd(self.driver)
         
+                # 等待文件長傳結束
+        key = "//a[@title='基础信息']"
+        item = webcmd.Find(key,True)
         
         # default zh_CN en_US
         # self.lanKeys =(self.LAN_KEY_default,self.LAN_KEY_CN, self.LAN_KEY_EN)
@@ -432,11 +437,11 @@ class AppStoreTaptap(AppStoreBase):
 
         for lan in range(0, len(self.lanKeys)): 
 
-            # self.SelectLanguage(webcmd,self.lanKeys[lan])
+            self.SelectLanguage(webcmd,self.lanKeys[lan])
  
             self.UploadTitle(webcmd,isHD,self.lanKeys[lan],applans[lan])
   
-            self.UploadIcon(webcmd,isHD,self.lanKeys[lan])
+            # self.UploadIcon(webcmd,isHD,self.lanKeys[lan])
             
             # self.UploadAdHome(webcmd,isHD,self.lanKeys[lan],applans[lan])
 
@@ -448,8 +453,9 @@ class AppStoreTaptap(AppStoreBase):
             # break
  
 
-        # 发布状态
-        webcmd.AddCmd( CmdType.CLICK, "//input[@type='radio' and @name='flag_android_global' and @value='4']", "", 1) 
+        # 游戏状态 [Android]
+        key = "//span[@class='th_middle' and contains(text(),'测试')]"
+        webcmd.AddCmd( CmdType.CLICK, key) 
         webcmd.Run(True)
 
         self.SubmitApp(True)
