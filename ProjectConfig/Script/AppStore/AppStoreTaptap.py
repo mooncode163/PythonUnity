@@ -20,6 +20,8 @@ from Common import Source
 from Common.File.FileUtil import FileUtil 
 from Common.File.FileBrowser import FileBrowser
 from AppInfo.AppInfo import mainAppInfo
+from Common.Platform import Platform
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -119,10 +121,10 @@ class AppStoreTaptap(AppStoreBase):
        # icon
             # <input type="file" name="image" data-valid-width="512" data-valid-height="512" data-taptap-ajax="upload" data-target="#icon-zh_CN" data-target-input="#icon-input-zh_CN" data-url="https://www.taptap.com/ajax/image">
             # "//input[@type='file' and @data-target='#icon-zh_CN']"
-        key = "//input[@type='file' and @data-target='#icon-" +   lan+"']"
-        if lan==self.LAN_KEY_default:
-            key = "//input[@type='file' and @data-target='#icon']"
-
+        key = "//div[@id='submitApp_translations.zh_CN.icon']"
+        if lan==self.LAN_KEY_EN:
+            key = "//div[@id='submitApp_translations.en_US.icon']"
+ 
             # key ="//img[@id='icon-" +   lanKeys[lan]+"']"
             # key = "//input[@type='file' and  @name='image']"
             # key = "//span[@class='fileinput-button fixed-size square icon']"
@@ -145,31 +147,32 @@ class AppStoreTaptap(AppStoreBase):
 
     def UploadTitle(self, webcmd,isHD,lan,applan):
         # 名称
-        key = "//input[@type='text' and @name='translations[" + lan+"][title]']"
-        if lan==self.LAN_KEY_default:
-            key = "//input[@type='text' and @name='title']"
-        print(key)
+        # key = "//input[@type='text' and @name='translations[" + lan+"][title]']"
+        # if lan==self.LAN_KEY_default:
+        #     key = "//input[@type='text' and @name='title']"
+        key = "//input[@type='text' and @class='form_in ant-input']"
+ 
+       
         title = self.GetAppName(isHD, applan) 
-        pyperclip.copy(title)
-        # webcmd.AddCmd(CmdType.INPUT, key, title, 1)
-        pyperclip.paste()
-        webcmd.AddCmd2(CmdType.CLICK, key)
-        webcmd.AddCmd2(CmdType.CTR_V, key) 
+        # pyperclip.copy(title)
+        print("title =",title," lan=",applan)
+        webcmd.AddCmd(CmdType.INPUT, key, title, 1)
+        # pyperclip.paste()
+        # webcmd.AddCmd2(CmdType.CLICK, key)
+        # webcmd.AddCmd2(CmdType.CTR_V, key) 
         webcmd.Run(True)
 
 
         # 介绍
-        key = "//textarea[@name='translations[" +  lan+"][description]']"
-        if lan==self.LAN_KEY_default:
-            key = "//textarea[@name='description']"
-        
+        key = "//textarea[@class='form_in ant-input']"
+     
         print(key)
         title = self.GetAppDetail(isHD, applan)
-        pyperclip.copy(title)
-        # webcmd.AddCmd(CmdType.INPUT, key, title, 1)
-        pyperclip.paste()
-        webcmd.AddCmd2(CmdType.CLICK, key)
-        webcmd.AddCmd2(CmdType.CTR_V, key) 
+        # pyperclip.copy(title)
+        webcmd.AddCmd(CmdType.INPUT, key, title, 2)
+        # pyperclip.paste()
+        # webcmd.AddCmd2(CmdType.CLICK, key)
+        # webcmd.AddCmd2(CmdType.CTR_V, key) 
         webcmd.Run(True)
 
     def UploadAdHome(self, webcmd,isHD,lan,applan):
@@ -178,9 +181,10 @@ class AppStoreTaptap(AppStoreBase):
         # adhome
             # self.SelectLanguage(webcmd,lan)
             # self.driver.switch_to.window(self.driver.window_handles[0])
-        key = "//input[@type='file' and @data-target='#banner_1_android-"+lan+"']"
-        if lan==self.LAN_KEY_default:
-            key = "//input[@type='file' and @data-target='#banner_1_android']"
+   
+        key = "//div[@id='submitApp_translations.zh_CN.banner_4.android.developer.img']"
+        if lan==self.LAN_KEY_EN:
+            key = "//div[@id='submitApp_translations.en_US.banner_4.android.developer.img']"
 
             # key ="//span[@class='fileinput-button fixed-size banner']"
         print(key)
@@ -198,21 +202,25 @@ class AppStoreTaptap(AppStoreBase):
         item = webcmd.AddCmd2(CmdType.CLICK_Action, key)
         self.SetItemVisible(item)
         webcmd.Run(True)
-        pic = mainResource.GetOutPutAdPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\"+"ad_home_1024x500.png"
+        # pic = mainResource.GetOutPutAdPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\"+"ad_home_1024x500.png"
+        pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, True) + "\\"+applan+"\\1080p\\"+"1.jpg"
+        pic = os.path.normpath(pic)
         print(pic)
         self.OpenFileBrowser(pic, True)
         time.sleep(3)
 
 
         # bug 上传图片之前先要重新选择语言 不然无法弹出文件浏览器
-        # self.SelectLanguage(webcmd,lan)
-        key = "//input[@type='file' and @data-target='#banner_1_ios-"+lan+"']"
-        if lan==self.LAN_KEY_default:
-            key = "//input[@type='file' and @data-target='#banner_1_ios']"
+        # self.SelectLanguage(webcmd,lan) 
+        key = "//div[@id='submitApp_translations.zh_CN.banner_4.ios.developer.img']"
+        if lan==self.LAN_KEY_EN:
+            key = "//div[@id='submitApp_translations.en_US.banner_4.ios.developer.img']"
+
+
         item = webcmd.AddCmd2(CmdType.CLICK_Action, key)
         self.SetItemVisible(item)
         webcmd.Run(True)
-        print(pic)            
+        # print(pic)            
         self.OpenFileBrowser(pic, True)
         time.sleep(3)       
 
@@ -231,18 +239,16 @@ class AppStoreTaptap(AppStoreBase):
     def GetItemOfScreenShot(self,lan):
         # en-contents
         # chs-contents
-        key = ""
-        if lan==self.LAN_KEY_CN:
-            key = "//div[@id='chs-contents']" 
-        
+        key = "//div[@id='submitApp_translations.zh_CN.screenshots']"
         if lan==self.LAN_KEY_EN:
-            key = "//div[@id='en-contents']"
+            key = "//div[@id='submitApp_translations.en_US.screenshots']"
+ 
 
         div = self.driver.find_element(By.XPATH, key) 
         
 
-        key = ".//input[@type='file' and @data-target='#screenshots']" 
-        item_add = div.find_element(By.XPATH, key)  
+        # key = ".//input[@type='file' and @data-target='#screenshots']" 
+        # item_add = div.find_element(By.XPATH, key)  
         # item_add = None
         # index = 0
         # list = self.driver.find_elements(By.XPATH, key)  
@@ -252,7 +258,7 @@ class AppStoreTaptap(AppStoreBase):
         #         item_add = tmp
         #     index=index+1
 
-        return item_add
+        return div
 
 
     def UploadScreenShot(self, webcmd,isHD,lan,applan):
@@ -295,6 +301,12 @@ class AppStoreTaptap(AppStoreBase):
             # webcmd.AddCmd(CmdType.CLICK, "//li[@class='add-screenshot-li]", "", 1)
             webcmd.Run(True)
             pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\1080p\\"+str(i+1)+".jpg"
+            if Platform.isMacSystem():
+                # apk = FileUtil.GetLastDirofDir(apk)
+                pic = pic.replace("\\","/")
+                pic = FileUtil.GetLastDirofDir(pic)
+                test = 0
+
             flag = os.path.exists(pic)
             if flag:
                 print(pic)
@@ -332,41 +344,73 @@ class AppStoreTaptap(AppStoreBase):
         # addlans = ("default","chs")
         addlans = ["chs"]
         #
-        webcmd.AddCmd(CmdType.CLICK, "//select[@id='developer_type']", "", 1)
+        webcmd.AddCmd(CmdType.CLICK, "//div[@id='submitApp_developer_type']", "", 1)
         webcmd.Run(True)
 
         list = self.driver.find_elements(
-            By.XPATH, "//select[@id='developer_type']/option")
-        list[3].click()
+            By.XPATH, "//li[@class='ant-select-dropdown-menu-item']")
+        list[2].click()
         time.sleep(1)
 
-        webcmd.AddCmd(CmdType.CLICK, "//select[@id='category']", "", 1)
-        webcmd.Run(True)
+
+        # 类型
+        # webcmd.AddCmd(CmdType.CLICK, "//div[@id='submitApp_category']", "", 1)
+        # webcmd.Run(True)
 
         list = self.driver.find_elements(
-            By.XPATH, "//select[@id='category']/option")
-        list[1].click()
+            By.XPATH, "//li[@class='ant-select-dropdown-menu-item']")
+        # webcmd.DoCmd(list[1],CmdType.CLICK_Action)
         time.sleep(1)
 
-        webcmd.AddCmd(
-            CmdType.CLICK, "//input[@type='checkbox' and @value='zh_CN']", "", 1)
-        webcmd.AddCmd(
-            CmdType.CLICK, "//input[@type='checkbox' and @value='en_US']", "", 1)
+        # 兼容性
+        key = "//div[@id='submitApp_lang']"
+        item_div = webcmd.Find(key)
 
-        # webcmd.AddCmd(CmdType.CLICK, "//input[@id='area_available_cn']", "", 1)
-        # webcmd.AddCmd(CmdType.CLICK, "//input[@id='area_available_tw']", "", 1)
+        key = ".//span[contains(text(),'简体中文')]"
+        subitem = webcmd.FindChild(item_div,key)
+        webcmd.DoCmd(subitem,CmdType.CLICK)
+
+        key = ".//span[contains(text(),'English')]"
+        subitem = webcmd.FindChild(item_div,key)
+        webcmd.DoCmd(subitem,CmdType.CLICK)
+         
+        # 有内购 
+        key = "//div[@id='submitApp_in_app_purchase']"
+        item_div = webcmd.Find(key)
+
+        key = ".//span[contains(text(),'否')]"
+        subitem = webcmd.FindChild(item_div,key)
+        webcmd.DoCmd(subitem,CmdType.CLICK)
+
+        # 需要网络
+        # ><input name="network" type="radio" class="ant-radio-input" value="yes">
+        key = "//input[@name='network' and @type='radio' and @value='yes']"
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
+
 
         # 添加多语言
-        webcmd.AddCmd(CmdType.CLICK, "//a[@id='manage-trans-btn']", "", 1)
-        # trans-select-chs
-        for lan in range(0, len(addlans)):
-            key = "//input[@id='trans-select-"+addlans[lan]+"']"
-            print(key)
-            webcmd.AddCmd2(CmdType.CLICK, key)
-  
-        webcmd.AddCmd(CmdType.CLICK, "//button[@id='manage-trans-submit']", "", 1)
 
-        webcmd.Run(True)
+        key = "//div[@id='AnchorGameData']"
+        item_div = webcmd.Find(key)
+
+        # 管理多语言
+        # key = ".//button[@class='float-r btn--edit ant-btn ant-btn-primary ant-btn-background-ghost']"
+        # subitem = webcmd.FindChild(item_div,key)
+        # webcmd.DoCmd(subitem,CmdType.CLICK)
+
+
+
+        # webcmd.AddCmd(CmdType.CLICK, "//a[@id='manage-trans-btn']", "", 1)
+        # # trans-select-chs
+        # for lan in range(0, len(addlans)):
+        #     key = "//input[@id='trans-select-"+addlans[lan]+"']"
+        #     print(key)
+        #     webcmd.AddCmd2(CmdType.CLICK, key)
+  
+        # webcmd.AddCmd(CmdType.CLICK, "//button[@id='manage-trans-submit']", "", 1)
+
+        # webcmd.Run(True)
 
 
         # webcmd.AddCmd(  CmdType.CLICK, "//a[@aria-controls='chs']", "", 1)
@@ -387,16 +431,17 @@ class AppStoreTaptap(AppStoreBase):
 
 
         for lan in range(0, len(self.lanKeys)): 
-            self.SelectLanguage(webcmd,self.lanKeys[lan])
+
+            # self.SelectLanguage(webcmd,self.lanKeys[lan])
  
             self.UploadTitle(webcmd,isHD,self.lanKeys[lan],applans[lan])
   
             self.UploadIcon(webcmd,isHD,self.lanKeys[lan])
             
-            self.UploadAdHome(webcmd,isHD,self.lanKeys[lan],applans[lan])
+            # self.UploadAdHome(webcmd,isHD,self.lanKeys[lan],applans[lan])
 
 
-            self.UploadScreenShot(webcmd,isHD,self.lanKeys[lan],applans[lan])
+            # self.UploadScreenShot(webcmd,isHD,self.lanKeys[lan],applans[lan])
  
             
             
@@ -418,6 +463,11 @@ class AppStoreTaptap(AppStoreBase):
 
     def UpLoadApk(self, isHD):
         webcmd = WebDriverCmd(self.driver)
+
+        self.urlold = self.driver.current_url
+        old_window = self.driver.current_window_handle
+        print("urlold=", self.urlold)
+
         # key = "//span[contains(text(),上传APK)]"
         key = "//span[text()='上传APK']"
         item = webcmd.Find(key,True)
@@ -428,6 +478,13 @@ class AppStoreTaptap(AppStoreBase):
         key = "//span[text()='确 定']" 
         webcmd.AddCmd(CmdType.CLICK_Action,key)
         webcmd.Run(True)
+        
+        # key =  "//div[@class='container--form upload-apk-wrapper old-style']"
+        # item = webcmd.Find(key)
+        # key = ".//button[@class='btn--edit ant-btn ant-btn-primary']"
+        # subitem = webcmd.FindChild(item,key) 
+        # webcmd.DoCmd(subitem,CmdType.CLICK)
+        
         
         # # <a data-toggle="modal" data-target=".confirm-upload-apk" class="btn btn-primary">上传APK</a>
         # # item = self.driver.find_element(
@@ -441,33 +498,40 @@ class AppStoreTaptap(AppStoreBase):
         # item.click()
         # time.sleep(2)
 
-        self.urlold = self.driver.current_url
-        old_window = self.driver.current_window_handle
-        print("urlold=", self.urlold)
         # 手动点击上传
         # webcmd.WaitKeyBoard("q")
         apk = mainResource.GetOutPutApkPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD)
+
+        if Platform.isMacSystem():
+            apk = FileUtil.GetLastDirofDir(apk)
+
         # F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut\\xiehanzi\\hanziyuan\\screenshot\\shu\\cn\\480p\\1.jpg
         self.OpenFileBrowser(apk, True)
         time.sleep(1)
 
-        # 檢查是否文件長傳結束
-        while True:
-            time.sleep(2)
-            # for win in self.driver.window_handles:
-            #     if win!=old_window:
-            #         self.driver.switch_to.window(win)
-            #         self.urlold = self.driver.current_url
-            #         old_window = win
-            #         print("urlold 2=",self.urlold)
 
-            # self.driver.switch_to.window(self.driver.windowop_handles[0])
-            self.urlnew = self.driver.current_url
-            print("urlnew=", self.urlnew)
-            if self.urlnew != self.urlold:
-                print("new page =", self.urlnew)
-                print("apk upload finish")
-                break
+        # 等待文件長傳結束
+        key = "//a[@title='基础信息']"
+        item = webcmd.Find(key,True)
+      
+
+        # 檢查是否文件長傳結束
+        # while True:
+        #     time.sleep(2)
+        #     # for win in self.driver.window_handles:
+        #     #     if win!=old_window:
+        #     #         self.driver.switch_to.window(win)
+        #     #         self.urlold = self.driver.current_url
+        #     #         old_window = win
+        #     #         print("urlold 2=",self.urlold)
+
+        #     # self.driver.switch_to.window(self.driver.windowop_handles[0])
+        #     self.urlnew = self.driver.current_url
+        #     print("urlnew=", self.urlnew)
+        #     if self.urlnew != self.urlold:
+        #         print("new page =", self.urlnew)
+        #         print("apk upload finish")
+        #         break
 
         # <div class="progress"><div class="progress-bar" style="width: 82%;" aria-valuenow="82"></div></div>
         # while True:

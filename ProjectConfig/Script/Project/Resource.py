@@ -289,7 +289,11 @@ class Resource():
         
         
         path = dirapk + "\\" + gameType + "_" + gameName + "_" + channel + ".apk"
-        return os.path.normpath(path)
+        path = os.path.normpath(path)
+        if Platform.isMacSystem():
+            path = path.replace("\\","/")
+
+        return path
 
     def GetOutPutIconPathWin32(self,rootdir,channel,isHd):
         gameType = self.getGameType()
@@ -300,8 +304,12 @@ class Resource():
             dirapk+="\\iconhd" 
         else:
             dirapk+="\\icon"
-             
-        return os.path.normpath(dirapk)
+
+        path = os.path.normpath(dirapk)
+        if Platform.isMacSystem():
+            path = path.replace("\\","/")
+
+        return path
 
     def GetOutPutCopyRightPathWin32(self,rootdir,isHd):
         gameType = self.getGameType()

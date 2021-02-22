@@ -84,25 +84,25 @@
 
         <!-- mobvista ad sdk --> 
         <!--MTG激励视频所需的Activity，此处配置作用于流量分配功能，关于流量分配功能，详情请咨询商务-->
-        <activity android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name="com.mintegral.msdk.activity.MTGCommonActivity" android:configChanges="keyboard|orientation" android:exported="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <!-- <activity android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> -->
+        <!-- <activity android:name="com.mintegral.msdk.activity.MTGCommonActivity" android:configChanges="keyboard|orientation" android:exported="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity> -->
         <!--国内流量版本必需，海外版本可以不添加-->
-        <receiver android:name="com.mintegral.msdk.click.AppReceiver">
+        <!-- <receiver android:name="com.mintegral.msdk.click.AppReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver>
+        </receiver> -->
         <!--国内流量必需，海外版本可以不添加-->
-        <service android:name="com.mintegral.msdk.shell.MTGService">
+        <!-- <service android:name="com.mintegral.msdk.shell.MTGService">
             <intent-filter>
                 <action android:name="com.mintegral.msdk.download.action" />
             </intent-filter>
-        </service>
+        </service> -->
         <!--国内流量版本必需，海外版本可以不添加。-->
-        <provider android:name="com.mintegral.msdk.base.utils.MTGFileProvider" android:authorities="${applicationId}.mtgFileProvider" android:exported="false" android:grantUriPermissions="true">
+        <!-- <provider android:name="com.mintegral.msdk.base.utils.MTGFileProvider" android:authorities="${applicationId}.mtgFileProvider" android:exported="false" android:grantUriPermissions="true">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mtg_provider_paths" />
-        </provider>
+        </provider> -->
         <!--MTG所需的组件结束-->
 
     </application>

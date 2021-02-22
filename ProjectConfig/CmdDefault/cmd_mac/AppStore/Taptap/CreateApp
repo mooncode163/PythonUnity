@@ -21,6 +21,6 @@ fi
 echo $filepath
 cd $filepath
 cd ../../../../../../../Common/PythonUnity/ProjectConfig/Script  
-python3 AppStoreManager.py $filepaths createapp taptap
+python3 AppStoreManager.py $filepath createapp taptap
 
  

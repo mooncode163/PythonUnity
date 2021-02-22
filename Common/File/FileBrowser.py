@@ -9,6 +9,7 @@ import time
 import datetime
 import json
 import platform 
+import pyautogui 
 
 from Common.Platform import Platform
 
@@ -27,6 +28,15 @@ class FileBrowser():
     @staticmethod
     def OpenFileMac(path,isAutoClick):
         test = 0
+        #模拟快捷键Command+Shift+G 
+        pyautogui.hotkey("Command","Shift","G")
+        time.sleep(1) 
+        pyautogui.typewrite(os.path.normpath(path))
+        time.sleep(3)
+
+        # pyautogui.press("enter")
+
+
         # os.system('open '+path)
 
     @staticmethod
