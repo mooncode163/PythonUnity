@@ -120,19 +120,35 @@ class AppStoreTaptap(AppStoreBase):
             
             # "//input[@name='anti_addiction_read']"
         print(key) 
+        item_root = webcmd.Find(key)
+
+        key = ".//div[@class='ant-upload-drag-container']"
+        item_div = webcmd.FindChild(item_root,key)
                 
         # item = self.driver.find_element(By.XPATH, key) 
-        item = webcmd.AddCmd2(CmdType.CLICK_Action, key)
-        self.SetItemVisible(item)
-        webcmd.Run(True)  
+        # item_div = webcmd.AddCmd2(CmdType.CLICK_Action, key)
+        self.SetItemVisible(item_div)
+        webcmd.DoCmd(item_div,CmdType.CLICK)
+        # webcmd.Run(True)  
         # self.driver.execute_script("arguments[0].click();", item)
         time.sleep(2)
 
         icon = mainResource.GetOutPutIconPathWin32( mainResource.GetProjectOutPut(), Source.TAPTAP, isHD)+"\\icon_android_512.png"
         print(icon)
+        if Platform.isMacSystem(): 
+            icon = icon.replace("\\","/")
+            icon = FileUtil.GetLastDirofDir(icon)
+            test = 0
+
             # webcmd.Run(True)
         self.OpenFileBrowser(icon, True)
-        time.sleep(2)
+        time.sleep(1)
+
+        # 等待上传完成
+        key = ".//span[@class='upload_img']" 
+        # print(key)
+        item = webcmd.FindChild(item_div,key,True)
+        
 
     def UploadTitle(self, webcmd,isHD,lan,applan):
         # 名称
@@ -167,7 +183,7 @@ class AppStoreTaptap(AppStoreBase):
         print("detail list input =",len(list)," lan=",applan)
         if lan==self.LAN_KEY_EN:
             webcmd.DoCmd(list[2],CmdType.INPUT,detail)
-            time.sleep(2)
+            time.sleep(1)
         else:
             webcmd.AddCmd(CmdType.INPUT, key, detail, 2)
         # pyperclip.copy(title) 
@@ -187,29 +203,36 @@ class AppStoreTaptap(AppStoreBase):
         key = "//div[@id='submitApp_translations.zh_CN.banner_4.android.developer.img']"
         if lan==self.LAN_KEY_EN:
             key = "//div[@id='submitApp_translations.en_US.banner_4.android.developer.img']"
-
-            # key ="//span[@class='fileinput-button fixed-size banner']"
+ 
         print(key)
-        # item = self.driver.find_element(By.XPATH, key)
-        #     # item = webcmd.AddCmd(CmdType.CLICK_SCRIPT, key, "", 3)
-        # self.SetItemVisible(item)
-        #     # item = webcmd.AddCmd(CmdType.CLICK_SCRIPT, key, "", 1)
-        #     # webcmd.Run(True)
-        # # self.driver.execute_script("arguments[0].click();", item)
-        # action= ActionChains(self.driver)
-        # action.click(item).perform()
-        # time.sleep(2)
-        #     # item.click()
-        #     # item.send_keys(Keys.ENTER)
-        item = webcmd.AddCmd2(CmdType.CLICK_Action, key)
-        self.SetItemVisible(item)
-        webcmd.Run(True)
-        # pic = mainResource.GetOutPutAdPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\"+"ad_home_1024x500.png"
-        pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, True) + "\\"+applan+"\\1080p\\"+"1.jpg"
+   
+        item_root = webcmd.Find(key)
+
+        key = ".//div[@class='ant-upload-drag-container']"
+        item_div = webcmd.FindChild(item_root,key)
+                
+        # item = self.driver.find_element(By.XPATH, key) 
+        # item_div = webcmd.AddCmd2(CmdType.CLICK_Action, key)
+        self.SetItemVisible(item_div)
+        webcmd.DoCmd(item_div,CmdType.CLICK)
+        time.sleep(1)
+
+        pic = mainResource.GetOutPutAdPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\"+"ad_home_1920x1080.png"
+        # pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, True) + "\\"+applan+"\\1080p\\"+"1.jpg"
         pic = os.path.normpath(pic)
         print(pic)
+        if Platform.isMacSystem(): 
+            pic = pic.replace("\\","/")
+            pic = FileUtil.GetLastDirofDir(pic)
+            test = 0
+
         self.OpenFileBrowser(pic, True)
-        time.sleep(3)
+        time.sleep(1)
+
+        # 等待上传完成
+        key = ".//span[@class='upload_img']" 
+        # print(key)
+        item = webcmd.FindChild(item_div,key,True)
 
 
         # bug 上传图片之前先要重新选择语言 不然无法弹出文件浏览器
@@ -218,14 +241,22 @@ class AppStoreTaptap(AppStoreBase):
         if lan==self.LAN_KEY_EN:
             key = "//div[@id='submitApp_translations.en_US.banner_4.ios.developer.img']"
 
+        item_root = webcmd.Find(key)
 
-        item = webcmd.AddCmd2(CmdType.CLICK_Action, key)
-        self.SetItemVisible(item)
-        webcmd.Run(True)
+        key = ".//div[@class='ant-upload-drag-container']"
+        item_div = webcmd.FindChild(item_root,key)
+        self.SetItemVisible(item_div)
+        webcmd.DoCmd(item_div,CmdType.CLICK)
+        time.sleep(1)
+ 
         # print(pic)            
         self.OpenFileBrowser(pic, True)
-        time.sleep(3)       
+        time.sleep(1)   
 
+        # 等待上传完成
+        key = ".//span[@class='upload_img']" 
+        # print(key)
+        item = webcmd.FindChild(item_div,key,True)
 
     def GetLanguageIndex(self,lan):
         index = 0
@@ -265,7 +296,7 @@ class AppStoreTaptap(AppStoreBase):
 
     def UploadScreenShot(self, webcmd,isHD,lan,applan):
         # screenshot
-        for i in range(0, 5):
+        for i in range(0, 1):
             # bug 上传图片之前先要重新选择语言 不然无法弹出文件浏览器
             # self.SelectLanguage(webcmd,lan)
             time.sleep(1)
@@ -288,20 +319,18 @@ class AppStoreTaptap(AppStoreBase):
 
             # key = ".//input[@type='file' and @data-target='#screenshots']" 
             # item = div.find_element(By.XPATH, key)  
-            item = self.GetItemOfScreenShot(lan)
-            # self.driver.execute_script("arguments[0].scrollIntoView(false);", item) 
-            time.sleep(1)
-            self.SetItemVisible(item)
-            time.sleep(1)
-            # self.driver.execute_script("arguments[0].click();", item) 
-            # item.click()
-       
-            action= ActionChains(self.driver)
-            action.click(item).perform()
+            item_root = self.GetItemOfScreenShot(lan) 
 
-            time.sleep(1)
-            # webcmd.AddCmd(CmdType.CLICK, "//li[@class='add-screenshot-li]", "", 1)
-            webcmd.Run(True)
+            key = ".//div[@class='ant-upload-drag-container']"
+            item_div = webcmd.FindChild(item_root,key)
+                    
+            # item = self.driver.find_element(By.XPATH, key) 
+            # item_div = webcmd.AddCmd2(CmdType.CLICK_Action, key)
+            self.SetItemVisible(item_div)
+            webcmd.DoCmd(item_div,CmdType.CLICK)
+ 
+            time.sleep(1)  
+
             pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\1080p\\"+str(i+1)+".jpg"
             if Platform.isMacSystem():
                 # apk = FileUtil.GetLastDirofDir(apk)
@@ -313,7 +342,14 @@ class AppStoreTaptap(AppStoreBase):
             if flag:
                 print(pic)
                 self.OpenFileBrowser(pic, True)
-                time.sleep(3)
+                time.sleep(2)
+
+
+
+            # 等待上传完成
+            key = ".//span[@class='upload_img']" 
+            # print(key)
+            item = webcmd.FindChild(item_root,key,True)
 
     def CreateApp(self, isHD):
         url = "https://www.taptap.com/developer/app-create/14628"
@@ -359,12 +395,14 @@ class AppStoreTaptap(AppStoreBase):
 
 
         # 类型
-        # webcmd.AddCmd(CmdType.CLICK, "//div[@id='submitApp_category']", "", 1)
-        # webcmd.Run(True)
+        webcmd.AddCmd(CmdType.CLICK, "//div[@id='submitApp_category']", "", 1)
+        webcmd.Run(True)
 
-        list = self.driver.find_elements(
-            By.XPATH, "//li[@class='ant-select-dropdown-menu-item']")
-        # webcmd.DoCmd(list[1],CmdType.CLICK_Action)
+        # list = self.driver.find_elements( By.XPATH, "//li[@class='ant-select-dropdown-menu-item']")
+        key = "//li[@class='ant-select-dropdown-menu-item' and contains(text(),'休闲') ]"
+        # webcmd.DoCmd(list[1],CmdType.CLICK)
+        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.Run(True)
         time.sleep(1)
 
         # 兼容性
@@ -441,12 +479,12 @@ class AppStoreTaptap(AppStoreBase):
  
             self.UploadTitle(webcmd,isHD,self.lanKeys[lan],applans[lan])
   
-            # self.UploadIcon(webcmd,isHD,self.lanKeys[lan])
+            self.UploadIcon(webcmd,isHD,self.lanKeys[lan])
             
-            # self.UploadAdHome(webcmd,isHD,self.lanKeys[lan],applans[lan])
+            self.UploadAdHome(webcmd,isHD,self.lanKeys[lan],applans[lan])
 
 
-            # self.UploadScreenShot(webcmd,isHD,self.lanKeys[lan],applans[lan])
+            self.UploadScreenShot(webcmd,isHD,self.lanKeys[lan],applans[lan])
  
             
             
@@ -454,8 +492,11 @@ class AppStoreTaptap(AppStoreBase):
  
 
         # 游戏状态 [Android]
-        key = "//span[@class='th_middle' and contains(text(),'测试')]"
-        webcmd.AddCmd( CmdType.CLICK, key) 
+        # 兄弟节点
+        key = "//span[@class='th_middle' and contains(text(),'测试')]/../span[@class='tap-radio_point']"
+        # brother
+        # <span data-v-8bce4f2c="" class="tap-radio_point"></span>
+        # webcmd.AddCmd(CmdType.CLICK, key) 
         webcmd.Run(True)
 
         self.SubmitApp(True)

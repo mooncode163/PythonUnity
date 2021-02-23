@@ -25,6 +25,8 @@ class FileBrowser():
         if Platform.isMacSystem():
             FileBrowser.OpenFileMac(path,isAutoClick)
 
+
+# mac 需要将输入法切换为英文 才能用快捷键
     @staticmethod
     def OpenFileMac(path,isAutoClick):
         test = 0
@@ -32,10 +34,13 @@ class FileBrowser():
         pyautogui.hotkey("Command","Shift","G")
         time.sleep(1) 
         pyautogui.typewrite(os.path.normpath(path))
-        time.sleep(3)
+        time.sleep(1)
 
-        # pyautogui.press("enter")
+        # if isAutoClick:
+        pyautogui.press("enter")
 
+        # cmd =  "open "+path
+        # os.system(cmd)
 
         # os.system('open '+path)
 
