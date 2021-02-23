@@ -644,24 +644,29 @@ class AppStoreTaptap(AppStoreBase):
         # https://www.taptap.com/developer/app-update/56016/14628
         time.sleep(2)
         old_window = self.driver.current_window_handle
-        key = "//a[@data-taptap-btn='updateAppData']"
-        if self.IsElementExist(key):
-            item = self.driver.find_element(By.XPATH, key)
-            item.click()
-            time.sleep(2)
-        else:
-            print("updateAppData button not find ")
-            print("updateAppData current_url=", self.driver.current_url)
-            self.UpdateApp(isHD)
+        # key = "//a[@data-taptap-btn='updateAppData']"
+        # if self.IsElementExist(key):
+        #     item = self.driver.find_element(By.XPATH, key)
+        #     item.click()
+        #     time.sleep(2)
+        # else:
+        #     print("updateAppData button not find ")
+        #     print("updateAppData current_url=", self.driver.current_url)
+        #     self.UpdateApp(isHD)
 
         # 跳转到新的页面
-        print("self.driver.current_url=", self.driver.current_url)
+        # print("self.driver.current_url=", self.driver.current_url)
         # self.driver.switch_to.window(self.driver.window_handles[0])
-        for win in self.driver.window_handles:
-            if win != old_window:
-                self.driver.switch_to.window(win)
-        time.sleep(1)
-        print("self.driver.current_url 2=", self.driver.current_url)
+        # for win in self.driver.window_handles:
+        #     if win != old_window:
+        #         self.driver.switch_to.window(win)
+        # time.sleep(1)
+        # print("self.driver.current_url 2=", self.driver.current_url)
+        webcmd = WebDriverCmd(self.driver)
+ 
+        key = "//span[text()='更新游戏']"
+        item = webcmd.Find(key,True)
+        webcmd.DoCmd(item,CmdType.CLICK)
 
         self.UpLoadApk(isHD)
 
