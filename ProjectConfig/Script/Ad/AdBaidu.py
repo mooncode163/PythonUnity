@@ -28,7 +28,7 @@ from Common.WebDriver.WebDriverCmd import CmdInfo
 from AppStore.AppVersionHuawei import mainAppVersionHuawei
 from AppStore.AppVersionApple import mainAppVersionApple
 from AppStore.AppConnectApi import mainAppConnectApi
-
+from Common.Platform import Platform
 from Ad.AdBase import AdBase
 
 # 要想调用键盘按键操作需要引入keys包
@@ -132,10 +132,14 @@ class AdBaidu(AdBase):
 
     def SetText(self, key,title): 
         webcmd = WebDriverCmd(self.driver)
-        pyperclip.copy(title) 
-        pyperclip.paste()
-        webcmd.AddCmd2(CmdType.CLICK_Action, key)
-        webcmd.AddCmd2(CmdType.CTR_V, key) 
+        if Platform.isWindowsSystem():
+            pyperclip.copy(title) 
+            pyperclip.paste()
+            webcmd.AddCmd2(CmdType.CLICK_Action, key)
+            webcmd.AddCmd2(CmdType.CTR_V, key) 
+        else:
+            webcmd.AddCmd(CmdType.INPUT, key,title)
+
         webcmd.Run(True)
 
  
@@ -539,19 +543,34 @@ class AdBaidu(AdBase):
         key = "//div[@class='table-multi-line']"
         div = webcmd.Find(key)
         key = ".//div[@class='one-line']"
-        div1 = webcmd.FindChild(div,key)
-        title = div1.text
+        # div1 = webcmd.FindChild(div,key)
+        title = name
         self.appName = title
         print("title=",title)
-        key = ".//div[@class='sec-line']"
-        div2 = webcmd.FindChild(div,key)
+        # key = ".//div[@class='sec-line']"
+        # div2 = webcmd.FindChild(div,key)
         # ID:abb4293d 
-        self.appId = self.GetAdPlaceId(div2.text)
+        # self.appId = self.GetAdPlaceId(div2.text)
 
 
+        # <div class="table-multi-line"><div class="one-line">开心猜猜乐</div><div class="sec-line">ID:a49df22d</div></div>
+        key = "//div[@class='one-line' and text()='"+self.appName+"']/../div[@class='sec-line']"
+        item = webcmd.Find(key)
+        text = item.text
+        head = "ID:"
+        idx = text.find(head)+len(head)
+        self.appId = text[idx:]
+        # self.appId = self.appKey
         key = "//button[@ui='link' and contains(text(),'修改')]"
-        webcmd.AddCmd(CmdType.CLICK_Action, key)
-        webcmd.Run(True) 
+        listbtn = webcmd.FindList(key)
+        if ishd:
+            item = listbtn[0]
+        else:
+            item = listbtn[1]
+
+        webcmd.DoCmd(item,CmdType.CLICK_Action)
+        # webcmd.AddCmd(CmdType.CLICK_Action, key)
+        # webcmd.Run(True) 
         time.sleep(2)
 
         print("self.driver.current_url=", self.driver.current_url)
@@ -585,6 +604,11 @@ class AdBaidu(AdBase):
         key = ".//table[@ui='slim alt' and @class='veui-table']"
         table = webcmd.FindChild(div_main,key)   
 
+
+        # <input type="text" autocomplete="off" role="searchbox" aria-haspopup="listbox" class="veui-input-input">
+        # key = "//input[@type='text' and @role='searchbox']"
+        # webcmd.AddCmd(CmdType.INPUT, key,name)
+        # webcmd.Run(True)
         # https://blog.csdn.net/weixin_41858542/article/details/85068645
         # WebElement parent = child.findElement(By.xpath("./.."));// 找到父元素
         # List<WebElement> children = parent.findElements(By.xpath("./*"));// 找到所有子元素
@@ -630,11 +654,14 @@ class AdBaidu(AdBase):
         key = "//input[@name='basic.appSid']"
         webcmd.AddCmd(CmdType.INPUT, key,self.appId)
         webcmd.Run(True)
- 
+
+        # <span class="veui-select-label">儿童学形状和颜色(andriod) (ID:e72aabfc)</span>
         # 父节点button
         try:
-            key = "//span[@class='veui-option-label' and contains(text(),"+self.appId+")]/parent::button"
-            item = webcmd.Find(key)
+            # key = "//span[@class='veui-option-label' and contains(text(),"+self.appId+")]/parent::button"
+            # item = webcmd.Find(key)
+            key = "//span[@class='veui-option-label' and contains(text(),"+self.appId+")]"
+            item = webcmd.Find(key,True)
             print(item.tag_name)
             # CLICK_SCRIPT CLICK_Action
             item = webcmd.AddCmd(CmdType.CLICK_Action, key)
@@ -646,6 +673,8 @@ class AdBaidu(AdBase):
             print(e) #打印所有异常到屏幕
             # 手动选择
             webcmd.WaitKeyBoard('q')
+
+        time.sleep(1)
 
     def CreateAdBanner(self, isHD): 
         self.driver.get("http://union.baidu.com/bqt/appco.html#/union/slot/create") 
@@ -767,9 +796,13 @@ class AdBaidu(AdBase):
 
 
         if type == "createplaceid":
-            self.CreatePlaceId(False)
-            time.sleep(3)
-            self.CreatePlaceId(True)
+            if isHD:
+                self.CreatePlaceId(True)
+            else:
+                self.CreatePlaceId(False)
+                time.sleep(3)
+                self.CreatePlaceId(True)
+  
 
         if type == "adinfo":
             self.GetAdInfo(False)

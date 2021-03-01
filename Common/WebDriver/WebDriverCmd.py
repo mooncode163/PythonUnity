@@ -17,11 +17,15 @@ from selenium.webdriver import ActionChains
 # pip install PyUserInput
 from pykeyboard import PyKeyboard
 
-import pyautogui
+import pyautogui 
+from pynput import mouse
+import pynput, time
+from Common.Platform import Platform
 
 # mac mini m1 arm cpu keyboard python crash bug
 if 'Darwin' not in platform.system():
     import keyboard #Using module keyboard
+ 
 
 class CmdType(object): 
     CLICK = "click"
@@ -52,6 +56,7 @@ class CmdInfo(object):
 class WebDriverCmd():  
     listCmd:None
     driver: None
+    isMouseClick:False
 
     #构造函数
     def __init__(self,webdv):
@@ -196,23 +201,41 @@ class WebDriverCmd():
     def FindListChild(self,item,key):
         return item.find_elements(By.XPATH, key)
 
+ 
+    def on_click(self,x, y, button, pressed):
+        print(button)
+        # Button.middle left right
+        if button==pynput.mouse.Button.right:
+            # pyautogui.rightClick()
+            self.isMouseClick = True
+            return False
+
+        return True
 
     def WaitKeyBoard(self,key_press):
-        text = pyautogui.confirm('这个消息弹窗是文字+OK+Cancel按钮')
-        print(text)
-        return
-
-        while True:#making a loop
-            time.sleep(1)
-            print('waiting for key press = ',key_press)
-            # try:  
-            if keyboard.is_pressed(key_press):
-                print('You Pressed A Key!')
-                break
-
+        # text = pyautogui.confirm('这个消息弹窗是文字+OK+Cancel按钮')
+        # print(text)
+        # return
+        if Platform.isMacSystem():
+            self.isMouseClick = False
+            with pynput.mouse.Listener(on_click=self.on_click) as listener:
+                listener.join()
             
-            k = PyKeyboard()
+            while not self.isMouseClick :#making a loop
+                time.sleep(1)
+                print('waiting for Mouse Middle Click = ')
+        else:
+            while True:#making a loop
+                time.sleep(1)
+                print('waiting for key press = ',key_press)
+                # try:  
+                if keyboard.is_pressed(key_press):
+                    print('You Pressed A Key!')
+                    break
 
+                
+                k = PyKeyboard()
+ 
 
     def SetInputText(self, key,title): 
         webcmd = WebDriverCmd(self.driver)

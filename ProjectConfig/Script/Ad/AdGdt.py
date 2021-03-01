@@ -701,7 +701,7 @@ class AdGdt(AdBase):
 
 
     def Run(self,type, os,isHD): 
-        self.OpenFileBrowser()      
+        # self.OpenFileBrowser()      
         self.Init()
         self.GoHome()
         self.Login("3452644866","qq31415926")

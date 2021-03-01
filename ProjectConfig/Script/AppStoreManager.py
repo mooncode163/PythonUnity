@@ -129,6 +129,10 @@ if __name__ == "__main__":
         # python AppStoreManager.py %~dp0 createapp huawei hd
         # p.UpdateApp(arg2,arg3,arg4)
         p.GetAppStore(arg3).Run(arg2,isHd)
+        
+    if arg2 == "UpdateApk":
+        p.GetAppStore(arg3).Run(arg2,isHd)
+
 
     if arg2 == "SubmitApp": 
         p.GetAppStore(arg3).Run(arg2,isHd)

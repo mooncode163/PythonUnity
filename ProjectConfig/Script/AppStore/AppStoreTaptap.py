@@ -548,6 +548,8 @@ class AppStoreTaptap(AppStoreBase):
         # 手动点击上传
         # webcmd.WaitKeyBoard("q")
         apk = mainResource.GetOutPutApkPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD)
+        if not os.path.exists(apk):
+            apk = mainResource.GetOutPutApkPathWin32(mainResource.GetProjectOutPut(), Source.HUAWEI, isHD)
 
         if Platform.isMacSystem():
             apk = FileUtil.GetLastDirofDir(apk)
@@ -676,36 +678,39 @@ class AppStoreTaptap(AppStoreBase):
 
     def SearchApp(self, ishd):
         name = self.GetAppName(ishd, Source.LANGUAGE_CN)
+        webcmd = WebDriverCmd(self.driver)
 
         self.driver.get(
             "https://www.taptap.com/developer/dashboard/14628/apps")
         time.sleep(2)
 
-        div = self.driver.find_element(
-            By.XPATH, "//div[@class='developer-search-app']")
-        time.sleep(1)
+        key = "//input[@class='ant-select-search__field']"
+        webcmd.AddCmd(CmdType.INPUT,key,name)
 
-        item = div.find_element_by_xpath("input")
-        item.send_keys(name)
-        # item.send_keys("儿童写汉字")
+        webcmd.Run(True)
 
         time.sleep(1)
+# <li role="option" class="ant-select-dropdown-menu-item" unselectable="on" style="user-select: none;"> 诗词大挑战HD（测试版） </li>
+        key = "//div[@class='ant-select-dropdown-content']"
+        div = webcmd.Find(key)
 
-        div = self.driver.find_element(
-            By.XPATH, "//div[@class='dropdown search-app-dropdown']")
-        list = div.find_elements_by_xpath("ul/li/a")
-        for a in list:
-            title = a.text
+        # 202132
+        
+      
+        list = div.find_elements_by_xpath("ul/li")
+        for li in list:
+            title = li.text
             print(title)
             if title.find(name) == 0:
+                webcmd.DoCmd(li,CmdType.CLICK)
                 # app_id=56016
-                url = a.get_attribute('href')
-                strfind = "app_id="
-                idx = url.find(strfind)+len(strfind)
-                print(url)
-                appid = url[idx:]
-                print(appid)
-                mainAppInfo.SetAppId(ishd, Source.ANDROID, Source.TAPTAP, appid)
+                # url = li.get_attribute('href')
+                # strfind = "app_id="
+                # idx = url.find(strfind)+len(strfind)
+                # print(url)
+                # appid = url[idx:]
+                # print(appid)
+                # mainAppInfo.SetAppId(ishd, Source.ANDROID, Source.TAPTAP, appid)
                 break
 
 

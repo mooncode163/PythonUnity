@@ -27,7 +27,7 @@ from Project.Resource import mainResource
 
 from Common.File.FileUtil import FileUtil 
 
-
+from Common.Platform import Platform
 # @moon line 1052, in method
   #  raise UnknownFileType(media_filename)
 # googleapiclient.errors.UnknownFileType: shapecolor_shapecolor_gp.apk
@@ -42,13 +42,21 @@ from Common.File.FileUtil import FileUtil
 
 class GooglePlayApi:  
 
+    def GetPython(self):
+        python = "python"
+        if Platform.isMacSystem():
+            python = "python3"
+        
+        return python
+
     def UpdateAppInfo(self,package,country,title,detail,shortDetail,strHD,lan):
         #argv ="c "+ package
         #argv ="['AppStoreManager.py', 'com.moonma.wordpuzzle']" 
         # package lan title detail shortdetail
         # os.system("python AppStore/Google/update_listings.py "+package+" "+lan+" "+title+" "+detail+" "+shortDetail)
+        python = self.GetPython() 
 
-        os.system("python AppStore/Google/update_listings.py "+package+" "+country+" "+strHD+" "+lan+" "+mainResource.cmdPath)
+        os.system(python+" AppStore/Google/update_listings.py "+package+" "+country+" "+strHD+" "+lan+" "+mainResource.cmdPath)
         return
 
         argparser = argparse.ArgumentParser(add_help=False)
@@ -99,7 +107,8 @@ class GooglePlayApi:
  
     def UploadOneScreenShot(self,package,image_file,lan,imageType):
         # # package imageFile lan imageType
-        os.system("python AppStore/Google/screenshot.py "+package+" "+image_file+" "+lan+" "+imageType)
+        python = self.GetPython() 
+        os.system(python+" AppStore/Google/screenshot.py "+package+" "+image_file+" "+lan+" "+imageType)
         return
 
         # Authenticate and construct service.
@@ -164,7 +173,8 @@ class GooglePlayApi:
 
     def UploadApk(self,package,apk_file):
         argv =package+" "+apk_file
-        os.system("python AppStore/Google/upload_apks_with_listing.py "+package+" "+apk_file)
+        python = self.GetPython()
+        os.system(python+" AppStore/Google/upload_apks_with_listing.py "+package+" "+apk_file)
         return
         # Authenticate and construct service.
         service, flags = sample_tools.init(

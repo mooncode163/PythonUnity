@@ -14,7 +14,7 @@ class AppVersionApple():
 # https://itunes.apple.com/lookup?id=914391781
 # https://itunes.apple.com/cn/lookup?id=914391781
     def GetHtml(self,appid):
-        url = "https://itunes.apple.com/lookup?id="+appid
+        url = "https://itunes.apple.com/cn/lookup?id="+appid
         # # 创建chrome浏览器驱动，无头模式（超爽）
         # chrome_options = Options()
         # chrome_options.add_argument('--headless')
