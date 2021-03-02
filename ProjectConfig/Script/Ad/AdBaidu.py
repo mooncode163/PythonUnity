@@ -30,6 +30,7 @@ from AppStore.AppVersionApple import mainAppVersionApple
 from AppStore.AppConnectApi import mainAppConnectApi
 from Common.Platform import Platform
 from Ad.AdBase import AdBase
+from selenium.webdriver.support.select import Select
 
 # 要想调用键盘按键操作需要引入keys包
 
@@ -395,7 +396,8 @@ class AdBaidu(AdBase):
         if appid=="0":
             appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
             appChannel = Source.HUAWEI
-            appurl = mainAppVersionHuawei.GetApkUrl(mainAppInfo.GetAppId(isHD, Source.HUAWEI)) 
+            # appurl = mainAppVersionHuawei.GetApkUrl(mainAppInfo.GetAppId(isHD, Source.HUAWEI)) 
+            appurl = "https://appgallery1.huawei.com/#/app/C"+appid
 
  
         key = "//input[@type='text' and @name='name']"
@@ -462,7 +464,8 @@ class AdBaidu(AdBase):
             if appChannel == Source.TAPTAP:
                 keyword = "TapTap"
             if appChannel == Source.HUAWEI:
-                keyword = "华为应用市场"
+                # 华为应用市场
+                keyword = "华为"
 
             key = "//span[@class='veui-option-label' and text()='"+keyword+"']"
             webcmd.AddCmd(CmdType.CLICK, key)
@@ -582,10 +585,10 @@ class AdBaidu(AdBase):
         # 先找父节点tr
         key = "//div[@class='one-line' and text()='"+self.appName+"']"
         div_name = webcmd.Find(key)
-        tr = webcmd.GetParent(div_name)
-        tr = webcmd.GetParent(tr)
-        tr = webcmd.GetParent(tr)
-        tr = webcmd.GetParent(tr)
+        tr = webcmd.GetParent(div_name,4)
+        # tr = webcmd.GetParent(tr)
+        # tr = webcmd.GetParent(tr)
+        # tr = webcmd.GetParent(tr)
         # key = "//div[@class='one-line' and text()='"+self.appName+"']/../../../../button[@ui='link' and contains(text(),'修改')]"
         # key = "//div[@class='one-line' and text()='"+self.appName+"']/../../../../"
         # tr = webcmd.Find(key)
@@ -695,17 +698,24 @@ class AdBaidu(AdBase):
             # item = webcmd.Find(key)
             key = "//span[@class='veui-option-label' and contains(text(),"+self.appId+")]"
             item = webcmd.Find(key,True)
-            print(item.tag_name)
-            # CLICK_SCRIPT CLICK_Action
-            item = webcmd.AddCmd(CmdType.CLICK_Action, key)
-            if item==None:
-                print("no key SelectApp key=",key)
+            button = webcmd.GetParent(item)
+            print(button.tag_name)
+            # CLICK_Action
             # webcmd.SetItemVisible(item)
-            webcmd.Run(True) 
+            webcmd.DoCmd(item,CmdType.CLICK)
+            time.sleep(2)
+            # webcmd.WaitKeyBoard('q')
+            # CLICK_SCRIPT CLICK_Action
+            # item = webcmd.AddCmd(CmdType.CLICK_Action, key)
+            # if item==None:
+            #     print("no key SelectApp key=",key)
+            # # webcmd.SetItemVisible(item)
+            # webcmd.Run(True) 
         except Exception as e:
             print(e) #打印所有异常到屏幕
             # 手动选择
             webcmd.WaitKeyBoard('q')
+            time.sleep(2)
 
         time.sleep(1)
 
@@ -717,6 +727,7 @@ class AdBaidu(AdBase):
         name = self.GetAppName(isHD)
 
         key = "//input[@name='name']"
+        webcmd.AddCmd(CmdType.INPUT_CLEAR, key)
         webcmd.AddCmd(CmdType.INPUT, key,self.BANNER+"_"+name)
         webcmd.Run(True) 
 
@@ -747,6 +758,7 @@ class AdBaidu(AdBase):
  
 
         key = "//input[@name='name']"
+        webcmd.AddCmd(CmdType.INPUT_CLEAR, key)
         webcmd.AddCmd(CmdType.INPUT, key,self.INSERT+"_"+name)
         webcmd.Run(True)  
 
@@ -782,6 +794,7 @@ class AdBaidu(AdBase):
  
 
         key = "//input[@name='name']"
+        webcmd.AddCmd(CmdType.INPUT_CLEAR, key)
         webcmd.AddCmd(CmdType.INPUT, key,self.VIDEO+"_"+name)
         webcmd.Run(True) 
   

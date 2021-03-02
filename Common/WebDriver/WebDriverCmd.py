@@ -160,7 +160,15 @@ class WebDriverCmd():
         
         return item
  
-    def GetParent(self,item):
+    def GetParent(self,item,level =1):
+        parent = item
+        for i in range(level):
+            index = i
+            parent = self.GetParentInternal(parent)
+        
+        return parent 
+
+    def GetParentInternal(self,item):
         return item.find_element(By.XPATH, "./..")
 
     def FindChild(self,item,key,isWait=False):
@@ -208,7 +216,7 @@ class WebDriverCmd():
     def on_click(self,x, y, button, pressed):
         print(button)
         # Button.middle left right
-        if button==pynput.mouse.Button.right:
+        if button==pynput.mouse.Button.left:
             # pyautogui.rightClick()
             self.isMouseClick = True
             return False
