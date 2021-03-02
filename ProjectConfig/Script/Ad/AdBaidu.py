@@ -330,7 +330,13 @@ class AdBaidu(AdBase):
     def UpLoadSignAndroid(self):
         webcmd = WebDriverCmd(self.driver)
           # E:\Users\moon\Downloads
-        downloadDir = "C:\\Users\\moon\\Downloads"
+        
+        if Platform.isWindowsSystem():
+            downloadDir = "C:\\Users\\moon\\Downloads"
+
+        if Platform.isMacSystem():
+            downloadDir = "/Users/moon/Downloads"
+
         self.DeleteAllDownloadFile(downloadDir,".apk")
 
         # 下载空包 E:\Users\moon\Downloads\mssp-verify-b8920a35.apk
@@ -340,11 +346,21 @@ class AdBaidu(AdBase):
 
         time.sleep(3)
         apk_unsign = self.GetDownloadFile(downloadDir,".apk") 
-        apk_sign = "F:\\sourcecode\\mssp_baidu\\signed.apk"
-        jks = "F:\\sourcecode\\unity\\product\\kidsgame\\ProjectConfig\\Ad\\moonma.jks"
-        # sign apk:
-        # jarsigner -verbose -keystore ~/sourcecode/mssp_baidu/moonma.jks -signedjar ~/sourcecode/mssp_baidu/signed.apk ~/sourcecode/mssp_baidu/empty.apk moonma -storepass qianlizhiwai
-        cmd = "jarsigner -verbose -keystore "+jks+" -signedjar "+apk_sign+" "+apk_unsign+" moonma -storepass qianlizhiwai"
+        apk_sign = mainResource.GetProjectOutPut()+"/mssp_baidu/signed.apk"
+        FileUtil.CreateDir(FileUtil.GetLastDirofDir(apk_sign))
+        jks = mainResource.GetDirProductCommon()+"/Ad/moonma.jks"
+
+        if Platform.isWindowsSystem(): 
+     
+            # sign apk:
+            # jarsigner -verbose -keystore ~/sourcecode/mssp_baidu/moonma.jks -signedjar ~/sourcecode/mssp_baidu/signed.apk ~/sourcecode/mssp_baidu/empty.apk moonma -storepass qianlizhiwai
+            cmd = "jarsigner -verbose -keystore "+jks+" -signedjar "+apk_sign+" "+apk_unsign+" moonma -storepass qianlizhiwai"
+            
+        if Platform.isMacSystem(): 
+            # sign apk:
+            # jarsigner -verbose -keystore ~/sourcecode/mssp_baidu/moonma.jks -signedjar ~/sourcecode/mssp_baidu/signed.apk ~/sourcecode/mssp_baidu/empty.apk moonma -storepass qianlizhiwai
+            cmd = "jarsigner -verbose -keystore "+jks+" -signedjar "+apk_sign+" "+apk_unsign+" moonma -storepass qianlizhiwai"
+            
         print(cmd)
         os.system(cmd)
         time.sleep(1)
@@ -561,14 +577,28 @@ class AdBaidu(AdBase):
         idx = text.find(head)+len(head)
         self.appId = text[idx:]
         # self.appId = self.appKey
-        key = "//button[@ui='link' and contains(text(),'修改')]"
-        listbtn = webcmd.FindList(key)
-        if ishd:
-            item = listbtn[0]
-        else:
-            item = listbtn[1]
+        # key = "//button[@ui='link' and contains(text(),'修改')]"
 
-        webcmd.DoCmd(item,CmdType.CLICK_Action)
+        # 先找父节点tr
+        key = "//div[@class='one-line' and text()='"+self.appName+"']"
+        div_name = webcmd.Find(key)
+        tr = webcmd.GetParent(div_name)
+        tr = webcmd.GetParent(tr)
+        tr = webcmd.GetParent(tr)
+        tr = webcmd.GetParent(tr)
+        # key = "//div[@class='one-line' and text()='"+self.appName+"']/../../../../button[@ui='link' and contains(text(),'修改')]"
+        # key = "//div[@class='one-line' and text()='"+self.appName+"']/../../../../"
+        # tr = webcmd.Find(key)
+        key = ".//button[@ui='link' and contains(text(),'修改')]"
+        button = webcmd.FindChild(tr,key)
+        webcmd.DoCmd(button,CmdType.CLICK_Action)
+        # listbtn = webcmd.FindList(key)
+        # if ishd:
+        #     item = listbtn[0]
+        # else:
+        #     item = listbtn[1]
+
+        # webcmd.DoCmd(item,CmdType.CLICK_Action)
         # webcmd.AddCmd(CmdType.CLICK_Action, key)
         # webcmd.Run(True) 
         time.sleep(2)
@@ -583,8 +613,9 @@ class AdBaidu(AdBase):
     
   
     def GetAdInfo(self, ishd):
+        print("GetAdInfo ishd=",ishd)
         self.SearchApp(ishd) 
-        print("GetAdInfo")
+        
         name = self.GetAppName(ishd)
         webcmd = WebDriverCmd(self.driver)
         # self.driver.get("http://union.baidu.com/bqt/appco.html#/union/slot")
@@ -596,14 +627,16 @@ class AdBaidu(AdBase):
         if self.osApp==Source.IOS:
             system = 1
 
-        self.driver.get("http://union.baidu.com/bqt/appco.html#/union/slot?system="+str(system)+"&appId="+self.appKey)
+        url = "http://union.baidu.com/bqt/appco.html#/union/slot?system="+str(system)+"&appId="+self.appKey
+        print("GetAdInfo url=",url)  
+        self.driver.get(url)
         time.sleep(3)  
         key = "//div[@id='watermarker-id']"
         div_main = webcmd.Find(key) 
 
         key = ".//table[@ui='slim alt' and @class='veui-table']"
         table = webcmd.FindChild(div_main,key)   
-
+        # <table ui="slim alt" class="veui-table">
 
         # <input type="text" autocomplete="off" role="searchbox" aria-haspopup="listbox" class="veui-input-input">
         # key = "//input[@type='text' and @role='searchbox']"
@@ -784,8 +817,9 @@ class AdBaidu(AdBase):
 
         self.GoHome()
         self.Login("moonmaapp","Qianlizhiwai1")
+        if self.osApp == Source.IOS:
+            self.RunDownloadSigniOS()
 
-        self.RunDownloadSigniOS()
         if type == "createapp":
             if isHD:
                 self.CreateApp(True)
@@ -807,6 +841,8 @@ class AdBaidu(AdBase):
         if type == "adinfo":
             self.GetAdInfo(False)
             time.sleep(3)
+            self.appId="0"
+            self.appKey="0"
             self.GetAdInfo(True)
 
         print("AdBaidu sucess")

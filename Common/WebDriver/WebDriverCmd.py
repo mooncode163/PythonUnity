@@ -159,6 +159,9 @@ class WebDriverCmd():
             item = self.driver.find_element(By.XPATH, key)  
         
         return item
+ 
+    def GetParent(self,item):
+        return item.find_element(By.XPATH, "./..")
 
     def FindChild(self,item,key,isWait=False):
         ret = None
