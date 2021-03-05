@@ -32,6 +32,13 @@ class CopyResource():
         return mainConfig.IsNoIDFASDK()
 
 
+    def DeleteMACOSX(self,root_dir):
+        macosx_dir = root_dir+"/__MACOSX"
+        flag = os.path.exists(macosx_dir)
+        if flag:
+            shutil.rmtree(macosx_dir)
+
+
     def ConfigiOSLib(self,source_lib):
         dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"
         dirLib = dirRoot+"/ThirdParty"
@@ -40,6 +47,8 @@ class CopyResource():
         if not self.IsNoIDFASDK():
             zipfile = dirLib+"/"+source_lib+".zip"
             ZipUtil.un_zip(zipfile,dirLib)
+
+        self.DeleteMACOSX(dirLib)
 
     def ConfigiOSAdkitCode(self,source_ad):
         dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"

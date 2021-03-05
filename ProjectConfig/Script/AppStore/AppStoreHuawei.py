@@ -201,26 +201,30 @@ class AppStoreHuawei(AppStoreBase):
         # time.sleep(1)
         self.Switch2MainFrameView()
 
-        webcmd.AddCmdWait(CmdType.CLICK, "//a[@id='MyAppListNewApp']")
+        webcmd.AddCmdWait(CmdType.CLICK, "//button[@id='MyAppListNewApp']")
         webcmd.Run(True)
 
 
+        # 请选择应用名称，或填写新应用名称（限64字符）
+        print("title= ",title) 
+        # try:
+        #     webcmd.AddCmd(CmdType.INPUT, "//input[contains(@placeholder,'请选择应用名称')]", title, 1)
+        #     webcmd.Run(True)
+        # except Exception as e:  
+        #     print("INPUT eror=",e)
 
-        webcmd.AddCmd(
-            CmdType.INPUT, "//input[@ng-model='Model.productAndApp.appName']", title, 1)
-        webcmd.Run(True)
-
-        key = "//span[contains(text(),'请选择应用分类')]"
+        key = "//input[contains(@id='PubProAppSortCombo')]"
         webcmd.AddCmd(CmdType.CLICK, key)
         # <div class="ucd-droplist-option ng-binding ng-scope" ng-bind="parentType.value">应用</div>
-        key = "//div[@class='ucd-droplist-option ng-binding ng-scope' and contains(text(),'应用')]"
+        key = "//span[text()='应用']"
         webcmd.AddCmd(CmdType.CLICK, key)
         webcmd.Run(True)
 
-        key = "//span[contains(text(),'请选择语言')]"
-        webcmd.AddCmd(CmdType.CLICK, key)
-        key = "//div[@class='ucd-droplist-option ng-binding ng-scope' and contains(text(),'" + \
-            self.defaultLanguage+"')]"
+        # key = "//span[contains(text(),'请选择语言')]"
+        key = "//input[contains(@id='PubProDefaultLanguagetCombo')]"
+        
+        webcmd.AddCmd(CmdType.CLICK, key) 
+        key = "//span[text()='" +self.defaultLanguage+"']"
         webcmd.AddCmd(CmdType.CLICK, key)
         webcmd.Run(True)
 

@@ -316,5 +316,14 @@
 		</array>
 		<key>GADApplicationIdentifier</key>
 		<string>_APP_ID_ADMOB_</string>
+
+		<key>SKAdNetworkItems</key>
+		<array>
+			<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>cstr6suwn9.skadnetwork</string>
+			</dict>
+		</array>
+
 	</dict>
 </plist>

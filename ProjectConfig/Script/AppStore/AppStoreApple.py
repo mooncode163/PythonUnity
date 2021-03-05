@@ -303,7 +303,7 @@ class AppStoreApple(AppStoreBase):
 
 
 
-        webcmd.AddCmdWait(CmdType.CLICK, "//span[@id='new-app-btn-icon']")
+        webcmd.AddCmdWait(CmdType.CLICK, "//button[@id='new-app-btn-icon']")
         webcmd.AddCmd(CmdType.CLICK, "//button[@id='new-app-btn']")
         webcmd.AddCmdWait(CmdType.CLICK, "//input[@name='appStoreVersionsIOS']") 
         webcmd.AddCmd(CmdType.INPUT, "//input[@id='name']",mainAppInfo.GetAppName(Source.IOS, isHD,Source.LANGUAGE_EN)) 
