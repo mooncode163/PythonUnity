@@ -58,6 +58,14 @@ class AppChannel():
  
 
 
+    def DeleteAndroidAssetGameRes(self):  
+        # delete
+        dir = mainResource.GetRootDirAndroidAsset()+"/GameRes" 
+        if os.path.exists(dir): 
+            shutil.rmtree(dir) 
+         
+
+
     def UpdateChannel(self,channel,ishd): 
         print("updateChannel")
         # project_config = common.GetProjectConfigApp() + "/android" + "/gradle"
@@ -73,6 +81,9 @@ class AppChannel():
 
         if channel == Source.GP:
             # self.MakeGooglePlayObbFile(ishd)
+            if mainConfig.IsCloudRes():
+                self.DeleteAndroidAssetGameRes()
+                
             mainConfigSDKAndroid.SetShareSdk(False)
             mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True) 
             mainConfigSDKAndroid.SetAdSdk(Source.ADVIEW, False)

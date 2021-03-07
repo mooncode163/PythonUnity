@@ -1,4 +1,4 @@
-
+﻿
 #! /bin/sh
 # 脚本文件的绝对路径存在了环境变量filepath中，可以用
 filepath=$(cd "$(dirname "$0")"; pwd)
@@ -13,13 +13,23 @@ then
     #filepath=${filepath// /\\ } 
     filepath=${filepath#/Volumes/VMware Shared Folders/}
     cd /Volumes/VMware\ Shared\ Folders
+    
+    cd $filepath
+    sh ./CopyAndBuildAllIPAiOS
+
 else
     echo "不包含"
+
+    cd $filepath
+    sh ../CopyResource
+    sh ./UnityBuildiOS 
+    sh ../CopyConfig
+    sh ./IPABuild
+    sh ../CopyConfigHD
+    sh ./IPABuild
+
 fi
 
-cd $filepath
-sh ../UpdateAppInfoAuto
-sh ../CopyConfig
-sh ./IPABuild
-sh ../CopyConfigHD
-sh ./IPABuild
+    
+
+

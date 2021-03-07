@@ -76,6 +76,13 @@ class Config():
             return self.jsonCommonRoot["NoIDFASDK"]
         return False
 
+    def IsCloudRes(self): 
+        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        self.LoadCommonJson(dir)
+        if "CloudRes" in self.jsonCommonRoot:
+            return True
+        return False
+
     def GetShareAppId(self,src, osSrc, isHd):
         self.LoadJson(osSrc, isHd)
         appid = "0"
