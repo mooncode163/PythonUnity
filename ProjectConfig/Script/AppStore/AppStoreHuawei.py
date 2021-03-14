@@ -13,7 +13,7 @@ from Common.WebDriver.WebDriverCmd import WebDriverCmd
 from Common.WebDriver.WebDriverCmd import CmdInfo 
 
 import pyperclip
-
+from Common.Platform import Platform
 from Project.Resource import mainResource
 from Common import Source 
 from Common.File.FileUtil import FileUtil 
@@ -176,7 +176,7 @@ class AppStoreHuawei(AppStoreBase):
         self.driver.get(url)
         time.sleep(2)
 
-        title = self.GetAppName(isHD, Source.LANGUAGE_CN)
+        title = self.GetAppName(isHD, Source.LANGUAGE_CN,Source.HUAWEI)
         print("title =",title)
         
         # 等待网页加载成功
@@ -313,7 +313,7 @@ class AppStoreHuawei(AppStoreBase):
 
         webcmd.Run(True)
 
-        title = self.GetAppName(isHD, lanKey)
+        title = self.GetAppName(isHD, lanKey,Source.HUAWEI)
         print(title)
         pyperclip.copy(title)
         key = "//input[@id='AppInfoAppNameInputBox']"
@@ -632,7 +632,7 @@ class AppStoreHuawei(AppStoreBase):
             self.SubmitApp(isHD)
 
     def SearchApp(self, ishd):
-        name = self.GetAppName(isHD, Source.LANGUAGE_CN)
+        name = self.GetAppName(ishd, Source.LANGUAGE_CN,Source.HUAWEI)
         item = self.driver.find_element(
             By.XPATH, "//input[@ng-model='Model.product.query.appName']")
         item.send_keys(name)
@@ -866,7 +866,7 @@ class AppStoreHuawei(AppStoreBase):
         self.SubmitApp(isHD)
  
     def SearchApp(self, ishd):
-        name = self.GetAppName(isHD, Source.LANGUAGE_CN)
+        name = self.GetAppName(ishd, Source.LANGUAGE_CN,Source.HUAWEI)
         self.driver.get("https://adnet.qq.com/medium/list")
         time.sleep(2)
         item = self.driver.find_element(
@@ -920,7 +920,7 @@ class AppStoreHuawei(AppStoreBase):
 
 
     def UpdateApkApi(self,isHD): 
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.HUAWEI)
         apk = mainResource.GetOutPutApkPath(Source.HUAWEI, isHD)
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
         mainHuaweiAppGalleryApi.UploadApk(appid,apk) 
@@ -942,7 +942,7 @@ class AppStoreHuawei(AppStoreBase):
         idx = 0
         for country in self.listCountry:
             lan = self.listCountryLanguage[idx]
-            title= mainAppInfo.GetAppName(Source.ANDROID, isHD,lan)
+            title= mainAppInfo.GetAppName(Source.ANDROID, isHD,lan,Source.HUAWEI)
             detail = mainAppInfo.GetAppDetail(isHD,lan)
             shortDetail = mainAppInfo.GetAppPromotion(isHD,lan)
             whatsNew = mainAppInfo.GetAppUpdate(isHD,lan)
@@ -978,7 +978,13 @@ class AppStoreHuawei(AppStoreBase):
             mainHuaweiAppGalleryApi.StartScreenShot()
             for i in range(0, 5):
                 pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(i+1)+".jpg"
-                mainHuaweiAppGalleryApi.UploadOneScreenShot(appid,pic,isHD)
+                if Platform.isMacSystem():
+                    pic = pic.replace("\\","/")
+                    
+                if os.path.exists(pic):
+                    print(pic)
+                    mainHuaweiAppGalleryApi.UploadOneScreenShot(appid,pic,isHD)
+
             mainHuaweiAppGalleryApi.CommitScreenShot(appid,isHD,country)
 
             idx+=1

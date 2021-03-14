@@ -7,7 +7,7 @@ import os
 import os.path
 import time,  datetime
 o_path = os.getcwd()  # 返回当前工作目录
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./')  
 from Config.Config import mainConfig
@@ -103,7 +103,7 @@ class CopyConfig():
     
         # ios icon
         #先清除unity自动生成的目录
-        dir1 =mainResource.GetProjectConfig()+"/LaunchScreenIcon_ios/Unity-iPhone"
+        dir1 =mainResource.GetDirProductCommon()+"/LaunchScreenIcon_ios/Unity-iPhone"
         dir2 = rootiOSXcode + "/Unity-iPhone"
         flag = os.path.exists(dir1) and os.path.exists(dir2)
         if flag:

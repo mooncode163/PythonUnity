@@ -11,7 +11,7 @@ import json
 
 # o_path = os.getcwd()  # 返回当前工作目录
 # sys.path.append(o_path)  # 添加自己指定的搜索路径  
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 from Common import Source
@@ -26,7 +26,7 @@ class Config():
 
     #构造函数
     def __init__(self): 
-        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        dir = mainResource.GetRootUnityAssetsResource()+"/ConfigData/config"
         # self.LoadCommonJson(dir)
 
 
@@ -65,19 +65,19 @@ class Config():
         return self.jsonCommonRoot["APP_NAME_KEYWORD"]
 
     def IsForKid(self): 
-        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        dir = mainResource.GetRootUnityAssetsResource()+"/ConfigData/config"
         self.LoadCommonJson(dir)
         return self.jsonCommonRoot["APP_FOR_KIDS"]
 
     def IsNoIDFASDK(self): 
-        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        dir = mainResource.GetRootUnityAssetsResource()+"/ConfigData/config"
         self.LoadCommonJson(dir)
         if "NoIDFASDK" in self.jsonCommonRoot:
             return self.jsonCommonRoot["NoIDFASDK"]
         return False
 
     def IsCloudRes(self): 
-        dir = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        dir = mainResource.GetRootUnityAssetsResource()+"/ConfigData/config"
         self.LoadCommonJson(dir)
         if "CloudRes" in self.jsonCommonRoot:
             return True

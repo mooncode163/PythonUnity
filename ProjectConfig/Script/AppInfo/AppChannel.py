@@ -10,7 +10,7 @@ import datetime
 import json
 
 # include common.py
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 from Common import Source
@@ -165,7 +165,7 @@ class AppChannel():
         dir = mainResource.GameResApp() 
         print("MakeGooglePlayObbFile GameRes=",dir)
         self.DeleAllObbFile(FileUtil.GetLastDirofDir(dir))
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP)
         versioncode = mainAppInfo.GetAppVersionCode(Source.ANDROID,isHD)
         dir = FileUtil.GetLastDirofDir(dir)
         print("MakeGooglePlayObbFile file_zip dir =",dir)

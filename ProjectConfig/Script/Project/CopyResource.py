@@ -115,7 +115,7 @@ class CopyResource():
         # ResConfigDataCommon 
         reousceDataRoot = mainResource.GetResourceDataRoot() 
         dirname = "ConfigDataCommon"
-        dirUnity = mainResource.GetRootProjectUnity()+ "/Assets/Resources"
+        dirUnity = mainResource.GetRootUnityAssetsResource()
         dir1 = reousceDataRoot+"/"+dirname
         dir2 = dirUnity+"/"+dirname
         flag = os.path.exists(dir2)
@@ -137,8 +137,8 @@ class CopyResource():
         # resoucedata 
         gameType = mainResource.getGameType()
         gameName = mainResource.getGameName()
-        dir1 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+gameName+"/"+"Resources/App"
-        dir2 = mainResource.GetRootProjectUnity()+"/Assets/Resources/App" 
+        dir1 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+gameName+"/"+Source.Dir_Name_Resources+"/App"
+        dir2 = mainResource.GetRootUnityAssetsResource()+"/App" 
         flag = os.path.exists(dir2)
         if flag:
             shutil.rmtree(dir2)
@@ -146,8 +146,8 @@ class CopyResource():
         shutil.copytree(dir1,dir2)
 
         # AppCommon
-        dir1 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+"AppCommon/Resources"
-        dir2 = mainResource.GetRootProjectUnity()+"/Assets/Resources/AppCommon" 
+        dir1 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+"AppCommon/"+Source.Dir_Name_Resources
+        dir2 = mainResource.GetRootUnityAssetsResource()+"/AppCommon" 
         FileUtil.CopyDir(dir1,dir2)
 
         self.CopyResConfigData()

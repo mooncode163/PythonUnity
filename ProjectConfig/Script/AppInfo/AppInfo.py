@@ -12,7 +12,7 @@ import requests
 #include mainResource.py
 # sys.path.append('./common')
 
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 from Config.Config import mainConfig
@@ -497,16 +497,22 @@ class AppInfo():
         name = data["appstore"] ["promotion"][lan]
         return name 
     
-    def GetAppName(self,os,isHd,lan): 
+    def GetAppName(self,os,isHd,lan,channel = ""): 
         # loadJson
-        data = self.loadJson(isHd)  
-        name = data["appname"][os][lan]
+        data = self.loadJson(isHd)
+        appname = data["appname"]
+        name = appname[os][lan]
+        if len(channel)>0 and channel in appname:
+            name = appname[channel][lan]
         return name 
 
-    def GetAppPackage(self,os,isHd): 
+    def GetAppPackage(self,os,isHd,channel = ""): 
         # loadJson
-        data = self.loadJson(isHd)   
-        name = data["apppackage"][os]["default"]
+        data = self.loadJson(isHd) 
+        apppackage = data["apppackage"]  
+        name = apppackage[os]["default"]
+        if len(channel)>0 and channel in apppackage[os]:
+            name = apppackage[os][channel]
         return name 
 
     def GetAppPrivacyUrl(self,isHd): 
@@ -671,7 +677,7 @@ class AppInfo():
         
         appinfoNew.Save()   
 
-    def updateName(self,isHd,isAuto):
+    def updateName(self,isHd,isAuto,chanel=""):
 
         name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
         mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
@@ -726,12 +732,12 @@ class AppInfo():
             APPVERSION_IOS = data["APPVERSION_IOS"]
             appid_huawei = self.GetConfigDataAppId(Source.ANDROID,Source.HUAWEI,isHd)
         else:
-            APP_NAME_CN_ANDROID = appname[Source.ANDROID]["cn"]
-            APP_NAME_EN_ANDROID = appname[Source.ANDROID]["en"]
-            APP_NAME_CN_IOS = appname[Source.IOS]["cn"]
-            APP_NAME_EN_IOS = appname[Source.IOS]["en"]       
-            PACKAGE_ANDROID = data["apppackage"][Source.ANDROID]["default"]
-            PACKAGE_IOS = data["apppackage"][Source.IOS]["default"]
+            APP_NAME_CN_ANDROID =mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN,chanel)
+            APP_NAME_EN_ANDROID = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_EN,chanel)
+            APP_NAME_CN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_CN,chanel)
+            APP_NAME_EN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_EN,chanel)  
+            PACKAGE_ANDROID = mainAppInfo.GetAppPackage(Source.ANDROID,isHd,chanel) 
+            PACKAGE_IOS = mainAppInfo.GetAppPackage(Source.IOS,isHd,chanel) 
             self.versionCode = data["appversion"][Source.ANDROID]["code"]
             APPVERSION_IOS =  data["appversion"][Source.IOS]["value"]
             
@@ -746,7 +752,7 @@ class AppInfo():
             csvfile = mainResource.GetConfigDataDir()+"/language/language.csv" 
             self.UpdateLanguageName(csvfile,APP_NAME_CN_ANDROID,APP_NAME_EN_ANDROID,isHd)
 
-            csvfile = mainResource.GetRootUnityAssets()+"/Resources/ConfigData/language/language.csv" 
+            csvfile = mainResource.GetRootUnityAssetsResource()+"/ConfigData/language/language.csv" 
             self.UpdateLanguageName(csvfile,APP_NAME_CN_ANDROID,APP_NAME_EN_ANDROID,isHd)
 
         
@@ -943,7 +949,7 @@ class AppInfo():
  
 
     # 主函数的实现
-    def Run(self,is_auto_plus_version):  
+    def Run(self,is_auto_plus_version,channel=""):  
 
     #先从default 拷贝 工程文件模版
         # ios project file
@@ -974,9 +980,10 @@ class AppInfo():
 
     
 
-        
-        self.updateName(False,is_auto_plus_version)
-        self.updateName(True,is_auto_plus_version)
+        # channel = ""
+        # channel = Source.HUAWEI
+        self.updateName(False,is_auto_plus_version,channel)
+        self.updateName(True,is_auto_plus_version,channel)
     
         
         print("appname sucess")

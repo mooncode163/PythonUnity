@@ -8,7 +8,7 @@ import os.path
 import time,  datetime
 
 o_path = os.getcwd()  # 返回当前工作目录
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./')  
 from Config.Config import mainConfig
@@ -23,7 +23,7 @@ class SaveResource():
         gameType = mainResource.getGameType()
         gameName = mainResource.getGameName()
 
-        configDirUnity = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData/config"
+        configDirUnity = mainResource.GetRootUnityAssetsResource()+"/ConfigData/config"
 
         configAppType = mainConfig.GetConfigAppType(configDirUnity)
         configAppName = mainConfig.GetConfigAppName(configDirUnity)
@@ -34,21 +34,21 @@ class SaveResource():
             sys.exit(0)
 
 
-        dir1 = mainResource.GetRootProjectUnity()+"/Assets/Resources/App"
-        dir2 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+gameName+"/"+"Resources/App"
+        dir1 = mainResource.GetRootUnityAssetsResource()+"/App"
+        dir2 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+gameName+"/"+Source.Dir_Name_Resources+"/App"
         flag = os.path.exists(dir2)
         if flag:
             shutil.rmtree(dir2)
         shutil.copytree(dir1,dir2)
 
         # AppCommon
-        dir1 = mainResource.GetRootProjectUnity()+"/Assets/Resources/AppCommon" 
-        dir2 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+"AppCommon/Resources"
+        dir1 = mainResource.GetRootUnityAssetsResource()+"/AppCommon" 
+        dir2 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+"AppCommon/"+Source.Dir_Name_Resources
         flag = os.path.exists(dir2)
         FileUtil.CopyDir(dir1,dir2)
 
     # ConfigData
-        dir1 = mainResource.GetRootProjectUnity()+"/Assets/Resources/ConfigData" 
+        dir1 = mainResource.GetRootUnityAssetsResource()+"/ConfigData" 
         dir2 = mainResource.GetResourceDataRoot()+"/"+gameType+"/"+gameName+"/ConfigData"
         flag = os.path.exists(dir2)
         FileUtil.CopyDir(dir1,dir2)

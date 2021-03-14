@@ -14,7 +14,7 @@ import json
 o_path = os.getcwd()  # 返回当前工作目录
 print(o_path)
 # sys.path.append(o_path)  # 添加自己指定的搜索路径
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 # sys.path.append('./')  
 
@@ -42,7 +42,7 @@ from AppStore.AppStoreGoogle import mainAppStoreGoogle
 from AppStore.AppStoreApple import mainAppStoreApple
 from AppStore.AsoQimai import mainAsoQimai
 from AppStore.AsoDeep import mainAsoDeep
-
+from Project.UpdateAppstore import mainUpdateAppstore
 class AppStoreManager():   
     #构造函数
     def __init__(self): 
@@ -100,6 +100,9 @@ if __name__ == "__main__":
     if arg2 == "new_version":
         # python AppStoreManager.py %~dp0 createapp huawei hd
         # p.CreateApp(arg2,arg3,arg4)
+        mainUpdateAppstore.Run(isHd)
+        mainAppInfo.Run(True)
+
         p.GetAppStore(arg3).Run(arg2,isHd)
 
     if arg2 == "UploadScreenShot":

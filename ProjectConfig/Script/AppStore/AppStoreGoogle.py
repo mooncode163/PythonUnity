@@ -29,8 +29,8 @@ class AppStoreGoogle(AppStoreBase):
         # ad.GoHome(isHD)
         time.sleep(1)
         print(" gp CreateApp")
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
-        name= mainAppInfo.GetAppName(Source.IOS, isHD,Source.LANGUAGE_EN) 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP)
+        name= mainAppInfo.GetAppName(Source.IOS, isHD,Source.LANGUAGE_EN,Source.GP) 
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType() 
         #self.driver.get(self.HTTP_HEAD+"GooglePlayDeveloperAPI/CreateApp?package="+package+"&name="+name+"&apptype="+gameType+"&appkey="+gameName+"&path="+mainResource.cmdPath)
@@ -38,21 +38,21 @@ class AppStoreGoogle(AppStoreBase):
          
 #  https://developers.google.cn/android-publisher/api-ref/rest/v3/AppImageType?hl=zh-cn
     def UploadScreenShot(self,isHD):  
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD) 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP) 
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType()
         mainAppStoreGoogleInternal.Run("UploadScreenShot",isHD)
         #self.driver.get(self.HTTP_HEAD+"GooglePlayDeveloperAPI/UploadScreenShot?package="+package+"&apptype="+gameType+"&appkey="+gameName+"&path="+mainResource.cmdPath)
 
     def UpdateAppInfo(self,isHD):  
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD) 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP) 
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType()
         mainAppStoreGoogleInternal.Run("UpdateAppInfo",isHD)
         #self.driver.get(self.HTTP_HEAD+"GooglePlayDeveloperAPI/UpdateAppInfo?package="+package+"&apptype="+gameType+"&appkey="+gameName+"&path="+mainResource.cmdPath)
 
     def UpdateApk(self,isHD): 
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD) 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP) 
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType()
         mainAppStoreGoogleInternal.Run("UpdateApk",isHD)

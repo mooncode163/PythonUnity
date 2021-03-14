@@ -158,7 +158,7 @@ class AppStoreTaptap(AppStoreBase):
         key = "//input[@type='text' and @class='form_in ant-input']"
  
        
-        title = self.GetAppName(isHD, applan) 
+        title = self.GetAppName(isHD, applan,Source.TAPTAP) 
         # pyperclip.copy(title)
         print("title =",title," lan=",applan)
         detail = self.GetAppDetail(isHD, applan)
@@ -677,7 +677,7 @@ class AppStoreTaptap(AppStoreBase):
         self.SubmitApp(True)
 
     def SearchApp(self, ishd):
-        name = self.GetAppName(ishd, Source.LANGUAGE_CN)
+        name = self.GetAppName(ishd, Source.LANGUAGE_CN,Source.TAPTAP)
         webcmd = WebDriverCmd(self.driver)
 
         self.driver.get(

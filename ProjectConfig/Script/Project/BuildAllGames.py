@@ -8,7 +8,7 @@ import time
 import datetime
 import sys
 
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
  

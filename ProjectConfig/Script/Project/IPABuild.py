@@ -109,7 +109,7 @@ class IPABuild():
         os.system(strCmd)
 
     def CopyExportOptionsPlist(self):   
-        src =mainResource.GetProjectConfig() + "/ExportOptions.plist"
+        src =mainResource.GetDirProductCommon() + "/ExportOptions.plist"
         dst =mainResource.GetRootProjectIos() + "/ExportOptions.plist"
         if not os.path.isfile(dst):
             shutil.copyfile(src,dst)

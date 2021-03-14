@@ -69,7 +69,7 @@ class AppConnectApi:
     DIR_private_key = "C:\Home\.private_keys" 
     base_api = 'https://api.appstoreconnect.apple.com/v1/'
     
-    fileScreenshot = "F:\\sourcecode\\unity\\product\\Common\\PythonUnity\\ProjectConfig\\Script\\1.jpg"
+    fileScreenshot = "F:\\sourcecode\\unity\\product\\Common\\PythonCreator\\ProjectConfig\\Script\\1.jpg"
     # 设备
     # connect_api_devices = base_api+'devices',
 
@@ -417,7 +417,7 @@ class AppConnectApi:
         print(header)
 
         isUesIdfa = True
-
+        #releaseType Possible values: MANUAL, AFTER_APPROVAL, SCHEDULED
         params = {
             "data": {
                 "type": "appStoreVersions",
@@ -425,7 +425,7 @@ class AppConnectApi:
                     "platform": "IOS",
                     "versionString": version,
                     "copyright": "moonma",
-                    "releaseType": "MANUAL",
+                    "releaseType": "AFTER_APPROVAL",
                     "usesIdfa":isUesIdfa
                 },
                 "relationships": {

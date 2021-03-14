@@ -15,7 +15,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium import webdriver
 
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 from Project.Resource import mainResource
@@ -112,8 +112,8 @@ class AppStoreBase():
             flag=False
             return flag
 
-    def GetAppName(self, ishd,lan):
-        name = mainAppInfo.GetAppName(Source.ANDROID, ishd,lan) 
+    def GetAppName(self, ishd,lan,chanel=""):
+        name = mainAppInfo.GetAppName(Source.ANDROID, ishd,lan,chanel) 
         return name
 
     def GetAppPromotion(self, ishd,lan):

@@ -10,14 +10,14 @@ import platform
 import json
 from hashlib import md5 
 
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 # o_path = os.getcwd()  # 返回当前工作目录
 # sys.path.append(o_path)  # 添加自己指定的搜索路径
 from Common.Platform import Platform
 from Common.File.FileUtil import FileUtil
-
+from Common import Source
 #http://blog.csdn.net/imzoer/article/details/8733396
 #http://blog.sina.com.cn/s/blog_708be8850101bu02.html
 ##复制文件
@@ -208,13 +208,18 @@ class Resource():
 
 
     def GetRootProjectUnity(self): 
-        return self.GetRootDir()+"/"+self.GetProjectName()+"Unity" 
+        return self.GetRootDir()+"/"+self.GetProjectName()+Source.Dir_Name_GameEngine 
+
+    def GetRootUnityAssetsResource(self): 
+        return self.GetRootUnityAssets()+"/"+Source.Dir_Name_Resources
+ 
 
     def GetRootUnityAssets(self): 
-        return self.GetRootProjectUnity()+"/Assets"
+        return self.GetRootProjectUnity()+"/"+Source.Dir_Name_Assets
 
     def GetProjectConfigCommon(self):
-        return self.GetDirProductCommon()+"/PythonUnity/ProjectConfig"
+        # return self.GetDirProductCommon()+"/PythonCreator/ProjectConfig"
+        return self.GetDirProductCommon()+"/Python"+Source.Dir_Name_GameEngine +"/ProjectConfig"
 
     def GetProjectConfig(self):
         return self.GetRootDir()+"/ProjectConfig"

@@ -19,6 +19,8 @@ HUAWEI = "huawei"
 TAPTAP = "taptap"
 APPSTORE = "appstore"
 GP = "gp"
+Default = "default"
+
 
 # share
 WEIXIN = "weixin"
@@ -49,3 +51,17 @@ APPSTORE_PASSWORD = "uyok-ghdh-wzvc-vrcf"
 # Unity 3.2f1
 UNITY_VERSION_WIN = "2019.4.8f1"
 UNITY_VERSION_MAC = "2019.4.8f1"
+
+
+# 游戏引擎
+
+# cocos creator
+# Dir_Name_GameEngine = "Creator"
+# Dir_Name_Assets = "assets"
+# Dir_Name_Resources = "resources"
+
+# unity
+Dir_Name_GameEngine = "Unity"
+Dir_Name_Assets = "Assets"
+Dir_Name_Resources = "Resources"
+

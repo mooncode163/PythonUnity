@@ -10,7 +10,7 @@ import os.path
 # import common
 
 o_path = os.getcwd()  # 返回当前工作目录
-# 当前工作目录 Common/PythonUnity/ProjectConfig/Script
+# 当前工作目录 Common/PythonCreator/ProjectConfig/Script
 sys.path.append('../../') 
 sys.path.append('./') 
 

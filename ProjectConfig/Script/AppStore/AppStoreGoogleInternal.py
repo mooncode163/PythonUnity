@@ -101,7 +101,7 @@ class AppStoreGoogleInternal(AppStoreBase):
 #  https://developers.google.cn/android-publisher/api-ref/rest/v3/AppImageType?hl=zh-cn
     def UploadScreenShot(self,isHD):  
         # isHD = True
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP)
         version = mainAppInfo.GetAppVersion(Source.ANDROID,isHD)
         
         total_screenshot = 5
@@ -134,21 +134,21 @@ class AppStoreGoogleInternal(AppStoreBase):
 
     def UpdateAppInfo(self,isHD):  
         
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP)
         version = mainAppInfo.GetAppVersion(Source.ANDROID,isHD)
         idx = 0
         print("google UpdateAppInfo=",package) 
 
         for country in self.listCountry:
             lan = self.listCountryLanguage[idx]
-            name= mainAppInfo.GetAppName(Source.IOS, isHD,lan) 
+            name= mainAppInfo.GetAppName(Source.IOS, isHD,lan,Source.GP) 
             description = mainAppInfo.GetAppDetail(isHD,lan) 
             promotionalText =  mainAppInfo.GetAppPromotion(isHD, lan)  
             mainGooglePlayApi.UpdateAppInfo(package,country,name,description,promotionalText,str(isHD),lan) 
             idx+=1
 
     def UpdateApk(self,isHD): 
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.GP)
         apk = mainResource.GetOutPutApkPath(Source.GP, isHD)
         mainGooglePlayApi.UploadApk(package,apk) 
 
