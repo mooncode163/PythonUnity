@@ -31,6 +31,7 @@ from AppStore.AppConnectApi import mainAppConnectApi
 from Common.Platform import Platform
 from Ad.AdBase import AdBase
 from selenium.webdriver.support.select import Select
+from AppStore.AppStoreApple import mainAppStoreApple
 
 # 要想调用键盘按键操作需要引入keys包
 
@@ -289,22 +290,7 @@ class AdBaidu(AdBase):
             if self.urlnew!=self.urlold:
                 print("Login Finish =",self.urlnew)
                 break
-    
-
-
-    def PreDownloadSigniOS(self,isHd): 
-        savepath =self.GetPathXcodePrifile(isHd)
-        if os.path.exists(savepath):
-            return
-
-        downloadDir = "C:\\Users\\moon\\Downloads"   
-        self.DeleteAllDownloadFile(downloadDir,".mobileprovision")
-
-        self.DownloadAppleDeveloper(isHd)
-        appsign =self.GetDownloadFile(downloadDir,".mobileprovision") 
-        savepath =self.GetPathXcodePrifile(isHd)
-        FileUtil.CopyFile(appsign,savepath)
-
+     
 
     def UpLoadSigniOS(self,isHd):
         webcmd = WebDriverCmd(self.driver)
@@ -807,15 +793,9 @@ class AdBaidu(AdBase):
         time.sleep(3)
 
     def RunDownloadSigniOS(self): 
-        # self.Init()
-        # self.LoginAppleDeveloper("chyfemail163@163.com","Moonqianlizhiwai1")
-        # self.PreDownloadSigniOS(False)
-        # self.PreDownloadSigniOS(True)
-        appid = mainAppInfo.GetAppId(False, Source.APPSTORE)
-        mainAppConnectApi.GetAppProfile(mainAppInfo.GetAppPackage(Source.IOS,False),appid)
-        appid = mainAppInfo.GetAppId(True, Source.APPSTORE)
-        mainAppConnectApi.GetAppProfile(mainAppInfo.GetAppPackage(Source.IOS,True),appid)
-
+        mainAppStoreApple.DownloadProfile(False)
+        mainAppStoreApple.DownloadProfile(True)
+        
 
 # 主函数的实现
     def Run(self,type, os,isHD):     
@@ -823,10 +803,7 @@ class AdBaidu(AdBase):
         print("adbaidu run isHD=",isHD)
         self.Init()
 
-        # if type == "createapp":
-        #     if self.osApp==Source.IOS:
-        #         # self.PreDownloadSigniOS(False)
-        #         time.sleep(1)
+        time.sleep(1)
 
         self.GoHome()
         self.Login("moonmaapp","Qianlizhiwai1")
