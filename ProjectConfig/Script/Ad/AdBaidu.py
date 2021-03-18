@@ -496,7 +496,7 @@ class AdBaidu(AdBase):
         # self.CreatePlaceId(isHD)
          
 
-    def GetAppName(self, ishd):
+    def GetAppName(self, ishd): 
         name = mainAppInfo.GetAppName(self.osApp, ishd,Source.LANGUAGE_CN) 
         return name
   

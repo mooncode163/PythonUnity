@@ -789,6 +789,7 @@ class AppStoreApple(AppStoreBase):
                     filepath = mainResource.GetOutPutScreenshot(isHD)+"/"+self.listCountryLanguage[idx_country]+"/"+self.listDisplayName[idx_display]+"/"+str(i+1)+".jpg"
                     print("UploadScreenShot filepath=",filepath)
                     if os.path.exists(filepath):
+                        print("UploadScreenShot exist filepath=",filepath)
                         mainAppConnectApi.UploadScreenShot(appid, version, country, type, filepath)
 
                 idx_display+=1

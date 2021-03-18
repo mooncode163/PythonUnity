@@ -151,6 +151,11 @@ class AdGdt(AdBase):
     def Quit(self):
         self.driver.quit()
 
+# apk_sign_key.jks
+# keytool -v -list -keystore /Users/moon/sourcecode/unity/product/Common/project_android/game/src/main/apk_sign_key.jks qianlizhiwai
+# SHA1: F2:52:EF:13:E7:4E:2A:96:B6:52:2F:F8:96:8E:7B:0C:04:98:E6:30
+# <input type="text" class="size-410 spaui-input has-normal spaui-component" placeholder="请填写正确的 SHA1 值，否则会影响广告返回" value="" name="" data-spaui="{}">
+# <input type="text" class="size-410 spaui-input has-normal spaui-component" placeholder="输入的包名必须与广告请求包名一致，否则会影响收益" value="" name="" data-spaui="{}">
 # 3452644866 qq31415926
     def CreateApp(self, isHD):
         self.driver.get("https://adnet.qq.com/medium/add")
@@ -231,10 +236,7 @@ class AdGdt(AdBase):
         list[3].click()
 
         # url
-        item = self.driver.find_element(
-            By.XPATH, "//input[@class='form-control size-410 form-control']")
-        
-        
+     
         url = ""
         if self.osApp == Source.ANDROID:
             if appChannel == Source.TAPTAP:
@@ -249,30 +251,51 @@ class AdGdt(AdBase):
             # https://itunes.apple.com/cn/app/id1303020002
             # https://apps.apple.com/cn/app/id668407890
             url = "https://apps.apple.com/cn/app/id"+appid
-        
-        item.send_keys(url)
+         
+        key = "//input[contains(@placeholder,'详情页地址')]"   
+        webcmd.AddCmd(CmdType.INPUT, key, url)
+
+
+        # sha1 
+        key = "//input[contains(@placeholder,'请填写正确的 SHA1')]"
+        sha1 = "F2:52:EF:13:E7:4E:2A:96:B6:52:2F:F8:96:8E:7B:0C:04:98:E6:30"
+        webcmd.AddCmd(CmdType.INPUT, key, sha1)
+
+        key = "//input[contains(@placeholder,'输入的包名必须与广告请求包名一致')]"  
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,appChannel)
+        webcmd.AddCmd(CmdType.INPUT, key, package)
+
 
         # name
-        name = self.GetAppName(isHD)
-        list = self.driver.find_elements(
-            By.XPATH, "//input[@id='placementName']")
-        list[0].send_keys(name)
+        name = self.GetAppName(isHD,appChannel)
+        key = "//input[@id='placementName']"   
+        webcmd.AddCmd(CmdType.INPUT, key, name) 
 
-        list = self.driver.find_elements(
-            By.XPATH, "//input[@id='placementName']")
-        list[1].send_keys(name)
 
-        item = self.driver.find_element_by_id('formControlsTextarea')
-        name += name
-        name += name
-        name += name
-        name += name
-        item.send_keys(name)
+        # 创建
+        key = "//a[text()='创建']"   
+        webcmd.AddCmd(CmdType.CLICK, key)  
 
-        item = self.driver.find_element(
-            By.XPATH, "//input[@id='packageName']")
-        package = mainAppInfo.GetPackage(Source.ANDROID, isHD)
-        item.send_keys(package)
+        webcmd.Run(True)
+
+   
+    
+
+        # list = self.driver.find_elements(
+        #     By.XPATH, "//input[@id='placementName']")
+        # list[1].send_keys(name)
+
+        # item = self.driver.find_element_by_id('formControlsTextarea')
+        # name += name
+        # name += name
+        # name += name
+        # name += name
+        # item.send_keys(name)
+
+        # item = self.driver.find_element(
+        #     By.XPATH, "//input[@id='packageName']")
+        # package = mainAppInfo.GetPackage(Source.ANDROID, isHD)
+        # item.send_keys(package)
 
         # key = "//button[@id='spaui-uploader_2-empty']"
         # webcmd.AddCmd(CmdType.CLICK_Action,key)
@@ -281,14 +304,10 @@ class AdGdt(AdBase):
         # self.OpenFileBrowser()
         # time.sleep(2)
 
-    # 创建
 
-        item = self.driver.find_element(
-            By.XPATH, "//a[@class='btn btn-primary btn-160']")
-        item.click()
 
-    def GetAppName(self, ishd):
-        name = mainAppInfo.GetAppName(self.osApp, ishd,Source.LANGUAGE_CN)
+    def GetAppName(self, ishd,channel=""):
+        name = mainAppInfo.GetAppName(self.osApp, ishd,Source.LANGUAGE_CN,channel)
         # if self.osApp == Source.IOS:
         #     AppInfo.GetAppName(self.osApp, ishd)+self.osApp
 
