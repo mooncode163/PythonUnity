@@ -829,7 +829,9 @@ class AppStoreApple(AppStoreBase):
     def Run(self,type, isHD):     
 
         name = mainAppInfo.GetAppStoreAcount(isHD,Source.APPSTORE)
+        print("name=",name)
         mainAppConnectApi.API_KEY_ID = mainAppStoreAcount.GetiOSAPI_KEY_ID(name)
+        print("API_KEY_ID=",mainAppConnectApi.API_KEY_ID)
         mainAppConnectApi.API_USER_ID = mainAppStoreAcount.GetiOSAPI_USER_ID(name) 
         mainAppConnectApi.teamID = mainAppStoreAcount.GetiOSteamID(name) 
         mainAppConnectApi.CertificateID = mainAppStoreAcount.GetiOSCertificateID(name) 

@@ -30,7 +30,10 @@ from AppStore.AppVersionApple import mainAppVersionApple
 from AppStore.AppConnectApi import mainAppConnectApi
 from Common.Platform import Platform
 from Ad.AdBase import AdBase
-from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.select import Select 
+
+from AppStore.AppStoreAcount import mainAppStoreAcount
+from AppStore.UploadAssetApple import mainUploadAssetApple 
 from AppStore.AppStoreApple import mainAppStoreApple
 
 # 要想调用键盘按键操作需要引入keys包
@@ -796,11 +799,31 @@ class AdBaidu(AdBase):
         mainAppStoreApple.DownloadProfile(False)
         mainAppStoreApple.DownloadProfile(True)
         
-
+    def OnCreatePlaceId(self,isHD): 
+        if isHD:
+            self.CreatePlaceId(True)
+        else:
+            self.CreatePlaceId(False)
+            time.sleep(3)
+            self.CreatePlaceId(True) 
 # 主函数的实现
     def Run(self,type, os,isHD):     
         self.osApp = os  
         print("adbaidu run isHD=",isHD)
+
+        name = mainAppInfo.GetAppStoreAcount(isHD,Source.APPSTORE)
+        print("name=",name)
+        mainAppConnectApi.API_KEY_ID = mainAppStoreAcount.GetiOSAPI_KEY_ID(name)
+        print("API_KEY_ID=",mainAppConnectApi.API_KEY_ID)
+        mainAppConnectApi.API_USER_ID = mainAppStoreAcount.GetiOSAPI_USER_ID(name) 
+        mainAppConnectApi.teamID = mainAppStoreAcount.GetiOSteamID(name) 
+        mainAppConnectApi.CertificateID = mainAppStoreAcount.GetiOSCertificateID(name) 
+
+        mainUploadAssetApple.KEY_ID = mainAppConnectApi.API_KEY_ID
+        mainUploadAssetApple.ISSUER_ID = mainAppConnectApi.API_USER_ID
+        mainUploadAssetApple.PRIVATE_KEY = mainAppConnectApi.GetKEY_PRIVATE()
+        mainUploadAssetApple.tokenKey = mainAppConnectApi.GetToken()
+
         self.Init()
 
         time.sleep(1)
@@ -818,14 +841,13 @@ class AdBaidu(AdBase):
                 time.sleep(3)
                 self.CreateApp(True)
 
+            # 
+            self.OnCreatePlaceId(isHD)
+
+
 
         if type == "createplaceid":
-            if isHD:
-                self.CreatePlaceId(True)
-            else:
-                self.CreatePlaceId(False)
-                time.sleep(3)
-                self.CreatePlaceId(True)
+            self.OnCreatePlaceId(isHD)
   
 
         if type == "adinfo":
