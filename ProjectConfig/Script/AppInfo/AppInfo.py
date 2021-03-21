@@ -140,17 +140,7 @@ class AppInfo():
         strFile = FileUtil.GetFileString(filePath) 
         strFile = strFile.replace(key, value)
         FileUtil.SaveString2File(strFile,filePath) 
-
-    def replaceScreenOrientation(self,filePath,isHd):
-        strFile = FileUtil.GetFileString(filePath)
-
-        str = "sensorPortrait"
-        if isHd:
-            str = "sensorLandscape"
-
-        strFile = strFile.replace("_SCREENORIENTATION_", str)
-
-        FileUtil.SaveString2File(strFile,filePath)
+ 
 
     def replaceString2(self,strContent, strStart, strMid, strEnd, strReplace):
         idx = strContent.find(strStart)
@@ -188,25 +178,27 @@ class AppInfo():
         FileUtil.SaveString2File(str, file)
 
 
-    def replaceGoogleServiceFile(self,file, package):
-
+    def replaceGoogleServiceFile(self,filepath,fileoutput, package):
+        strfile = FileUtil.GetFileString(filepath)
+        
+        # version  
         strStart = "client_id\": \"android:"
         strEnd = "\""
-        strOut = self.replaceStringOfFile(file, strStart, strEnd, package)
-        self.saveString2File(strOut, file)
+        strfile = self.replaceString(strfile, strStart, strEnd, package)
+        
 
         strStart = "package_name\": \""
         strEnd = "\""
-        strOut = self.replaceStringOfFile(file, strStart, strEnd, package)
-        self.saveString2File(strOut, file)
+        strfile = self.replaceString(strfile, strStart, strEnd, package)
+      
 
         strStart = "\"android_info\""
         strMid = "package_name\": \""
         strEnd = "\","
-        strOut = self.replaceStringOfFile2(file, strStart, strMid, strEnd, package)
-        self.saveString2File(strOut, file)
+        strfile = self.replaceString2(strfile, strStart, strMid, strEnd, package)
+        self.saveString2File(strfile, fileoutput)
 
-    def replaceXcodeUrlScheme(self,filePath, src, appid,idx):
+    def replaceXcodeUrlScheme(self,filePath, fileOutPut,src, appid,idx):
         strFile = FileUtil.GetFileString(filePath)
 
         # <string>WEIXIN_APPID</string>
@@ -223,7 +215,7 @@ class AppInfo():
         strNew = "<string>"+mainConfig.XcodeUrlScheme(src,appid,idx)+"</string>"  
 
         strOut = strFile.replace(strOld, strNew) 
-        self.saveString2File(strOut,filePath)
+        self.saveString2File(strOut,fileOutPut)
         
 
 
@@ -322,20 +314,26 @@ class AppInfo():
         ret = str(v0)+"."+str(v1)+"."+str(v2)
         return ret
 
-    def updateAndroidManifest(self,filepath,package,appversion,appversioncode,isHd):
+    def updateAndroidManifest(self,filepath,fileoutput,package,appversion,appversioncode,isHd):
+        strfile = FileUtil.GetFileString(filepath)
+        
         # version 
-        self.replaceFileForKey(filepath,"_VERSIONNAME_",appversion) 
-    
-        self.replaceFileForKey(filepath,"_VERSIONCODE_",appversioncode) 
+        strfile = strfile.replace("_VERSIONNAME_",appversion)
+        strfile = strfile.replace("_VERSIONCODE_",appversioncode) 
 
         # package 
-        self.replaceFileForKey(filepath,"_PACKAGE_",package) 
-        # ScreenOrientation
-        self.replaceScreenOrientation(filepath,isHd) 
+        strfile = strfile.replace("_PACKAGE_",package) 
+        # ScreenOrientation 
+        str = "sensorPortrait"
+        if isHd:
+            str = "sensorLandscape"
+
+        strfile = strfile.replace("_SCREENORIENTATION_", str)
 
         # baidu
         appid_baidu = mainAdConfig.GetAppId(Source.BAIDU,Source.ANDROID,isHd)
-        self.replaceFileForKey(filepath,"_BAID_AD_APPID_",appid_baidu) 
+        strfile = strfile.replace("_BAID_AD_APPID_",appid_baidu)  
+        FileUtil.SaveString2File(strfile,fileoutput)
         
 
 
@@ -677,6 +675,162 @@ class AppInfo():
         
         appinfoNew.Save()   
 
+
+    def SaveAppVersion(self,isHd,osSrc,version):
+        strcode = version.replace(".","")
+          # 保存版本
+        if osSrc==Source.ANDROID:
+            # android  
+            self.SetAppVersion(isHd,Source.ANDROID,version)
+            self.SetAppVersionCode(isHd,Source.ANDROID,strcode)
+                
+                
+       
+        if osSrc==Source.IOS:
+            # ios
+            self.SetAppVersion(isHd,Source.IOS,version) 
+            self.SetAppVersionCode(isHd,Source.IOS,strcode)
+ 
+
+    def CopyAppInfo(self,isHd,chanel=""):
+        name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
+        mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
+        mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
+        rootConfig = mainResource.GetProjectConfigDefault()
+       
+        project_ios = rootConfig + "/ios/project"
+        project_android = rootConfig + "/android/project"
+
+        if isHd:
+            project_ios = rootConfig + "/ios/project_hd"
+            project_android = rootConfig + "/android/project_hd"
+
+        # 重新加载
+        data = self.loadJson(isHd)
+        APPVERSION_IOS =  self.GetAppVersion(Source.IOS,isHd)
+
+
+
+        APP_NAME_CN_ANDROID =mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN,chanel)
+        APP_NAME_EN_ANDROID = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_EN,chanel)
+        APP_NAME_CN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_CN,chanel)
+        APP_NAME_EN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_EN,chanel)  
+        PACKAGE_ANDROID = mainAppInfo.GetAppPackage(Source.ANDROID,isHd,chanel) 
+        PACKAGE_IOS = mainAppInfo.GetAppPackage(Source.IOS,isHd,chanel) 
+        self.versionCode = data["appversion"][Source.ANDROID]["code"]
+        APPVERSION_IOS =  data["appversion"][Source.IOS]["value"]
+
+        APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
+        APPVERSION_CODE_ANDROID = self.versionCode
+
+        print("android version:"+APPVERSION_ANDROID)
+        print("ios version:"+APPVERSION_IOS)
+
+                # android
+        file_name_cn_android = project_android + "/res/values/strings.xml"
+        file_name_en_android = project_android + "/res/values-en/strings.xml"
+        file_AndroidManifest = project_android + "/xml/AndroidManifest.xml"
+        file_AndroidManifest_GP = project_android + "/xml_gp/AndroidManifest.xml"
+        file_google_service_android = project_android + "/config/google-services.json"
+ 
+        file_name_cn_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/res/values/strings.xml"
+        file_name_en_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/res/values-en/strings.xml"
+        file_AndroidManifest_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/AndroidManifest.xml"
+        file_google_service_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/google-services.json"
+
+        # ios
+        file_name_cn_ios = project_ios + "/appname/zh-Hans.lproj/InfoPlist.strings"
+        file_name_en_ios = project_ios + "/appname/en.lproj/InfoPlist.strings"
+        file_info_plist_ios = project_ios + "/Info.plist"
+
+
+        file_name_cn_ios_xcode = mainResource.GetRootDirXcode() + "/appname/zh-Hans.lproj/InfoPlist.strings"
+        file_name_en_ios_xcode = mainResource.GetRootDirXcode() + "/appname/en.lproj/InfoPlist.strings"
+        file_info_plist_ios_xcode = mainResource.GetRootDirXcode() + "/Info.plist"     
+    # android
+        # name
+        strStart = "app_name\">"
+        strEnd = "<"
+        
+        # cn
+        strfile = FileUtil.GetFileString(file_name_cn_android)
+        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_CN_ANDROID) 
+        self.saveString2File(strOut, file_name_cn_android_androidstudio)
+        # en 
+        strfile = FileUtil.GetFileString(file_name_en_android)
+        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_EN_ANDROID)
+        self.saveString2File(strOut, file_name_en_android_androidstudio)
+         
+        if chanel==Source.GP:
+            self.updateAndroidManifest(file_AndroidManifest_GP,file_AndroidManifest_androidstudio,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
+        else:
+            self.updateAndroidManifest(file_AndroidManifest,file_AndroidManifest_androidstudio,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
+        # s
+        # admob
+        self.replaceGoogleServiceFile(file_google_service_android,file_google_service_android_androidstudio, PACKAGE_ANDROID)
+
+        # mipmap-hdpi mipmap-mdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi 
+        listIconDir = ["mipmap-hdpi", "mipmap-mdpi","mipmap-xhdpi","mipmap-xxhdpi","mipmap-xxxhdpi"] 
+        for name in listIconDir:
+            dir1 = mainResource.GetProjectOutPutApp()+"/icon/android/"+name
+            if isHd:
+                dir1 = mainResource.GetProjectOutPutApp()+"/iconhd/android/"+name
+            dir2 = mainResource.GetRootDirAndroidStudio()+"/src/main/res/"+name
+            flag = os.path.exists(dir2)
+            if flag:
+                shutil.rmtree(dir2)
+            shutil.copytree(dir1,dir2)
+
+    # ios
+
+        
+        # info
+        strfile = FileUtil.GetFileString(file_info_plist_ios)
+        strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
+        strfile = strfile.replace("_APP_PACKAGE_",PACKAGE_IOS)
+        strfile = strfile.replace("_APP_VERSION_",APPVERSION_IOS)
+        appid = mainAdConfig.GetCommonAppId(Source.ADMOB,Source.IOS,isHd)
+        strfile = strfile.replace("_APP_ID_ADMOB_",appid) 
+
+
+        # CFBundleURLSchemes
+        src = Source.WEIBO
+        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd) 
+        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
+
+        src = Source.WEIXIN
+        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
+        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
+
+        src = Source.QQ
+        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
+        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
+        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,1)
+
+        FileUtil.SaveString2File(strfile,file_info_plist_ios_xcode)
+
+        #appname
+
+        # cn
+        FileUtil.CreateDir(mainResource.GetRootDirXcode() + "/appname")
+        strfile = FileUtil.GetFileString(file_name_cn_ios)  
+        strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
+        FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_cn_ios_xcode))
+        FileUtil.SaveString2File(strfile,file_name_cn_ios_xcode)
+
+        # en 
+        strfile = FileUtil.GetFileString(file_name_en_ios)  
+        strfile = strfile.replace("_APP_NAME_",APP_NAME_EN_IOS)
+        FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_en_ios_xcode))
+        FileUtil.SaveString2File(strfile,file_name_en_ios_xcode) 
+ 
+
+
+        # xiaomi aso keyword
+        self.updateXiaoASOkeyword(data,isHd)
+
+ 
+
     def updateName(self,isHd,isAuto,chanel=""):
 
         name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
@@ -689,29 +843,10 @@ class AppInfo():
             self.ConvertOld2New(isHd,appinfoOld)
 
 
-        rootConfig = mainResource.GetProjectConfigApp()
-        strHD = "HD"
-
-        project_ios = rootConfig + "/ios/project"
-        project_android = rootConfig + "/android/project"
-
-        if isHd:
-            project_ios = rootConfig + "/ios/project_hd"
-            project_android = rootConfig + "/android/project_hd"
-
-        # android
-        file_name_cn_android = project_android + "/res/values/strings.xml"
-        file_name_en_android = project_android + "/res/values-en/strings.xml"
-        file_AndroidManifest = project_android + "/xml/AndroidManifest.xml"
-        file_AndroidManifest_GP = project_android + "/xml_gp/AndroidManifest.xml"
         
 
-        file_google_service_android = project_android + "/config/google-services.json"
 
-        # ios
-        file_name_cn_ios = project_ios + "/appname/zh-Hans.lproj/InfoPlist.strings"
-        file_name_en_ios = project_ios + "/appname/en.lproj/InfoPlist.strings"
-        file_info_plist_ios = project_ios + "/Info.plist"
+
 
         # loadJson
         data = self.loadJson(isHd) 
@@ -771,33 +906,30 @@ class AppInfo():
                 self.versionCode = data["appversion"][Source.ANDROID]["code"]
 
         APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
-        APPVERSION_CODE_ANDROID = self.versionCode
-        
+       
 
         # appversion.json
         if isAuto==False: 
-            src = mainResource.GetProjectConfigDefault()+"/appinfo/appversion.json"
-            dst = mainResource.GetProjectConfigApp()+"/appinfo/appversion.json"
-            flag = os.path.exists(dst)
-            # 
-            if not isHd:
-                shutil.copyfile(src,dst)
+            # src = mainResource.GetProjectConfigDefault()+"/appinfo/appversion.json"
+            # dst = mainResource.GetProjectConfigApp()+"/appinfo/appversion.json"
+            # flag = os.path.exists(dst)
+            # # 
+            # if not isHd:
+            #     shutil.copyfile(src,dst)
 
-            strfile = FileUtil.GetFileString(dst)
-            key = "_VERSION_ANDROID_"
-            if isHd:
-                key = "_VERSION_HD_ANDROID_"
+            # strfile = FileUtil.GetFileString(dst)
+            # key = "_VERSION_ANDROID_"
+            # if isHd:
+            #     key = "_VERSION_HD_ANDROID_"
 
             # 保存版本
             # android
             print("appid_huawei=",appid_huawei+" ishd=",isHd)
             # if len(appid_huawei)>1: 
             version_web = mainHuaweiAppGalleryApi.GetVersion(appid_huawei)
-            strfile = strfile.replace(key,version_web) 
-            FileUtil.SaveString2File(strfile,dst)
-            self.SetAppVersion(isHd,Source.ANDROID,version_web)
-            strcode = version_web.replace(".","")
-            self.SetAppVersionCode(isHd,Source.ANDROID,strcode)
+            # strfile = strfile.replace(key,version_web) 
+            # FileUtil.SaveString2File(strfile,dst) 
+            self.SaveAppVersion(isHd,Source.ANDROID,version_web)
                 
                 
        
@@ -806,18 +938,16 @@ class AppInfo():
             appid_apple = self.GetJsonAppId(data,Source.APPSTORE)
             version_web = mainAppVersionApple.ParseVersion(appid_apple)
             print("AppVersionApple=",version_web+" appid_apple=",appid_apple)
-            self.SetAppVersion(isHd,Source.IOS,version_web)
-            strcode = version_web.replace(".","")
-            self.SetAppVersionCode(isHd,Source.IOS,strcode)
+            self.SaveAppVersion(isHd,Source.IOS,version_web)
 
-            filepath = mainResource.GetProjectConfigAppType()+"/appversion.json" 
-            flag = os.path.exists(filepath)
-            strFileJson = "{}"
-            if flag:
-                strFileJson = FileUtil.GetFileString(filepath)
-            dataRoot = json.loads(strFileJson)
-            dataRoot[mainResource.getGameName()]= json.loads(strfile)
-            JsonUtil.SaveJson(filepath,dataRoot)
+            # filepath = mainResource.GetProjectConfigAppType()+"/appversion.json" 
+            # flag = os.path.exists(filepath)
+            # strFileJson = "{}"
+            # if flag:
+            #     strFileJson = FileUtil.GetFileString(filepath)
+            # dataRoot = json.loads(strFileJson)
+            # dataRoot[mainResource.getGameName()]= json.loads(strfile)
+            # JsonUtil.SaveJson(filepath,dataRoot)
 
 
             
@@ -839,69 +969,9 @@ class AppInfo():
         print("android version:"+APPVERSION_ANDROID)
         print("ios version:"+APPVERSION_IOS)
 
-    # android
-        # name
-        strStart = "app_name\">"
-        strEnd = "<"
-        # cn
-        strOut = self.replaceStringOfFile(
-            file_name_cn_android, strStart, strEnd, APP_NAME_CN_ANDROID)
-        self.saveString2File(strOut, file_name_cn_android)
-        # en
-        strOut = self.replaceStringOfFile(
-            file_name_en_android, strStart, strEnd, APP_NAME_EN_ANDROID)
-        self.saveString2File(strOut, file_name_en_android)
-
-        self.updateAndroidManifest(file_AndroidManifest,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
-        self.updateAndroidManifest(file_AndroidManifest_GP,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
-
-        # admob
-        self.replaceGoogleServiceFile(file_google_service_android, PACKAGE_ANDROID)
-
-    # ios
-
-        #appname
-        self.replaceFile(file_info_plist_ios,"_APP_NAME_",APP_NAME_CN_IOS)
-        file_name_cn_ios = project_ios + "/appname/zh-Hans.lproj/InfoPlist.strings"
-        file_name_en_ios = project_ios + "/appname/en.lproj/InfoPlist.strings" 
-        # cn
-        self.replaceFile(file_name_cn_ios,"_APP_NAME_",APP_NAME_CN_IOS) 
-        # en
-        self.replaceFile(file_name_en_ios,"_APP_NAME_",APP_NAME_EN_IOS)  
-
-
-        # package 
-        self.replaceFile(file_info_plist_ios,"_APP_PACKAGE_",PACKAGE_IOS)
-
-        
-        # version 
-        self.replaceFile(file_info_plist_ios,"_APP_VERSION_",APPVERSION_IOS) 
-
-        #admob appid  
-        appid = mainAdConfig.GetCommonAppId(Source.ADMOB,Source.IOS,isHd)
-        self.replaceFile(file_info_plist_ios,"_APP_ID_ADMOB_",appid) 
-
-        # CFBundleURLSchemes
-        src = Source.WEIBO
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,src,appid,0)
-
-        src = Source.WEIXIN
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,src,appid,0)
-
-        src = Source.QQ
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,src,appid,0)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,src,appid,1)
-
-        # xiaomi aso keyword
-        self.updateXiaoASOkeyword(data,isHd)
-
-
-
+  
     # win
-        self.updateNameWin(isHd,isAuto)
+        # self.updateNameWin(isHd,isAuto)
 
 
     def updateNameWin(self,isHd,isAuto):
@@ -948,16 +1018,20 @@ class AppInfo():
         # saveString2File(strOut, file)
  
 
+    def Copy(self,isHd,channel=""):  
+        # self.CopyAppInfo(False,channel)
+        self.CopyAppInfo(isHd,channel)
+
     # 主函数的实现
     def Run(self,is_auto_plus_version,channel=""):  
 
     #先从default 拷贝 工程文件模版
         # ios project file
-        self.copyResFiles(Source.IOS)
-        # android project file
-        self.copyResFiles(Source.ANDROID)
-        # win 
-        self.copyResFiles(Source.WIN)
+        # self.copyResFiles(Source.IOS)
+        # # android project file
+        # self.copyResFiles(Source.ANDROID)
+        # # win 
+        # self.copyResFiles(Source.WIN)
     
         # rename
         src = mainResource.GetProjectConfigApp()+"/appname"

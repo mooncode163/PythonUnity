@@ -116,10 +116,10 @@ class AppChannel():
                 # 
             project_config = sourceDir+"/"+project_android+"/config"
             
-        FileUtil.CoverFiles(project_config,   targetDir)
-        FileUtil.CoverFiles(xml,   targetDir)
+        # FileUtil.CoverFiles(project_config,   targetDir)
+        # FileUtil.CoverFiles(xml,   targetDir)
 
-        build_gradle = mainResource.GetProjectConfigApp() + "/android" + "/gradle/build"
+        build_gradle = mainResource.GetProjectConfigDefault() + "/android" + "/gradle/build"
         # or (channel == Source.GP)
         # if (channel == Source.TAPTAP) :
         #     build_gradle = build_gradle+"_"+channel 

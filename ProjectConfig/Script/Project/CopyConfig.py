@@ -128,11 +128,11 @@ class CopyConfig():
         print(dir1) 
         
         print(dir2) 
-        FileUtil.CoverFiles(dir1,dir2)
+        # FileUtil.CoverFiles(dir1,dir2)
 
         # 
         project = sourceDir+"/"+project_android+"/xml"
-        FileUtil.CoverFiles(project,   targetDir)
+        # FileUtil.CoverFiles(project,   targetDir)
 
         project = sourceDir+"/android"+"/gradle"
         targetDir = rootAndroidStudio
@@ -141,31 +141,31 @@ class CopyConfig():
 
         
         #res android
-        dir1 = sourceDir+"/"+project_android + "/res"  
-        targetDir = rootAndroidStudio+"/src/main"
-        dir2 = targetDir+"/res"
-        flag = os.path.exists(dir2)
-        if flag:
-            shutil.rmtree(dir2)
+        # dir1 = sourceDir+"/"+project_android + "/res"  
+        # targetDir = rootAndroidStudio+"/src/main"
+        # dir2 = targetDir+"/res"
+        # flag = os.path.exists(dir2)
+        # if flag:
+        #     shutil.rmtree(dir2)
 
-        shutil.copytree(dir1,dir2)
+        # shutil.copytree(dir1,dir2)
     
 
         # ios
         # appname
-        dir1 = sourceDir+"/"+project_ios+"/appname"
-        dir2 = rootiOSXcode+"/appname"
-        flag = os.path.exists(dir2)
-        if flag:
-            shutil.rmtree(dir2)
-        shutil.copytree(dir1,dir2)
+        # dir1 = sourceDir+"/"+project_ios+"/appname"
+        # dir2 = rootiOSXcode+"/appname"
+        # flag = os.path.exists(dir2)
+        # if flag:
+        #     shutil.rmtree(dir2)
+        # shutil.copytree(dir1,dir2)
 
         #info
-        file1 = sourceDir + "/"+project_ios+"/info.plist"
-        file2 = rootiOSXcode + "/info.plist"
-        print("info.plist file1= "+file1)
-        print("info.plist file2= "+file2)
-        FileUtil.CopyOneFile(file1,file2) 
+        # file1 = sourceDir + "/"+project_ios+"/info.plist"
+        # file2 = rootiOSXcode + "/info.plist"
+        # print("info.plist file1= "+file1)
+        # print("info.plist file2= "+file2)
+        # FileUtil.CopyOneFile(file1,file2) 
 
     
         # win res 

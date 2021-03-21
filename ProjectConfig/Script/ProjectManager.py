@@ -100,6 +100,7 @@ class ProjectManager():
     def DoCopyConfig(self, isHd):
         # mainCopyConfig.Run(False)
         mainCopyConfig.Run(isHd)
+        self.CopyAppInfo(isHd)
  
     def CopyResource(self):
         mainCopyResource.Run()
@@ -121,14 +122,20 @@ class ProjectManager():
         mainAppStoreApple.UpdateAso(False)
         mainAppStoreApple.UpdateAso(True)
 
-    def UpdateAppInfoAuto(self):
-        mainAppInfo.Run(True)
+    def UpdateAppInfoAuto(self,channel=""):
+        # mainAppInfo.Run(True)
+        mainAppInfo.Run(True,channel)
 
     def CopyAndroidOutputAsset(self):
         mainCopyAndroidOutputAsset.Run()
 
+    def CopyAppInfo(self,isHd,channel=""):
+        # mainAppInfo.Run(True)
+        # mainUpdateAppstore.Run(False)
+        mainAppInfo.Copy(isHd,channel)
+
     def ApkBuild(self, channel, isHd):
-        self.UpdateAppInfo(channel)
+        self.CopyAppInfo(isHd,channel)
         mainCopyAndroidOutputAsset.Run()
         mainCopyConfig.Run(isHd)
         mainCleanScreenshot.Run()
