@@ -252,11 +252,16 @@ class WebDriverCmd():
 
     def SetInputText(self, key,title): 
         webcmd = WebDriverCmd(self.driver)
-        pyperclip.copy(title) 
-        pyperclip.paste()
-        webcmd.AddCmd2(CmdType.CLICK_Action, key)
-        webcmd.AddCmd2(CmdType.CTR_V, key) 
-        webcmd.Run(True)
+        if Platform.isWindowsSystem():
+            pyperclip.copy(title) 
+            pyperclip.paste()
+            webcmd.AddCmd2(CmdType.CLICK_Action, key)
+            webcmd.AddCmd2(CmdType.CTR_V, key) 
+            webcmd.Run(True)
+        else:
+            webcmd.AddCmd(CmdType.INPUT, key,title) 
+            webcmd.Run(True)
+
 
     def DoCmd(self,item,type,value="",cmd="",index=0):
         if type == CmdType.CLICK:
