@@ -85,6 +85,7 @@ class AppChannel():
                 self.DeleteAndroidAssetGameRes()
                 
             mainConfigSDKAndroid.SetShareSdk(False)
+            mainConfigSDKAndroid.SetTongjSdk(False) 
             mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True) 
             mainConfigSDKAndroid.SetAdSdk(Source.ADVIEW, False)
             mainConfigSDKAndroid.SetAdSdk(Source.GDT, False)
@@ -111,6 +112,8 @@ class AppChannel():
 
             # True
             mainConfigSDKAndroid.SetShareSdk(False)
+
+            mainConfigSDKAndroid.SetTongjSdk(True)
             
 
                 # 

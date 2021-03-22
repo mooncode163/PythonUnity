@@ -60,6 +60,28 @@ class ConfigSDKAndroid():
     def GetDirShareSdkLib(self):
         return mainResource.GetRootDirAndroidStudio() + "/libs/share"
 
+    def SetTongjSdk(self,enable):
+        rootdir_code = mainResource.GetRootDirAndroidStudio() + "/src/main/java/com/moonma/common/Tongji"
+        dir_code = rootdir_code + "/umeng"
+        file_zip_code = dir_code + ".zip" 
+        file_zip_code_disable = dir_code + "_disable.zip"  
+
+        flag = os.path.exists(dir_code)
+        if flag:
+            shutil.rmtree(dir_code) 
+ 
+        file_zip = file_zip_code_disable
+        if enable:
+            file_zip = file_zip_code
+
+
+        flag = os.path.exists(file_zip)
+        if flag:
+            ZipUtil.un_zip(file_zip,rootdir_code)
+ 
+        self.DeleteMACOSX(rootdir_code)
+
+
     def SetShareSdk(self,enable): 
         # lib
         dir_lib = self.GetDirShareSdkLib()
