@@ -51,8 +51,8 @@
 		<string>UIStatusBarStyleDefault</string>
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
-			<string>UIInterfaceOrientationPortraitUpsideDown</string>
-			<string>UIInterfaceOrientationPortrait</string>
+			<string>_KEY_Orientation0</string>
+			<string>_KEY_Orientation1</string>
 		</array>
 		<key>UnityCloudProjectID</key>
 		<string>8354358b-5e99-4247-a6d2-2a01565010cb</string>

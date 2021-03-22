@@ -76,8 +76,8 @@ class AppChannel():
         rootAndroidStudio = mainResource.GetRootDirAndroidStudio()
         targetDir = rootAndroidStudio+"/src/main"
 
-        if ishd==True: 
-            project_android = "android/project_hd"
+        # if ishd==True: 
+        #     project_android = "android/project_hd"
 
         if channel == Source.GP:
             # self.MakeGooglePlayObbFile(ishd)

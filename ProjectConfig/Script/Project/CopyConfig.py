@@ -78,8 +78,8 @@ class CopyConfig():
         iconDirName = "icon"
         if isHD: 
             iconDirName = "iconhd"
-            project_ios = "ios/project_hd"
-            project_android = "android/project_hd"
+            # project_ios = "ios/project_hd"
+            # project_android = "android/project_hd"
     
         print("CopyConfig project_android="+project_android)
         # project
@@ -176,8 +176,8 @@ class CopyConfig():
 
         # win strings 
         dir_src_string = mainResource.GetProjectConfigApp()+"/"+Source.WIN + "/project"
-        if isHD:
-            dir_src_string = mainResource.GetProjectConfigApp()+"/"+Source.WIN + "/project_hd"
+        # if isHD:
+        #     dir_src_string = mainResource.GetProjectConfigApp()+"/"+Source.WIN + "/project_hd"
         dir1 = dir_src_string+"/strings"
         dir2 = mainResource.GetRootProjectWin()+"/"+mainResource.GetProjectName()+"/strings" 
         flag = os.path.exists(dir2)

@@ -700,9 +700,9 @@ class AppInfo():
         project_ios = rootConfig + "/ios/project"
         project_android = rootConfig + "/android/project"
 
-        if isHd:
-            project_ios = rootConfig + "/ios/project_hd"
-            project_android = rootConfig + "/android/project_hd"
+        # if isHd:
+        #     project_ios = rootConfig + "/ios/project_hd"
+        #     project_android = rootConfig + "/android/project_hd"
 
         # 重新加载
         data = self.loadJson(isHd)
@@ -807,6 +807,16 @@ class AppInfo():
         strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
         strfile =self.replaceXcodeUrlScheme(strfile,src,appid,1)
 
+
+        # Orientation
+
+        if isHd:
+            strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationLandscapeLeft")
+            strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationLandscapeRight")
+        else:
+            strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationPortraitUpsideDown")
+            strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationPortrait")
+ 
         FileUtil.SaveString2File(strfile,file_info_plist_ios_xcode)
 
         #appname
@@ -823,8 +833,9 @@ class AppInfo():
         strfile = strfile.replace("_APP_NAME_",APP_NAME_EN_IOS)
         FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_en_ios_xcode))
         FileUtil.SaveString2File(strfile,file_name_en_ios_xcode) 
- 
 
+
+        
 
         # xiaomi aso keyword
         self.updateXiaoASOkeyword(data,isHd)
@@ -978,8 +989,8 @@ class AppInfo():
         strOld = "_APP_NAME_"
         rootConfig = mainResource.GetProjectConfigApp()
         project = rootConfig + "/win/project"
-        if isHd:
-            project = rootConfig + "/win/project_hd"
+        # if isHd:
+        #     project = rootConfig + "/win/project_hd"
 
         file_name_cn = project + "/strings/zh-cn/resources.resw"
         file_name_en= project + "/strings/en-us/resources.resw"
