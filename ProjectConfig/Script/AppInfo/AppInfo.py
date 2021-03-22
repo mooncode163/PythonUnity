@@ -198,9 +198,7 @@ class AppInfo():
         strfile = self.replaceString2(strfile, strStart, strMid, strEnd, package)
         self.saveString2File(strfile, fileoutput)
 
-    def replaceXcodeUrlScheme(self,filePath, fileOutPut,src, appid,idx):
-        strFile = FileUtil.GetFileString(filePath)
-
+    def replaceXcodeUrlScheme(self,strFile,src, appid,idx): 
         # <string>WEIXIN_APPID</string>
         if src==Source.WEIXIN or src==Source.WEIXINFRIEND:
             strOld = "<string>WEIXIN_APPID</string>"
@@ -214,8 +212,9 @@ class AppInfo():
 
         strNew = "<string>"+mainConfig.XcodeUrlScheme(src,appid,idx)+"</string>"  
 
-        strOut = strFile.replace(strOld, strNew) 
-        self.saveString2File(strOut,fileOutPut)
+        return strFile.replace(strOld, strNew) 
+        # print("strOld =",strOld,"strNew =",strNew,"strOut =",strOut)
+    
         
 
 
@@ -796,16 +795,17 @@ class AppInfo():
         # CFBundleURLSchemes
         src = Source.WEIBO
         appid = mainConfig.GetShareAppId(src,Source.IOS,isHd) 
-        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
+        print("ios WEIBO:"+appid) 
+        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
 
         src = Source.WEIXIN
         appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
+        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
 
         src = Source.QQ
         appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,0)
-        self.replaceXcodeUrlScheme(file_info_plist_ios,file_info_plist_ios_xcode,src,appid,1)
+        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
+        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,1)
 
         FileUtil.SaveString2File(strfile,file_info_plist_ios_xcode)
 
