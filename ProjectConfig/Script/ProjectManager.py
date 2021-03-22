@@ -146,6 +146,7 @@ class ProjectManager():
 
     def UnityBuild(self, stros):
         UnityBuild.Run(stros)
+        mainCopyGamedata.DoCopyGameData()
 
     def IPABuild(self, type):
         mainIPABuild.Run(type)

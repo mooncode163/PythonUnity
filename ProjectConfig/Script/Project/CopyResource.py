@@ -23,9 +23,9 @@ class CopyResource():
         dir2 = mainResource.GetRootUnityAssets()+"/"+dirname
         flag = os.path.exists(dir2)
         if not flag:
-            # shutil.rmtree(dir2)
+            # shutil.rmtree(dir2) 
             shutil.copytree(dir1,dir2)
-
+ 
         self.ConfigiOSPluginsCode()
 
     def IsNoIDFASDK(self):
@@ -108,6 +108,9 @@ class CopyResource():
         self.ConfigiOSAdkitCode(Source.ADMOB)
         self.ConfigiOSAdkitCode(Source.CHSJ)
         self.ConfigiOSAdkitCode(Source.UNITY) 
+
+
+        self.DeleteMACOSX(dirCodeAdkit)
 
 
 
