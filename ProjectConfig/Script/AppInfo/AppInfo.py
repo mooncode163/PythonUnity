@@ -781,61 +781,60 @@ class AppInfo():
             shutil.copytree(dir1,dir2)
 
     # ios
-
-        
+        if os.path.exists(file_info_plist_ios_xcode):
         # info
-        strfile = FileUtil.GetFileString(file_info_plist_ios)
-        strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
-        strfile = strfile.replace("_APP_PACKAGE_",PACKAGE_IOS)
-        strfile = strfile.replace("_APP_VERSION_",APPVERSION_IOS)
-        appid = mainAdConfig.GetCommonAppId(Source.ADMOB,Source.IOS,isHd)
-        strfile = strfile.replace("_APP_ID_ADMOB_",appid) 
+            strfile = FileUtil.GetFileString(file_info_plist_ios)
+            strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
+            strfile = strfile.replace("_APP_PACKAGE_",PACKAGE_IOS)
+            strfile = strfile.replace("_APP_VERSION_",APPVERSION_IOS)
+            appid = mainAdConfig.GetCommonAppId(Source.ADMOB,Source.IOS,isHd)
+            strfile = strfile.replace("_APP_ID_ADMOB_",appid) 
 
 
-        # CFBundleURLSchemes
-        src = Source.WEIBO
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd) 
-        print("ios WEIBO:"+appid) 
-        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
+            # CFBundleURLSchemes
+            src = Source.WEIBO
+            appid = mainConfig.GetShareAppId(src,Source.IOS,isHd) 
+            print("ios WEIBO:"+appid) 
+            strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
 
-        src = Source.WEIXIN
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
+            src = Source.WEIXIN
+            appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
+            strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
 
-        src = Source.QQ
-        appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
-        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
-        strfile =self.replaceXcodeUrlScheme(strfile,src,appid,1)
-
-
-        # Orientation
-
-        if isHd:
-            strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationLandscapeLeft")
-            strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationLandscapeRight")
-        else:
-            strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationPortraitUpsideDown")
-            strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationPortrait")
- 
-        FileUtil.SaveString2File(strfile,file_info_plist_ios_xcode)
-
-        #appname
-
-        # cn
-        FileUtil.CreateDir(mainResource.GetRootDirXcode() + "/appname")
-        strfile = FileUtil.GetFileString(file_name_cn_ios)  
-        strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
-        FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_cn_ios_xcode))
-        FileUtil.SaveString2File(strfile,file_name_cn_ios_xcode)
-
-        # en 
-        strfile = FileUtil.GetFileString(file_name_en_ios)  
-        strfile = strfile.replace("_APP_NAME_",APP_NAME_EN_IOS)
-        FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_en_ios_xcode))
-        FileUtil.SaveString2File(strfile,file_name_en_ios_xcode) 
+            src = Source.QQ
+            appid = mainConfig.GetShareAppId(src,Source.IOS,isHd)
+            strfile =self.replaceXcodeUrlScheme(strfile,src,appid,0)
+            strfile =self.replaceXcodeUrlScheme(strfile,src,appid,1)
 
 
-        
+            # Orientation
+
+            if isHd:
+                strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationLandscapeLeft")
+                strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationLandscapeRight")
+            else:
+                strfile = strfile.replace("_KEY_Orientation0","UIInterfaceOrientationPortraitUpsideDown")
+                strfile = strfile.replace("_KEY_Orientation1","UIInterfaceOrientationPortrait")
+    
+            FileUtil.SaveString2File(strfile,file_info_plist_ios_xcode)
+
+            #appname
+
+            # cn
+            FileUtil.CreateDir(mainResource.GetRootDirXcode() + "/appname")
+            strfile = FileUtil.GetFileString(file_name_cn_ios)  
+            strfile = strfile.replace("_APP_NAME_",APP_NAME_CN_IOS)
+            FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_cn_ios_xcode))
+            FileUtil.SaveString2File(strfile,file_name_cn_ios_xcode)
+
+            # en 
+            strfile = FileUtil.GetFileString(file_name_en_ios)  
+            strfile = strfile.replace("_APP_NAME_",APP_NAME_EN_IOS)
+            FileUtil.CreateDir(FileUtil.GetLastDirofDir(file_name_en_ios_xcode))
+            FileUtil.SaveString2File(strfile,file_name_en_ios_xcode) 
+
+
+            
 
         # xiaomi aso keyword
         self.updateXiaoASOkeyword(data,isHd)
