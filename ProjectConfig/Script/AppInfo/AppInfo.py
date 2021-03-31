@@ -275,29 +275,30 @@ class AppInfo():
     #         json.dump(dataRoot, f, ensure_ascii=False,indent=4,sort_keys = True)
 
 
-    def autoPlusVersion(self,isHd,jsonData,chanel=""): 
+    def autoPlusVersion(self,isHd,chanel=""): 
         jsonfile = self.GetJsonFile(isHd) 
+        self.versionCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel) 
         int_v = int(self.versionCode)
         int_v=int_v+1
         self.versionCode = str(int_v) 
-        dataCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel)
-        dataCode["code"]=self.versionCode
- 
-        data = self.GetAppVersion(Source.ANDROID, isHd,chanel)
-        data["value"]=self.versionCodeToVersion(self.versionCode)
+        appversionjson = self.GetAppVersionJson(Source.ANDROID,isHd,chanel)
+        # dataCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel)
+        appversionjson["code"]=self.versionCode
+        appversionjson["value"]=self.versionCodeToVersion(self.versionCode)
 
-         
-        data = self.GetAppVersion(Source.IOS, isHd)
-        codeios = data["code"]
+        
+        # ios
+        appversionjson = self.GetAppVersionJson(Source.IOS,isHd,"")
+        codeios = appversionjson["code"]
         int_v = int(codeios)
         int_v=int_v+1
         codeios = str(int_v)
-        data["code"]=codeios
+        appversionjson["code"]=codeios
         # self.versionCode = codeios
-        data["value"]=self.versionCodeToVersion(codeios)
+        appversionjson["value"]=self.versionCodeToVersion(codeios)
 
         # SaveJson(jsonfile,jsonData)
-        JsonUtil.SaveJson(jsonfile,jsonData)  
+        JsonUtil.SaveJson(jsonfile,self.loadJson(isHd))  
         # strnew_version_ios = "\"APPVERSION_IOS\": \""+versionCodeToVersion()+"\""
 
 
@@ -461,27 +462,30 @@ class AppInfo():
         # 		print(comments.nodeName, ":", comments.childNodes[0].data)
 
 
-
-    def GetAppVersion(self,os,isHd,channel=""): 
+    def GetAppVersionJson(self,os,isHd,channel=""): 
         # loadJson
         data = self.loadJson(isHd)    
         key = os
         appversion = data["appversion"]
-        if len(channel)>0 and channel in appversion: 
-            key = channel
-        
-        name =  appversion[key]["value"]
+        if os==Source.ANDROID:
+            if len(channel)>0 and channel in appversion: 
+                key = channel 
+
+        return appversion[key]
+
+
+    def GetAppVersion(self,os,isHd,channel=""): 
+        # loadJson
+        data = self.loadJson(isHd)     
+        appversion = self.GetAppVersionJson(os,isHd,channel) 
+        name =  appversion["value"]
         return name
 
     def GetAppVersionCode(self,os,isHd,channel=""): 
         # loadJson
         data = self.loadJson(isHd)    
-        appversion = data["appversion"]
-        key = os
-        if len(channel)>0 and channel in appversion: 
-            key = channel
- 
-        name =  appversion[key]["code"] 
+        appversion = self.GetAppVersionJson(os,isHd,channel) 
+        name =  appversion["code"] 
         return name
 
     def LoadJsonConfigCommon(self):  
@@ -695,9 +699,10 @@ class AppInfo():
     def SaveAppVersion(self,isHd,osSrc,version,channel=""):
         strcode = version.replace(".","")
         key = osSrc 
-        if len(channel)>0: 
-            key = channel
-        
+        if osSrc==Source.ANDROID:
+            if len(channel)>0: 
+                key = channel
+            
           # 保存版本
         self.SetAppVersion(isHd,key,version)
         self.SetAppVersionCode(isHd,key,strcode)
@@ -857,12 +862,12 @@ class AppInfo():
  
 
     def updateName(self,isHd,isAuto,chanel=""):
-
+        data = self.loadJson(isHd,True)
         name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
         mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
         mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
         
-        data = self.loadJson(isHd)
+        
         # appinfoOld = AppInfoOld(isHd)
         # if appinfoOld.IsOldVersion():
         #     # 转换
@@ -904,7 +909,7 @@ class AppInfo():
         
     
         if isAuto==True: 
-            self.autoPlusVersion(isHd,data,chanel)
+            self.autoPlusVersion(isHd,chanel)
             self.loadJson(isHd,True)
             # 重新加载 
             APPVERSION_IOS =  self.GetAppVersion(Source.IOS, isHd,chanel)
