@@ -58,6 +58,11 @@ class CopyResource():
         if not self.IsNoIDFASDK():
             zipfile = dirCodeAdkitPlatform+"/"+source_ad+".zip"
             ZipUtil.un_zip(zipfile,dirCodeAdkitPlatform)
+        
+        if self.IsNoIDFASDK():
+            source_ad = "admob"
+            zipfile = dirCodeAdkitPlatform+"/"+source_ad+"_noad.zip"
+            ZipUtil.un_zip(zipfile,dirCodeAdkitPlatform)
 
     def ConfigiOSPluginsCode(self):
         dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"

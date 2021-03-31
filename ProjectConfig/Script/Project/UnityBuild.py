@@ -37,6 +37,9 @@ class UnityBuild():
         
         PROJECT_PATH= mainResource.GetRootProjectUnity()
 
+        dirbin = mainResource.GetDirProduct()+"/bin"
+        if stros == Source.ScreenShot:
+            FileUtil.RemoveDir(dirbin)
         
         methond = ""
         if stros == Source.ANDROID:
@@ -55,11 +58,12 @@ class UnityBuild():
         os.system(cmd)
         print("unity_build  end")
 
-        if stros == Source.ScreenShot:
+        if stros == Source.ScreenShot: 
             if Platform.isWindowsSystem():
-                cmd =  mainResource.GetDirProduct()+"/bin/game.exe"
+                cmd =  dirbin+"/game.exe"
             if Platform.isMacSystem():
-                cmd =  "open "+mainResource.GetDirProduct()+"/bin/game.app"
+
+                cmd =  "open "+dirbin+"/game.app"
 
             os.system(cmd)
 

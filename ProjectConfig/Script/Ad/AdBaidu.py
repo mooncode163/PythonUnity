@@ -317,7 +317,7 @@ class AdBaidu(AdBase):
 
         self.OpenFileBrowser(appsign)
 
-    def UpLoadSignAndroid(self):
+    def UpLoadSignAndroid(self,isHD):
         webcmd = WebDriverCmd(self.driver)
           # E:\Users\moon\Downloads
         
@@ -337,6 +337,9 @@ class AdBaidu(AdBase):
         time.sleep(3)
         apk_unsign = self.GetDownloadFile(downloadDir,".apk") 
         apk_sign = mainResource.GetProjectOutPut()+"/mssp_baidu/signed.apk"
+        if isHD:
+            apk_sign = mainResource.GetProjectOutPut()+"/mssp_baidu/signed_hd.apk"
+
         FileUtil.CreateDir(FileUtil.GetLastDirofDir(apk_sign))
         jks = mainResource.GetDirProductCommon()+"/Ad/moonma.jks"
 
@@ -372,6 +375,12 @@ class AdBaidu(AdBase):
         webcmd.Run(True)
 
         self.OpenFileBrowser(apk_sign) 
+
+        if Platform.isMacSystem():
+            # 等待 
+            webcmd.WaitKeyBoard('q')
+            time.sleep(1)
+
 
 # 3452644866 qq31415926
     def CreateApp(self, isHD):
@@ -487,7 +496,7 @@ class AdBaidu(AdBase):
  
  
         if self.osApp== Source.ANDROID:
-            self.UpLoadSignAndroid()
+            self.UpLoadSignAndroid(isHD)
         if self.osApp== Source.IOS:
             self.UpLoadSigniOS(isHD)
 

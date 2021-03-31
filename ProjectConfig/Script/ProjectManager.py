@@ -116,7 +116,7 @@ class ProjectManager():
 
     def UpdateAppInfo(self,channel=""):
         mainUpdateAppstore.Run(False)
-        mainAppInfo.Run(False,channel)
+        mainAppInfo.Run(False,channel) 
 
     def UpdateAso(self):
         mainAppStoreApple.UpdateAso(False)
@@ -124,7 +124,8 @@ class ProjectManager():
 
     def UpdateAppInfoAuto(self,channel=""):
         # mainAppInfo.Run(True)
-        mainAppInfo.Run(True,channel)
+        # mainUpdateAppstore.Run(False)
+        mainAppInfo.Run(True,channel) 
 
     def CopyAndroidOutputAsset(self):
         mainCopyAndroidOutputAsset.Run()

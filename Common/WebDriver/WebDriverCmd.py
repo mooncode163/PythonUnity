@@ -173,6 +173,14 @@ class WebDriverCmd():
     def GetParentInternal(self,item):
         return item.find_element(By.XPATH, "./..")
 
+
+    
+    # key = "span[@class = 'info-item-content']"
+    def FindBrother(self,item,key): 
+        # .//../span[@class = 'info-item-content']
+        str = ".//../"+key
+        return item.find_element_by_xpath(str)
+
     def FindChild(self,item,key,isWait=False):
         ret = None
         if isWait:

@@ -277,9 +277,9 @@ class IPABuild():
 
         if type == "export_ipa":
             isExportIPA = True
-            if count > 2:
-                channel = sys.argv[2] 
-                ipa_file = RootDir + "/app_" + channel + "/" + target
+            # if count > 2:
+            #     channel = sys.argv[2] 
+            #     ipa_file = RootDir + "/app_" + channel + "/" + target
 
             # 生成频道文件
             os.makedirs(channel_dir)

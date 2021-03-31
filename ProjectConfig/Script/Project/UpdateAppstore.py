@@ -446,6 +446,7 @@ class UpdateAppstore():
             metadata_ios, strStart, strEnd, sku_app)
         self.saveString2File(strOut, metadata_ios)
         
+        print("APPVERSION_IOS=",APPVERSION_IOS)
         # APPVERSION_IOS
         # <version string="1.0.0">
         strStart = "<version string=\""
