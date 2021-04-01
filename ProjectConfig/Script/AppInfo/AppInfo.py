@@ -277,25 +277,28 @@ class AppInfo():
 
     def autoPlusVersion(self,isHd,chanel=""): 
         jsonfile = self.GetJsonFile(isHd) 
-        self.versionCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel) 
-        int_v = int(self.versionCode)
-        int_v=int_v+1
-        self.versionCode = str(int_v) 
-        appversionjson = self.GetAppVersionJson(Source.ANDROID,isHd,chanel)
-        # dataCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel)
-        appversionjson["code"]=self.versionCode
-        appversionjson["value"]=self.versionCodeToVersion(self.versionCode)
 
-        
-        # ios
-        appversionjson = self.GetAppVersionJson(Source.IOS,isHd,"")
-        codeios = appversionjson["code"]
-        int_v = int(codeios)
-        int_v=int_v+1
-        codeios = str(int_v)
-        appversionjson["code"]=codeios
-        # self.versionCode = codeios
-        appversionjson["value"]=self.versionCodeToVersion(codeios)
+       
+        if chanel==Source.APPSTORE:
+        # ios 
+            appversionjson = self.GetAppVersionJson(Source.IOS,isHd,"")
+            codeios = appversionjson["code"]
+            int_v = int(codeios)
+            int_v=int_v+1
+            codeios = str(int_v)
+            appversionjson["code"]=codeios
+            # self.versionCode = codeios
+            appversionjson["value"]=self.versionCodeToVersion(codeios)
+            print(" codeios =",codeios)
+        else:
+            self.versionCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel) 
+            int_v = int(self.versionCode)
+            int_v=int_v+1
+            self.versionCode = str(int_v) 
+            appversionjson = self.GetAppVersionJson(Source.ANDROID,isHd,chanel)
+            # dataCode = self.GetAppVersionCode(Source.ANDROID, isHd,chanel)
+            appversionjson["code"]=self.versionCode
+            appversionjson["value"]=self.versionCodeToVersion(self.versionCode)
 
         # SaveJson(jsonfile,jsonData)
         JsonUtil.SaveJson(jsonfile,self.loadJson(isHd))  
@@ -470,6 +473,9 @@ class AppInfo():
         if os==Source.ANDROID:
             if len(channel)>0 and channel in appversion: 
                 key = channel 
+        
+        # if channel==Source.HUAWEI:
+        #     key = os
 
         return appversion[key]
 
@@ -577,18 +583,18 @@ class AppInfo():
         appid = data["appid"][channel] 
         return appid 
  
-    def SetAppVersion(self,isHd,os,value): 
-        # loadJson
-        data = self.loadJson(isHd)  
-        data["appversion"][os]["value"] = value
+    def SetAppVersion(self,isHd,os,value,channel=""):  
+        appversionjson = self.GetAppVersionJson(os,isHd,channel)  
+        appversionjson["value"] = value
         filePath = self.GetJsonFile(isHd)
+        data = self.loadJson(isHd) 
         JsonUtil.SaveJson(filePath,data)
 
-    def SetAppVersionCode(self,isHd,os,value): 
-        # loadJson
-        data = self.loadJson(isHd)  
-        data["appversion"][os]["code"] = value
+    def SetAppVersionCode(self,isHd,os,value,channel=""): 
+        appversionjson = self.GetAppVersionJson(os,isHd,channel)  
+        appversionjson["code"] = value 
         filePath = self.GetJsonFile(isHd)
+        data = self.loadJson(isHd) 
         JsonUtil.SaveJson(filePath,data)      
 
     def SetAppId(self,isHd,os,channel,appid):
@@ -698,14 +704,14 @@ class AppInfo():
 
     def SaveAppVersion(self,isHd,osSrc,version,channel=""):
         strcode = version.replace(".","")
-        key = osSrc 
-        if osSrc==Source.ANDROID:
-            if len(channel)>0: 
-                key = channel
+        # key = osSrc 
+        # if osSrc==Source.ANDROID:
+        #     if len(channel)>0: 
+        #         key = channel
             
           # 保存版本
-        self.SetAppVersion(isHd,key,version)
-        self.SetAppVersionCode(isHd,key,strcode)
+        self.SetAppVersion(isHd,osSrc,version,channel)
+        self.SetAppVersionCode(isHd,osSrc,strcode,channel)
  
 
     def CopyAppInfo(self,isHd,chanel=""):
@@ -940,23 +946,28 @@ class AppInfo():
 
             if chanel == Source.TAPTAP:
                 version_web = mainAppVersionTapTap.ParseVersion(appid_taptap)
-            else:
+                print("SaveAppVersion version_web=",version_web)
+                self.SaveAppVersion(isHd,Source.ANDROID,version_web,chanel)
+
+            if chanel == Source.HUAWEI:
                 version_web = mainHuaweiAppGalleryApi.GetVersion(appid_huawei)
+                print("SaveAppVersion version_web=",version_web)
+                self.SaveAppVersion(isHd,Source.ANDROID,version_web,chanel)
 
             # strfile = strfile.replace(key,version_web) 
             # FileUtil.SaveString2File(strfile,dst) 
 
-            print("SaveAppVersion version_web=",version_web)
-            self.SaveAppVersion(isHd,Source.ANDROID,version_web,chanel)
+
                 
                 
        
 
             # ios
             appid_apple = self.GetJsonAppId(data,Source.APPSTORE)
-            version_web = mainAppVersionApple.ParseVersion(appid_apple)
-            print("AppVersionApple=",version_web+" appid_apple=",appid_apple)
-            self.SaveAppVersion(isHd,Source.IOS,version_web,chanel)
+            if chanel == Source.APPSTORE:
+                version_web = mainAppVersionApple.ParseVersion(appid_apple)
+                print("AppVersionApple=",version_web+" appid_apple=",appid_apple)
+                self.SaveAppVersion(isHd,Source.IOS,version_web,chanel)
 
             # filepath = mainResource.GetProjectConfigAppType()+"/appversion.json" 
             # flag = os.path.exists(filepath)
@@ -1073,12 +1084,16 @@ class AppInfo():
 
         # channel = ""
         # channel = Source.HUAWEI
-        self.updateName(False,is_auto_plus_version,channel)
-        self.updateName(True,is_auto_plus_version,channel)
+        self.updateName(False,is_auto_plus_version,Source.HUAWEI)
+        self.updateName(True,is_auto_plus_version,Source.HUAWEI)
 
         self.updateName(False,is_auto_plus_version,Source.TAPTAP)
         self.updateName(True,is_auto_plus_version,Source.TAPTAP)   
-        
+
+
+        self.updateName(False,is_auto_plus_version,Source.APPSTORE)
+        self.updateName(True,is_auto_plus_version,Source.APPSTORE)   
+
         print("appname sucess")
 
 mainAppInfo = AppInfo()
