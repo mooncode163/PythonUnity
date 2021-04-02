@@ -869,6 +869,9 @@ class AppInfo():
 
     def updateName(self,isHd,isAuto,chanel=""):
         data = self.loadJson(isHd,True)
+
+        self.AddChannelInfo(isHd,chanel)
+    
         name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
         mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
         mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
@@ -1050,6 +1053,31 @@ class AppInfo():
         # self.CopyAppInfo(False,channel)
         self.CopyAppInfo(isHd,channel)
 
+
+    def AddChannelInfo(self,isHd,channel):  
+        if len(channel)==0:
+            return
+        jsonfile = self.GetJsonFile(isHd)
+        data = self.loadJson(isHd,False)
+        appversion = data["appversion"] 
+        print("AddChannelInfo  channel=",channel)
+        if channel in appversion: 
+            return
+
+        # do add
+    #        "ios": {
+    #     "code": "103",
+    #     "value": "1.0.3"
+    # }
+        item= json.loads("{}")
+        item["code"]="100"
+        item["value"]="1.0.0"
+        appversion[channel] =item
+        
+        JsonUtil.SaveJson(jsonfile,data)
+        data = self.loadJson(isHd,True)
+
+
     # 主函数的实现
     def Run(self,is_auto_plus_version,channel=""):  
         
@@ -1080,7 +1108,7 @@ class AppInfo():
         if flag:
             os.rename(src,dst)
 
-    
+        
 
         # channel = ""
         # channel = Source.HUAWEI

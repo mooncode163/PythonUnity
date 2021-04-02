@@ -56,7 +56,7 @@ class AppVersionTapTap():
         html = self.GetHtml(appid) 
         # print(("taptap html=",html))
         webcmd = WebDriverCmd(self.driver) 
-
+        version = "1.0.0"
         # Current Version: 
         # 当前版本
         key = "//span[contains(text(),'当前版本')]"
@@ -65,12 +65,13 @@ class AppVersionTapTap():
         if not webcmd.IsElementExist(key):
             key = "//span[contains(text(),'Current Version')]"
 
-        item = webcmd.Find(key)
+        if webcmd.IsElementExist(key):
+            item = webcmd.Find(key)
         # print(("taptap item=",item.text))
 
-        key = "span[@class = 'info-item-content']"
-        brother = webcmd.FindBrother(item,key) 
-        version = brother.text
+            key = "span[@class = 'info-item-content']"
+            brother = webcmd.FindBrother(item,key) 
+            version = brother.text
         print("taptap version=",version)
         # 关闭浏览器
         self.driver.quit()
