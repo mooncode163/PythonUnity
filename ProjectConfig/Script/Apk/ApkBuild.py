@@ -54,7 +54,8 @@ class ApkBuild():
     
             os.system(dir2+"/bin/gradle assembleRelease")
         else:
-            dir2 = "/Users/moon/sourcecode/gradle/gradle-4.10.1/bin"
+            # dir2 = "/Users/moon/sourcecode/gradle/gradle-4.10.1/bin"
+            dir2 = "/Users/moon/sourcecode/gradle/bin"
             flag = os.path.exists(dir2) 
             if flag:
                 # os.system("chmod 777 "+dir2+"/gradle")

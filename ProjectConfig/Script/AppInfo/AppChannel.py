@@ -122,24 +122,24 @@ class AppChannel():
         # FileUtil.CoverFiles(project_config,   targetDir)
         # FileUtil.CoverFiles(xml,   targetDir)
 
-        build_gradle = mainResource.GetProjectConfigDefault() + "/android" + "/gradle/build"
-        # or (channel == Source.GP)
-        # if (channel == Source.TAPTAP) :
+        # build_gradle = mainResource.GetProjectConfigDefault() + "/android" + "/gradle/build"
+        # # or (channel == Source.GP)
+        # # if (channel == Source.TAPTAP) :
+        # #     build_gradle = build_gradle+"_"+channel 
+        # if (channel == Source.GP) :
         #     build_gradle = build_gradle+"_"+channel 
-        if (channel == Source.GP) :
-            build_gradle = build_gradle+"_"+channel 
 
-        build_gradle = build_gradle+".gradle"
+        # build_gradle = build_gradle+".gradle"
 
         #配置build.grade
         #common.coverFiles(build_gradle,   targetDir)
 
-        build_gradle_dst = rootAndroidStudio+"/build.gradle"
-        flag = os.path.exists(build_gradle_dst)
-        if flag:
-            os.remove(build_gradle_dst)
+        # build_gradle_dst = rootAndroidStudio+"/build.gradle"
+        # flag = os.path.exists(build_gradle_dst)
+        # if flag:
+        #     os.remove(build_gradle_dst)
 
-        FileUtil.CopyOneFile(build_gradle,build_gradle_dst)
+        # FileUtil.CopyOneFile(build_gradle,build_gradle_dst)
 
         #  "channel_android": "xiaomi"
         file = self.getConfigJsonFile()

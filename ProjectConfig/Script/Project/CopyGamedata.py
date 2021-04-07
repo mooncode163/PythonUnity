@@ -25,8 +25,8 @@ class CopyGamedata():
         return game
 
     def CopyConfigDataToAndroid(self): 
-        dir1 = mainResource.GetConfigDataDir()
-        dir2 = mainResource.GetRootDirAndroidAsset()+ "/ConfigData"
+        dir1 = mainResource.GetConfigDataDir()+"/config"
+        dir2 = mainResource.GetRootDirAndroidAsset()+ "/ConfigData/config"
         flag = os.path.exists(dir2)
         if flag:
             shutil.rmtree(dir2)

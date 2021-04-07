@@ -229,7 +229,7 @@ class CopyConfig():
         mainConfigSDKAndroid.SetAdSdk(Source.ADVIEW, False) 
         
         mainConfigSDKAndroid.SetAdSdk(Source.UNITY, True)
-        mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True)
+        # mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True)
         
         if Platform.isMacSystem():
             mainIPABuild.ChmodSh();

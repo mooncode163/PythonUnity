@@ -18,16 +18,7 @@ from Project.Resource import mainResource
 from Common.Platform import Platform
 from Project.CopyGamedata import mainCopyGamedata
 
-class CopyAndroidOutputAsset(): 
-    def CopyConfigDataToAndroid(self): 
-        dir1 = mainResource.GetConfigDataDir()
-        dir2 = mainResource.GetRootDirAndroidAsset()+ "/ConfigData"
-        flag = os.path.exists(dir2)
-        if flag:
-            shutil.rmtree(dir2)
-        # print(CopyConfigDataToAndroid:dir1=",dir1," dir2=",dir2
-        shutil.copytree(dir1,dir2)
-
+class CopyAndroidOutputAsset():  
     def LoadJsonAndroidAssetConfigCommon(self):  
         jsonfile = mainResource.GetRootDirAndroidAsset()+"/ConfigData/config/config_common.json"
         with  open(jsonfile, 'rb') as json_file:
@@ -95,7 +86,7 @@ class CopyAndroidOutputAsset():
             print("mainCopyGamedata DoCopyAll") 
             mainCopyGamedata.DoCopyAll()
 
-        self.CopyConfigDataToAndroid()
+        mainCopyGamedata.CopyConfigDataToAndroid()
         print("copy_android_output_asset sucess")   
 
 mainCopyAndroidOutputAsset = CopyAndroidOutputAsset()
