@@ -105,7 +105,7 @@ class ApkBuild():
         print ("gameType="+gameType) 
         print(mainResource.getAndroidProjectApk())
         # python 里无法直接执行cd目录，想要用chdir改变当前的工作目录
-        android_studio_dir = mainResource.GetRootDirAndroidStudio()
+        android_studio_dir = mainResource.GetRootDirAndroidStudioGame()
         # python 里无法直接执行cd目录，要用chdir改变当前的工作目录
         os.chdir(android_studio_dir)
         for channel in self.listChannel:

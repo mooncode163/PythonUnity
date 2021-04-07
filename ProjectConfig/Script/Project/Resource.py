@@ -442,7 +442,9 @@ class Resource():
 
     def getAndroidProjectApk(self): 
         # path = self.GetRootDir()+"/project_android/kidsgame/build/outputs/apk/"+"kidsgame-release.apk"
-        path = self.GetRootDirAndroidStudioLauncher()+"/build/outputs/apk/release/game"+"-release.apk"
+        # path = self.GetRootDirAndroidStudioLauncher()+"/build/outputs/apk/release/game"+"-release.apk"
+        path = self.GetRootDirAndroidStudioLauncher()+"/build/outputs/apk/release/launcher-release.apk"
+        
         # 统一路径 windows是\
         path = os.path.normpath(path)
         return path
