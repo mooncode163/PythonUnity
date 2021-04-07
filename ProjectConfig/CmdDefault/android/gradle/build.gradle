@@ -17,6 +17,8 @@ allprojects {
         jcenter()
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
         maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.google.com' }
         flatDir {
             dirs 'libs'
         }
@@ -34,7 +36,7 @@ dependencies {
     implementation fileTree(dir: 'libs/ad_lib/unity', include: ['*.aar'])
 
 //
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    // implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation fileTree(include: ['*.jar'], dir: 'libs/umeng')
     implementation fileTree(include: ['*.jar'], dir: 'libs/share')
     implementation fileTree(include: ['*.jar'], dir: 'libs/xiaomi_iap')
@@ -102,6 +104,15 @@ dependencies {
     //mtgbid
     // implementation 'com.mintegral.msdk:mtgbid:10.1.31'
     //gdt
+
+    // imageselect
+    implementation project(path: ':imageselector')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    // imageselect
 
 }
 

@@ -69,7 +69,9 @@ class AppVersionTapTap():
             item = webcmd.Find(key)
         # print(("taptap item=",item.text))
 
-            key = "span[@class = 'info-item-content']"
+
+            # paragraph-m14-w14 gray-08 info-form__item__value
+            key = "span[contains(@class,'info-form__item__value')]"
             brother = webcmd.FindBrother(item,key) 
             version = brother.text
         print("taptap version=",version)

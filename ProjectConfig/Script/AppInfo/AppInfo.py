@@ -714,53 +714,126 @@ class AppInfo():
         self.SetAppVersionCode(isHd,osSrc,strcode,channel)
  
 
-    def CopyAppInfo(self,isHd,chanel=""):
-        name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI)
+    def CopyAppInfoAndroid(self,isHd,chanel=""):
+        name = mainAppInfo.GetAppStoreAcount(isHd,Source.HUAWEI) 
         mainHuaweiAppGalleryApi.ClientId = mainAppStoreAcount.GetClientId(Source.HUAWEI,name)
         mainHuaweiAppGalleryApi.ClientSecret = mainAppStoreAcount.GetClientSecret(Source.HUAWEI,name) 
-        rootConfig = mainResource.GetProjectConfigDefault()
-       
-        project_ios = rootConfig + "/ios/project"
-        project_android = rootConfig + "/android/project"
 
-        # if isHd:
-        #     project_ios = rootConfig + "/ios/project_hd"
-        #     project_android = rootConfig + "/android/project_hd"
+        # build.gradle
+        filename = "build.gradle"
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/"+filename
+        file2 = mainResource.GetRootDirAndroidStudioGame()+"/"+filename
+        FileUtil.CopyFile(file1, file2)
 
-        # 重新加载
-        self.loadJson(isHd,True)
-        # data = self.loadJson(isHd)
-        APPVERSION_IOS =  self.GetAppVersion(Source.IOS,isHd)
+        # gradle.properties
+        filename = "gradle.properties"
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/"+filename
+        file2 = mainResource.GetRootDirAndroidStudioGame()+"/"+filename
+        FileUtil.CopyFile(file1, file2)
 
-
-
-        APP_NAME_CN_ANDROID =mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN,chanel)
-        APP_NAME_EN_ANDROID = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_EN,chanel)
-        APP_NAME_CN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_CN,chanel)
-        APP_NAME_EN_IOS = mainAppInfo.GetAppName(Source.IOS,isHd,Source.LANGUAGE_EN,chanel)  
-        PACKAGE_ANDROID = mainAppInfo.GetAppPackage(Source.ANDROID,isHd,chanel) 
-        PACKAGE_IOS = mainAppInfo.GetAppPackage(Source.IOS,isHd,chanel)  
-        self.versionCode =  self.GetAppVersionCode(Source.ANDROID,isHd,chanel)
-        # APPVERSION_IOS =  data["appversion"][Source.IOS]["value"]
+        # local.properties
+        filename = "local.properties"
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/"+filename
+        file2 = mainResource.GetRootDirAndroidStudioGame()+"/"+filename
+        FileUtil.CopyFile(file1, file2)
         
 
+        # launcher 
+        dir1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/launcher"
+        dir2 = mainResource.GetRootDirAndroidStudioLauncher()
+        flag = os.path.exists(dir2)
+        if flag:
+            shutil.rmtree(dir2)
+        shutil.copytree(dir1,dir2)
+
+        # mipmap-hdpi mipmap-mdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi 
+        listIconDir = ["mipmap-hdpi", "mipmap-mdpi","mipmap-xhdpi","mipmap-xxhdpi","mipmap-xxxhdpi"] 
+        for name in listIconDir:
+            dir1 = mainResource.GetProjectOutPutApp()+"/icon/android/"+name
+            if isHd:
+                dir1 = mainResource.GetProjectOutPutApp()+"/iconhd/android/"+name
+            dir2 = mainResource.GetRootDirAndroidStudioLauncher()+"/src/main/res/"+name
+            flag = os.path.exists(dir2)
+            if flag:
+                shutil.rmtree(dir2)
+            shutil.copytree(dir1,dir2)
+
+
+
+        # unityLibrary  build.gradle AndroidManifest.xml 
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/build.gradle"
+        file2 = mainResource.GetRootDirAndroidStudio()+"/build.gradle"
+        FileUtil.CopyFile(file1, file2)
+
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/src/main/AndroidManifest.xml"
+        file2 = mainResource.GetRootDirAndroidStudio()+"/src/main/AndroidManifest.xml"
+        FileUtil.CopyFile(file1, file2)
+
+
+        # 修改名字  name
+        strStart = "app_name\">"
+        strEnd = "<"
+        project_android = mainResource.GetRootDirAndroidStudioLauncher()+"/src/main/res"
+        APP_NAME_CN_ANDROID =self.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN,chanel)
+        APP_NAME_EN_ANDROID =self.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_EN,chanel)
+        file_name_cn_android = project_android + "/values/strings.xml"
+        file_name_en_android = project_android + "/values-en/strings.xml"
+        # cn
+        strfile = FileUtil.GetFileString(file_name_cn_android)
+        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_CN_ANDROID) 
+        self.saveString2File(strOut, file_name_cn_android)
+        # en 
+        strfile = FileUtil.GetFileString(file_name_en_android)
+        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_EN_ANDROID)
+        self.saveString2File(strOut, file_name_en_android)
+
+
+
+        PACKAGE_ANDROID = self.GetAppPackage(Source.ANDROID,isHd,chanel) 
+        self.versionCode =  self.GetAppVersionCode(Source.ANDROID,isHd,chanel)
         APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
         APPVERSION_CODE_ANDROID = self.versionCode
 
         print("android version:"+APPVERSION_ANDROID)
+
+        file_AndroidManifest_launcher = mainResource.GetRootDirAndroidStudioLauncher() + "/src/main/AndroidManifest.xml"
+        file_AndroidManifest_unityLibrary = mainResource.GetRootDirAndroidStudio() + "/src/main/AndroidManifest.xml"
+              # if chanel==Source.GP:
+        #     self.updateAndroidManifest(file_AndroidManifest_GP,file_AndroidManifest_androidstudio,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
+        # else:
+        self.updateAndroidManifest(file_AndroidManifest_launcher,file_AndroidManifest_launcher,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
+        self.updateAndroidManifest(file_AndroidManifest_unityLibrary,file_AndroidManifest_unityLibrary,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
+      
+
+        file_google_service_android = mainResource.GetProjectConfigDefault() + "/android/project/config/google-services.json"
+        file_google_service_android_androidstudio = mainResource.GetRootDirAndroidStudioLauncher()+"/src/main/google-services.json" 
+        self.replaceGoogleServiceFile(file_google_service_android,file_google_service_android_androidstudio, PACKAGE_ANDROID)
+
+
+        # xiaomi aso keyword
+        data = self.loadJson(isHd)
+        self.updateXiaoASOkeyword(data,isHd)
+
+
+    def CopyAppInfoiOS(self,isHd,chanel=""): 
+        rootConfig = mainResource.GetProjectConfigDefault()
+       
+        project_ios = rootConfig + "/ios/project" 
+ 
+        APPVERSION_IOS =  self.GetAppVersion(Source.IOS,isHd)
+
+
+ 
+        APP_NAME_CN_IOS = self.GetAppName(Source.IOS,isHd,Source.LANGUAGE_CN,chanel)
+        APP_NAME_EN_IOS = self.GetAppName(Source.IOS,isHd,Source.LANGUAGE_EN,chanel)  
+        
+        PACKAGE_IOS = self.GetAppPackage(Source.IOS,isHd,chanel)  
+
         print("ios version:"+APPVERSION_IOS)
 
-                # android
-        file_name_cn_android = project_android + "/res/values/strings.xml"
-        file_name_en_android = project_android + "/res/values-en/strings.xml"
-        file_AndroidManifest = project_android + "/xml/AndroidManifest.xml"
-        file_AndroidManifest_GP = project_android + "/xml_gp/AndroidManifest.xml"
-        file_google_service_android = project_android + "/config/google-services.json"
- 
-        file_name_cn_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/res/values/strings.xml"
-        file_name_en_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/res/values-en/strings.xml"
-        file_AndroidManifest_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/AndroidManifest.xml"
-        file_google_service_android_androidstudio = mainResource.GetRootDirAndroidStudio()+"/src/main/google-services.json"
+        # android
+
+   
 
         # ios
         file_name_cn_ios = project_ios + "/appname/zh-Hans.lproj/InfoPlist.strings"
@@ -771,40 +844,9 @@ class AppInfo():
         file_name_cn_ios_xcode = mainResource.GetRootDirXcode() + "/appname/zh-Hans.lproj/InfoPlist.strings"
         file_name_en_ios_xcode = mainResource.GetRootDirXcode() + "/appname/en.lproj/InfoPlist.strings"
         file_info_plist_ios_xcode = mainResource.GetRootDirXcode() + "/Info.plist"     
-    # android
-        # name
-        strStart = "app_name\">"
-        strEnd = "<"
+    
+    
         
-        # cn
-        strfile = FileUtil.GetFileString(file_name_cn_android)
-        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_CN_ANDROID) 
-        self.saveString2File(strOut, file_name_cn_android_androidstudio)
-        # en 
-        strfile = FileUtil.GetFileString(file_name_en_android)
-        strOut = self.replaceString(strfile, strStart, strEnd, APP_NAME_EN_ANDROID)
-        self.saveString2File(strOut, file_name_en_android_androidstudio)
-         
-        if chanel==Source.GP:
-            self.updateAndroidManifest(file_AndroidManifest_GP,file_AndroidManifest_androidstudio,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
-        else:
-            self.updateAndroidManifest(file_AndroidManifest,file_AndroidManifest_androidstudio,PACKAGE_ANDROID,APPVERSION_ANDROID,APPVERSION_CODE_ANDROID,isHd)
-        # s
-        # admob
-        self.replaceGoogleServiceFile(file_google_service_android,file_google_service_android_androidstudio, PACKAGE_ANDROID)
-
-        # mipmap-hdpi mipmap-mdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi 
-        listIconDir = ["mipmap-hdpi", "mipmap-mdpi","mipmap-xhdpi","mipmap-xxhdpi","mipmap-xxxhdpi"] 
-        for name in listIconDir:
-            dir1 = mainResource.GetProjectOutPutApp()+"/icon/android/"+name
-            if isHd:
-                dir1 = mainResource.GetProjectOutPutApp()+"/iconhd/android/"+name
-            dir2 = mainResource.GetRootDirAndroidStudio()+"/src/main/res/"+name
-            flag = os.path.exists(dir2)
-            if flag:
-                shutil.rmtree(dir2)
-            shutil.copytree(dir1,dir2)
-
     # ios
         if os.path.exists(file_info_plist_ios_xcode):
         # info
@@ -861,10 +903,14 @@ class AppInfo():
 
             
 
-        # xiaomi aso keyword
-        data = self.loadJson(isHd)
-        self.updateXiaoASOkeyword(data,isHd)
 
+
+    def CopyAppInfo(self,isHd,chanel=""):
+        # 重新加载
+        self.loadJson(isHd,True)
+
+        self.CopyAppInfoAndroid(isHd,chanel)
+        self.CopyAppInfoiOS(isHd,chanel)
  
 
     def updateName(self,isHd,isAuto,chanel=""):

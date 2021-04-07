@@ -45,7 +45,7 @@ class CopyAndroidOutputAsset():
  
     # android asset
         dir_asset = "/src/main/assets/bin"
-        dir1 = mainResource.GetRootDirAndroidOutput()+dir_asset
+        dir1 = mainResource.GetRootDirAndroidOutputunityLibrary()+dir_asset
         dir2 = rootAndroidStudio+dir_asset
         flag = os.path.exists(dir2)
         if flag:
@@ -53,7 +53,7 @@ class CopyAndroidOutputAsset():
         shutil.copytree(dir1,dir2)
     
         dir_asset = "/src/main/assets/baidu_tts_data"
-        dir1 = mainResource.GetRootDirAndroidOutput()+dir_asset
+        dir1 = mainResource.GetRootDirAndroidOutputunityLibrary()+dir_asset
         dir2 = rootAndroidStudio+dir_asset
         flag = os.path.exists(dir2)
         if flag:
@@ -63,16 +63,27 @@ class CopyAndroidOutputAsset():
 
         # android jniLibs
         dir_asset = "/src/main/jniLibs"
-        dir1 = mainResource.GetRootDirAndroidOutput()+dir_asset
+        dir1 = mainResource.GetRootDirAndroidOutputunityLibrary()+dir_asset
         dir2 = rootAndroidStudio+dir_asset
         flag = os.path.exists(dir2)
         if flag:
             shutil.rmtree(dir2)
         shutil.copytree(dir1,dir2)
 
+        
+
+
+        # # launcher 
+        # dir1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/launcher"
+        # dir2 = mainResource.GetRootDirAndroidStudioLauncher()
+        # flag = os.path.exists(dir2)
+        # if flag:
+        #     shutil.rmtree(dir2)
+        # shutil.copytree(dir1,dir2)
+
 
         filename = "/libs/unity-classes.jar"
-        shutil.copy2(mainResource.GetRootDirAndroidOutput()+filename, rootAndroidStudio+filename)
+        shutil.copy2(mainResource.GetRootDirAndroidOutputunityLibrary()+filename, rootAndroidStudio+filename)
 
         dataJson = self.LoadJsonAndroidAssetConfigCommon()
         appNameAndroidAsset = dataJson["APP_NAME_KEYWORD"]

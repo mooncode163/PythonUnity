@@ -366,16 +366,28 @@ class Resource():
         return self.GetRootDir()+"/project_win"
 
 
+    def GetRootDirAndroidStudioGame(self):
+        return self.GetDirProductCommon()+ "/project_android/game"
 
     def GetRootDirAndroidStudio(self):
-        return self.GetDirProductCommon()+ "/project_android/game"
+        return self.GetDirProductCommon()+ "/project_android/game/unityLibrary"
         # return self.GetRootDir()+ "/project_android/"+self.GetProjectName()
+
+    def GetRootDirAndroidStudioLauncher(self):
+        return self.GetDirProductCommon()+ "/project_android/game/launcher"
+
 
     def GetRootDirAndroidOutput(self):
         # GetRootProjectUnity()+"/OutPut/Android/"+GetProjectName()
         gameType = self.getGameType()
         gameName = self.getGameName() 
-        return self.GetProjectOutPut()+"/Unity"+"/"+gameType+"/"+gameName+"/Android/"+"unityLibrary"
+        return self.GetProjectOutPut()+"/Unity"+"/"+gameType+"/"+gameName+"/Android"
+
+    def GetRootDirAndroidOutputunityLibrary(self): 
+        return self.GetRootDirAndroidOutput()+"/unityLibrary"
+        
+    def GetRootDirAndroidOutputlauncher(self):
+        return self.GetRootDirAndroidOutput()+"/launcher" 
         
 
     def GetRootDirAndroidAsset(self): 
@@ -408,6 +420,10 @@ class Resource():
     def GetProjectConfigDefault(self):
         return self.GetProjectConfigCommon()+"/CmdDefault"  
 
+    def GetProjectConfigDefaultAndroidstudio(self):
+        return self.GetProjectConfigDefault()+"/android/androidstudio"  
+
+
     def GetProjectConfigApp(self):
         gameType = self.getGameType()
         gameName = self.getGameName()
@@ -421,12 +437,12 @@ class Resource():
         return self.GetProjectConfig()+"/"+gameType
 
     def getAndroidProjectGameData(self): 
-        path = self.GetDirProductCommon()+"/project_android/game"+"/src/main/assets/GameData"
+        path = self.GetRootDirAndroidStudio()+"/GameData"
         return path
 
     def getAndroidProjectApk(self): 
         # path = self.GetRootDir()+"/project_android/kidsgame/build/outputs/apk/"+"kidsgame-release.apk"
-        path = self.GetDirProductCommon()+"/project_android/game"+"/build/outputs/apk/release/game"+"-release.apk"
+        path = self.GetRootDirAndroidStudioLauncher()+"/build/outputs/apk/release/game"+"-release.apk"
         # 统一路径 windows是\
         path = os.path.normpath(path)
         return path

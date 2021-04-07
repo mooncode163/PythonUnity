@@ -37,6 +37,20 @@
         </receiver>
   
 
+        <!--imageselect-->
+        <activity
+            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.ClipImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--imageselect end-->
 
     </application>
     <uses-feature android:glEsVersion="0x00020000" />
@@ -54,5 +68,9 @@
     <!-- google play 内购 -->
     <uses-permission android:name="com.android.vending.BILLING" />
     <!-- google play内购 end -->
+
+     <!-- imageselect SDK  -->
+    <uses-permission android:name="android.permission.CAMERA" />
+     <!-- imageselect SDK end -->
 
 </manifest>

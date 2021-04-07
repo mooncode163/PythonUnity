@@ -24,7 +24,7 @@ from Config.Config import mainConfig
 
 class AppChannel(): 
     def getConfigJsonFile(self):
-        return mainResource.getAndroidProjectGameData() + "/common/channel.json"
+        return mainResource.GetRootDirAndroidAsset() + "/GameData/common/channel.json"
 
 
     def replaceString(self,strContent, strStart, strEnd, strReplace):
@@ -105,7 +105,7 @@ class AppChannel():
             
         else:
             xml = sourceDir+"/"+project_android+"/xml"
-            mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, True)
+            mainConfigSDKAndroid.SetAdSdk(Source.ADMOB, False)
             mainConfigSDKAndroid.SetAdSdk(Source.MOBVISTA, False)
             mainConfigSDKAndroid.SetAdSdk(Source.UNITY, True)
             mainConfigSDKAndroid.SetAdSdk(Source.BAIDU, True)
