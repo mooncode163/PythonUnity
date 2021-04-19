@@ -6,9 +6,23 @@ using UnityEngine.EventSystems;
 using LitJson;
 public class GameSample : UIView
 { 
+    static private GameSample _main = null;
+    public static GameSample main
+    {
+        get
+        {
+            if (_main == null)
+            {
+
+            }
+            return _main;
+        }
+
+    }
     public void Awake()
     {
         base.Awake();
+        _main = this;
         LoadPrefab(); 
     }
     // Use this for initialization

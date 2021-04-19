@@ -39,14 +39,16 @@ class CopyResource():
             shutil.rmtree(macosx_dir)
 
 
-    def ConfigiOSLib(self,source_lib):
+    def ConfigiOSLib(self,source_lib,enable = True):
         dirRoot = mainResource.GetRootUnityAssets()+"/Plugins/iOS"
         dirLib = dirRoot+"/ThirdParty"
 
         FileUtil.RemoveDir(dirLib+"/"+source_lib)
         if not self.IsNoIDFASDK():
             zipfile = dirLib+"/"+source_lib+".zip"
-            ZipUtil.un_zip(zipfile,dirLib)
+            if enable:
+                print("ConfigiOSLib zipfile=",zipfile)
+                ZipUtil.un_zip(zipfile,dirLib)
 
         self.DeleteMACOSX(dirLib)
 
@@ -72,7 +74,9 @@ class CopyResource():
 
         # tongji
         FileUtil.RemoveDir(dirCodeCommon+"/Tongji")
-        zipfile = dirCodeCommon+"/Tongji.zip" 
+
+        # Tongji.zip
+        zipfile = dirCodeCommon+"/Tongji_NoSDK.zip" 
         if self.IsNoIDFASDK(): 
             zipfile = dirCodeCommon+"/Tongji_NoSDK.zip" 
         flag = os.path.exists(zipfile)
@@ -101,17 +105,17 @@ class CopyResource():
 
 
         # adkit
-        self.ConfigiOSLib(Source.GDT)
-        self.ConfigiOSLib(Source.BAIDU)
+        # self.ConfigiOSLib(Source.GDT)
+        # self.ConfigiOSLib(Source.BAIDU)
         self.ConfigiOSLib(Source.ADMOB)
-        self.ConfigiOSLib(Source.CHSJ)
+        # self.ConfigiOSLib(Source.CHSJ)
         self.ConfigiOSLib(Source.UNITY)
-        self.ConfigiOSLib(Source.UMENG)
+        self.ConfigiOSLib(Source.UMENG,False)
 
-        self.ConfigiOSAdkitCode(Source.GDT)
-        self.ConfigiOSAdkitCode(Source.BAIDU)
+        # self.ConfigiOSAdkitCode(Source.GDT)
+        # self.ConfigiOSAdkitCode(Source.BAIDU)
         self.ConfigiOSAdkitCode(Source.ADMOB)
-        self.ConfigiOSAdkitCode(Source.CHSJ)
+        # self.ConfigiOSAdkitCode(Source.CHSJ)
         self.ConfigiOSAdkitCode(Source.UNITY) 
 
 

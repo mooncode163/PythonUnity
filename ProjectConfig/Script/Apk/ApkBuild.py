@@ -65,6 +65,20 @@ class ApkBuild():
         
 
 
+    def GetApk(self,channel,isHd):
+        gameName = mainResource.getGameName()
+        gameType = mainResource.getGameType()
+    # copy2 同时复制文件权限
+        dirapk = mainResource.GetProjectOutPutApp() + "/apk"
+        if isHd:
+            dirapk+="/heng"
+            gameName += "_hd"
+        else:
+            dirapk+="/shu"
+  
+        return dirapk + "/" +gameType + "_" + gameName + "_" + channel + ".apk"
+
+
     def CopyApk(self,channel):
         gameName = mainResource.getGameName()
         gameType = mainResource.getGameType()

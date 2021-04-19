@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using LitJson;
-using UnityEngine; 
+using UnityEngine;
 using UnityEngine.UI;
-using System.IO;  
+using System.IO;
 public class UIGameSample : UIGameBase//, IGameSampleDelegate
-{ 
-     GameSample GameSamplePrefab;
-    public GameSample GameSample; 
+{
+    GameSample gamePrefab;
+    public GameSample game;
 
     static private UIGameSample _main = null;
     public static UIGameSample main
@@ -16,7 +16,7 @@ public class UIGameSample : UIGameBase//, IGameSampleDelegate
         {
             if (_main == null)
             {
-                
+
             }
             return _main;
         }
@@ -26,7 +26,7 @@ public class UIGameSample : UIGameBase//, IGameSampleDelegate
     {
         base.Awake();
         LoadPrefab();
-        _main = this; 
+        _main = this;
     }
     // Use this for initialization
     public void Start()
@@ -39,7 +39,7 @@ public class UIGameSample : UIGameBase//, IGameSampleDelegate
 
     public void AutoReady()
     {
- 
+
     }
 
     // Update is called once per frame
@@ -58,10 +58,10 @@ public class UIGameSample : UIGameBase//, IGameSampleDelegate
 
 
         {
-            GameObject obj = PrefabCache.main.LoadByKey("GameSample"); 
+            GameObject obj = PrefabCache.main.LoadByKey("GameSample");
             if (obj != null)
             {
-                GameSamplePrefab = obj.GetComponent<GameSample>();
+                gamePrefab = obj.GetComponent<GameSample>();
             }
 
         }
@@ -83,14 +83,21 @@ public class UIGameSample : UIGameBase//, IGameSampleDelegate
     public override void UpdateGuankaLevel(int level)
     {
         base.UpdateGuankaLevel(level);
-         
+        {
+            game = (GameSample)GameObject.Instantiate(gamePrefab);
+            AppSceneBase.main.AddObjToMainWorld(game.gameObject);
+            game.transform.localPosition = new Vector3(0f, 0f, -1f);
+            UIViewController.ClonePrefabRectTransform(gamePrefab.gameObject, game.gameObject);
+        }
+
+
     }
     public override void LayOut()
     {
         base.LayOut();
 
     }
- 
+
 
 
 }

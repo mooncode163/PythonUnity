@@ -503,7 +503,16 @@ class AppStoreTaptap(AppStoreBase):
 
     def GoToAPPPage(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.TAPTAP)
-        url = "https://www.taptap.com/developer/dashboard/14628?app_id="+appid
+        # url = "https://www.taptap.com/developer/dashboard/14628?app_id="+appid
+        url = "https://developer.taptap.com/14628/app/"+appid+"/update-app?panel=basicInfo"
+        print(url)
+        self.driver.get(url)
+        time.sleep(1)
+
+    def GotoUploadPage(self, isHD):
+        appid = mainAppInfo.GetAppId(isHD, Source.TAPTAP)
+        # url = "https://www.taptap.com/developer/dashboard/14628?app_id="+appid
+        url = "https://developer.taptap.com/14628/app/"+appid+"/update-app?panel=uploadAPK"
         print(url)
         self.driver.get(url)
         time.sleep(1)
@@ -641,7 +650,7 @@ class AppStoreTaptap(AppStoreBase):
             self.SearchApp(isHD)
             time.sleep(1)
 
-        self.GoToAPPPage(isHD)
+        self.GotoUploadPage(isHD)
         # print("UpdateApp appid=",appid," isHD="+isHD)
         # https://www.taptap.com/developer/app-update/56016/14628
         time.sleep(2)
@@ -666,7 +675,10 @@ class AppStoreTaptap(AppStoreBase):
         # print("self.driver.current_url 2=", self.driver.current_url)
         webcmd = WebDriverCmd(self.driver)
  
-        key = "//span[text()='更新游戏']"
+
+        #  <div data-v-f6e15f96="" class="apk-upload-mask"></div>
+        key = "//div[@class='apk-upload-mask']"
+        
         item = webcmd.Find(key,True)
         webcmd.DoCmd(item,CmdType.CLICK)
 

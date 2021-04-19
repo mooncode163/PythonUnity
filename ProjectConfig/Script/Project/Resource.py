@@ -474,7 +474,7 @@ class Resource():
         return self.GetConfigDataDir()+"/config"
  
     def GetPackageAndroidFromXml(self):
-        fileXml = self.GetRootDirAndroidStudio()+"/src/main/AndroidManifest.xml"
+        fileXml = self.GetRootDirAndroidStudioLauncher()+"/src/main/AndroidManifest.xml"
         strFile = FileUtil.GetFileString(fileXml)
         # package="com.moonma.shapecolor.pad"
         strHead = "package=\""

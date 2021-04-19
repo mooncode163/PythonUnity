@@ -142,6 +142,17 @@ class ProjectManager():
         mainCleanScreenshot.Run()
         mainApkBuild.Run(channel, isHd)
 
+    def InstallApk(self, channel, isHd):
+        apk = mainApkBuild.GetApk(channel,isHd)
+        print("apk=",apk)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHd,channel) 
+        try: 
+            os.system("adb uninstall "+package)
+        except Exception as e:  
+            print("adb uninstall eror=",e," package =",package)
+
+        os.system("adb install "+apk)
+
     def CopyAllCmd(self):
         mainCopyAllCmd.Run()
 
@@ -226,6 +237,12 @@ if __name__ == "__main__":
 
         p.ApkBuild(arg3, False)
         p.ApkBuild(arg3, True)
+
+    if arg == "InstallApk":
+        isHd = False
+        if arg4 =="hd":
+            isHd = True
+        p.InstallApk(arg3, isHd) 
 
     if arg == "CopyAllCmd":
         p.CopyAllCmd()
