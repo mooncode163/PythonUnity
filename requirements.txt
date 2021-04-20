@@ -12,5 +12,6 @@ pyautogui
 jwt
 cryptography
 incremental
+PyUserInput
 
 #uvloop~=0.12

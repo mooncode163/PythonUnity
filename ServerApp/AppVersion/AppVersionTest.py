@@ -20,7 +20,6 @@ app = Flask(__name__)
 
 # 在Ubuntu上安装Chrome浏览器和ChromeDriver
 # https://www.cnblogs.com/z-x-y/p/9024622.html
-# google-chrome --version
 
 # http://127.0.0.1:8080/
 # http://47.242.56.146:8080/
@@ -42,10 +41,10 @@ def GetAppVersionHuawei():
     # return "2.0.0"
     return mainAppVersionParser.GetVersion(cur_version,package,appid)
 
-# http://mooncore.cn:8182/AppVersion_taptap?cur_version=1.2.0&package=com.moonma.hanziyuan&appid=46445
+# http://mooncore.cn:8183/AppVersion_taptap?cur_version=1.2.0&package=com.moonma.hanziyuan&appid=46445
 # http://0.0.0.0:8182/AppVersion_taptap?cur_version=1.2.0&package=com.moonma.hanziyuan&appid=46445
 @app.route('/AppVersion_taptap')
-def GetAppVersionTapTap():
+def GetServerAppVersionTapTap():
     print(request.url) 
     cur_version = request.args["cur_version"]
     package = request.args["package"]
@@ -65,4 +64,4 @@ def GetAppVersion():
 
 if __name__ == '__main__':
     # app.run()
-    app.run(host='0.0.0.0', port=8182)
+    app.run(host='0.0.0.0', port=8183)

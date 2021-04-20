@@ -17,16 +17,16 @@ from selenium.webdriver import ActionChains
 # pip install PyUserInput
 from pykeyboard import PyKeyboard
 
-import pyautogui 
-from pynput import mouse
-import pynput, time
+# import pyautogui 
+# from pynput import mouse
+# import pynput, time
 from Common.Platform import Platform
 
 # webdriver 下载 http://chromedriver.storage.googleapis.com/index.html
 
 # mac mini m1 arm cpu keyboard python crash bug
-if 'Darwin' not in platform.system():
-    import keyboard #Using module keyboard
+# if 'Darwin' not in platform.system():
+#     import keyboard #Using module keyboard
  
 
 class CmdType(object): 

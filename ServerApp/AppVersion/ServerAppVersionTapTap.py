@@ -19,7 +19,7 @@ from DBApp import DBApp
 from DBApp import mainDBApp
 
 
-class AppVersionTapTap():  
+class ServerAppVersionTapTap():  
     driver:None
     def GetVersion(self,html, start,min,end):
         idx = html.find(start) 
@@ -41,6 +41,11 @@ class AppVersionTapTap():
         # 创建chrome浏览器驱动，无头模式（超爽）
         chrome_options = Options()
         chrome_options.add_argument('--headless')
+
+        # linux 上chrome上需要加上下面两句 ,不然会报错
+        # 例如 unknown error: DevToolsActivePort file doesn‘t exist
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
 
         # 加载百度页面
@@ -119,8 +124,8 @@ class AppVersionTapTap():
  
 
 
-mainAppVersionTapTap = AppVersionTapTap() 
+mainServerAppVersionTapTap = ServerAppVersionTapTap() 
 # # 主函数的实现
 if __name__ == "__main__":
 
-    mainAppVersionTapTap.ParseVersion("46445")
+    mainServerAppVersionTapTap.ParseVersion("46445")
