@@ -1,0 +1,9 @@
+﻿
+Facebook:
+https://developers.facebook.com/apps
+
+weixin 小程序:
+https://mp.weixin.qq.com/
+
+字节小程序:
+https://microapp.bytedance.com/
