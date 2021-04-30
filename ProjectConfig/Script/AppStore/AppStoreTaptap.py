@@ -81,8 +81,59 @@ class AppStoreTaptap(AppStoreBase):
     def Login(self, user, password):
         self.urlold = self.driver.current_url
         print("Login urlold=", self.urlold)
-        self.LoginQQ(user, password)
-        # self.SaveCookie(self.fileCookie)
+        webcmd = WebDriverCmd(self.driver)
+
+        # <span data-v-5bf2336f="">创建游戏</span> 
+        # key = "//span[contains(text(),上传APK)]"
+        #  <input class="checkbox phone-login__check" type="checkbox" name="read" id="is-agree-login-or-register">
+        # key = "//input[@id='is-agree-login-or-register']"
+        key = "//label[@for='is-agree-login-or-register']"
+        # item = webcmd.Find(key,True)
+        # if item is not None:
+        #     print("find agree-login-or-register")
+        #     webcmd.DoCmd(item,CmdType.CLICK_SCRIPT)
+
+ 
+
+        # 等待选择qq
+        while True:
+            time.sleep(1)
+            self.urlnew = self.driver.current_url
+            print("select qq urlnew=", self.urlnew)
+            if self.urlnew != self.urlold:
+                print("select qq Finish =", self.urlnew)
+                break
+
+        # webcmd.WaitKeyBoard("q")
+
+
+        # # 选择 qq登陆
+        # key = "//a[@data-social-provider='qq']"  
+        # webcmd.AddCmd(CmdType.CLICK_SCRIPT,key)
+        # webcmd.Run(True)
+
+
+        # # global-tip-modal-1791e1fb5e2
+        # key = "//section[contains(@id,'global-tip-modal-')]"  
+        # section = webcmd.Find(key,True)
+
+        # key = ".//button[@class='btn btn-primary' and @data-default-text='确定']"
+        # item = webcmd.FindChild(section,key,False)
+        # if item is not None:
+        #     print("find button 确定")
+        #     webcmd.DoCmd(item,CmdType.CLICK)
+        # # <button class="btn btn-primary" data-default-text="确定">确定</button>
+
+        #     # 等待勾选
+        #     webcmd.WaitKeyBoard("q")
+
+        #     time.sleep(2)
+
+
+
+        
+        self.urlold = self.driver.current_url
+        self.LoginQQ(user, password) 
 
         # 等待登录成功
         while True:
@@ -352,35 +403,138 @@ class AppStoreTaptap(AppStoreBase):
             item = webcmd.FindChild(item_root,key,True)
 
     def CreateApp(self, isHD):
-        url = "https://www.taptap.com/developer/app-create/14628"
+        appid = mainAppInfo.GetAppId(isHD, Source.TAPTAP)
+        if len(appid)>1:
+            self.FillAppInfo(isHD,appid)
+            return
+
+        # url = "https://www.taptap.com/developer/app-create/14628"
+        url = "https://developer.taptap.com/14628/create-app"
         self.driver.get(url)
         time.sleep(1)
-        self.UpLoadApk(isHD)
+        webcmd = WebDriverCmd(self.driver)
+
+        # <span data-v-5bf2336f="">创建游戏</span> 
+        # key = "//span[contains(text(),上传APK)]"
+        # key = "//span[text()='创建游戏']"
+        # item = webcmd.Find(key,True)
+
+
+        # name
+        # <input data-v-194bf4a0="" type="text" maxlength="50" class="ant-input ant-input-lg">
+        name = self.GetAppName(isHD, Source.LANGUAGE_CN,Source.TAPTAP) 
+        print(name)
+
+        print("\r\n")
+        print("\r\n")
+
+
+        detail = self.GetAppDetail(isHD, Source.LANGUAGE_CN)
+        print(detail)
+
+        key = "//input[@class='ant-input ant-input-lg']"
+        # 等待网页加载完成
+        item = webcmd.Find(key,True)
+
+        webcmd.AddCmd(CmdType.INPUT,key,name)
+
+        webcmd.Run(True)
+
+
+        # 上传icon
+        key = "//div[@class='tds-upload-item__operations']"
+        webcmd.AddCmd(CmdType.CLICK,key)
+        webcmd.Run(True)
+
+        # key = "//svg[@id='iconshanchu_Delete']"
+        # # 等待
+        # item = webcmd.Find(key,True)
+        # webcmd.AddCmd(CmdType.CLICK,key)
+        # webcmd.Run(True)
+
+        # iconyanjingzhengkai_EyeOpen1
+        key = "//div[@class='tds-upload__icon']"
+        # 等待
+        item = webcmd.Find(key,True)
+        webcmd.DoCmd(item,CmdType.CLICK)
+
+        # icon end
+
+        icon = mainResource.GetOutPutIconPathWin32( mainResource.GetProjectOutPut(), Source.TAPTAP, isHD)+"\\icon_android_512.png"
+        print(icon)
+        if Platform.isMacSystem(): 
+            icon = icon.replace("\\","/")
+            icon = FileUtil.GetLastDirofDir(icon)
+            test = 0
+
+            # webcmd.Run(True)
+        self.OpenFileBrowser(icon, True)
+        time.sleep(1)
+
+        # self.UpLoadApk(isHD)
+
+        # wait save
+        self.urlold = self.driver.current_url
+        while True:
+            time.sleep(1)
+            self.urlnew = self.driver.current_url
+            print("wait save urlnew=", self.urlnew)
+            if self.urlnew != self.urlold:
+                print("wait save Finish =", self.urlnew)
+                break
+
+        # https://developer.taptap.com/14628/app/214597/submit-records?panel=update
+        url = self.driver.current_url
+ 
+        
+        strfind = "app/"
+        idx = url.find(strfind)+len(strfind)
+        appid = url[idx:]
+        strend = "/"
+        idx = appid.find(strend)
+        appid = appid[0:idx]
+        print(appid)
+        mainAppInfo.SetAppId(isHD, Source.ANDROID, Source.TAPTAP, appid)
 
         # url = "https://www.taptap.com/developer/fill-form/14628"
         # self.driver.get(url)
         # time.sleep(1)
 
-        self.FillAppInfo(isHD)
+        self.FillAppInfo(isHD,appid)
 
-    def FillAppInfo(self, isHD): 
-      
+    def FillAppInfo(self, isHD,appid): 
+        # url = "https://developer.taptap.com/14628/app/214597/update-app?panel=appInfo"
+        url = "https://developer.taptap.com/14628/app/"+str(appid)+"/update-app?panel=appInfo"
+        self.driver.get(url)
+        time.sleep(1)
+
         webcmd = WebDriverCmd(self.driver)
         
                 # 等待文件長傳結束
-        key = "//a[@title='基础信息']"
+        key = "//span[text()='游戏资料']"
         item = webcmd.Find(key,True)
         
-        # default zh_CN en_US
-        # self.lanKeys =(self.LAN_KEY_default,self.LAN_KEY_CN, self.LAN_KEY_EN)
-        # applans = (Source.LANGUAGE_CN,Source.LANGUAGE_CN, Source.LANGUAGE_EN)
-
-        # default zh_CN
-        # self.lanKeys =(self.LAN_KEY_default,self.LAN_KEY_CN)
-        # applans = (Source.LANGUAGE_EN,Source.LANGUAGE_CN)
+       
         self.lanKeys =[self.LAN_KEY_CN,self.LAN_KEY_EN]
         applans = [Source.LANGUAGE_CN,Source.LANGUAGE_EN]
 
+        detail = self.GetAppDetail(isHD, Source.LANGUAGE_CN)
+        print(detail)
+
+        # <textarea data-v-b0e9536c="" class="ant-input"></textarea>
+        key = "//textarea[@class='ant-input']"
+        webcmd.AddCmd(CmdType.INPUT,key,detail)
+
+        webcmd.Run(True)
+
+
+        # screenshot 
+        # key = "//div[@class='tds-upload__icon']"
+        # # 等待
+        # item = webcmd.Find(key,True)
+        # webcmd.DoCmd(item,CmdType.CLICK)
+
+        return
         # addlans = ("chs","en")
         # addlans = ("default","chs")
         addlans = ["chs"]
@@ -437,40 +591,7 @@ class AppStoreTaptap(AppStoreBase):
         key = "//div[@id='AnchorGameData']"
         item_div = webcmd.Find(key)
 
-        # 管理多语言
-        # key = ".//button[@class='float-r btn--edit ant-btn ant-btn-primary ant-btn-background-ghost']"
-        # subitem = webcmd.FindChild(item_div,key)
-        # webcmd.DoCmd(subitem,CmdType.CLICK)
-
-
-
-        # webcmd.AddCmd(CmdType.CLICK, "//a[@id='manage-trans-btn']", "", 1)
-        # # trans-select-chs
-        # for lan in range(0, len(addlans)):
-        #     key = "//input[@id='trans-select-"+addlans[lan]+"']"
-        #     print(key)
-        #     webcmd.AddCmd2(CmdType.CLICK, key)
-  
-        # webcmd.AddCmd(CmdType.CLICK, "//button[@id='manage-trans-submit']", "", 1)
-
-        # webcmd.Run(True)
-
-
-        # webcmd.AddCmd(  CmdType.CLICK, "//a[@aria-controls='chs']", "", 1)
-        # webcmd.Run(True)
-        # key = "//input[@type='file' and @data-target='#banner_1_android-"+"cn"+"']"
-        # key = "//input[@data-target='#banner_1_android']"
-        # key = "//input[@data-target='#icon']"
-        # key = "//input[@type='file' and @data-target='#icon']"
-        # key = "//input[@type='file' and @data-target='#icon-zh_CN']" 
-
-        # #icon
-        # # key ="//input[@id='banner_1_android-input']"
-        # # key ="//span[@class='fileinput-button fixed-size banner']"
-        
- 
-
-
+       
 
 
         for lan in range(0, len(self.lanKeys)): 
@@ -693,7 +814,7 @@ class AppStoreTaptap(AppStoreBase):
         webcmd = WebDriverCmd(self.driver)
 
         self.driver.get(
-            "https://www.taptap.com/developer/dashboard/14628/apps")
+            "https://developer.taptap.com/14628/all-app")
         time.sleep(2)
 
         key = "//input[@class='ant-select-search__field']"
@@ -730,8 +851,12 @@ class AppStoreTaptap(AppStoreBase):
     def Run(self,type, isHD):      
         self.Init()
         print("AppStoreTaptap Run isHD=",str(isHD))
+        # try: 
         self.GoHome(isHD, True)
         self.Login("651577315", "qq31415926")
+        # except Exception as e:  
+        #     print("Login eror=",e)
+
  
         if type == "createapp":
             self.CreateApp(isHD)

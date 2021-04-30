@@ -32,8 +32,9 @@ class CopyRight():
         
     # 每页不少于50行
     def MakeCodeDoc(self,isHd):
+        mainAppInfo.loadJson(isHd,True)
         title = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN)+"V1.0.0"
-        codedir = "/Users/moon/sourcecode/LearnWord"
+        # codedir = "/Users/moon/sourcecode/LearnWord"
         codedir = mainResource.GetRootUnityAssets()+"/Script/Apps/"+mainResource.getGameType()
         # codedir = mainResource.GetRootUnityAssets()+"/Script/Apps/"+mainResource.getGameType()+"/Base"
         outputdir = mainResource.GetProjectOutPutApp()
@@ -50,6 +51,7 @@ class CopyRight():
     
     # 每页不少于30行
     def MakeGuideDoc(self,isHd): 
+        mainAppInfo.loadJson(isHd,True)
         title = mainAppInfo.GetAppName(Source.ANDROID,isHd,Source.LANGUAGE_CN)+"V1.0.0"
         detail = mainAppInfo.GetAppDetail(isHd,Source.LANGUAGE_CN)
         # detail +="/n"

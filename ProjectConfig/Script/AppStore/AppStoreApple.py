@@ -448,7 +448,7 @@ class AppStoreApple(AppStoreBase):
         webcmd.Run(True)
 
 
-        key = "//option[contains(text(),'CNY 0.00')]"
+        key = "//option[contains(text(),'CNY 0.0')]"
         webcmd.AddCmdWait(CmdType.CLICK, key)
         webcmd.Run(True)
         
@@ -460,25 +460,7 @@ class AppStoreApple(AppStoreBase):
 
     def FillAppInfo(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.APPSTORE)  
-        webcmd = WebDriverCmd(self.driver) 
-
-        # App 隐私
-        try:
-            self.FillAppPrivacy(isHD)       
-        except Exception as e:  
-                        print("FillAppPrivacy eror=",e)
-
-        try:
-            self.FillAppPrice(isHD)       
-        except Exception as e:  
-                        print("FillAppPrice eror=",e)
-
-        try:
-            self.FillAppInfo2(isHD)       
-        except Exception as e:  
-                        print("FillAppInfo2 eror=",e)
-
-
+        webcmd = WebDriverCmd(self.driver)  
         # base appinfo
 
         url = "https://appstoreconnect.apple.com/apps/"+appid+"/appstore/ios/version/inflight" 
@@ -525,6 +507,24 @@ class AppStoreApple(AppStoreBase):
         webcmd.Run(True)
  
  
+
+         # App 隐私
+        try:
+            self.FillAppPrivacy(isHD)       
+        except Exception as e:  
+                        print("FillAppPrivacy eror=",e)
+
+
+        try:
+            self.FillAppInfo2(isHD)       
+        except Exception as e:  
+                        print("FillAppInfo2 eror=",e)
+                        
+        try:
+            self.FillAppPrice(isHD)       
+        except Exception as e:  
+                        print("FillAppPrice eror=",e)
+
   
         # try:
         # App 信息
