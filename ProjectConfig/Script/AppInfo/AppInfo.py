@@ -761,11 +761,21 @@ class AppInfo():
 
 
         # unityLibrary  build.gradle AndroidManifest.xml 
-        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/build.gradle"
+        
+        if chanel==Source.GP:
+            file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/build_gp.gradle"
+        else:
+            file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/build.gradle"
+
         file2 = mainResource.GetRootDirAndroidStudio()+"/build.gradle"
         FileUtil.CopyFile(file1, file2)
+        
 
-        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/src/main/AndroidManifest.xml"
+        filename = "AndroidManifest.xml"
+        if chanel==Source.GP:
+            filename = "AndroidManifest_gp.xml"
+
+        file1 = mainResource.GetProjectConfigDefaultAndroidstudio()+"/unityLibrary/src/main/"+filename
         file2 = mainResource.GetRootDirAndroidStudio()+"/src/main/AndroidManifest.xml"
         FileUtil.CopyFile(file1, file2)
 
