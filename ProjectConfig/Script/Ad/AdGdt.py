@@ -454,12 +454,12 @@ class AdGdt(AdBase):
         for tr in list:
   # 横幅
             if self.adIdBanner == "0":
-                self.adIdBanner = self.GetAdId(tr, "Banner2.0")
+                self.adIdBanner = self.GetAdId(tr, "Banner")
                 # print("Banner 0:", self.adIdBanner)
 
             # 插屏
             if self.adIdInsert  ==  "0":
-                self.adIdInsert = self.GetAdId(tr, "插屏2.0")
+                self.adIdInsert = self.GetAdId(tr, "插屏")
 
             # 激励视频
             if self.adIdVideo  ==  "0":
@@ -694,6 +694,17 @@ class AdGdt(AdBase):
         webcmd.AddCmdList(CmdType.CLICK_Action, key,2,2)
         webcmd.Run(True) 
 
+        # 广告样式
+        # <p class="title">竖屏： 9:16 / 16:9 视频</p>
+        if isHD:
+            key = "//p[@class='title' and contains(text(),'横屏')]"
+        else:
+            key = "//p[@class='title' and contains(text(),'竖屏')]"
+        item = webcmd.Find(key,False)
+        item_div = webcmd.GetParent(item)
+        webcmd.DoCmd(item_div,CmdType.CLICK)
+
+
         # item = self.driver.find_element(By.XPATH, "//input[@class='spaui-input has-normal spaui-component']")
         list = self.driver.find_elements(By.XPATH, "//input[@type='text']")
         # self.driver.execute_script("arguments[0].scrollIntoView();", item)
@@ -735,14 +746,21 @@ class AdGdt(AdBase):
                 self.CreateApp(True)
 
         if type == "createplaceid":
-            self.CreatePlaceId(False)
-            time.sleep(3)
-            self.CreatePlaceId(True)
+            if isHD:
+                self.CreatePlaceId(True)
+            else:
+                self.CreatePlaceId(False)
+                time.sleep(3)
+                self.CreatePlaceId(True)
 
         if type == "adinfo":
-            self.GetAdInfo(False)
-            time.sleep(3)
-            self.GetAdInfo(True)
+            if isHD:
+                self.GetAdInfo(True)
+            else:
+                self.GetAdInfo(False)
+                time.sleep(3)
+                self.GetAdInfo(True)
+ 
 
         print("AdGdt sucess")   
 
