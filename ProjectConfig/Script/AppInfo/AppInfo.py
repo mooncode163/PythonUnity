@@ -535,6 +535,26 @@ class AppInfo():
             name = apppackage[os][channel]
         return name 
 
+    def SetAppPackage(self,os,isHd,channel,package): 
+        # loadJson
+        data = self.loadJson(isHd)  
+        if "apppackage" in data:
+            dataApp = data["apppackage"]
+      
+        if os in dataApp:
+            dataOS = dataApp[os]
+            if channel in dataOS:
+                dataOS[channel] = package
+            else:
+                # dataOS = json.loads("{}")
+                # dataApp[os] = dataOS
+                dataOS["default"] = package
+
+        JsonUtil.SaveJson(self.GetJsonFile(isHd),data)
+
+
+        
+
     def GetAppPrivacyUrl(self,isHd): 
         # loadJson
         data = self.loadJson(isHd)  
@@ -575,7 +595,11 @@ class AppInfo():
 
         return url   
 
-                
+    def GetSellmyappUrl(self,isHd): 
+        # loadJson
+        data = self.loadJson(isHd) 
+        appid = data["sellmyapp"]["url"] 
+        return appid                
             
     def GetAppId(self,isHd,channel): 
         # loadJson

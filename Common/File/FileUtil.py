@@ -135,6 +135,15 @@ class FileUtil():
         ret = path[0:idx]
         return ret
 
+    def GetDirOfPath(path): 
+        str_split = '/'
+        if Platform.isWindowsSystem():
+            str_split = '\\'
+        idx = path.rfind(str_split)
+
+        ret = path[0:idx]
+        return ret
+
     # 不包含.
     @staticmethod 
     def GetFileExt(path):  
@@ -187,6 +196,25 @@ class FileUtil():
         if os.path.exists(dir)==False:
             os.mkdir(dir)
 
+    @staticmethod 
+    #  循环创建
+    def CreateDir2(dir): 
+        dirlast = FileUtil.GetDirOfPath(dir)
+        listdir = []
+        while(True):
+            if os.path.exists(dirlast)==False:
+                # print("dirlast=",dirlast)
+                listdir.insert(0,dirlast)
+                dirlast = FileUtil.GetDirOfPath(dirlast)
+            else:
+                break
+            
+        if os.path.isdir(dir):
+            listdir.append(dir)
+
+        for dirtmp in listdir:
+            if os.path.exists(dirtmp)==False:
+                os.mkdir(dirtmp)
 
     @staticmethod 
     def RemoveDir(dir): 

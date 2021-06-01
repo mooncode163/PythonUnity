@@ -21,4 +21,9 @@ class Common():
         elif os.path.isfile(path):
             return os.path.dirname(path) 
 
+    @staticmethod
+    def GetMidString(text,head,end): 
+        strmid = text[text.find(head)+len(head):]
+        return strmid[0:strmid.find(end)]
+
      

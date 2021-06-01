@@ -1,31 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root> 
     <cn>
-        这是一款针对儿童的有趣的涂色绘画软件.
-        从孩子的绘画兴趣启蒙作为出发点，为孩子们提供一个有趣实用的涂色绘画工具，让他们创作出属于自己的美妙绝伦的绘画作品，充分发挥孩子们的想象力和创造力，感受绘画及色彩的乐趣。
-        我们产品的特点：
-        色彩随心涂：简易操作，宝宝轻松上手。
-        任意自由画 ：在线条和色彩的世界天马行空，尽情挥洒想象力。
-        保存绘画作品：保留孩子们的创作成果。
-        丰富的线稿：100多种精美的动物图片。
-        自定义颜色：直接点选颜色或者直接输入颜色RGB,让宝宝能够选择任何颜色。
-        独特颜色吸管：直接再画作中选取想要的颜色，方便又快捷。
-        自动识别边界：让孩子们在图案上涂色不会超出界。
+        _KEY_CN_
     </cn>
 
 
-    <en>This is a children's interesting coloring software.
-        As a starting point from the child's interest in drawing enlightenment, provide an interesting and practical color painting tools for the children, let them create their own wonderful paintings, give full play to the children's imagination and creativity, and color painting feel fun.
-        
-        
-        The features of our products:
-        Color with heart smear: easy operation, baby easy to hand.
-        Free painting: in the world of lines and colors, the sky and the sky, and all the imagination.
-        Save the paintings: keep the children's creative work.
-        Rich line draft: more than 100 beautiful animal pictures.
-        Custom color: directly select the color or direct input color RGB, so that the baby can choose any color.
-        Unique color sucker: it is convenient and quick to choose the desired color in the direct painting.
-        Automatic recognition of boundaries: let the children in the pattern painted not transcendence.
+    <en> 
+        _KEY_EN_
     </en>
 
 </root>
