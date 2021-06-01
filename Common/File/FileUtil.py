@@ -208,8 +208,9 @@ class FileUtil():
                 dirlast = FileUtil.GetDirOfPath(dirlast)
             else:
                 break
-            
-        if os.path.isdir(dir):
+        
+        ext = FileUtil.GetFileExt(dir)
+        if len(ext)>0:
             listdir.append(dir)
 
         for dirtmp in listdir:

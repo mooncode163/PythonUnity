@@ -100,8 +100,8 @@ class SellMyApp():
         key = ".//img" 
         img = webcmd.FindChild(div_banner,key)
         pic =img.get_attribute('srcset')  
-        filepath = mainResource.GetOutPutScreenshot(isHD)+"/adhome.png"
-        FileUtil.CreateDir2(FileUtil.GetDirOfPath(filepath))
+        filepath = self.GetAdHomeDir(isHD)+"/adhome.png"
+        FileUtil.CreateDir2(filepath)
         mainFileDownload.Download(pic,filepath)
 
 
@@ -123,7 +123,7 @@ class SellMyApp():
                     # FileUtil.CreateDir(FileUtil.GetDirOfPath(dirapp))
                     # FileUtil.CreateDir(dirapp)
                     filepath = mainResource.GetOutPutScreenshot(isHD)+"/"+"cn"+"/"+"1080p"+"/"+str(idx)+".jpg"
-                    FileUtil.CreateDir2(FileUtil.GetDirOfPath(filepath))
+                    FileUtil.CreateDir2(filepath)
                     mainFileDownload.Download(pic,filepath)
          
 
@@ -152,23 +152,55 @@ class SellMyApp():
         strfile = strfile.replace("_KEY_CN_",description)
         FileUtil.SaveString2File(strfile,dst_xml)
 
-# apk
+
+ 
+        downloadDir = self.GetSystemDownloadDir()
+
+        self.DeleteAllDownloadFile(downloadDir,".apk")
+
+        try:  
+                  
 # <span class="store-links" style=""> <a href="https://drive.google.com/file/d/1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u/view" rel="nofollow" target="_blank" class="google-play-button"></a> </span>    #    
-        key = "//span[@class='store-links']/a"
-        a = webcmd.Find(key)
-        href =a.get_attribute('href') 
-        print(href)
-        # https://drive.google.com/file/d/1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u/view
+            key = "//span[@class='store-links']/a"
+            a = webcmd.Find(key)
+            href =a.get_attribute('href') 
+            print(href)
+            # https://drive.google.com/file/d/1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u/view
 
-        head = "file/d/"
-        end = "/view" 
-        # strid = href[href.find(head)+len(head):href.find(end)]
-        strid = Common.GetMidString(href,head,end)
-        # https://drive.google.com/u/0/uc?id=1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u&export=download
-        url = "https://drive.google.com/u/0/uc?id="+strid+"&export=download"
-        print(url)
-        self.GoApk(url,isHD)
+            head = "file/d/"
+            end = "/view" 
+            # strid = href[href.find(head)+len(head):href.find(end)]
+            strid = Common.GetMidString(href,head,end)
+            # https://drive.google.com/u/0/uc?id=1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u&export=download
+            url = "https://drive.google.com/u/0/uc?id="+strid+"&export=download"
+            print(url)
+            self.GoApk(url,isHD)
+        except Exception as e: 
+            isfilter = True
+            print("download apk eror=",e," file =")
+ 
 
+        apk_download = ""
+        # 等待apk下载完成
+        while True:
+            apk_download = self.GetDownloadFile(downloadDir,".apk")
+            time.sleep(1)
+            print ("waiting for download apk=") 
+            if len(apk_download)>1:
+                break
+        
+        self.DownloadApkFinish(isHD)
+
+# apk
+
+    def GetSystemDownloadDir(self):
+        ret = ""
+        if Platform.isWindowsSystem():
+            ret = "C:\\Users\\moon\\Downloads"
+
+        if Platform.isMacSystem():
+            ret = "/Users/moon/Downloads"
+        return ret
 
  
 # .apk
@@ -214,7 +246,7 @@ class SellMyApp():
         else:
             dirapk+="/shu"
   
-        return dirapk+"/sellmyapp_download.apk"
+        return dirapk+"/sellmyapp.apk"
 
 
     def GetDecodeApkOutputDir(self,isHD): 
@@ -226,36 +258,9 @@ class SellMyApp():
   
         return dirapk+"/ApkDecodeOutput"
 
-    def GoApk(self,url,isHD): 
-
-        self.driver.get(url)
-        time.sleep(1) 
-        webcmd = WebDriverCmd(self.driver) 
-
-
-        if Platform.isWindowsSystem():
-            downloadDir = "C:\\Users\\moon\\Downloads"
-
-        if Platform.isMacSystem():
-            downloadDir = "/Users/moon/Downloads"
-
-        self.DeleteAllDownloadFile(downloadDir,".apk")
-
-        key = "//a[@id='uc-download-link']"
-        webcmd.AddCmdWait(CmdType.CLICK, key)
-        webcmd.Run(True)
-        # time.sleep(100)
-        
-        apk_download = ""
-        # 等待apk下载完成
-        while True:
-            apk_download = self.GetDownloadFile(downloadDir,".apk")
-            time.sleep(1)
-            print ("waiting for download apk=") 
-            if len(apk_download)>1:
-                break
-        
- 
+    def DownloadApkFinish(self,url,isHD):
+        downloadDir = self.GetSystemDownloadDir()
+        apk_download = self.GetDownloadFile(downloadDir,".apk")
         # copy apk 
         apk_dst = self.GetDownloadApkPath(isHD)
         FileUtil.CreateDir2(apk_dst)
@@ -265,6 +270,19 @@ class SellMyApp():
         self.DecodeApk(isHD)
         self.RebuildApk(isHD)
 
+
+    def GoApk(self,url,isHD): 
+
+        self.driver.get(url)
+        time.sleep(1) 
+        webcmd = WebDriverCmd(self.driver) 
+  
+        key = "//a[@id='uc-download-link']"
+        webcmd.AddCmdWait(CmdType.CLICK, key)
+        webcmd.Run(True)
+        # time.sleep(100)
+        
+    
 
     def DecodeApk(self,isHD): 
         apk = self.GetDownloadApkPath(isHD)
@@ -292,9 +310,28 @@ class SellMyApp():
 
         # package
         xml = output+"/AndroidManifest.xml"
+        head = "package=\""
+        end = "\""
         # package="com.unconditionalgames.waterpuzzle"
-        package = Common.GetMidString(FileUtil.GetFileString(xml),"package=\"","\"")
-        mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
+        package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
+        # mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP) 
+        strfile = FileUtil.GetFileString(xml)
+        strfile = strfile.replace(head+package_decode+end,head+package+end)
+        FileUtil.SaveString2File(strfile,xml)
+
+
+        # BuildConfig.smali
+        # public static final APPLICATION_ID:Ljava/lang/String; = "com.moonma.ladderclimb"
+        head = "Ljava/lang/String; = \""
+        end = "\""
+        xml = output+"/smali/222BuildConfig.smali" 
+        if os.path.exists(xml):
+            # package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
+            strfile = FileUtil.GetFileString(xml)
+            strfile = strfile.replace(head+package_decode+end,head+package+end)
+            FileUtil.SaveString2File(strfile,xml)
+
 
         # name
         head = "\"app_name\">"
@@ -320,6 +357,15 @@ class SellMyApp():
 
 
         # icon
+        icon = output+"/res/mipmap-xxxhdpi/app_icon.png" 
+        dst_icon = self.GetAdHomeDir(isHD)+"/app_icon.png"
+        FileUtil.CreateDir2(dst_icon)
+        FileUtil.CopyFile(icon,dst_icon)
+
+    def GetAdHomeDir(self,isHD):
+        ret = mainResource.GetProjectOutPutApp(isHD)+"/adhome"
+        FileUtil.CreateDir2(ret)
+        return ret
 
     def RebuildApk(self,isHD):   
         apkdir = self.GetDecodeApkOutputDir(isHD) 
