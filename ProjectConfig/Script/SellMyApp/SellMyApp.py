@@ -319,7 +319,8 @@ class SellMyApp():
         # mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
         package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP) 
         strfile = FileUtil.GetFileString(xml)
-        strfile = strfile.replace(head+package_decode+end,head+package+end)
+        # strfile = strfile.replace(head+package_decode+end,head+package+end)
+        strfile = strfile.replace(package_decode,package)
         FileUtil.SaveString2File(strfile,xml)
 
 
@@ -413,7 +414,19 @@ class SellMyApp():
         signapk = mainResource.GetOutPutApkPath(Source.TAPTAP, isHD)
         mainApkTool.RebuildApK(apkdir,outputapk,signapk)
         FileUtil.RemoveFile(outputapk)
+
+        self.InstallApk(isHD)
  
+
+    def InstallApk(self,isHD):    
+        apk = mainResource.GetOutPutApkPath(Source.TAPTAP, isHD) 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)  
+        try:   
+            os.system("adb uninstall "+package)
+            os.system("adb install "+apk) 
+        except Exception as e:  
+            print("InstallApk eror=",e)
+
 # 主函数的实现
 if __name__ == "__main__": 
     # 入口参数：http://blog.csdn.net/intel80586/article/details/8545572
@@ -451,6 +464,9 @@ if __name__ == "__main__":
 
     if "decode"==arg2:
         p.DecodeApk(isHD)     
+ 
+    if "install"==arg2:
+        p.InstallApk(isHD)
  
 
     print("SellMyApp sucess arg=",arg2)
