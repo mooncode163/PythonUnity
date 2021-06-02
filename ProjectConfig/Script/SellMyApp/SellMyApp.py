@@ -53,6 +53,8 @@ from Apk.ApkTool import mainApkTool
 class SellMyApp():   
 
     driver: None 
+    filepathSmail=""
+
     #构造函数
     def __init__(self): 
         name =""
@@ -325,7 +327,9 @@ class SellMyApp():
         # public static final APPLICATION_ID:Ljava/lang/String; = "com.moonma.ladderclimb"
         head = "Ljava/lang/String; = \""
         end = "\""
-        xml = output+"/smali/222BuildConfig.smali" 
+        # xml = output+"/smali/222BuildConfig.smali" 
+        xml = self.GetBuildConfig_smali(isHD,package_decode)
+        print("xml BuildConfig.smali =",xml)
         if os.path.exists(xml):
             # package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
             strfile = FileUtil.GetFileString(xml)
@@ -362,8 +366,44 @@ class SellMyApp():
         FileUtil.CreateDir2(dst_icon)
         FileUtil.CopyFile(icon,dst_icon)
 
+    def GetBuildConfig_smali(self,isHD,package):
+        output = self.GetDecodeApkOutputDir(isHD)+"/smali"  
+        outFilepath = ""
+        self.ScansmaliFiles(output,package,outFilepath)
+        return self.filepathSmail
+
+    def ScansmaliFiles(self,sourceDir,package,outFilepath):
+        for file in os.listdir(sourceDir):
+            sourceFile = os.path.join(sourceDir,  file)
+                #cover the files
+            if os.path.isfile(sourceFile):
+                # print sourceFile
+                # 分割文件名与后缀
+                temp_list = os.path.splitext(file)
+                # name without extension
+                src_apk_name = temp_list[0]
+                # 后缀名，包含.   例如: ".apk "
+                src_apk_extension = temp_list[1] 
+                if 'BuildConfig.smali'==file:
+                    head = "Ljava/lang/String; = \""
+                    end = "\""
+            
+                    strfile = FileUtil.GetFileString(sourceFile) 
+                    key = head+package+end
+                    if strfile.find(key)>=0:
+                        print(sourceFile)
+                        outFilepath = sourceFile
+                        self.filepathSmail = sourceFile
+                        return
+                        
+
+            #目录嵌套
+            if os.path.isdir(sourceFile):
+                # print sourceFile
+                self.ScansmaliFiles(sourceFile,package,outFilepath)
+
     def GetAdHomeDir(self,isHD):
-        ret = mainResource.GetProjectOutPutApp(isHD)+"/adhome"
+        ret = mainResource.GetProjectOutPutApp()+"/adhome"
         FileUtil.CreateDir2(ret)
         return ret
 

@@ -147,9 +147,10 @@ class FileUtil():
     # 不包含.
     @staticmethod 
     def GetFileExt(path):  
-        idx = path.rfind(".")+1
-        slen=len(path)
-        size = slen-idx
+        idx = path.rfind(".")
+        if idx<0:
+            return ""
+        idx=idx+1 
         ret = path[idx:]
         # print(path="+path+" idx="+str(idx)+" ret="+ret+" slen="+str(slen)
         return ret
@@ -210,7 +211,8 @@ class FileUtil():
                 break
         
         ext = FileUtil.GetFileExt(dir)
-        if len(ext)>0:
+        print("CreateDir2 ext=",ext)
+        if len(ext)==0:
             listdir.append(dir)
 
         for dirtmp in listdir:
