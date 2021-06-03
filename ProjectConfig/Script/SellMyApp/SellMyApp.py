@@ -50,6 +50,11 @@ from Common.WebDriver.WebDriverCmd import CmdInfo
 
 from Common.File.FileDownload import mainFileDownload
 from Apk.ApkTool import mainApkTool
+
+from API.BaiduFanyi import mainBaiduFanyi
+from API.YoutubeDownload import mainYoutubeDownload
+
+
 class SellMyApp():   
 
     driver: None 
@@ -116,6 +121,7 @@ class SellMyApp():
                 pic =li.get_attribute('data-src') 
                 url = pic[2:]
                 print("video = ",url)
+                mainYoutubeDownload.Download(url)
             else:
                 pic =li.get_attribute('data-src') 
                 print(pic)
@@ -151,7 +157,9 @@ class SellMyApp():
 
         strfile = FileUtil.GetFileString(default_xml)
         strfile = strfile.replace("_KEY_EN_",description)
-        strfile = strfile.replace("_KEY_CN_",description)
+
+        description_cn = mainBaiduFanyi.RunFanyiEnToCN(description)
+        strfile = strfile.replace("_KEY_CN_",description_cn)
         FileUtil.SaveString2File(strfile,dst_xml)
 
 
@@ -260,7 +268,7 @@ class SellMyApp():
   
         return dirapk+"/ApkDecodeOutput"
 
-    def DownloadApkFinish(self,url,isHD):
+    def DownloadApkFinish(self,isHD):
         downloadDir = self.GetSystemDownloadDir()
         apk_download = self.GetDownloadFile(downloadDir,".apk")
         # copy apk 
