@@ -187,7 +187,10 @@ class Resource():
     def GetDirProductCommon(self):   
         return self.GetDirProduct()+"/Common"
 
-
+    # go语言目录
+    def GetDirGoRoot(self):   
+        return self.GetDirProductCommon()+"/GoUnity"
+ 
     def GameResApp(self):  
         dir = mainResource.GetResourceDataApp()+"/GameRes" 
         if os.path.exists(dir) ==False:

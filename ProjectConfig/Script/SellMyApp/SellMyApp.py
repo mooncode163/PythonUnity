@@ -120,8 +120,27 @@ class SellMyApp():
             if cl == "youtube-link":
                 pic =li.get_attribute('data-src') 
                 url = pic[2:]
-                print("video = ",url)
-                mainYoutubeDownload.Download(url)
+                print("video = ",url) 
+                self.DeleteAllDownloadFile(downloadDir,".mp4")
+                
+
+                video_dst = self.GetAdHomeDir(isHD)+"/video.mp4"
+                mainYoutubeDownload.Download(url,video_dst)
+
+                # video_download = ""
+                # # 等待mp4下载完成
+                # while True:
+                #     video_download = self.GetDownloadFile(downloadDir,".mp4")
+                #     time.sleep(1)
+                #     print ("waiting for download video mp4") 
+                #     if len(video_download)>1:
+                #         break
+ 
+                # # copy   
+                
+                # FileUtil.CreateDir2(video_dst)
+                # FileUtil.CopyFile(video_download,video_dst)
+
             else:
                 pic =li.get_attribute('data-src') 
                 print(pic)
@@ -268,6 +287,53 @@ class SellMyApp():
   
         return dirapk+"/ApkDecodeOutput"
 
+ 
+    def ResizeImage(self):
+        filesrc = self.GetAdHomeDir(isHD)+"/adhome.png"
+
+        w = 1920
+        h = 1080
+        filedst = self.GetAdHomeDir(isHD)+"/adhome_"+str(w)+"_"+str(h)+".png"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        w = 1024
+        h = 500
+        filedst = self.GetAdHomeDir(isHD)+"/adhome_"+str(w)+"_"+str(h)+".png"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        w = 1080
+        h = 480
+        filedst = self.GetAdHomeDir(isHD)+"/adhome_"+str(w)+"_"+str(h)+".png"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        w = 1256
+        h = 706
+        filedst = self.GetAdHomeDir(isHD)+"/video_taptap"+".png"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        # icon     
+        output = self.GetDecodeApkOutputDir(isHD)
+        filesrc = output+"/res/mipmap-xxxhdpi/app_icon.png"  
+
+        w = 512
+        h = 512 
+        filedst = self.GetAdHomeDir(isHD)+"/icon_512.png"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        w = 1024
+        h = 1024 
+        filedst = self.GetResourceDataIcon(isHD)+"/icon.jpg"
+        self.ConverImage(filesrc,filedst,w,h)
+
+        FileUtil.RemoveFile(filesrc)
+        
+
+
+
+    def ConverImage(self,filesrc,filedst,width,height):
+        filego = mainResource.GetDirGoRoot()+ "/Image/ImageConvert.go" 
+        os.system("go run "+filego+" "+filesrc+" "+filedst+" "+str(width)+" "+str(height))
+
     def DownloadApkFinish(self,isHD):
         downloadDir = self.GetSystemDownloadDir()
         apk_download = self.GetDownloadFile(downloadDir,".apk")
@@ -298,8 +364,7 @@ class SellMyApp():
         apk = self.GetDownloadApkPath(isHD)
         output = self.GetDecodeApkOutputDir(isHD)
         mainApkTool.DecodeApK(apk,output)
-
-
+         
 #   versionCode: '1'
 #   versionName: '0.1'
         apktool_yml = output+"/apktool.yml"
@@ -367,13 +432,8 @@ class SellMyApp():
             name_decode = Common.GetMidString(strfile,head,end)
             strfile = strfile.replace(head+name_decode+end,head+name+end)
             FileUtil.SaveString2File(strfile,xml)
-
-
-        # icon
-        icon = output+"/res/mipmap-xxxhdpi/app_icon.png" 
-        dst_icon = self.GetAdHomeDir(isHD)+"/app_icon.png"
-        FileUtil.CreateDir2(dst_icon)
-        FileUtil.CopyFile(icon,dst_icon)
+ 
+        self.ResizeImage()
 
     def GetBuildConfig_smali(self,isHD,package):
         output = self.GetDecodeApkOutputDir(isHD)+"/smali"  
@@ -412,7 +472,14 @@ class SellMyApp():
                 self.ScansmaliFiles(sourceFile,package,outFilepath)
 
     def GetAdHomeDir(self,isHD):
-        ret = mainResource.GetProjectOutPutApp()+"/adhome"
+        ret = mainResource.GetProjectOutPutApp()+"/adhome_sellmyapp"
+        FileUtil.CreateDir2(ret)
+        return ret
+
+    def GetResourceDataIcon(self,isHD):
+        ret = mainResource.GetResourceDataApp()+"/icon"
+        if isHD:
+           ret = mainResource.GetResourceDataApp()+"/iconhd" 
         FileUtil.CreateDir2(ret)
         return ret
 
