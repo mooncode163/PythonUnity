@@ -35,6 +35,7 @@ from Common import Source
 from Common.File.FileUtil import FileUtil    
 
 from AppInfo.AppInfo import mainAppInfo
+from Config.AdConfig import mainAdConfig  
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -121,7 +122,7 @@ class SellMyApp():
                 pic =li.get_attribute('data-src') 
                 url = pic[2:]
                 print("video = ",url) 
-                self.DeleteAllDownloadFile(downloadDir,".mp4")
+                # self.DeleteAllDownloadFile(downloadDir,".mp4")
                 
 
                 video_dst = self.GetAdHomeDir(isHD)+"/video.mp4"
@@ -314,6 +315,10 @@ class SellMyApp():
         # icon     
         output = self.GetDecodeApkOutputDir(isHD)
         filesrc = output+"/res/mipmap-xxxhdpi/app_icon.png"  
+        if not os.path.exists(filesrc):
+            filesrc = output+"/res/mipmap-xxhdpi/app_icon.png"  
+        if not os.path.exists(filesrc):
+            filesrc = output+"/res/mipmap-xhdpi/app_icon.png"  
 
         w = 512
         h = 512 
@@ -331,8 +336,12 @@ class SellMyApp():
 
 
     def ConverImage(self,filesrc,filedst,width,height):
-        filego = mainResource.GetDirGoRoot()+ "/Image/ImageConvert.go" 
-        os.system("go run "+filego+" "+filesrc+" "+filedst+" "+str(width)+" "+str(height))
+        godir = mainResource.GetDirGoRoot()+ "/Image" 
+        os.chdir(godir)
+        filego = "ImageConvert.go" 
+        cmd = "go run "+filego+" "+filesrc+" "+filedst+" "+str(width)+" "+str(height)
+        print(cmd)
+        os.system(cmd)
 
     def DownloadApkFinish(self,isHD):
         downloadDir = self.GetSystemDownloadDir()
@@ -435,6 +444,10 @@ class SellMyApp():
  
         self.ResizeImage()
 
+        self.AddCode(isHD,package_decode)
+
+
+
     def GetBuildConfig_smali(self,isHD,package):
         output = self.GetDecodeApkOutputDir(isHD)+"/smali"  
         outFilepath = ""
@@ -502,6 +515,86 @@ class SellMyApp():
         except Exception as e:  
             print("InstallApk eror=",e)
 
+    # smail 逆向添加广告和统计等代码
+    def AddCode(self,isHD,package_decode):  
+        print("AddCode package_decode=",package_decode)
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP) 
+        code = ""
+        # assets
+        src = mainResource.GetDirRootSmali()+"/assets/gdt_plugin"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/assets/gdt_plugin"
+        FileUtil.CopyDir(src,dst,True)
+        #lib
+        cpulist  = ["armeabi-v7a","arm64-v8a","armeabi","x86"]
+        for dirtmp in cpulist:
+            src = mainResource.GetDirRootSmali()+"/lib/"+dirtmp
+            dst = self.GetDecodeApkOutputDir(isHD)+"/lib/"+dirtmp
+            if os.path.exists(dst):
+                FileUtil.CoverFiles(src,dst)
+        #res
+        src = mainResource.GetDirRootSmali()+"/res/xml"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/res/xml" 
+        FileUtil.CreateDir(dst)
+        FileUtil.CoverFiles(src,dst)
+
+        #smali
+        src = mainResource.GetDirRootSmali()+"/smali/com"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/com"
+        listdir = []
+        FileUtil.GetSubDirList(src,listdir)
+        for dirtmp in listdir:  
+            FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
+ 
+        src = mainResource.GetDirRootSmali()+"/smali/gnu"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/gnu"
+        listdir = []
+        FileUtil.GetSubDirList(src,listdir)
+        for dirtmp in listdir:  
+            FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
+
+ 
+        src = mainResource.GetDirRootSmali()+"/smali/org"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/org"
+        listdir = []
+        FileUtil.GetSubDirList(src,listdir)
+        for dirtmp in listdir:  
+            FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
+
+
+
+        # AdSplashActivity.smali AdSplashActivity$1.smali UmengActivity.smali
+        liststr = package_decode.split(".")
+        idx = 0
+        strdir = ""
+        for dirtmp in liststr: 
+            strdir=strdir+dirtmp+"/"
+            idx=idx+1
+        
+        src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity.smali"
+        strfile = FileUtil.GetFileString(src) 
+        strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
+        appid = mainAdConfig.GetAppId(Source.GDT,Source.ANDROID,isHD)
+        keysplash = mainAdConfig.GetAppKeySplash(Source.GDT,Source.ANDROID,isHD)
+        strfile = strfile.replace("_GDT_APP_ID_",appid)
+        strfile = strfile.replace("_GDT_POS_ID_",keysplash)
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity.smali"
+        FileUtil.SaveString2File(strfile,dst) 
+        # _GDT_APP_ID_  _GDT_POS_ID_
+
+
+        src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity$1.smali"
+        strfile = FileUtil.GetFileString(src) 
+        strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity$1.smali"
+        FileUtil.SaveString2File(strfile,dst)  
+
+        src = mainResource.GetDirRootSmali()+"/smali/moonma/UmengActivity.smali"
+        strfile = FileUtil.GetFileString(src) 
+        strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"UmengActivity.smali"
+        FileUtil.SaveString2File(strfile,dst)   
+
+
 # 主函数的实现
 if __name__ == "__main__": 
     # 入口参数：http://blog.csdn.net/intel80586/article/details/8545572
@@ -540,8 +633,9 @@ if __name__ == "__main__":
     if "decode"==arg2:
         p.DecodeApk(isHD)     
  
-    if "install"==arg2:
-        p.InstallApk(isHD)
+    if "InstallApk"==arg2:
+        # p.InstallApk(isHD)
+        p.ResizeImage()
  
 
     print("SellMyApp sucess arg=",arg2)

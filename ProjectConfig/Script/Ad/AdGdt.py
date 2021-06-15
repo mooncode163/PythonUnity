@@ -391,9 +391,9 @@ class AdGdt(AdBase):
 
         self.SearchApp(ishd)
 
-        # 新建广告
+        # 新建广告 
         list = self.driver.find_elements(
-            By.XPATH, "//a[@class='btn btn-default btn-120']")
+            By.XPATH, "//a[text()='新建广告位']")
         a = list[1]
         url = a.get_attribute('href')
         print(url)
@@ -520,6 +520,7 @@ class AdGdt(AdBase):
 
     def CreatePlaceId(self, isHD):
         self.SearchAppAddPlace(isHD)
+        self.CreateAdSplash(isHD)
         self.CreateAdBanner(isHD)
         self.CreateAdInsert(isHD)
         self.CreateAdVideo(isHD)
@@ -530,7 +531,36 @@ class AdGdt(AdBase):
         # FileBrowser.OpenFile("F:\\sourcecode\\unity\\product\\kidsgame\\ProjectOutPut\\xiehanzi\\xiehanzi\\screenshot\\shu\\cn\\480p\\1.jpg",True)
 
         FileBrowser.OpenFile("/Users/moon/sourcecode/unity/product/kidsgame/ProjectOutPut/xiehanzi/xiehanzi/screenshot/shu/cn/480p/1.jpg",True)
+    
+    def CreateAdSplash(self, isHD):
+        self.driver.get(self.urlCreatePlaceId)
+        time.sleep(1)
+        webcmd = WebDriverCmd(self.driver)
+        time.sleep(3)    
+        key = "//div[@class='card-inner']"
+        webcmd.AddCmdList(CmdType.CLICK_Action, key,0,2)
+        webcmd.Run(True) 
  
+        key = "//ul[@class='union-card-list list-contain-4']"
+        ul = webcmd.Find(key,True) 
+
+        # bug
+        # list = ul.find_elements(By.XPATH, "//li[@class='union-card-item']")
+        # ok 查找子元素li
+        list = ul.find_elements_by_xpath('li')
+        li = list[0]
+        li.click()
+        time.sleep(1)
+
+        # item = self.driver.find_element(By.XPATH, "//input[@class='spaui-input has-normal spaui-component']")
+        list = self.driver.find_elements(By.XPATH, "//input[@type='text']")
+        # self.driver.execute_script("arguments[0].scrollIntoView();", item)
+        # self.driver.execute_script('window.scrollTo(0,1000000)')
+        time.sleep(1)
+        list[1].send_keys("s")
+
+        # finish
+        self.OnClickFinish()
 
     def CreateAdBanner(self, isHD):
         # self.driver.get("https://adnet.qq.com/placement/add")

@@ -187,6 +187,9 @@ class Resource():
     def GetDirProductCommon(self):   
         return self.GetDirProduct()+"/Common"
 
+    def GetDirRootSmali(self):   
+        return self.GetDirProductCommon()+"/Android/ApkSmali/SmaliBin"
+
     # go语言目录
     def GetDirGoRoot(self):   
         return self.GetDirProductCommon()+"/GoUnity"

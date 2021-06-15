@@ -86,6 +86,21 @@ class FileUtil():
                 FileUtil.CoverFiles(sourceFile,targetFile)
 
 
+
+# 获取子目录列表
+    @staticmethod 
+    def GetSubDirList(sourceDir,listdir):
+        for file in os.listdir(sourceDir):
+            # 过滤文件
+            if file == "Thumbs.db":
+                continue
+
+            sourceFile = os.path.join(sourceDir,  file)
+            #目录嵌套
+            if os.path.isdir(sourceFile):
+                print(sourceFile)
+                listdir.append(sourceFile)
+
     #删除一级目录下的所有文件：
     @staticmethod 
     def RemoveFileInFirstDir(targetDir):

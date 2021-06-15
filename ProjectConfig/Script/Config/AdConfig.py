@@ -69,6 +69,15 @@ class AdConfig():
                 appid = jsontmp["appid"]
         return appid
 
+
+    def GetAppKeySplash(self,src, osSrc, isHd):
+        self.LoadJson(osSrc, isHd)
+        appid = "0"
+        for jsontmp in self.jsonPlat:
+            if jsontmp["source"] == src:
+                appid = jsontmp["key_splash"]
+        return appid
+
     def GetAppKey(self,src, osSrc, isHd):
         self.LoadJson(osSrc, isHd)
         appkey = "0"
