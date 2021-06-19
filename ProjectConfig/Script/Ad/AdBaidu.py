@@ -388,14 +388,13 @@ class AdBaidu(AdBase):
         time.sleep(1)
 
         webcmd = WebDriverCmd(self.driver)
-        appChannel = Source.TAPTAP
-        appid = mainAppInfo.GetAppId(isHD, Source.TAPTAP)
-        appurl = "https://www.taptap.com/app/"+appid 
-        if appid=="0":
-            appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
-            appChannel = Source.HUAWEI
-            # appurl = mainAppVersionHuawei.GetApkUrl(mainAppInfo.GetAppId(isHD, Source.HUAWEI)) 
-            appurl = "https://appgallery1.huawei.com/#/app/C"+appid
+        appChannel = Source.HUAWEI
+        appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
+        appurl = "https://appgallery1.huawei.com/#/app/C"+appid
+        if len(appid)<3: 
+            appChannel = Source.TAPTAP
+            appid = mainAppInfo.GetAppId(isHD, Source.TAPTAP)
+            appurl = "https://www.taptap.com/app/"+appid 
 
  
         key = "//input[@type='text' and @name='name']"

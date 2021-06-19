@@ -33,6 +33,8 @@ from Project.Resource import mainResource
 from Common import Source
 # from Config import adconfig  
 from Common.File.FileUtil import FileUtil    
+from Common.File.AndroidManifest import mainAndroidManifest    
+
 
 from AppInfo.AppInfo import mainAppInfo
 from Config.AdConfig import mainAdConfig  
@@ -370,6 +372,7 @@ class SellMyApp():
     
 
     def DecodeApk(self,isHD): 
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
         apk = self.GetDownloadApkPath(isHD)
         output = self.GetDecodeApkOutputDir(isHD)
         mainApkTool.DecodeApK(apk,output)
@@ -394,16 +397,83 @@ class SellMyApp():
 
         # package
         xml = output+"/AndroidManifest.xml"
+        strfile = FileUtil.GetFileString(xml)
+        # AndroidManifest
+        mainAndroidManifest.Load(xml)
+        mainAndroidManifest.ConfigSellMyApp(package)
+        # xml = output+"/AndroidManifest2.xml"
+        mainAndroidManifest.SaveXml(xml)
+
+        # </application>
+        xmlAdGdt = mainResource.GetDirRootSmali()+"/AdGdt.xml"
+        key = "</application>"
+        # idx = strfile.find(key)
+        # strhead = strfile[0:idx]
+        # strend = strfile[idx:]
+        # strfile=strhead+FileUtil.GetFileString(xmlAdGdt)+strend
+        strfile = strfile.replace(key,FileUtil.GetFileString(xmlAdGdt))
+
+        # <application
+        key = "<application"
+        strfile = strfile.replace(key,"<application android:usesCleartextTraffic=\"true\" ")
+        
+
+        # <activity android:name=".AdSplashActivity"  android:theme="@style/UnityThemeSelector">
+        #     <intent-filter>
+        #         <action android:name="android.intent.action.MAIN"/>
+        #         <category android:name="android.intent.category.LAUNCHER"/>
+        #     </intent-filter>
+        # </activity>
+
+
+
+        # 去除原来的main activity
+            #  <intent-filter>
+            #     <action android:name="android.intent.action.MAIN"/>
+            #     <category android:name="android.intent.category.LAUNCHER"/>
+            # </intent-filter>
+
+        key = "android.intent.action.MAIN"
+        idxmid = strfile.find(key)
+        strhead = strfile[0:idxmid]
+        key = "<intent-filter>" 
+        idx = strhead.rfind(key)
+        strhead = strhead[0:idx]
+
+
+        strend = strfile[idxmid:]
+        key = "</intent-filter>" 
+        idxend = idxmid+strend.find(key)+len(key)
+        strend =  strfile[idxend:]
+
+        strfile = strhead+" "+strend
+
+
+        # 插入main activity
+        key = "<application"
+        idx = strfile.find(key)
+        strhead = strfile[idx:]
+        key = ">"
+        idx = idx+strhead.find(key)+len(key)
+        strhead = strfile[0:idx]
+        strend = strfile[idx:]
+        xmlMain = mainResource.GetDirRootSmali()+"/MainActivity.xml"
+        strfile=strhead+"\n"+FileUtil.GetFileString(xmlMain)+strend
+
+
         head = "package=\""
         end = "\""
         # package="com.unconditionalgames.waterpuzzle"
         package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
         # mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP) 
-        strfile = FileUtil.GetFileString(xml)
-        # strfile = strfile.replace(head+package_decode+end,head+package+end)
+          
         strfile = strfile.replace(package_decode,package)
+        strfile = strfile.replace("com.moonma.test",package)
+        
         FileUtil.SaveString2File(strfile,xml)
+
+
+
 
 
         # BuildConfig.smali
@@ -561,6 +631,13 @@ class SellMyApp():
             FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
 
 
+        src = mainResource.GetDirRootSmali()+"/smali/androidx"
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/androidx"
+        listdir = []
+        FileUtil.GetSubDirList(src,listdir)
+        for dirtmp in listdir:  
+            FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
+
 
         # AdSplashActivity.smali AdSplashActivity$1.smali UmengActivity.smali
         liststr = package_decode.split(".")
@@ -573,13 +650,16 @@ class SellMyApp():
         src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity.smali"
         strfile = FileUtil.GetFileString(src) 
         strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
-        appid = mainAdConfig.GetAppId(Source.GDT,Source.ANDROID,isHD)
-        keysplash = mainAdConfig.GetAppKeySplash(Source.GDT,Source.ANDROID,isHD)
-        strfile = strfile.replace("_GDT_APP_ID_",appid)
-        strfile = strfile.replace("_GDT_POS_ID_",keysplash)
-        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity.smali"
-        FileUtil.SaveString2File(strfile,dst) 
-        # _GDT_APP_ID_  _GDT_POS_ID_
+        try:  
+            appid = mainAdConfig.GetAppId(Source.GDT,Source.ANDROID,isHD)
+            keysplash = mainAdConfig.GetAppKeySplash(Source.GDT,Source.ANDROID,isHD)
+            strfile = strfile.replace("_GDT_APP_ID_",appid)
+            strfile = strfile.replace("_GDT_POS_ID_",keysplash)
+            dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity.smali"
+            FileUtil.SaveString2File(strfile,dst) 
+            # _GDT_APP_ID_  _GDT_POS_ID_
+        except Exception as e:  
+            print("mainAdConfig eror=",e," file =")
 
 
         src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity$1.smali"
