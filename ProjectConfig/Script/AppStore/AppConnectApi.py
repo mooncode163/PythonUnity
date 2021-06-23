@@ -9,8 +9,7 @@ from Common.File.FileUtil import FileUtil
 import gzip
 import requests
 import platform 
-if 'Darwin' not in platform.system():
-    import jwt
+ 
 from Project.Resource import mainResource 
 import time
 import sqlite3 
@@ -19,7 +18,7 @@ import os
 import json 
 import base64
 from AppStore.UploadAssetApple import mainUploadAssetApple 
-
+from AppStore.JwtToken import mainJwtToken
 
 o_path = os.getcwd()  # 返回当前工作目录
 sys.path.append(o_path)  # 添加自己指定的搜索路径
@@ -122,71 +121,16 @@ class AppConnectApi:
         KEY_PRIVATE = FileUtil.GetFileString(filepath)
         return KEY_PRIVATE
 
-
-
-    def GetUrl(self, url): 
-        r = requests.get(url)
-        return r.content.decode('utf-8',"ignore")
-
-    def GetTokenByWeb(self, key_id, user_id,key_private): 
-        key_private =  self.GetKEY_PRIVATE()
-        url = "http://47.242.56.146:5000/AppleJWTToken?keyid="+key_id+"&userid="+user_id+"&KEY_PRIVATE="+key_private
-        # print("url=",url)
-        result = self.GetUrl(url)
-        # print("result=",result)
-        return result
-
+ 
     def GetToken(self): 
         return self.CreateJWTToken(self.API_KEY_ID,self.API_USER_ID)
 
+
+
+
     def CreateJWTToken(self, keyid, userid):
         KEY_PRIVATE = self.GetKEY_PRIVATE()
-
-        # if len(self.KeyToken)==0:
-        self.KeyToken = self.GetTokenByWeb(keyid,userid,KEY_PRIVATE)
-        
-        return self.KeyToken
- 
-        # 构造header
-
-        # headers = {
-        # 'typ': 'jwt',
-        # 'alg': 'HS256'
-        # }
-
-        headers = {
-            "alg": "ES256",
-            # "kid": "MVG9NGFVX7",
-            "kid": keyid,
-            "typ": "JWT"
-        }
-
-        # 构造payload
-        # payload = {
-        # 'user_id': 1, # 自定义用户ID
-        # 'username': 'pig',
-        # 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=5)
-        # }
-
-        now_timestamp = int(time.time())+60*10
-        # print(str(now_timestamp))
-
-        payload = {
-            # "iss": "69a6de89-f844-47e3-e053-5b8c7c11a4d1",
-            "iss": userid,
-            # 1528408800
-
-            "exp": now_timestamp,
-            "aud": "appstoreconnect-v1"
-        }
-        # print(payload)
-        
-        # print(KEY_PRIVATE)
-        result = "result"
-        result = jwt.encode(payload=payload, key=KEY_PRIVATE,
-                            algorithm='ES256', headers=headers).decode('utf8')
-        # print("CreateJWTToken =",result)
-        return result
+        return mainJwtToken.GetToken(keyid,userid,KEY_PRIVATE) 
 
     def GetApiUrlHead(self):
         token = self.CreateJWTToken(self.API_KEY_ID, self.API_USER_ID)
@@ -839,7 +783,8 @@ class AppConnectApi:
         # package = 'Y9ZUK2WTEE.com.moonma.poem'
         # name = 'com-moonma-poem'
         params = {'data':{'attributes':{'identifier':package,'name':name,'platform':'IOS','seedId':self.teamID},'type':'bundleIds'}} 
-        
+        print("CreateBundleID params=",params)
+        print("CreateBundleID header=",header)
         mdl_rqt = requests.post(
             url, 
             headers=header,

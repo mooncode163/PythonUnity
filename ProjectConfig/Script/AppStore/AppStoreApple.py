@@ -749,6 +749,8 @@ class AppStoreApple(AppStoreBase):
         appid = mainAppInfo.GetAppId(isHD,Source.APPSTORE)
         package = mainAppInfo.GetAppPackage(Source.IOS,isHD)
         # package = "com.moonma.fillfood.pad2"
+        # package = "1"+package
+        # package = package.replace(" ","")
         
         print("CreateBundleID   package=",package," appid=",appid)
         mainAppConnectApi.CreateBundleID(package) 

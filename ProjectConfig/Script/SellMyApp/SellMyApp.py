@@ -650,16 +650,20 @@ class SellMyApp():
         src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity.smali"
         strfile = FileUtil.GetFileString(src) 
         strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
+
+        appid = "0"
+        keysplash = "0"
         try:  
             appid = mainAdConfig.GetAppId(Source.GDT,Source.ANDROID,isHD)
             keysplash = mainAdConfig.GetAppKeySplash(Source.GDT,Source.ANDROID,isHD)
-            strfile = strfile.replace("_GDT_APP_ID_",appid)
-            strfile = strfile.replace("_GDT_POS_ID_",keysplash)
-            dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity.smali"
-            FileUtil.SaveString2File(strfile,dst) 
-            # _GDT_APP_ID_  _GDT_POS_ID_
         except Exception as e:  
             print("mainAdConfig eror=",e," file =")
+
+        strfile = strfile.replace("_GDT_APP_ID_",appid)
+        strfile = strfile.replace("_GDT_POS_ID_",keysplash)
+        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"AdSplashActivity.smali"
+        FileUtil.SaveString2File(strfile,dst) 
+        # _GDT_APP_ID_  _GDT_POS_ID_
 
 
         src = mainResource.GetDirRootSmali()+"/smali/moonma/AdSplashActivity$1.smali"
@@ -714,8 +718,8 @@ if __name__ == "__main__":
         p.DecodeApk(isHD)     
  
     if "InstallApk"==arg2:
-        # p.InstallApk(isHD)
-        p.ResizeImage()
+        p.InstallApk(isHD)
+        # p.ResizeImage()
  
 
     print("SellMyApp sucess arg=",arg2)

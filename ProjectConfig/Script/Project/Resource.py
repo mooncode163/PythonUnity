@@ -223,6 +223,13 @@ class Resource():
     def GetRootUnityAssets(self): 
         return self.GetRootProjectUnity()+"/"+Source.Dir_Name_Assets
 
+    def GetRootUnityScript(self): 
+        return self.GetRootProjectUnity()+"/"+"Script"
+
+    def GetRootUnityScriptApp(self): 
+        gameType = self.getGameType()
+        return self.GetRootUnityScript()+"/Apps/"+gameType
+
     def GetProjectConfigCommon(self):
         # return self.GetDirProductCommon()+"/PythonCreator/ProjectConfig"
         return self.GetDirProductCommon()+"/Python"+Source.Dir_Name_GameEngine +"/ProjectConfig"
