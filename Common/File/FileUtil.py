@@ -101,6 +101,32 @@ class FileUtil():
                 print(sourceFile)
                 listdir.append(sourceFile)
 
+
+# 获取子目录文件列表
+    @staticmethod 
+    def GetSubFileList(sourceDir,ext,listfile):
+        for file in os.listdir(sourceDir):
+            sourceFile = os.path.join(sourceDir,  file)
+                #cover the files
+            if os.path.isfile(sourceFile):
+                # print sourceFile
+                # 分割文件名与后缀
+                temp_list = os.path.splitext(file)
+                # name without extension
+                name = temp_list[0]
+                # 后缀名，包含.   例如: ".apk "
+                ext_file = temp_list[1] 
+                ext_file = ext_file[1:]
+                if ext==ext_file:
+                    print(sourceFile)
+                    listfile.append(sourceFile)
+
+            #目录嵌套
+            if os.path.isdir(sourceFile):
+                # print sourceFile
+                FileUtil.GetSubFileList(sourceFile,ext,listfile)
+ 
+
     #删除一级目录下的所有文件：
     @staticmethod 
     def RemoveFileInFirstDir(targetDir):
@@ -212,6 +238,13 @@ class FileUtil():
         if os.path.exists(dir)==False:
             os.mkdir(dir)
 
+
+     # 复制单个文件
+    @staticmethod  
+    def CreateFile(sourceFile): 
+            open(sourceFile, "w").write("")
+            
+
     @staticmethod 
     #  循环创建
     def CreateDir2(dir): 
@@ -226,7 +259,7 @@ class FileUtil():
                 break
         
         ext = FileUtil.GetFileExt(dir)
-        print("CreateDir2 ext=",ext)
+        # print("CreateDir2 ext=",ext)
         if len(ext)==0:
             listdir.append(dir)
 

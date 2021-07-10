@@ -501,13 +501,17 @@ class AppInfo():
         return json.loads(strfile) 
 
     def GetAppStoreAcount(self,isHd,appstore): 
-        data = self.LoadJsonConfigCommon()
         key = "appstore_acount"
         name = "chyfemail163@163.com"
-        if appstore==Source.IOS:
-            name = "chyfemail163@163.com"
-        if key in data:
-            name = data[key][appstore]
+        try:
+            data = self.LoadJsonConfigCommon()
+            if appstore==Source.IOS:
+                name = "chyfemail163@163.com"
+            if key in data:
+                name = data[key][appstore]
+        except Exception as e:  
+            print("GetAppStoreAcount eror=",e)
+            
         print(" GetAppStoreAcount name=",name)
 
         return name 
@@ -600,7 +604,13 @@ class AppInfo():
         data = self.loadJson(isHd) 
         appid = data["sellmyapp"]["url"] 
         return appid                
-            
+
+    def GetGooglePlayUrl(self,isHd): 
+        # loadJson
+        data = self.loadJson(isHd) 
+        appid = data["googleplay"]["url"] 
+        return appid   
+
     def GetAppId(self,isHd,channel): 
         # loadJson
         data = self.loadJson(isHd) 
@@ -824,6 +834,7 @@ class AppInfo():
 
 
         PACKAGE_ANDROID = self.GetAppPackage(Source.ANDROID,isHd,chanel) 
+        print("PACKAGE_ANDROID="+PACKAGE_ANDROID+" channle="+chanel)
         self.versionCode =  self.GetAppVersionCode(Source.ANDROID,isHd,chanel)
         APPVERSION_ANDROID = self.versionCodeToVersion(self.versionCode)
         APPVERSION_CODE_ANDROID = self.versionCode

@@ -18,13 +18,25 @@ from AppInfo.AppInfo import mainAppInfo
     
 # unity c# 代码转成成cocos laya ts
 class CSharp2Ts:
- 
-
     def CodeCSharp2Ts(self): 
-        dirCSharp = mainResource.GetRootUnityScriptApp()
-        dirTs = mainResource.GetRootUnityScriptApp()+"_Ts"
-        FileUtil.CreateDir(dirTs)
+        self.CSharp2Ts("laya")
+        self.CSharp2Ts("cocos")
 
+    def CSharp2Ts(self,name): 
+        dirCSharp = mainResource.GetRootUnityScriptApp()
+        dirTs = mainResource.GetCodeConvert()+"_"+name
+        FileUtil.CreateDir2(dirTs)
+        listCSharp = []
+        FileUtil.GetSubFileList(dirCSharp,"cs",listCSharp)
+        for filecs in listCSharp:
+            filets = filecs.replace(dirCSharp,dirTs)
+            filets = filets.replace(".cs",".ts")
+            uiview_ts = mainResource.GetDirProductCommonTS()+"/UIView_"+name+".ts"
+            FileUtil.CreateDir2(filets)
+            # FileUtil.CreateFile(filets)
+            strfile = FileUtil.GetFileString(uiview_ts)
+            strfile = strfile.replace("UIView",FileUtil.GetPathNameWithoutExt(filets))
+            FileUtil.SaveString2File(strfile,filets)
   
 
 

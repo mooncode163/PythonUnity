@@ -344,6 +344,13 @@ class AppStoreTaptap(AppStoreBase):
 
         return div
 
+    def GetImageScreenShot(self, isHD,lan,idx):
+        pic_name = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(idx+1)
+        pic = pic_name+".webp"
+        if not os.path.exists(pic):
+            pic = pic_name+".jpg"
+        
+        return pic
 
     def UploadScreenShot(self, webcmd,isHD,lan,applan):
         # screenshot
@@ -382,7 +389,11 @@ class AppStoreTaptap(AppStoreBase):
  
             time.sleep(1)  
 
-            pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\1080p\\"+str(i+1)+".jpg"
+            # pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+applan+"\\1080p\\"+str(i+1)+".jpg"
+            pic = self.GetImageScreenShot(isHD,applan,i)
+            if not os.path.exists(pic):
+                pic =self.GetImageScreenShot(isHD,Source.LANGUAGE_CN,i)
+
             if Platform.isMacSystem():
                 # apk = FileUtil.GetLastDirofDir(apk)
                 pic = pic.replace("\\","/")

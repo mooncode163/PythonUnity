@@ -224,11 +224,19 @@ class Resource():
         return self.GetRootProjectUnity()+"/"+Source.Dir_Name_Assets
 
     def GetRootUnityScript(self): 
-        return self.GetRootProjectUnity()+"/"+"Script"
+        return self.GetRootUnityAssets()+"/"+"Script"
 
     def GetRootUnityScriptApp(self): 
         gameType = self.getGameType()
-        return self.GetRootUnityScript()+"/Apps/"+gameType
+        return self.GetRootUnityAssets()+"/Script/Apps/"+gameType
+
+    def GetCodeConvert(self): 
+        gameType = self.getGameType()
+        return self.GetDirProduct()+"/CodeConvert/Apps/"+gameType
+
+    def GetDirProductCommonTS(self):
+        # return self.GetDirProductCommon()+"/PythonCreator/ProjectConfig"
+        return self.GetDirProductCommon()+"/Python"+Source.Dir_Name_GameEngine +"/TS"
 
     def GetProjectConfigCommon(self):
         # return self.GetDirProductCommon()+"/PythonCreator/ProjectConfig"
@@ -269,6 +277,12 @@ class Resource():
         gameType = self.getGameType()
         gameName = self.getGameName()
         path = self.GetProjectOutPut()+"/"+gameType+"/"+gameName
+        return os.path.normpath(path)
+
+    def GetApkDecodeOutputApp(self):
+        gameType = self.getGameType()
+        gameName = self.getGameName()
+        path = self.GetProjectOutPut()+"/ApkDecode/"+gameType+"/"+gameName
         return os.path.normpath(path)
 
     def GetOutPutScreenshot(self,isHd): 

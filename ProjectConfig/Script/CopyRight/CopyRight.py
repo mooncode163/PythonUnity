@@ -29,7 +29,12 @@ import json
 
 class CopyRight():
     title = "" 
-        
+    
+    
+    def GetDirCopyRight(self):
+        ret = mainResource.GetResourceDataApp()+"/CopyRight"
+        return ret
+
     # 每页不少于50行
     def MakeCodeDoc(self,isHd):
         mainAppInfo.loadJson(isHd,True)
@@ -37,12 +42,12 @@ class CopyRight():
         # codedir = "/Users/moon/sourcecode/LearnWord"
         codedir = mainResource.GetRootUnityAssets()+"/Script/Apps/"+mainResource.getGameType()
         # codedir = mainResource.GetRootUnityAssets()+"/Script/Apps/"+mainResource.getGameType()+"/Base"
-        outputdir = mainResource.GetProjectOutPutApp()
-        FileUtil.CreateDir(outputdir)
+        outputdir = self.GetDirCopyRight()
+        FileUtil.CreateDir2(outputdir)
 
-        docoutput = outputdir+"/"+mainResource.getGameType() +".docx"
+        docoutput = outputdir+"/"+mainResource.getGameType() +"_code.docx"
         if isHd:
-            docoutput = outputdir+"/"+mainResource.getGameType() +"_HD.docx"
+            docoutput = outputdir+"/"+mainResource.getGameType() +"_HD_code.docx"
 
 
         os.system("pyerz -e cs -i "+codedir+" -o "+docoutput +" -t "+title)
@@ -57,8 +62,8 @@ class CopyRight():
         # detail +="/n"
         detail += mainAppInfo.GetAppDetail(isHd,Source.LANGUAGE_EN)
 
-        outputdir = mainResource.GetProjectOutPutApp()
-        FileUtil.CreateDir(outputdir)
+        outputdir = self.GetDirCopyRight()
+        FileUtil.CreateDir2(outputdir)
 
         docoutput = outputdir+"/"+mainResource.getGameType() +"_guide.docx"
         dirscreenshot = mainResource.GetProjectOutPutApp()+"/screenshot/shu/cn/1080p"
@@ -126,8 +131,8 @@ if __name__ == "__main__":
     p.MakeCodeDoc(False)
     p.MakeCodeDoc(True)
 
-    p.MakeGuideDoc(False)
-    p.MakeGuideDoc(True)
+    # p.MakeGuideDoc(False)
+    # p.MakeGuideDoc(True)
 
 
 

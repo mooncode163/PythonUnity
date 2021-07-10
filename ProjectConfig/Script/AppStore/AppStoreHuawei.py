@@ -922,6 +922,9 @@ class AppStoreHuawei(AppStoreBase):
     def UpdateApkApi(self,isHD): 
         package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.HUAWEI)
         apk = mainResource.GetOutPutApkPath(Source.HUAWEI, isHD)
+        if not os.path.exists(apk):
+            apk = mainResource.GetOutPutApkPath(Source.TAPTAP, isHD)
+
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI)
         mainHuaweiAppGalleryApi.UploadApk(appid,apk) 
 
@@ -960,6 +963,14 @@ class AppStoreHuawei(AppStoreBase):
           
             idx+=1
 
+    def GetImageScreenShot(self, isHD,lan,idx):
+        pic_name = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(idx+1)
+        pic = pic_name+".webp"
+        if not os.path.exists(pic):
+            pic = pic_name+".jpg"
+        
+        return pic
+
 
     def UploadScreenShot(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI) 
@@ -967,7 +978,8 @@ class AppStoreHuawei(AppStoreBase):
         # return
          
         pic = mainResource.GetOutPutCopyRightPathWin32(mainResource.GetProjectOutPut(), isHD)+"\\huawei.png"
-        mainHuaweiAppGalleryApi.UploadImageCopyRight(appid,pic)
+        if os.path.exists(pic):
+            mainHuaweiAppGalleryApi.UploadImageCopyRight(appid,pic)
         # return
 
         idx = 0
@@ -977,7 +989,10 @@ class AppStoreHuawei(AppStoreBase):
             mainHuaweiAppGalleryApi.UploadImageIcon(appid,icon,country)
             mainHuaweiAppGalleryApi.StartScreenShot()
             for i in range(0, 5):
-                pic = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(i+1)+".jpg"
+                pic =self.GetImageScreenShot(isHD,lan,i)
+                if not os.path.exists(pic):
+                    pic =self.GetImageScreenShot(isHD,Source.LANGUAGE_CN,i)
+
                 if Platform.isMacSystem():
                     pic = pic.replace("\\","/")
                     
@@ -1043,8 +1058,11 @@ class AppStoreHuawei(AppStoreBase):
                 # ad.UpdateApp(True)
 
         if type == "UpdateAppInfo":
-            self.UpdateAppInfo(False)
-            self.UpdateAppInfo(True)
+            if isHD:
+                self.UpdateAppInfo(True)
+            else:
+                self.UpdateAppInfo(False)
+                self.UpdateAppInfo(True)
 
         if type == "DeleteAllLanguage":
             self.DeleteAllLanguage(isHD) 

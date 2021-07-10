@@ -44,6 +44,8 @@ def GetAppVersionHuawei():
 
 # http://mooncore.cn:8182/AppVersion_taptap?cur_version=1.2.0&package=com.moonma.hanziyuan&appid=46445
 # http://0.0.0.0:8182/AppVersion_taptap?cur_version=1.2.0&package=com.moonma.hanziyuan&appid=46445
+# // http://mooncore.cn:8182/AppVersion_taptap?cur_version=1.0.5&package=com.moonma.ladderclimb&appid=216810
+# // http://127.0.0.1:8182/AppVersion_taptap?cur_version=1.0.5&package=com.moonma.ladderclimb&appid=216810
 @app.route('/AppVersion_taptap')
 def GetAppVersionTapTap():
     print(request.url) 
@@ -65,4 +67,6 @@ def GetAppVersion():
 
 if __name__ == '__main__':
     # app.run()
+
+    # 8182 8183
     app.run(host='0.0.0.0', port=8182)

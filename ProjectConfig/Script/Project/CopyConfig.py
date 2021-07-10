@@ -71,6 +71,13 @@ class CopyConfig():
         xcodeProject = rootiOSXcode+"/Unity-iPhone.xcodeproj/project.pbxproj"
         resDataName = mainResource.getGameName()#sys.argv[1]
         
+
+
+        #清除 android studio .idea 文件 解决有时候 不能调试安装apk的问题
+        dirieda =mainResource.GetRootDirAndroidStudioGame()+"/.idea"
+        if os.path.exists(dirieda):
+            FileUtil.RemoveDir(dirieda)
+
         # adDirName = sys.argv[3]
 
         project_ios = "ios/project"

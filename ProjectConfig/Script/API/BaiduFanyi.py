@@ -60,6 +60,16 @@ class BaiduFanyi():
         return r.content.decode('utf-8',"ignore")
 
     def RunFanyiEnToCN(self,text):  
+        fromLang = 'en'   #原文语种
+        toLang = 'zh'   #译文语种
+        return self.Fanyi(text,fromLang,toLang)
+
+    def RunFanyiCnToEn(self,text):  
+        fromLang = 'zh'   #原文语种
+        toLang = 'en'   #译文语种
+        return self.Fanyi(text,fromLang,toLang)
+
+    def Fanyi(self,text,fromLang,toLang):  
         # text = "apple"
         # url = "http://api.fanyi.baidu.com/api/trans/vip/translate?q="+text+"&from=en&to=zh&appid=2015063000000001&salt=1435660288&sign=f89f9594663708c1605f3d736d01d2d4"  
         # print(url)
@@ -76,8 +86,7 @@ class BaiduFanyi():
         httpClient = None
         myurl = '/api/trans/vip/translate'
 
-        fromLang = 'en'   #原文语种
-        toLang = 'zh'   #译文语种
+  
         salt = random.randint(32768, 65536)
         # q= 'apple'
         q = text

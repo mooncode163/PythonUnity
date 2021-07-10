@@ -57,8 +57,9 @@ from Apk.ApkTool import mainApkTool
 from API.BaiduFanyi import mainBaiduFanyi
 from API.YoutubeDownload import mainYoutubeDownload
 
+from Common.File.ZipUtil import ZipUtil 
 
-class SellMyApp():   
+class GooglePlay():   
 
     driver: None 
     filepathSmail=""
@@ -87,8 +88,17 @@ class SellMyApp():
         # print(driver.save_screenshot('jietu.png'))
         # driver.quit()
 
+    def GetPackageOfGooglePlayUrl(self,url):  
+        # https://play.google.com/store/apps/details?id=com.azurgames.stackball
+        head = "id="
+        idx = url.find(head)+len(head) 
+        return url[idx:]
+
+
     def GoApp(self,isHD):   
-        url = mainAppInfo.GetSellmyappUrl(isHD)
+        url = mainAppInfo.GetGooglePlayUrl(isHD)
+        package_play = self.GetPackageOfGooglePlayUrl(url)
+        print("package_play="+package_play)
         self.driver.get(url)
         time.sleep(1) 
 
@@ -98,82 +108,75 @@ class SellMyApp():
         print ("gameType="+gameType) 
 
         webcmd = WebDriverCmd(self.driver)
-        # div id screenshot-gallery
-          # div id screenshot-gallery
-        key = "//div[@id='screenshot-gallery']"
-        div_screenshot = webcmd.Find(key,True)
 
-
-        # adhome
-        key = "//div[@class='product-banner']"
-        div_banner = webcmd.Find(key)
-        key = ".//img" 
-        img = webcmd.FindChild(div_banner,key)
-        pic =img.get_attribute('srcset')  
-        filepath = self.GetAdHomeDir(isHD)+"/adhome.png"
-        FileUtil.CreateDir2(filepath)
-        mainFileDownload.Download(pic,filepath)
-
-
-        key = ".//ul/li" 
-        list = webcmd.FindListChild(div_screenshot,key)
-        idx = 0
-        for li in list:
-            cl =li.get_attribute('class') 
-            if cl == "youtube-link":
-                pic =li.get_attribute('data-src') 
-                url = pic[2:]
-                print("video = ",url) 
-                # self.DeleteAllDownloadFile(downloadDir,".mp4")
-                
-
-                video_dst = self.GetAdHomeDir(isHD)+"/video.mp4"
-                mainYoutubeDownload.Download(url,video_dst)
-
-                # video_download = ""
-                # # 等待mp4下载完成
-                # while True:
-                #     video_download = self.GetDownloadFile(downloadDir,".mp4")
-                #     time.sleep(1)
-                #     print ("waiting for download video mp4") 
-                #     if len(video_download)>1:
-                #         break
+        # <button class="Q4vdJd" aria-label="Open screenshot 0" jscontroller="DeWHJf" jsaction="click:O1htCb" jsname="WR0adb" data-screenshot-item-index="0">
  
-                # # copy   
-                
-                # FileUtil.CreateDir2(video_dst)
-                # FileUtil.CopyFile(video_download,video_dst)
+        key = "//button[@aria-label='Open screenshot 0' and @data-screenshot-item-index='0']" 
+        webcmd.AddCmdWait(CmdType.CLICK, key)
+        webcmd.Run(True)
 
-            else:
-                pic =li.get_attribute('data-src') 
-                print(pic)
-                idx =idx+1
-                if idx<=5:
-                    dirapp = mainResource.GetOutPutScreenshot(isHD)
-                    # FileUtil.CreateDir(FileUtil.GetDirOfPath(dirapp))
-                    # FileUtil.CreateDir(dirapp)
-                    filepath = mainResource.GetOutPutScreenshot(isHD)+"/"+"cn"+"/"+"1080p"+"/"+str(idx)+".jpg"
-                    FileUtil.CreateDir2(filepath)
-                    mainFileDownload.Download(pic,filepath)
-                    w = 1080
-                    h = 1920  
-                    self.ConverImage(filepath,filepath,w,h)
-                     
-                    
-                    # copy
-                    # filepath_en = mainResource.GetOutPutScreenshot(isHD)+"/"+"en"+"/"+"1080p"+"/"+str(idx)+".jpg"
-                    # FileUtil.CreateDir2(filepath_en)
-                    # FileUtil.CopyFile(filepath,filepath_en)
+
+        # <div class="OeSxze " jsname="ibnC6b" data-expanded-slideshow-item-index="0"> 
+        count = 5
+        for i in range(0,count):
+            key = "//div[@jsname='ibnC6b' and @data-expanded-slideshow-item-index='"+str(i)+"']" 
+            div = webcmd.Find(key)
+            key = ".//img[@itemprop='image']"
+            img = webcmd.FindChild(div,key) 
+            pic =img.get_attribute('src')  
+
+            idx = i+1
+            dirapp = mainResource.GetOutPutScreenshot(isHD)
+            # FileUtil.CreateDir(FileUtil.GetDirOfPath(dirapp))
+            # FileUtil.CreateDir(dirapp)
+            filepath = mainResource.GetOutPutScreenshot(isHD)+"/"+"cn"+"/"+"1080p"+"/"+str(idx)+".webp"
+            FileUtil.CreateDir2(filepath)
+            mainFileDownload.Download(pic,filepath)
+
+
+            w = 1080
+            h = 1920  
+            self.ConverImage(filepath,filepath,w,h)
+
+            # copy jpg
+            filepath_jpg = filepath.replace(".webp",".jpg")
+            FileUtil.CopyFile(filepath,filepath_jpg)
+
+            
+            # copy
+            # filepath_en = mainResource.GetOutPutScreenshot(isHD)+"/"+"en"+"/"+"1080p"+"/"+str(idx)+".jpg"
+            # FileUtil.CreateDir2(filepath_en)
+            # FileUtil.CopyFile(filepath,filepath_en)
+
+
+        # key = ".//ul/li" 
+        # list = webcmd.FindListChild(div_screenshot,key)
+        # idx = 0
+        # for li in list:
+        #     cl =li.get_attribute('class') 
+        #     if cl == "youtube-link":
+        #         pic =li.get_attribute('data-src') 
+        #         url = pic[2:]
+        #         print("video = ",url) 
+        #         # self.DeleteAllDownloadFile(downloadDir,".mp4")
+                
+
+        #         video_dst = self.GetAdHomeDir(isHD)+"/video.mp4"
+        #         mainYoutubeDownload.Download(url,video_dst)
+ 
+     
 
 
         # div user-description
+        # <div jsname="bN97Pc" class="DWPxHb" itemprop="description"
         description = ""
-        key = "//div[@class='user-description']"
-        list = webcmd.FindList(key)    
-        for div in list: 
-            description=description+div.text
+        key = "//div[@jsname='bN97Pc' and @class='DWPxHb' and @itemprop='description']"
+        div = webcmd.Find(key)     
+
+        # <div jsname="sngebd">
+        description=description+div.text
             
-        print(description) 
+        print("description=",description) 
 
 
         # 
@@ -186,10 +189,10 @@ class SellMyApp():
             dst_xml = mainResource.GetProjectConfigApp()+"/appinfo/app_description_hd.xml"
 
         strfile = FileUtil.GetFileString(default_xml)
-        strfile = strfile.replace("_KEY_EN_",description)
+        strfile = strfile.replace("_KEY_CN_",description)
 
-        description_cn = mainBaiduFanyi.RunFanyiEnToCN(description)
-        strfile = strfile.replace("_KEY_CN_",description_cn)
+        description_en = mainBaiduFanyi.RunFanyiCnToEn(description)
+        strfile = strfile.replace("_KEY_EN_",description_en)
         FileUtil.SaveString2File(strfile,dst_xml)
 
 
@@ -198,28 +201,34 @@ class SellMyApp():
 
         self.DeleteAllDownloadFile(downloadDir,".apk")
 
-        try:  
-                  
-# <span class="store-links" style=""> <a href="https://drive.google.com/file/d/1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u/view" rel="nofollow" target="_blank" class="google-play-button"></a> </span>    #    
-            key = "//span[@class='store-links']/a"
-            a = webcmd.Find(key)
-            href =a.get_attribute('href') 
-            print(href)
-            # https://drive.google.com/file/d/1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u/view
+        self.DeleteAllDownloadFile(downloadDir,".xapk")
 
-            head = "file/d/"
-            end = "/view" 
-            # strid = href[href.find(head)+len(head):href.find(end)]
-            strid = Common.GetMidString(href,head,end)
-            # https://drive.google.com/u/0/uc?id=1SW3a2vIT_WXhObGIBEvnuNJ4pEgLiZ2u&export=download
-            url = "https://drive.google.com/u/0/uc?id="+strid+"&export=download"
-            print(url)
-            self.GoApk(url,isHD)
-        except Exception as e: 
-            isfilter = True
-            print("download apk eror=",e," file =")
- 
+        # 自动下载
+        # https://apkpure.com/cn/com.azurgames.stackball/download?from=details
+        # https://apkpure.com/cn/stack-ball-android/com.azurgames.stackball/download?from=details
+        # url_apk = "https://apkpure.com/cn/"+package_play+"/download?from=details"
+        # 手动选择版本下载
+        # https://apkpure.com/cn/stack-ball-android/com.azurgames.stackball
 
+        url_apk = "https://apkpure.com/cn/"+package_play
+        self.driver.get(url_apk)
+        time.sleep(1) 
+
+
+        # apk_download = ""
+        # # 等待xapk下载完成
+        # while True:
+        #     apk_download = self.GetDownloadFile(downloadDir,".xapk")
+        #     time.sleep(1)
+        #     print ("waiting for download xapk=") 
+        #     if len(apk_download)>1:
+        #         break
+        
+        # file_zip = apk_download
+        # # file_zip = apk_download.replace(".xapk",".zip")
+        # os.rename(apk_download, file_zip) 
+        # ZipUtil.un_zip(file_zip,downloadDir)
+                
         apk_download = ""
         # 等待apk下载完成
         while True:
@@ -383,230 +392,18 @@ class SellMyApp():
         webcmd = WebDriverCmd(self.driver) 
   
         key = "//a[@id='uc-download-link']"
-        webcmd.AddCmd(CmdType.CLICK, key)
+        webcmd.AddCmdWait(CmdType.CLICK, key)
         webcmd.Run(True)
         # time.sleep(100)
-         
-
-    def DecodeApkUmeng(self,isHD):  
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
-        apk = self.GetDownloadApkPath(isHD)
-        output = self.GetDecodeApkOutputDir(isHD)
-        FileUtil.RemoveDir(output)
-        mainApkTool.DecodeApK(apk,output)
-     
-#   versionCode: '1'
-#   versionName: '0.1'
-        apktool_yml = output+"/apktool.yml"
-        strfile = FileUtil.GetFileString(apktool_yml)
-        head = "versionCode: '"
-        end = "'"
-        vesioncode_decode = Common.GetMidString(strfile,head,end)
-        vesioncode_app = mainAppInfo.GetAppVersionCode(Source.ANDROID,isHD,Source.TAPTAP)
-        strfile = strfile.replace(head+vesioncode_decode+end,head+vesioncode_app+end)
-       
-        head = "versionName: '"
-        end = "'"
-        versionName_decode = Common.GetMidString(strfile,head,end)
-        versionName_app = mainAppInfo.GetAppVersion(Source.ANDROID,isHD,Source.TAPTAP)
-        strfile = strfile.replace(head+versionName_decode+end,head+versionName_app+end)
-        FileUtil.SaveString2File(strfile,apktool_yml)
-
-
-        # return
-        # package
-        xml = output+"/AndroidManifest.xml"
-        strfile = FileUtil.GetFileString(xml)
-        # print("xml strfile=",strfile)
-        # return
-
-
-              # 去除原来的main activity
-            #  <intent-filter>
-            #     <action android:name="android.intent.action.MAIN"/>
-            #     <category android:name="android.intent.category.LAUNCHER"/>
-            # </intent-filter>
-
-        key = "android.intent.action.MAIN"
-        idxmid = strfile.find(key)
-        strhead = strfile[0:idxmid]
-        key = "<intent-filter>" 
-        idx = strhead.rfind(key)
-        strhead = strhead[0:idx]
-
-
-        strend = strfile[idxmid:]
-        key = "</intent-filter>" 
-        idxend = idxmid+strend.find(key)+len(key)
-        strend =  strfile[idxend:]
-
-        strfile = strhead+" "+strend
-
-
-        # 插入main activity
-        key = "<application"
-        idx = strfile.find(key)
-        strhead = strfile[idx:]
-        key = ">"
-        idx = idx+strhead.find(key)+len(key)
-        strhead = strfile[0:idx]
-        strend = strfile[idx:]
-        xmlMain = mainResource.GetDirRootSmali()+"/MainActivityUmeng.xml"
-        strfile=strhead+"\n"+FileUtil.GetFileString(xmlMain)+strend
-
-        # ok
-        # return
-        head = "package=\""
-        end = "\""
-        # package="com.unconditionalgames.waterpuzzle"
-        package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
-        # mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
-          
-        strfile = strfile.replace(package_decode,package)
-        strfile = strfile.replace("com.moonma.test",package)
         
-        FileUtil.SaveString2File(strfile,xml)
-
-        # return
-
-
-
-        # BuildConfig.smali
-        # public static final APPLICATION_ID:Ljava/lang/String; = "com.moonma.ladderclimb"
-        head = "Ljava/lang/String; = \""
-        end = "\""
-        # xml = output+"/smali/222BuildConfig.smali" 
-        xml = self.GetBuildConfig_smali(isHD,package_decode)
-        print("xml BuildConfig.smali =",xml)
-        if os.path.exists(xml):
-            # package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
-            strfile = FileUtil.GetFileString(xml)
-            strfile = strfile.replace(head+package_decode+end,head+package+end)
-            FileUtil.SaveString2File(strfile,xml)
-
-
-        # name
-        head = "\"app_name\">"
-        end = "</string>"
-        # cn
-        name = mainAppInfo.GetAppName(Source.ANDROID,isHD,Source.LANGUAGE_CN,Source.TAPTAP)
-        xml = output+"/res/values/strings.xml" 
-        if os.path.exists(xml): 
-            strfile = FileUtil.GetFileString(xml)
-            name_decode = Common.GetMidString(strfile,head,end)
-            print("name cn =",name," name_decode="+name_decode)
-            strfile = strfile.replace(head+name_decode+end,head+name+end)
-            # print("strfile =",strfile)
-            FileUtil.SaveString2File(strfile,xml)
-
-        name = mainAppInfo.GetAppName(Source.ANDROID,isHD,Source.LANGUAGE_EN,Source.TAPTAP)
-        xml = output+"/res/values-en/strings.xml" 
-        if os.path.exists(xml): 
-            strfile = FileUtil.GetFileString(xml)
-            name_decode = Common.GetMidString(strfile,head,end)
-            strfile = strfile.replace(head+name_decode+end,head+name+end)
-            FileUtil.SaveString2File(strfile,xml)
- 
-        self.ResizeImage()
-        self.AddCodeUmeng(isHD,package_decode)
-
-
-    def DecodeApkNoAdNoUmeng(self,isHD): 
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
-        apk = self.GetDownloadApkPath(isHD)
-        output = self.GetDecodeApkOutputDir(isHD)
-        FileUtil.RemoveDir(output)
-        mainApkTool.DecodeApK(apk,output)
-     
-#   versionCode: '1'
-#   versionName: '0.1'
-        apktool_yml = output+"/apktool.yml"
-        strfile = FileUtil.GetFileString(apktool_yml)
-        head = "versionCode: '"
-        end = "'"
-        vesioncode_decode = Common.GetMidString(strfile,head,end)
-        vesioncode_app = mainAppInfo.GetAppVersionCode(Source.ANDROID,isHD,Source.TAPTAP)
-        strfile = strfile.replace(head+vesioncode_decode+end,head+vesioncode_app+end)
-       
-        head = "versionName: '"
-        end = "'"
-        versionName_decode = Common.GetMidString(strfile,head,end)
-        versionName_app = mainAppInfo.GetAppVersion(Source.ANDROID,isHD,Source.TAPTAP)
-        strfile = strfile.replace(head+versionName_decode+end,head+versionName_app+end)
-        FileUtil.SaveString2File(strfile,apktool_yml)
-
-
-        # return
-        # package
-        xml = output+"/AndroidManifest.xml"
-        strfile = FileUtil.GetFileString(xml)
-        # print("xml strfile=",strfile)
-        # return
-
-        # ok
-        # return
-        head = "package=\""
-        end = "\""
-        # package="com.unconditionalgames.waterpuzzle"
-        package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
-        # mainAppInfo.SetAppPackage(Source.ANDROID,isHD,Source.TAPTAP,package)
-          
-        strfile = strfile.replace(package_decode,package)
-        strfile = strfile.replace("com.moonma.test",package)
-        
-        FileUtil.SaveString2File(strfile,xml)
-
-        # return
-
-
-
-        # BuildConfig.smali
-        # public static final APPLICATION_ID:Ljava/lang/String; = "com.moonma.ladderclimb"
-        head = "Ljava/lang/String; = \""
-        end = "\""
-        # xml = output+"/smali/222BuildConfig.smali" 
-        xml = self.GetBuildConfig_smali(isHD,package_decode)
-        print("xml BuildConfig.smali =",xml)
-        if os.path.exists(xml):
-            # package_decode = Common.GetMidString(FileUtil.GetFileString(xml),head,end)
-            strfile = FileUtil.GetFileString(xml)
-            strfile = strfile.replace(head+package_decode+end,head+package+end)
-            FileUtil.SaveString2File(strfile,xml)
-
-
-        # name
-        head = "\"app_name\">"
-        end = "</string>"
-        # cn
-        name = mainAppInfo.GetAppName(Source.ANDROID,isHD,Source.LANGUAGE_CN,Source.TAPTAP)
-        xml = output+"/res/values/strings.xml" 
-        if os.path.exists(xml): 
-            strfile = FileUtil.GetFileString(xml)
-            name_decode = Common.GetMidString(strfile,head,end)
-            print("name cn =",name," name_decode="+name_decode)
-            strfile = strfile.replace(head+name_decode+end,head+name+end)
-            # print("strfile =",strfile)
-            FileUtil.SaveString2File(strfile,xml)
-
-        name = mainAppInfo.GetAppName(Source.ANDROID,isHD,Source.LANGUAGE_EN,Source.TAPTAP)
-        xml = output+"/res/values-en/strings.xml" 
-        if os.path.exists(xml): 
-            strfile = FileUtil.GetFileString(xml)
-            name_decode = Common.GetMidString(strfile,head,end)
-            strfile = strfile.replace(head+name_decode+end,head+name+end)
-            FileUtil.SaveString2File(strfile,xml)
- 
-        self.ResizeImage()
-
+    
 
     def DecodeApk(self,isHD): 
         package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
         apk = self.GetDownloadApkPath(isHD)
         output = self.GetDecodeApkOutputDir(isHD)
-        FileUtil.RemoveDir(output)
         mainApkTool.DecodeApK(apk,output)
-        
-       
+         
 #   versionCode: '1'
 #   versionName: '0.1'
         apktool_yml = output+"/apktool.yml"
@@ -625,18 +422,15 @@ class SellMyApp():
         FileUtil.SaveString2File(strfile,apktool_yml)
 
 
-        # return
         # package
         xml = output+"/AndroidManifest.xml"
         strfile = FileUtil.GetFileString(xml)
         # AndroidManifest
-        # mainAndroidManifest.Load(xml)
-        # mainAndroidManifest.ConfigSellMyApp(package)
-        # # xml = output+"/AndroidManifest2.xml"
-        # mainAndroidManifest.SaveXml(xml)
+        mainAndroidManifest.Load(xml)
+        mainAndroidManifest.ConfigGooglePlay(package)
+        # xml = output+"/AndroidManifest2.xml"
+        mainAndroidManifest.SaveXml(xml)
 
-
-    
         # </application>
         xmlAdGdt = mainResource.GetDirRootSmali()+"/AdGdt.xml"
         key = "</application>"
@@ -659,8 +453,7 @@ class SellMyApp():
         # </activity>
 
 
-        # ok
-        # return
+
         # 去除原来的main activity
             #  <intent-filter>
             #     <action android:name="android.intent.action.MAIN"/>
@@ -706,7 +499,7 @@ class SellMyApp():
         
         FileUtil.SaveString2File(strfile,xml)
 
-        # return
+
 
 
 
@@ -789,7 +582,7 @@ class SellMyApp():
                 self.ScansmaliFiles(sourceFile,package,outFilepath)
 
     def GetAdHomeDir(self,isHD):
-        ret = mainResource.GetResourceDataApp()+"/adhome_sellmyapp"
+        ret = mainResource.GetResourceDataApp()+"/adhome_GooglePlay"
         FileUtil.CreateDir2(ret)
         return ret
 
@@ -912,71 +705,6 @@ class SellMyApp():
         dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"UmengActivity.smali"
         FileUtil.SaveString2File(strfile,dst)   
 
-    # smail 逆向添加统计代码
-    def AddCodeUmeng(self,isHD,package_decode):  
-        print("AddCode package_decode=",package_decode)
-        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP) 
-        code = ""
-     
-        #lib
-        cpulist  = ["armeabi-v7a","arm64-v8a","armeabi","x86"]
-        for dirtmp in cpulist:
-            src = mainResource.GetDirRootSmali()+"/lib/"+dirtmp
-            dst = self.GetDecodeApkOutputDir(isHD)+"/lib/"+dirtmp
-            if os.path.exists(dst):
-                FileUtil.CoverFiles(src,dst)
-        #res
-        # src = mainResource.GetDirRootSmali()+"/res/xml"
-        # dst = self.GetDecodeApkOutputDir(isHD)+"/res/xml" 
-        # FileUtil.CreateDir(dst)
-        # FileUtil.CoverFiles(src,dst)
-
-        #smali
-        src = mainResource.GetDirRootSmali()+"/smali/com/umeng"
-        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/com/umeng"
-        listdir = []
-        FileUtil.GetSubDirList(src,listdir)
-        for dirtmp in listdir:  
-            FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
- 
-        # src = mainResource.GetDirRootSmali()+"/smali/gnu"
-        # dst = self.GetDecodeApkOutputDir(isHD)+"/smali/gnu"
-        # listdir = []
-        # FileUtil.GetSubDirList(src,listdir)
-        # for dirtmp in listdir:  
-        #     FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
-
- 
-        # src = mainResource.GetDirRootSmali()+"/smali/org"
-        # dst = self.GetDecodeApkOutputDir(isHD)+"/smali/org"
-        # listdir = []
-        # FileUtil.GetSubDirList(src,listdir)
-        # for dirtmp in listdir:  
-        #     FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
-
-
-        # src = mainResource.GetDirRootSmali()+"/smali/androidx"
-        # dst = self.GetDecodeApkOutputDir(isHD)+"/smali/androidx"
-        # listdir = []
-        # FileUtil.GetSubDirList(src,listdir)
-        # for dirtmp in listdir:  
-        #     FileUtil.CopyDir(dirtmp,dst+"/"+dirtmp.replace(src,""),True)
-
-
-        liststr = package_decode.split(".")
-        idx = 0
-        strdir = ""
-        for dirtmp in liststr: 
-            strdir=strdir+dirtmp+"/"
-            idx=idx+1
-
-
-        # UmengActivity.smali
-        src = mainResource.GetDirRootSmali()+"/smali/moonma/UmengActivity.smali"
-        strfile = FileUtil.GetFileString(src) 
-        strfile = strfile.replace("com/moonma/ladderclimb/",package.replace(".","/")+"/")
-        dst = self.GetDecodeApkOutputDir(isHD)+"/smali/"+strdir+"UmengActivity.smali"
-        FileUtil.SaveString2File(strfile,dst) 
 
 # 主函数的实现
 if __name__ == "__main__": 
@@ -1004,33 +732,21 @@ if __name__ == "__main__":
 
     mainResource.SetCmdPath(cmdPath)
     
-    p = SellMyApp() 
-
-        
-    if "download"==arg2:    
+    p = GooglePlay() 
+    if "download"==arg2:
     # 
         p.Init()
         p.GoApp(isHD)
-        if p.driver is not None:
-            p.driver.quit()
 
     if "rebuild"==arg2:
         p.RebuildApk(isHD)
 
-    if "decode"==arg2: 
-        p.DecodeApk(isHD)    
-
-    if "decode_noad_no_umeng"==arg2:
-        p.DecodeApkNoAdNoUmeng(isHD)   
-    if "decode_umeng"==arg2:
-        p.DecodeApkUmeng(isHD)   
-           
+    if "decode"==arg2:
+        p.DecodeApk(isHD)     
  
     if "InstallApk"==arg2:
         p.InstallApk(isHD)
         # p.ResizeImage()
-
-
  
 
-    print("SellMyApp sucess arg=",arg2)
+    print("GooglePlay sucess arg=",arg2)
