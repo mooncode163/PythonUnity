@@ -346,9 +346,13 @@ class AppStoreTaptap(AppStoreBase):
 
     def GetImageScreenShot(self, isHD,lan,idx):
         pic_name = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(idx+1)
-        pic = pic_name+".webp"
-        if not os.path.exists(pic):
-            pic = pic_name+".jpg"
+        pic = pic_name+".jpg"
+
+        if Platform.isMacSystem():
+            pic = pic.replace("\\","/")
+
+        # if not os.path.exists(pic):
+        #     pic = pic_name+".jpg"
         
         return pic
 

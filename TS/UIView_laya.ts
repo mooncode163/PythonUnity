@@ -1,7 +1,7 @@
  
  
  
-export default class UIView extends Laya.Script
+export default class UIViewSampe extends UIView
 {
      
 }

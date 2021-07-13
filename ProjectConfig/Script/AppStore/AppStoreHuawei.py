@@ -966,18 +966,30 @@ class AppStoreHuawei(AppStoreBase):
     def GetImageScreenShot(self, isHD,lan,idx):
         pic_name = mainResource.GetOutPutScreenshotPathWin32(mainResource.GetProjectOutPut(), Source.TAPTAP, isHD) + "\\"+lan+"\\1080p\\"+str(idx+1)
         pic = pic_name+".webp"
+        if Platform.isMacSystem():
+            pic = pic.replace("\\","/")
+            
         if not os.path.exists(pic):
             pic = pic_name+".jpg"
         
         return pic
 
 
+    def GetCopyRight(self, isHD):
+        pic = mainResource.GetOutPutCopyRightPathWin32(mainResource.GetProjectOutPut(), isHD)+"\\huawei.png"
+        if not os.path.exists(pic):
+            pic = mainResource.GetOutPutCopyRightPathWin32(mainResource.GetProjectOutPut(), isHD)+"\\Huawei.png"
+        if Platform.isMacSystem():
+            pic = pic.replace("\\","/")
+        
+        return pic
+
     def UploadScreenShot(self, isHD):
         appid = mainAppInfo.GetAppId(isHD, Source.HUAWEI) 
         # mainHuaweiAppGalleryApi.DeleteLanuage(appid,"zh-CN")
         # return
-         
-        pic = mainResource.GetOutPutCopyRightPathWin32(mainResource.GetProjectOutPut(), isHD)+"\\huawei.png"
+
+        pic = self.GetCopyRight(isHD)
         if os.path.exists(pic):
             mainHuaweiAppGalleryApi.UploadImageCopyRight(appid,pic)
         # return

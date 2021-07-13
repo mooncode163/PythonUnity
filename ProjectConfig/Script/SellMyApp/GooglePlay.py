@@ -132,15 +132,17 @@ class GooglePlay():
             filepath = mainResource.GetOutPutScreenshot(isHD)+"/"+"cn"+"/"+"1080p"+"/"+str(idx)+".webp"
             FileUtil.CreateDir2(filepath)
             mainFileDownload.Download(pic,filepath)
-
+            filepath_jpg = filepath.replace(".webp",".jpg")
+            self.Webp2Jpg(filepath,filepath_jpg)
+            FileUtil.RemoveFile(filepath)
 
             w = 1080
             h = 1920  
-            self.ConverImage(filepath,filepath,w,h)
+            self.ConverImage(filepath_jpg,filepath_jpg,w,h)
 
             # copy jpg
-            filepath_jpg = filepath.replace(".webp",".jpg")
-            FileUtil.CopyFile(filepath,filepath_jpg)
+            
+            # FileUtil.CopyFile(filepath,filepath_jpg)
 
             
             # copy
@@ -361,8 +363,13 @@ class GooglePlay():
 
         FileUtil.RemoveFile(filesrc)
         
-
-
+# sudo port install webp
+# mac 安装 webp http://www.qings.com/memory/notes/408034/
+    def Webp2Jpg(self,filesrc,filedst): 
+        # dwebp xxx.webp -o xxx.png
+        cmd = "dwebp "+filesrc+" -o "+filedst
+        print(cmd)
+        os.system(cmd)     
 
     def ConverImage(self,filesrc,filedst,width,height):
         godir = mainResource.GetDirGoRoot()+ "/Image" 
@@ -381,8 +388,8 @@ class GooglePlay():
         FileUtil.CopyFile(apk_download,apk_dst)
 
         
-        self.DecodeApk(isHD)
-        self.RebuildApk(isHD)
+        # self.DecodeApk(isHD)
+        # self.RebuildApk(isHD)
 
 
     def GoApk(self,url,isHD): 
@@ -426,10 +433,10 @@ class GooglePlay():
         xml = output+"/AndroidManifest.xml"
         strfile = FileUtil.GetFileString(xml)
         # AndroidManifest
-        mainAndroidManifest.Load(xml)
-        mainAndroidManifest.ConfigGooglePlay(package)
-        # xml = output+"/AndroidManifest2.xml"
-        mainAndroidManifest.SaveXml(xml)
+        # mainAndroidManifest.Load(xml)
+        # mainAndroidManifest.ConfigGooglePlay(package)
+        # # xml = output+"/AndroidManifest2.xml"
+        # mainAndroidManifest.SaveXml(xml)
 
         # </application>
         xmlAdGdt = mainResource.GetDirRootSmali()+"/AdGdt.xml"

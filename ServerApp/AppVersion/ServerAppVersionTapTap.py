@@ -39,12 +39,12 @@ class ServerAppVersionTapTap():
     def GetHtml(self,appid): 
         url = "https://www.taptap.com/app/" + appid
         # 创建chrome浏览器驱动，无头模式（超爽）
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')
-
+        chrome_options = Options() 
         # linux 上chrome上需要加上下面两句 ,不然会报错
-        # 例如 unknown error: DevToolsActivePort file doesn‘t exist
-        chrome_options.add_argument("--no-sandbox")
+        # 例如 unknown error: DevToolsActivePort file doesn‘t exist 
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
 

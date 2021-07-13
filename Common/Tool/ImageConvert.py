@@ -106,6 +106,10 @@ class ImageConvert():
         self.listFile = [] 
         self.ScanFiles(self.GetCurPath()) 
         
+
+
+        
+
   
 
 # 主函数的实现

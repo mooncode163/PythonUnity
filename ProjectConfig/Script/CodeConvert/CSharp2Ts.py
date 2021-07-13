@@ -35,7 +35,7 @@ class CSharp2Ts:
             FileUtil.CreateDir2(filets)
             # FileUtil.CreateFile(filets)
             strfile = FileUtil.GetFileString(uiview_ts)
-            strfile = strfile.replace("UIView",FileUtil.GetPathNameWithoutExt(filets))
+            strfile = strfile.replace("UIViewSampe",FileUtil.GetPathNameWithoutExt(filets))
             FileUtil.SaveString2File(strfile,filets)
   
 
