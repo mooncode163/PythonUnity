@@ -39,9 +39,11 @@ class ServerAppVersionTapTap():
     def GetHtml(self,appid): 
         url = "https://www.taptap.com/app/" + appid
         # 创建chrome浏览器驱动，无头模式（超爽）
-        chrome_options = Options() 
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+
         # linux 上chrome上需要加上下面两句 ,不然会报错
-        # 例如 unknown error: DevToolsActivePort file doesn‘t exist 
+        # 例如 unknown error: DevToolsActivePort file doesn‘t exist
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
@@ -94,7 +96,7 @@ class ServerAppVersionTapTap():
  
 
 
-    def GetVersion(self,cur_version,package,appid): 
+    def GetVersion(self,cur_version,package,appid,isDebug=False): 
         # print(request.url)
         # appinfo = AppInfo()
         # appinfo.appid= "100270155"
@@ -106,7 +108,14 @@ class ServerAppVersionTapTap():
         
         version = db.GetVersionByPackage(package)
         print(" dbversion = ",version)
+        isByWeb = False
         if version<cur_version:
+            isByWeb = True
+
+        if isDebug:
+            isByWeb =True
+
+        if isByWeb:
             version = self.ParseVersionFromWeb(appid)
             appinfo = AppInfo()
             appinfo.appid= appid
