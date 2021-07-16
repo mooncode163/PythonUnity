@@ -82,7 +82,7 @@ class AppInfo():
             jsonfile = cur_path+'/appinfo_hd.json'
         return os.path.normpath(jsonfile)
 
-    def loadJson(self,isHd,isReload=False):  
+    def loadJson(self,isHd,isReload=True):  
         if self.rootJson is None or isReload is True:
             jsonfile = self.GetJsonFile(isHd) 
             strfile = FileUtil.GetFileString(jsonfile)
@@ -476,7 +476,7 @@ class AppInfo():
         
         # if channel==Source.HUAWEI:
         #     key = os
-
+        print("GetAppVersionJson key="+key)
         return appversion[key]
 
 

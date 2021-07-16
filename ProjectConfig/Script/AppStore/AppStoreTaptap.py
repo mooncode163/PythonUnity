@@ -18,10 +18,12 @@ from AppStore.AppStoreBase import AppStoreBase
 from Project.Resource import mainResource
 from Common import Source 
 from Common.File.FileUtil import FileUtil 
+from Common.File.FTPUtil import mainFTPUtil  
 from Common.File.FileBrowser import FileBrowser
 from AppInfo.AppInfo import mainAppInfo
 from Common.Platform import Platform
-
+from ServerApp.AppVersion.DBApp import DBApp
+from ServerApp.AppVersion.AppItemInfo import AppItemInfo
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -652,6 +654,60 @@ class AppStoreTaptap(AppStoreBase):
         print(url)
         self.driver.get(url)
         time.sleep(1)
+
+    def GetDbFile(self):
+        return mainResource.GetDirProductDBRoot()+"/DBAppTaptap.db"
+
+    def GetDbFileOnServer(self):
+        return "PythonUnity/ServerApp/AppVersion/DBAppTaptap.db"
+
+# 更新服务器上的版本db
+    def UpLoadVesionDB(self):
+        self.UpdateVesionDBInfo(False)
+        self.UpdateVesionDBInfo(True)
+
+        dbfile = self.GetDbFile()
+        dbfileOnServer = self.GetDbFileOnServer()
+        # FTP upload 
+        # ftp = mainFTPUtil.ftpconnect("47.242.56.146", 21,"root", "Qianlizhiwai1") 
+        # mainFTPUtil.uploadfile(ftp, dbfileOnServer, dbfile)
+        self.UploadSFTPByGo(dbfile,dbfileOnServer)
+
+
+    def UploadSFTPByGo(self,localfile,serverfile):
+        godir = mainResource.GetDirGoRoot()+ "/Ftp" 
+        os.chdir(godir)
+        filego = "Ftp.go" 
+        cmd = "go run "+filego+" "+localfile+" "+serverfile
+        print(cmd)
+        os.system(cmd)
+
+
+
+    def UpdateVesionDBInfo(self,isHD):
+        appid = mainAppInfo.GetAppId(isHD,Source.TAPTAP)
+        version = mainAppInfo.GetAppVersion(Source.ANDROID,isHD,Source.TAPTAP)
+        print("UpdateVesionDBInfo version="+version+ " isHD="+str(isHD))
+        # return
+        package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
+        db = DBApp()
+        dbfile = self.GetDbFile()
+        
+        dbfileOnServer = self.GetDbFileOnServer()
+        db.OpenDB(dbfile)  
+
+        appinfo = AppItemInfo()
+        appinfo.appid= appid
+        appinfo.package= package
+        appinfo.version= version
+
+        if db.IsItemExist(appinfo.package)==True: 
+            db.UpdateItem(appinfo)
+        else:
+            # AddItem
+            db.AddItem(appinfo) 
+
+            
 
     def UpLoadApk(self, isHD):
         webcmd = WebDriverCmd(self.driver)

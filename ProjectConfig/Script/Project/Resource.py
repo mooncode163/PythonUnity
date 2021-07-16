@@ -187,6 +187,9 @@ class Resource():
     def GetDirProductCommon(self):   
         return self.GetDirProduct()+"/Common"
 
+    def GetDirProductDBRoot(self):   
+        return self.GetDirProductCommon()+"/DB"
+
     def GetDirRootSmali(self):   
         return self.GetDirProductCommon()+"/Android/ApkSmali/SmaliBin"
 
@@ -205,6 +208,7 @@ class Resource():
 
     def GetResourceDataRoot(self): 
         return self.GetRootDir()+"/ResourceData"
+
 
     def GetResourceDataApp(self):  
         gameType = self.getGameType()

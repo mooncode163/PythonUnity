@@ -1,4 +1,4 @@
-class AppInfo():
+class AppItemInfo():
     appid =""
     package =""
     version =""

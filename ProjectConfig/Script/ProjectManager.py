@@ -10,6 +10,7 @@ from Project.CopyGamedata import mainCopyGamedata
 from Project.IPABuild import IPABuild
 from Project.IPABuild import mainIPABuild
 from AppStore.AppstoreUploadiOS import mainAppstoreUploadiOS
+from AppStore.AppStoreTaptap import mainAppStoreTaptap
 
 from Project.CopyAllCmd import mainCopyAllCmd
 from Project.UnityBuild import UnityBuild
@@ -117,6 +118,7 @@ class ProjectManager():
     def UpdateAppInfo(self,channel=""):
         mainUpdateAppstore.Run(False)
         mainAppInfo.Run(False,channel) 
+        mainAppStoreTaptap.UpLoadVesionDB()
 
     def UpdateAso(self):
         mainAppStoreApple.UpdateAso(False)
@@ -126,6 +128,8 @@ class ProjectManager():
         # mainAppInfo.Run(True)
         # mainUpdateAppstore.Run(False)
         mainAppInfo.Run(True,channel) 
+        mainAppStoreTaptap.UpLoadVesionDB()
+ 
 
     def CopyAndroidOutputAsset(self):
         mainCopyAndroidOutputAsset.Run()
