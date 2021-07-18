@@ -14,7 +14,7 @@ from WebDriver.WebDriverCmd import WebDriverCmd
 from WebDriver.WebDriverCmd import CmdInfo 
 
 
-# from AppItemInfo import AppItemInfo
+from AppItemInfo import AppItemInfo
 from DBApp import DBApp
 from DBApp import mainDBApp
 
@@ -176,7 +176,22 @@ class ServerAppVersionTapTap():
             
 
         return version
- 
+
+    def SetVersion(self,version,package,appid):  
+        db = DBApp()
+        db.OpenDB("DBAppTaptap.db") 
+        appinfo = AppItemInfo()
+        appinfo.appid= appid
+        appinfo.package= package
+        appinfo.version= version
+
+        if db.IsItemExist(appinfo.package)==True: 
+            db.UpdateItem(appinfo)
+        else:
+            # AddItem
+            db.AddItem(appinfo)
+        return "SetVersion"
+
 
 
 mainServerAppVersionTapTap = ServerAppVersionTapTap() 

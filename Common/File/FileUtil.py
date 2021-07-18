@@ -8,7 +8,7 @@ import os.path
 import time
 import datetime
 import json
-  
+import requests
 
 from xml.dom.minidom import parse
 sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  
@@ -276,5 +276,10 @@ class FileUtil():
     def RemoveFile(filePath): 
         if os.path.exists(filePath)==True:
             os.remove(filePath)
+
+    @staticmethod 
+    def GetUrl(url): 
+    r = requests.get(url)
+    return r.content.decode('utf-8',"ignore")
 
   

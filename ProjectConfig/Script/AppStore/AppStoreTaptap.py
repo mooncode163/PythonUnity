@@ -671,7 +671,7 @@ class AppStoreTaptap(AppStoreBase):
         # FTP upload 
         # ftp = mainFTPUtil.ftpconnect("47.242.56.146", 21,"root", "Qianlizhiwai1") 
         # mainFTPUtil.uploadfile(ftp, dbfileOnServer, dbfile)
-        self.UploadSFTPByGo(dbfile,dbfileOnServer)
+        # self.UploadSFTPByGo(dbfile,dbfileOnServer)
 
 
     def UploadSFTPByGo(self,localfile,serverfile):
@@ -690,24 +690,33 @@ class AppStoreTaptap(AppStoreBase):
         print("UpdateVesionDBInfo version="+version+ " isHD="+str(isHD))
         # return
         package = mainAppInfo.GetAppPackage(Source.ANDROID,isHD,Source.TAPTAP)
-        db = DBApp()
-        dbfile = self.GetDbFile()
+
+
+        # 本地保存
+        # db = DBApp()
+        # dbfile = self.GetDbFile()
         
-        dbfileOnServer = self.GetDbFileOnServer()
-        db.OpenDB(dbfile)  
+        # dbfileOnServer = self.GetDbFileOnServer()
+        # db.OpenDB(dbfile)  
 
-        appinfo = AppItemInfo()
-        appinfo.appid= appid
-        appinfo.package= package
-        appinfo.version= version
+        # appinfo = AppItemInfo()
+        # appinfo.appid= appid
+        # appinfo.package= package
+        # appinfo.version= version
 
-        if db.IsItemExist(appinfo.package)==True: 
-            db.UpdateItem(appinfo)
-        else:
-            # AddItem
-            db.AddItem(appinfo) 
+        # if db.IsItemExist(appinfo.package)==True: 
+        #     db.UpdateItem(appinfo)
+        # else:
+        #     # AddItem
+        #     db.AddItem(appinfo) 
 
-            
+        # 网络更新
+        url = "http://mooncore.cn:8182/SetAppVersion_taptap?version="+version+"&package="+package+"&appid="+appid
+        print("UpdateVesionDBInfo url="+url)
+        FileUtil.GetUrl(url) 
+
+
+ 
 
     def UpLoadApk(self, isHD):
         webcmd = WebDriverCmd(self.driver)

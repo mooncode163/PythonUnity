@@ -56,6 +56,18 @@ def GetAppVersionTapTap():
     # return "2.0.0"
     return mainServerAppVersionTapTap.GetVersion(cur_version,package,appid)
 
+# http://127.0.0.1:8182/SetAppVersion_taptap?version=1.2.0&package=com.moonma.ladderclimb&appid=216810
+# http://mooncore.cn:8182/SetAppVersion_taptap?version=1.2.0&package=com.moonma.ladderclimb&appid=216810
+@app.route('/SetAppVersion_taptap')
+def SetAppVersionTapTap():
+    print(request.url)  
+    package = request.args["package"]
+    appid = request.args["appid"] 
+    version = request.args["version"]  
+    return mainServerAppVersionTapTap.SetVersion(version,package,appid)
+
+
+
 # http://mooncore.cn:8080/AppVersion?package=com.moonma.caicaile
 @app.route('/AppVersion')
 def GetAppVersion():
